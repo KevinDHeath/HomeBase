@@ -1,36 +1,53 @@
-# This is a basic workflow to help you get started with Actions
+name: Environment
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  #push:
-  #  branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      run-name:
+        description: A name for the run
+        type: string
+        required: true
+      runs-on:
+        description: The runner type to use
+        type: choice
+        options: 
+        - ubuntu-latest
+        - windows-latest
+        default: ubuntu-latest
+      project-folder:
+        description: Folder containing the solution
+        type: string
+        default: .
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+run-name: ${{ inputs.run-name }}
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  variables:
+    name: Variables
+    runs-on: ${{ inputs.runs-on }}
+
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v7
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Linux
+        if: runner.os != 'Windows'
+        env:
+          GITHUB_ACTIONS: ${{ toJson(github) }}
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "Branch name is ${{ steps.branch-name.outputs.current_branch }}"
+          echo "Running on ${{ inputs.runs-on }}"
+          echo "Workspace is ${{ github.workspace }}"
+          echo "Project folder is ${{ inputs.project-folder }}"
+          echo "GITHUB_ACTIONS is $GITHUB_ACTIONS"
+
+      - name: Windows
+        if: runner.os == 'Windows'
+        run: |
+          echo "Branch name is ${{ steps.branch-name.outputs.current_branch }}"
+          echo "Running on ${{ inputs.runs-on }}"
+          echo "Workspace is ${{ github.workspace }}"
+          echo "Project folder is ${{ inputs.project-folder }}"
+          echo "GITHUB_ACTIONS is $env:GITHUB_ACTIONS"
