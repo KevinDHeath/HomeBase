@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="bbf2d4d7-1112-4358-b44e-b10cab2727d9" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>The topics in this section describe the various changes made to the Common Projects
+      over the life of the project.</para>
+    </introduction>
+
+    <section>
+      <title>Releases</title>
+      <content>
+        <list class="bullet">
+          <listItem><para><link xlink:href="c92a45dc-3885-4135-a88d-d1faec78d8cf" /></para></listItem>
+          <listItem><para><link xlink:href="21aa80b9-2e5c-4290-838f-060f84e36838" /></para></listItem>
+          <listItem><para><link xlink:href="9a716813-2ab5-40e5-b7b8-8695494a411e" /></para></listItem>
+          <listItem><para><link xlink:href="bdb3d2b8-111f-4a0e-9d4b-8ae205d842af" /></para></listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="9488fab8-02de-4046-a582-c44f4c2a945f" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

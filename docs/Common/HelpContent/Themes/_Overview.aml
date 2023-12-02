@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="e6e60a0c-f708-479e-bc65-bcdc99253c7b" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>Contains Windows Desktop resources which can be includes in WPF .NET projects.</para>
+      <para>Windows Presentation Foundation (WPF) is a free and open-source graphical subsystem originally
+      developed by Microsoft for rendering user interfaces in Windows-based applications.
+      WPF, previously known as "Avalon", was initially released as part of .NET Framework 3.0 in 2006.</para>
+    </introduction>
+
+    <section>
+      <title>Getting Started</title>
+      <content>
+        <para>To include the resources in a WPF project:</para>
+        <list class="bullet">
+          <listItem>
+            <para>Add a reference to the <legacyBold><quoteInline>Common.Wpf.Resources</quoteInline></legacyBold>
+            assembly or package.</para>
+          </listItem>
+          <listItem>
+            <para>Include the required resource dictionaries in the
+            <legacyBold><quoteInline>App.xaml</quoteInline></legacyBold> file.</para>
+          </listItem>
+        </list>
+        <para>The base theme resources are contained in a <legacyBold><quoteInline>Common.xaml</quoteInline></legacyBold>
+        dictionary.<lineBreak/>
+        <ui>Default font details:</ui> Common.FontFamily, Common.FontSize<lineBreak/>
+        <ui>Border color brushes:</ui>  Focus.Border, MouseOver.Border, and Validation.HasError<lineBreak/>
+        <ui>Styles and templates:</ui> commonEditBorderStyle, commonSmallTextBlockStyle, commonErrorItemTemplate, commonErrorItemsStyle,
+        commonErrorTextBlockStyle</para>
+        <para>If you need to access any of these directly, and you don’t have the TextBox dictionary included,
+        you will need to specify the following:</para>
+        <code language="xaml">
+          <![CDATA[
+<ResourceDictionary>
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Resources;component/Themes/Common.xaml"/>
+  </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
+]]>
+      </code>
+      </content>
+    </section>
+
+    <section>
+      <title>How To</title>
+      <content>
+        <para>To override any of the default settings for a resource, you can create a custom style and base it
+        on a Common style.<lineBreak/>
+        For example, to use 'adornment style' error messages for a Text Box:</para>
+        <code language="xaml">
+          <![CDATA[
+<Style x:Key="errorTextBox1" TargetType="{x:Type TextBox}" BasedOn="{StaticResource commonTextBoxStyle}">
+  <Setter Property="Validation.ErrorTemplate" Value="{StaticResource commonErrorItemTemplate}"/>
+</Style>
+]]>
+        </code>
+      </content>
+    </section>
+
+    <section>
+      <title>Notes</title>
+      <content>
+        <table>
+          <title>Resource Dictionary Dependencies:</title>
+          <tableHeader>
+            <row>
+              <entry><para>Resource Dictionary</para></entry>
+              <entry><para>Relies on</para></entry>
+            </row>
+          </tableHeader>
+          <row>
+            <entry><para><phrase>[Common.Wpf.<ui>Resources</ui>]</phrase></para></entry>
+            <entry><para></para></entry>
+          </row>
+           <row>
+            <entry><para>Themes/Button.xaml</para></entry>
+            <entry><para></para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/CheckBox.xaml</para></entry>
+            <entry><para></para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/Common.xaml</para></entry>
+            <entry><para></para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/ListView.xaml</para></entry>
+            <entry><para></para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/TabControl.xaml</para></entry>
+            <entry><para>Themes/Button.xaml</para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/TextBox.xaml</para></entry>
+            <entry><para>Themes/Common.xaml</para></entry>
+          </row>
+          <row>
+            <entry><para><phrase>[Common.Wpf.<ui>Controls</ui>]</phrase></para></entry>
+            <entry><para></para></entry>
+          </row>
+         <row>
+            <entry><para>Themes/ComboBox.xaml</para></entry>
+            <entry><para><phrase>[Resources]/</phrase>Themes/Common.xaml</para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/DatePicker.xaml</para></entry>
+            <entry><para><phrase>[Resources]/</phrase>Themes/Common.xaml</para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/FilePathTextBox.xaml</para></entry>
+            <entry><para><phrase>[Resources]/</phrase>Themes/Common.xaml<lineBreak/>
+              Themes/Toolbar.xaml</para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/ModalDialog.xaml</para></entry>
+            <entry><para></para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/NumericSpinner.xaml</para></entry>
+            <entry><para><phrase>[Resources]/</phrase>Themes/Common.xaml<lineBreak/>
+              <phrase>[Resources]/</phrase>Themes/Button.xaml</para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/SearchTextBox.xaml</para></entry>
+            <entry><para><phrase>[Resources]/</phrase>Themes/Common.xaml<lineBreak/>
+              Themes/Toolbar.xaml</para></entry>
+          </row>
+          <row>
+            <entry><para>Themes/Toolbar.xaml</para></entry>
+            <entry><para><phrase>[Resources]/</phrase>Themes/Button.xaml</para></entry>
+          </row>
+        </table>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <externalLink>
+        <linkText>Windows Desktop Styles and templates</linkText>
+        <linkUri>https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/styles-templates-overview</linkUri>
+      </externalLink>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

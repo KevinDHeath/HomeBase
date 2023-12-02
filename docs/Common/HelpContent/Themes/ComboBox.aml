@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="976d257f-b08a-4132-88ba-59d46c2a43fe" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <summary>
+      <para>This style relates to the Custom <quoteInline>TargetType="{x:Type cc:ComboBox}</quoteInline>
+      control class.</para>
+    </summary>
+
+    <introduction>
+      <para>The control provides a dependency property to determine if error messages are shown below the control.</para>
+    </introduction>
+
+    <section>
+      <title>controlComboBoxStyle</title>
+      <content>
+        <para>This style is automatically assigned to the Combo Box custom control:</para>
+        <code language="xaml"><![CDATA[
+<cc:ComboBox ItemsSource="{Binding States}" SelectedValuePath="Code" DisplayMemberPath="Name"
+             SelectedValue="{Binding State}"/>
+]]>
+        </code>
+        <procedure>
+          <title>Default properties</title>
+          <steps class="bullet">
+            <step><content><para>IsErrorShown = "False"</para></content></step>
+          </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <section>
+      <title>IsErrorShown property</title>
+      <content>
+        <para>Example of assigning the IsErrorShown style to a Combo Box custom control:</para>
+        <code language="xaml"><![CDATA[
+<cc:ComboBox IsErrorShown="True" ItemsSource="{Binding GenderValues}">
+  <ComboBox.SelectedItem>
+    <Binding Path="Gender"/>
+  </ComboBox.SelectedItem>
+</cc:ComboBox>
+]]>
+        </code>
+        <procedure>
+          <title>Notes</title>
+          <steps class="ordered">
+            <step><content>
+              <para>Use this property to show error messages in a text block attached to the combo box.
+              This allows for fields to automatically adjust their position on the form:<lineBreak/>
+              <mediaLinkInline><image xlink:href="WithErrorsStyle"/></mediaLinkInline></para>
+            </content></step>
+            <step><content><para>To allow the whole form <legacyItalic>(i.e., Window)</legacyItalic> to
+            adjust its size, the property SizeToContent="Height" must be set.</para></content></step>
+          </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <externalLink>
+        <linkText>Common.Wpf.Controls.ComboBox</linkText><linkUri>T_Common_Wpf_Controls_ComboBox.htm</linkUri>
+        <linkTarget>_self</linkTarget>
+      </externalLink>
+    </relatedTopics>
+
+  </developerHowToDocument>
+</topic>

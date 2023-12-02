@@ -1,0 +1,159 @@
+State	ZipCode	County	City
+AR	71601	Jefferson	Pine Bluff
+AR	72205	Pulaski	Little Rock
+AZ	85012	Maricopa	Phoenix
+AZ	85013	Maricopa	Phoenix
+AZ	85016	Maricopa	Phoenix
+AZ	85017	Maricopa	Phoenix
+AZ	85020	Maricopa	Phoenix
+AZ	85034	Maricopa	Phoenix
+AZ	85204	Maricopa	Mesa
+AZ	85282	Maricopa	Tempe
+CA	90021	Los Angeles	Los Angeles
+CA	90067	Los Angeles	Los Angeles
+CA	90248	Los Angeles	Gardena
+CA	90302	Los Angeles	Inglewood
+CA	91010	Los Angeles	Duarte
+CA	91325	Los Angeles	Northridge
+CA	91745	Los Angeles	Hacienda Heights
+CA	91761	San Bernardino	Ontario
+CA	92705	Orange	Santa Ana
+CA	93232	Kings	Hanford
+CA	93551	Los Angeles	Palmdale
+CA	93901	Monterey	Salinas
+CA	94104	San Francisco	San Francisco
+CA	94105	San Francisco	San Francisco
+CA	94111	San Francisco	San Francisco
+CA	94565	Contra Costa	Pittsburg
+CA	94577	Alameda	San Leandro
+CA	94607	Alameda	Oakland
+CA	95008	Santa Clara	Campbell
+CA	95240	San Joaquin	Lodi
+CA	95404	Sonoma	Santa Rosa
+CO	80110	Arapahoe	Englewood
+CO	80112	Arapahoe	Englewood
+CO	80126	Douglas	Littleton
+CO	80205	Denver	Denver
+CO	80212	Denver	Denver
+CO	80221	Adams	Denver
+CO	80223	Denver	Denver
+CO	80231	Denver	Denver
+CO	80234	Adams	Denver
+CO	80303	Boulder	Boulder
+CO	80304	Boulder	Boulder
+CO	80904	El Paso	Colorado Springs
+CO	81211	Chaffee	Buena Vista
+CT	06484	Fairfield	Shelton
+CT	06511	New Haven	New Haven
+FL	32937	Brevard	Satellite Beach
+FL	32940	Brevard	Melbourne
+FL	34786	Orange	Windermere
+GA	30308	Fulton	Atlanta
+GA	30328	Fulton	Atlanta
+GA	30340	Dekalb	Atlanta
+GA	30344	Fulton	Atlanta
+GA	30728	Walker	La Fayette
+GA	30741	Walker	Rossville
+GA	30753	Chattooga	Trion
+HI	96701	Honolulu	Aiea
+HI	96720	Hawaii	Hilo
+HI	96740	Hawaii	Kailua Kona
+HI	96782	Honolulu	Pearl City
+HI	96815	Honolulu	Honolulu
+IA	50658	Chickasaw	Nashua
+ID	83211	Power	American Falls
+IL	60601	Cook	Chicago
+IL	60611	Cook	Chicago
+IN	46204	Marion	Indianapolis
+KS	66441	Geary	Junction City
+KS	67401	Saline	Salina
+LA	70819	East Baton Rouge	Baton Rouge
+MA	01001	Hampden	Agawam
+MA	01020	Hampden	Chicopee
+MA	01109	Hampden	Springfield
+MA	01201	Berkshire	Pittsfield
+MA	01453	Worcester	Leominster
+MA	01527	Worcester	Millbury
+MA	01545	Worcester	Shrewsbury
+MA	01602	Worcester	Worcester
+MA	01930	Essex	Gloucester
+MA	01944	Essex	Manchester
+MA	02108	Suffolk	Boston
+MA	02116	Suffolk	Boston
+MA	02141	Middlesex	Cambridge
+MA	02149	Middlesex	Everett
+MA	02171	Norfolk	Quincy
+MA	02346	Plymouth	Middleboro
+MA	02360	Plymouth	Plymouth
+MA	02703	Bristol	Attleboro
+MD	20781	Prince Georges	Hyattsville
+MD	20785	Prince Georges	Hyattsville
+MD	20814	Montgomery	Bethesda
+MD	20850	Montgomery	Rockville
+MD	20866	Montgomery	Burtonsville
+MD	20910	Montgomery	Silver Spring
+MD	21001	Harford	Aberdeen
+MD	21014	Harford	Bel Air
+MD	21076	Anne Arundel	Hanover
+MD	21117	Baltimore	Owings Mills
+MD	21136	Baltimore	Reisterstown
+MD	21202	Baltimore City	Baltimore
+MD	21204	Baltimore	Towson
+MD	21215	Baltimore City	Baltimore
+MD	21227	Baltimore	Halethorpe
+MD	21230	Baltimore City	Baltimore
+MD	21234	Baltimore	Parkville
+MD	21237	Baltimore	Rosedale
+MD	21801	Wicomico	Salisbury
+MI	48009	Oakland	Birmingham
+MI	48908	Eaton	Lansing
+MN	55425	Hennepin	Minneapolis
+MO	63102	Saint Louis City	Saint Louis
+MO	64158	Clay	Kansas City
+NJ	08232	Atlantic	Pleasantville
+NV	89101	Clark	Las Vegas
+NY	10001	New York	New York
+NY	10002	New York	New York
+NY	10009	New York	New York
+NY	10011	New York	New York
+NY	10025	New York	New York
+NY	10309	Richmond	Staten Island
+NY	11530	Nassau	Garden City
+NY	11563	Nassau	Lynbrook
+NY	12180	Rensselaer	Troy
+NY	13214	Onondaga	Syracuse
+NY	13601	Jefferson	Watertown
+NY	14895	Allegany	Wellsville
+OH	43551	Wood	Perrysburg
+OH	43606	Lucas	Toledo
+OH	43609	Lucas	Toledo
+OH	43613	Lucas	Toledo
+OH	43617	Lucas	Toledo
+OH	44103	Cuyahoga	Cleveland
+OH	44114	Cuyahoga	Cleveland
+OH	44129	Cuyahoga	Cleveland
+OH	44136	Cuyahoga	Strongsville
+OH	44142	Cuyahoga	Brook Park
+OH	44320	Summit	Akron
+OH	44446	Trumbull	Niles
+OH	44505	Mahoning	Youngstown
+OH	44512	Mahoning	Youngstown
+OH	44718	Stark	Canton
+OH	44827	Crawford	Crestline
+OH	45002	Hamilton	Cleves
+OH	45238	Hamilton	Cincinnati
+OH	45817	Allen	Bluffton
+OH	45840	Hancock	Findlay
+PA	17043	Cumberland	Lemoyne
+PA	18701	Luzerne	Wilkes Barre
+PA	19140	Philadelphia	Philadelphia
+TN	37210	Davidson	Nashville
+TX	75034	Denton	Frisco
+TX	75044	Dallas	Garland
+TX	75229	Dallas	Dallas
+TX	75287	Collin	Dallas
+TX	76265	Montague	Saint Jo
+TX	79901	El Paso	El Paso
+TX	79912	El Paso	El Paso
+WA	98119	King	Seattle
+WA	98499	Pierce	Lakewood

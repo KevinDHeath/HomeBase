@@ -1,0 +1,45 @@
+@EFCore.RestApi_HostAddress = https://localhost:7065
+@contentType = application/json
+
+### Company
+GET {{EFCore.RestApi_HostAddress}}/api/company?count=4&last=10
+
+###
+GET {{EFCore.RestApi_HostAddress}}/api/company/43
+
+### Person
+GET {{EFCore.RestApi_HostAddress}}/api/person
+
+### Movie
+GET {{EFCore.RestApi_HostAddress}}/api/movie
+
+### Superhero
+GET {{EFCore.RestApi_HostAddress}}/api/superhero?count=4&last=20
+
+###
+GET {{EFCore.RestApi_HostAddress}}/api/superhero/3
+
+###
+PUT {{EFCore.RestApi_HostAddress}}/api/superhero/3
+Content-Type: {{contentType}}
+
+{
+  "id":3,
+  "name":"Aquaman",
+  "firstName":"Arthur",
+  "lastName":"Curry",
+  "publisher":0,
+  "place": "Gotham City"
+}
+
+### ISO Country
+GET {{EFCore.RestApi_HostAddress}}/api/isocountry
+
+### US State
+GET {{EFCore.RestApi_HostAddress}}/api/usstate
+
+### US Zip code
+GET {{EFCore.RestApi_HostAddress}}/api/uszipcode
+
+###
+GET {{EFCore.RestApi_HostAddress}}/api/uszipcode/32937

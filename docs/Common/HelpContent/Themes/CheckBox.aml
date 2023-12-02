@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="7ef743eb-f64b-4ea3-9cb6-35a909f29e97" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <summary>
+      <para>
+        These styles relate to the Windows Desktop <quoteInline>TargetType="{x:Type CheckBox}</quoteInline> control class.
+      </para>
+    </summary>
+
+    <introduction>
+      <para>
+        Example of adding the resources to an <quoteInline>App.xaml</quoteInline> file:
+      </para>
+      <code language="xaml">
+        <![CDATA[
+<ResourceDictionary>
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Resources;component/Themes/CheckBox.xaml"/>
+  </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
+]]>
+      </code>
+    </introduction>
+
+    <section>
+      <title>commonCheckBoxStyle</title>
+      <content>
+        <para>Example of assigning the style to a Check Box control:</para>
+        <code language="xaml">
+          <![CDATA[
+<CheckBox x:Name="cbBackup" Style="{StaticResource commonCheckBoxStyle}"/>
+]]>
+        </code>
+        <procedure>
+          <title>Default properties</title>
+          <steps class="bullet">
+            <step><content><para>BorderThickness = "1"</para></content></step>
+            <step><content><para>Margin = "3"</para></content></step>
+            <step><content><para>VerticalAlignment = "Center"</para></content></step>
+         </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <externalLink>
+        <linkText>Windows Desktop CheckBox Class</linkText>
+        <linkUri>https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.checkbox</linkUri>
+      </externalLink>
+    </relatedTopics>
+
+  </developerHowToDocument>
+</topic>

@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="MVVM.Wpf.Components.NavigationMenu" x:Name="root"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:cc="clr-namespace:Common.Wpf.Controls;assembly=Common.Wpf.Controls"
+			 xmlns:vm="clr-namespace:MVVM.Core.ViewModels;assembly=MVVM.Core"
+			 mc:Ignorable="d"
+			 d:DataContext="{d:DesignInstance Type=vm:NavigationBarViewModel}"
+			 d:DesignHeight="450" d:DesignWidth="800" d:Background="Beige">
+
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/Common.Wpf.Controls;component/Themes/HamburgerMenu.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+			<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<Border Grid.Row="0" Padding="5,4,5,8" Background="#1976d2">
+			<Grid Grid.Row="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+
+				<CheckBox x:Name="cbToggleMenu" Grid.Column="0" Style="{StaticResource controlToggleMenuStyle}"
+						  IsChecked="{Binding IsMenuOpen}"/>
+				<TextBlock Grid.Column="1" Text="Menu Navigation" FontStyle="Italic" FontSize="18"
+						   Margin="20 0 0 0" Foreground="White"/>
+			</Grid>
+		</Border>
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<cc:HamburgerMenu Grid.Column="0" IsOpen="{Binding IsChecked, ElementName=cbToggleMenu}">
+				<cc:HamburgerMenu.Content>
+					<StackPanel Margin="0 10">
+						<cc:HamburgerMenuItem Command="{Binding NavigateHomeCommand}">
+							<TextBlock Text="Home"/>
+						</cc:HamburgerMenuItem>
+						<cc:HamburgerMenuItem Command="{Binding NavigatePeopleCommand}">
+							<TextBlock Text="People"/>
+						</cc:HamburgerMenuItem>
+						<cc:HamburgerMenuItem Command="{Binding NavigateCompaniesCommand}">
+							<TextBlock Text="Companies"/>
+						</cc:HamburgerMenuItem>
+						<cc:HamburgerMenuItem Command="{Binding NavigateUsersCommand}">
+							<TextBlock Text="Users"/>
+						</cc:HamburgerMenuItem>
+						<cc:HamburgerMenuItem Command="{Binding NavigateSettingsCommand}">
+							<TextBlock Text="Settings"/>
+						</cc:HamburgerMenuItem>
+						<cc:HamburgerMenuItem Command="{Binding NavigateLoginCommand}"
+							Visibility="{Binding IsLoggedOut, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<TextBlock Text="Login"/>
+						</cc:HamburgerMenuItem>
+						<cc:HamburgerMenuItem Command="{Binding LogoutCommand}"
+							Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<TextBlock Text="Logout"/>
+						</cc:HamburgerMenuItem>
+					</StackPanel>
+				</cc:HamburgerMenu.Content>
+			</cc:HamburgerMenu>
+
+			<ContentControl Grid.Column="1" Margin="5,0,5,5" Content="{Binding ContentView, ElementName=root}"
+							Validation.ErrorTemplate="{x:Null}"/>
+		</Grid>
+	</Grid>
+
+</UserControl>

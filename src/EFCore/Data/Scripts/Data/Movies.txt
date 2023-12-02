@@ -1,0 +1,42 @@
+Title	ReleaseYear	Genre	Duration
+Avatar	2009	Sci-Fi	120
+Babel	2011	Drama	120
+Constantine	2005	Fantasy	90
+Cool Runnings	1993	Comedy	120
+Cowboys and Aliens	2011	Sci-Fi	100
+Dilwale Dulhanya Lejaengy	1998	Romance, Action	200
+Fast and Furious	2014	Thriller, Action	140
+Frequency	2000	Sci-Fi	120
+From Hell	2001	Fantasy	180
+Gangster	2017	Horror	130
+Gattaca	1997	Sci-Fi	110
+Get Out	2017	Thriller	140
+Gladiator	2000	Historical	160
+Gone Girl	2014	Crime	110
+Half Light	2006	Horror	120
+Happy Feet	2006	Animation	110
+Harry Potter VI - Halbblutprinz	2009	Fantasy	122
+Hercules	2014	Animation	124
+Hotel Transalvinya	2017	Comedy, Drama	103
+I am Legend	2007	Action	128
+Identity	2003	Horror	127
+Jurassic World	2005	Action	130
+Kate & Leopold	2001	Liebe	150
+King Arthur	2004	Historical	120
+Laws of Attraction	2004	Liebe	110
+Lion King	1994	Animation	134
+Matrix Revolutions	2003	Sci-Fi	185
+Next	2007	Sci-Fi	132
+Oblivion	2013	Sci-Fi	111
+Password Swordfish	2001	Crime	150
+Perks of Being a Wall Flower	2011	Romance, Drama	135
+Romeo and Juliet	1993	Romance	175
+S.W.A.T	2003	Action	130
+Scent of a Woman	1996	Drama	140
+SpiderMan: Homecoming	2017	Action, Thriller	122
+The Hobbit: An Unexpected Journey	2012	Fantasy	169
+The Hobbit: The Battle of the Five Armies	2014	Fantasy	144
+The Hobbit: The Desolation of Smaug	2013	Fantasy	161
+The Lord of the Rings: The Fellowship of the Ring	2001	Fantasy	208
+The Lord of the Rings: The Return of the King	2003	Fantasy	300
+The Lord of the Rings: The Two Towers	2002	Fantasy	179

@@ -1,0 +1,13 @@
+{
+	"AppSettings": {
+		"FavoriteMovie": "Dune",
+		"FavoriteDirector": "James Cameron",
+		"FavoriteActor": "Johnny Depp"
+	},
+	"ConnectionStrings": {
+		"Movies": "DataSource=localhost;Initial Catalog=MovieCatalog;Integrated Security=True"
+	},
+	"Custom": {
+		"Password": "abc123"
+	}
+}

@@ -1,0 +1,22 @@
+/****** Object: SuperHeroes    Script Date: 09/14/2023 ******/
+CREATE TABLE [dbo].[SuperHeroes](
+  [Id] [int] IDENTITY(1,1) NOT NULL,
+  [Name] [nvarchar](50) NOT NULL,
+  [FirstName] [nvarchar](50) NOT NULL,
+  [LastName] [nvarchar](50) NULL,
+  [Place] [nvarchar](50) NULL,
+  [Publisher] [nvarchar](20) NOT NULL,
+ CONSTRAINT [PK_SuperHeroes] PRIMARY KEY CLUSTERED 
+(
+  [Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [IX_SuperHeroes_Name] ON [dbo].[SuperHeroes]
+(
+  [Name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+
+-- SuperHeroes.txt: 86 rows

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="263751ce-169e-469d-ac4a-3c1e9c574e42" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <summary>
+      <para>These styles relate to the Custom <quoteInline>TargetType="{x:Type cc:DatePicker}</quoteInline>
+      control class.</para>
+    </summary>
+
+    <introduction>
+      <para>The control provides a dependency property to determine if error messages are shown below the control.</para>
+    </introduction>
+
+    <section>
+      <title>controlDatePickerStyle</title>
+      <content>
+        <para>This style is automatically assigned to the Date Picker custom control:</para>
+        <code language="xaml">
+          <![CDATA[
+<cc:DatePicker/>
+]]>
+        </code>
+        <procedure>
+          <title>Default properties</title>
+          <steps class="bullet">
+            <step><content><para>IsErrorShown = "False"</para></content></step>
+            <step><content><para>SelectedDateFormat = "Long"</para></content></step>
+          </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <section>
+      <title>IsErrorShown property</title>
+      <content>
+        <para>Example of assigning the IsErrorShown style to a Date Picker custom control:</para>
+        <code language="xaml">
+          <![CDATA[
+<cc:DatePicker IsErrorShown="True"/>
+]]>
+        </code>
+        <procedure>
+          <title>Notes</title>
+          <steps class="ordered">
+            <step><content>
+              <para>Use this property to show error messages in a text block attached to the date picker.
+              This allows for fields to automatically adjust their position on the form:<lineBreak/>
+              <mediaLinkInline><image xlink:href="WithErrorsStyle"/></mediaLinkInline></para>
+            </content></step>
+            <step><content><para>To allow the whole form <legacyItalic>(i.e., Window)</legacyItalic> to
+            adjust its size, the property SizeToContent="Height" must be set.</para></content></step>
+          </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <externalLink>
+        <linkText>Common.Wpf.Controls.DatePicker</linkText><linkUri>T_Common_Wpf_Controls_DatePicker.htm</linkUri>
+        <linkTarget>_self</linkTarget>
+      </externalLink>
+    </relatedTopics>
+
+  </developerHowToDocument>
+</topic>

@@ -1,0 +1,26 @@
+﻿{
+    "Data": [
+        {
+            "Boolean": null,
+            "Byte": null,
+            "DateOnly": null,
+            "DateTime": null,
+            "DateTimeOffset": null,
+            "Decimal": null,
+            "Double": null,
+            "Float": null,
+            "Guid": null,
+            "Integer": null,
+            "Long": null,
+            "SByte": null,
+            "Short": null,
+            "String": "Required",
+            "StringNull": null,
+            "TimeOnly": null,
+            "TimeSpan": null,
+            "UInt": null,
+            "ULong": null,
+            "UShort": null
+        }
+    ]
+}

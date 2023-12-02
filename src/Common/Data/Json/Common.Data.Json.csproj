@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <AssemblyTitle>Common Json data factory.</AssemblyTitle>
+    <AssemblyVersion>2.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+  </PropertyGroup>
+ 
+  <ItemGroup>
+    <Compile Include="..\..\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <None Remove="Json\Company.json" />
+    <None Remove="Json\ISOCountries.json" />
+    <None Remove="Json\Person.json" />
+    <None Remove="Json\USStates.json" />
+    <None Remove="Json\USZipCodes.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Json\Company.json" />
+    <EmbeddedResource Include="Json\ISOCountries.json" />
+    <EmbeddedResource Include="Json\Person.json" />
+    <EmbeddedResource Include="Json\USStates.json" />
+    <EmbeddedResource Include="Json\USZipCodes.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Common.Core.csproj" />
+  </ItemGroup>
+
+</Project>

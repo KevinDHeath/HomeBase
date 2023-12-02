@@ -1,0 +1,87 @@
+Name	FirstName	LastName	Place	Publisher
+Animal Man	Bernhard 'Buddy'	Baker		DC
+Ant-Man	Hank	Pym		Marvel
+Aquaman	Arthur	Curry		DC
+Batgirl	Barbra	Gordon		DC
+Batman	Bruce	Wayne	Gotham City	DC
+Batwoman	Kate	Kane		DC
+Beast	Henry Philip 'Hank'	McCoy		Marvel
+Beast Boy	Garfield Mark 'Gar'	Logan		DC
+Black Bat	Cassandra	Cain		DC
+Black Canary	Dinah Laurel	Lance		DC
+Black Panther	T'Challa			Marvel
+Black Widow	Natasha	Romanova		Marvel
+Blade	Eric	Brooks		Marvel
+Blue Beetle	Dan	Garret		DC
+Booster Gold	Michael Jon	Carter		DC
+Cable	Nathan	Summers		Marvel
+Captain America	Steve	Rogers		Marvel
+Captain Marvel	Carol	Danvers		Marvel
+Catwoman	Selina	Kyle		DC
+Colossus	Piotr 'Peter' Nikolaievitch	Rasputin		Marvel
+Cyborg	Victor	Stone		DC
+Cyclops	Scott	Summers		Marvel
+Daredevil	Matt	Murdock		Marvel
+Deadpool	Wade	Wilson		Marvel
+Doctor Strange	Steven	Strange		Marvel
+Elongated Man	Ralph	Dibny		DC
+Ghost Rider	Johnny	Blaze		Marvel
+Green Arrow	Oliver	Queen		DC
+Green Lantern	Hal	Jordan		DC
+Harley Quinn	Harleen	Quinzel		DC
+Hawkeye	Clint	Barton		Marvel
+Hawkgirl	Shiera	Sanders Hall		DC
+Hawkman	Carter	Hall		DC
+Huntress	Helena	Bertinelli		DC
+Iceman	Robert 'Bobby' Louis	Drake		Marvel
+Invisible Woman	Sue	Storm		Marvel
+Iron Fist	Danny	Rand		Marvel
+Iron Man	Tony	Stark	Malibu	Marvel
+Kid Flash	Wally	West		DC
+Magik	Illyana	Rasputin		Marvel
+Martian Manhunter	J'onn	J'onzz		DC
+Moon Knight	Marc	Spector		Marvel
+Mr Fantastic	Reed	Richards		Marvel
+Ms Marvel (Fourth)	Kamala	Khan		Marvel
+Nightcrawler	Kurt	Wagner		Marvel
+Nova	Richard	Rider		Marvel
+Power Girl	Kara	Zor-L		DC
+Powerman	Luke	Cage		Marvel
+Professor X	Charles Francis	Xavier		Marvel
+Psylocke	Elizabeth 'Betsy'	Braddock		Marvel
+Raven	Rachel	Roth		DC
+Red Hulk	Thaddeus E.	Ross		Marvel
+Red Robin	Tim	Drake		DC
+Robin	Dick	Grayson		DC
+Scarlet Witch	Wanda	Maximoff		Marvel
+Shadowcat	Kitty	Pride		Marvel
+She-Hulk	Jennifer 'Jen'	Walters		Marvel
+Silver Surfer	Norrin	Radd		Marvel
+Speedy	Roy	Harper		DC
+Spider-Man	Peter	Parker	New York City	Marvel
+Spider-Woman	Jessica	Drew		Marvel
+Spolier	Stephanie	Brown		DC
+Squirrel Girl	Doreen	Green		Marvel
+Starfire	Koriandr			DC
+Star-Lord	Peter	Quill		Marvel
+Starman	Ted	Knight		DC
+Storm	Ororo	Munroe		Marvel
+Sub-Mariner	Namor			Marvel
+Supergirl	Kara	Zor-El		DC
+Superman	Clark	Kent		DC
+Swamp Thing	Alec	Holland		DC
+The Atom	Ray	Palmer		DC
+The Flacon	Sam	Wilson		Marvel
+The Flash	Barry	Allen		DC
+The Hulk	Bruce	Banner		Marvel
+The Human Torch	Johnny	Storm		Marvel
+The Punisher	Frank	Castle		Marvel
+The Thing	Ben	Grim		Marvel
+The White Queen	Emma	Frost		Marvel
+The Winter Soldier	Bucky	Barnes		Marvel
+Vixen	Mari	McCabe		DC
+War Machine	James	Rhodes		Marvel
+Wolverine	James 'Logan'	Howlett		Marvel
+Wonder Girl	Donna	Troy		DC
+Wonder Woman	Diana	Prince		DC
+X-23	Laura	Kinney		Marvel

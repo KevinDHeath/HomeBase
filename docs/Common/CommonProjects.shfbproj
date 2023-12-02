@@ -1,0 +1,170 @@
+﻿<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Import the common properties to support NuGet restore -->
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <!-- The configuration and platform will be used to determine which assemblies to include from solution and
+				 project documentation sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4781829a-e223-452f-b2ce-0317632fd90d}</ProjectGuid>
+    <SHFBSchemaVersion>2017.9.26.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual Studio adds them anyway -->
+    <AssemblyName>Common</AssemblyName>
+    <RootNamespace>Common</RootNamespace>
+    <Name>Documentation</Name>
+    <!-- SHFB properties -->
+    <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
+    <OutputPath>..\..\..\Documentation\CommonProjects\</OutputPath>
+    <HtmlHelpName>Common.Projects</HtmlHelpName>
+    <Language>en-US</Language>
+    <HelpFileFormat>Website</HelpFileFormat>
+    <SyntaxFilters>C#</SyntaxFilters>
+    <PresentationStyle>Default2022</PresentationStyle>
+    <CleanIntermediates>True</CleanIntermediates>
+    <KeepLogFile>True</KeepLogFile>
+    <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
+    <IndentHtml>False</IndentHtml>
+    <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
+    <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="..\..\src\Common\Core\bin\Debug\net8.0\Common.Core.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Core\bin\Debug\net8.0\Common.Core.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Api\bin\Debug\net8.0\Common.Data.Api.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Api\bin\Debug\net8.0\Common.Data.Api.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Json\bin\Debug\net8.0\Common.Data.Json.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Json\bin\Debug\net8.0\Common.Data.Json.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Sql\bin\Debug\net8.0\Common.Data.Sql.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Sql\bin\Debug\net8.0\Common.Data.Sql.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Wpf\Controls\bin\Debug\net8.0-windows\Common.Wpf.Controls.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Wpf\Controls\bin\Debug\net8.0-windows\Common.Wpf.Controls.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Wpf\Resources\bin\Debug\net8.0-windows\Common.Wpf.Resources.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Wpf\Resources\bin\Debug\net8.0-windows\Common.Wpf.Resources.xml" />
+      <DocumentationSource sourceFile="..\..\src\NuGet\Json.Converters\bin\Debug\net8.0\Json.Converters.dll" />
+      <DocumentationSource sourceFile="..\..\src\NuGet\Json.Converters\bin\Debug\net8.0\Json.Converters.xml" />
+    </DocumentationSources>
+    <HelpTitle>Common Projects Documentation</HelpTitle>
+    <HelpFileVersion>1.0.0.0</HelpFileVersion>
+    <NamingMethod>MemberName</NamingMethod>
+    <ContentPlacement>BelowNamespaces</ContentPlacement>
+    <RootNamespaceContainer>False</RootNamespaceContainer>
+    <NamespaceGrouping>False</NamespaceGrouping>
+    <MaximumGroupParts>2</MaximumGroupParts>
+    <Preliminary>False</Preliminary>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
+    <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="(global)" isDocumented="False" />
+<NamespaceSummaryItem name="Common.Core.Classes" isDocumented="True">Provides classes for common functionality.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Core.Converters" isDocumented="True">Provides converter classes for data serialization.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Core.Interfaces" isDocumented="True">Provides interfaces for common functionality.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Core.Models" isDocumented="True">Provides models for common functionality.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Data.Api" isDocumented="True">Provides highly scalable, light, and maintainable RESTful Web service access to process data for testing purposes.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Data.Json" isDocumented="True">Provides high-performance, low-allocating, and standards-compliant capabilities to process UTF-8 JavaScript Object Notation (JSON) data for testing purposes.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Data.Sql" isDocumented="True">Provides consistent access to data sources such as SQL Server and XML to process data for testing purposes.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Wpf.Commands" isDocumented="True">Contains classes that implement the ICommand interface which enables a user to interact with the business logic.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Wpf.Controls" isDocumented="True">Contains classes to create elements, known as controls, that enables a user to interact with an application.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Wpf.Converters" isDocumented="True">Contains classes to convert binding source data to target data.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Common.Wpf.Rules" isDocumented="True">Contains classes to validate the WPF user interface elements.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Json.Converters" isDocumented="True">Contains classes that are used to customize and extend serialization and deserialization of string objects into JSON formatted documents or streams via type converters.</NamespaceSummaryItem>
+      </NamespaceSummaries>
+    <VisibleItems>ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <BuildLogFile>..\..\..\Documentation\CommonProjects.log</BuildLogFile>
+    <ComponentConfigurations>
+      <ComponentConfig id="Syntax Component" enabled="True" xmlns="">
+        <component id="Syntax Component">
+          <syntax input="/document/reference" output="/document/syntax" renderReferenceLinks="false" />
+          <generators>{@SyntaxFilters}</generators>
+          <containerElement name="codeSnippetGroup" addNoExampleTabs="true" includeOnSingleSnippets="false" groupingEnabled="{@CodeSnippetGrouping}" />
+          <configurations>
+            <generator id="C#" />
+            <generator id="Visual Basic">
+              <includeLineContinuation value="false" />
+            </generator>
+            <generator id="Visual Basic Usage">
+              <includeLineContinuation value="false" />
+            </generator>
+            <generator id="Managed C++" />
+            <generator id="F#" />
+            <generator id="J#" />
+            <generator id="JScript" />
+            <generator id="JavaScript" />
+            <generator id="XAML Usage" />
+            <generator id="ASP.NET" />
+            <generator id="X#" />
+          </configurations>
+        </component>
+      </ComponentConfig>
+    </ComponentConfigurations>
+  </PropertyGroup>
+  <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
+			 the build.  The others are optional common platform types that may appear. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Win32' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="HelpContent" />
+    <Folder Include="HelpContent\media\" />
+    <Folder Include="HelpContent\Themes\" />
+    <Folder Include="HelpContent\VersionHistory\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ContentLayout Include="HelpContent\ContentLayout.content" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HelpContent\VersionHistory\v1.0.2.0.aml" />
+    <None Include="HelpContent\VersionHistory\v1.0.1.0.aml" />
+    <None Include="HelpContent\VersionHistory\v1.0.0.0.aml" />
+    <None Include="HelpContent\VersionHistory\v1.0.3.0.aml" />
+    <None Include="HelpContent\VersionHistory\VersionHistory.aml" />
+    <None Include="HelpContent\Introduction.aml" />
+    <None Include="HelpContent\Themes\Button.aml" />
+    <None Include="HelpContent\Themes\CheckBox.aml" />
+    <None Include="HelpContent\Themes\ComboBox.aml" />
+    <None Include="HelpContent\Themes\DatePicker.aml" />
+    <None Include="HelpContent\Themes\ListView.aml" />
+    <None Include="HelpContent\Themes\TabControl.aml" />
+    <None Include="HelpContent\Themes\TextBox.aml" />
+    <None Include="HelpContent\Themes\_Overview.aml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="HelpContent\media\AdornmentErrors.png">
+      <ImageId>AdornmentErrors</ImageId>
+      <AlternateText>Adornment Errors</AlternateText>
+    </Image>
+    <Image Include="HelpContent\media\SingleErrorBlock.png">
+      <ImageId>SingleErrorBlock</ImageId>
+      <AlternateText>Single Error Block</AlternateText>
+    </Image>
+    <Image Include="HelpContent\media\WithErrorsStyle.png">
+      <ImageId>WithErrorsStyle</ImageId>
+      <AlternateText>With Errors Style</AlternateText>
+    </Image>
+  </ItemGroup>
+  <!-- Import the common build targets during NuGet restore because before the packages are being installed, $(SHFBROOT) is not set yet -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="'$(MSBuildRestoreSessionId)' != ''" />
+  <!-- Import the SHFB build targets during build -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" Condition="'$(MSBuildRestoreSessionId)' == ''" />
+  <!-- The pre-build and post-build event properties must appear *after* the targets file import in order to be
+			 evaluated correctly. -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+</Project>

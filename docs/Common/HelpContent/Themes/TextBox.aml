@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="c6f0f629-27ee-4d30-8369-d60796edca67" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <summary>
+      <para>These styles relate to the Windows Desktop <quoteInline>TargetType="{x:Type TextBlock}</quoteInline>
+      and <quoteInline>TargetType="{x:Type TextBox}</quoteInline> control classes.
+      </para>
+    </summary>
+
+    <introduction>
+      <para>Example of adding the resources to an <quoteInline>App.xaml</quoteInline> file:</para>
+      <code language="xaml">
+        <![CDATA[
+<ResourceDictionary>
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Resources;component/Themes/TextBox.xaml"/>
+  </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
+]]>
+      </code>
+    </introduction>
+
+    <section>
+      <title>commonErrorItemTemplate</title>
+      <content>
+        <para>This can be assigned to any control type as the validation error template.<lineBreak/>
+        Example of assigning the template to a custom Date Picker style:</para>
+        <code language="xaml">
+          <![CDATA[
+<Style x:Key="datePickerStyle1" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource commonDatePickerStyle}">
+  <Setter Property="Validation.ErrorTemplate" Value="{StaticResource commonErrorItemTemplate}"/>
+</Style>
+]]>
+        </code>
+        <procedure>
+          <title>Default properties</title>
+          <steps class="bullet">
+            <step><content><para>FontStyle = "Italic"</para></content></step>
+            <step><content><para>FontWeight = "Bold"</para></content></step>
+            <step><content><para>Foreground = "{StaticResource Validation.HasError}"</para></content></step>
+          </steps>
+        </procedure>
+        <procedure>
+          <title>Notes</title>
+          <steps class="ordered">
+            <step><content>
+              <para>Use this template to show 'adornment style' error messages.<lineBreak/>
+              <mediaLinkInline><image xlink:href="AdornmentErrors"/></mediaLinkInline></para>
+            </content></step>
+           <step><content><para>As you can see, the problem with 'adornment style' is that it can
+             overwrite other elements on the form if not enough vertical spacing between the fields
+             is allowed for.</para></content></step>
+          </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <section>
+      <title>commonErrorTextBlockStyle</title>
+      <content>
+        <para>Example of assigning the style to a Text Block control:</para>
+        <code language="xaml">
+          <![CDATA[
+<Grid x:Name="MainGrid" Validation.ErrorTemplate="{x:Null}">
+...
+  <StackPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+    <Separator/>
+    <TextBlock x:Name="tbErrorText" Style="{StaticResource commonErrorTextBlockStyle}"
+        Text="{Binding Path=(Validation.Errors)[0].ErrorContent, ElementName=MainGrid}"/>
+  </StackPanel>
+</Grid>
+]]>
+        </code>
+        <procedure>
+          <title>Default properties</title>
+          <steps class="bullet">
+            <step><content><para>FontStyle = "Italic"</para></content></step>
+            <step><content><para>FontWeight = "Bold"</para></content></step>
+            <step><content><para>Foreground = "{StaticResource Validation.HasError}"</para></content></step>
+          </steps>
+        </procedure>
+        <procedure>
+          <title>Notes</title>
+          <steps class="ordered">
+            <step><content>
+              <para>Use this style to show error messages in a single text block instead of using the 'adornment style'.<lineBreak/>
+              <mediaLinkInline><image xlink:href="SingleErrorBlock"/></mediaLinkInline></para>
+            </content></step>
+            <step><content>
+              <para>The problem with this style is that it only shows one message at a time. To show all
+              messages use an Items Control with a Scroll Viewer in its template and the Text Block in its
+              Item template.</para>
+            </content></step>
+          </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <section>
+      <title>commonTextBoxEditTemplate</title>
+      <content>
+        <para>Example of assigning the template to a custom Text Box style:</para>
+        <code language="xaml">
+          <![CDATA[
+<Style x:Key="textBoxStyle1" TargetType="{x:Type TextBox}">
+  <Setter Property="Template" Value="{StaticResource commonTextBoxEditTemplate}"/>
+</Style>
+]]>
+        </code>
+        <procedure>
+          <title>Notes</title>
+          <steps class="ordered">
+            <step><content><para>Use this template for editable text boxes with rounded corners.</para></content></step>
+          </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <section>
+      <title>commonTextBoxStyle</title>
+      <content>
+        <para>Example of assigning the style to a Text Box control:</para>
+        <code language="xaml">
+          <![CDATA[
+<TextBox x:Name="tbName" Style="{StaticResource commonTextBoxStyle}"/>
+]]>
+        </code>
+        <procedure>
+          <title>Default properties</title>
+          <steps class="bullet">
+            <step><content><para>Template = "{StaticResource commonTextBoxEditTemplate}"</para></content></step>
+            <step><content><para>Validation.ErrorTemplate = "{x:Null}"</para></content></step>
+          </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <section>
+      <title>commonTextBoxWithErrorsStyle</title>
+      <content>
+        <para>Example of assigning the style to a Text Box control:</para>
+        <code language="xaml">
+          <![CDATA[
+<TextBox x:Name="tbName" Style="{StaticResource commonTextBoxWithErrorsStyle}"/>
+]]>
+        </code>
+        <procedure>
+          <title>Default properties</title>
+          <steps class="bullet">
+            <step><content><para>Template = "{StaticResource commonTextBoxWithErrorsTemplate}"</para></content></step>
+            <step><content><para>Validation.ErrorTemplate = "StaticResource commonErrorItemTemplate"</para></content></step>
+          </steps>
+        </procedure>
+        <procedure>
+          <title>Notes</title>
+          <steps class="ordered">
+            <step><content>
+              <para>Use this style to show error messages in a text block attached to the text box.
+              This allows for fields to automatically adjust their position on the form:<lineBreak/>
+              <mediaLinkInline><image xlink:href="WithErrorsStyle"/></mediaLinkInline></para>
+            </content></step>
+            <step><content><para>To allow the whole form <legacyItalic>(i.e., Window)</legacyItalic> to
+            adjust its size, the property SizeToContent="Height" must be set.</para></content></step>
+          </steps>
+        </procedure>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <externalLink>
+        <linkText>Windows Desktop TextBlock Class</linkText>
+        <linkUri>https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.textblock</linkUri>
+      </externalLink>
+      <externalLink>
+        <linkText>Windows Desktop TextBox Class</linkText>
+        <linkUri>https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.textbox</linkUri>
+      </externalLink>
+    </relatedTopics>
+
+  </developerHowToDocument>
+</topic>
