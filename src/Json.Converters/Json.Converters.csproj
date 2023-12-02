@@ -4,21 +4,25 @@
     <TargetFrameworks>net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyTitle>Json Converter classes.</AssemblyTitle>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.0-alpha</Version>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
-    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+  <PropertyGroup Condition="'$(GeneratePackageOnBuild)' == 'true'">
+    <PackageReleaseNotes>* Not released yet.</PackageReleaseNotes>
+    <PackageId>kdheath.Json.Converters</PackageId>
+    <PackageDescription>Provides null, string, and interface converters for JSON serialization classes that are provided in the System.Text.Json namespace.</PackageDescription>
+    <PackageProjectUrl>https://github.com/KevinDHeath/HomeBase/tree/main/docs/Common/Json.Converters</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/KevinDHeath/HomeBase</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <DebugType>Embedded</DebugType> <!-- NuGet Health: Compiler Flags -->
+    <EmbedAllSources>True</EmbedAllSources> <!-- NuGet Health: Source Links -->
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\Common\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
+    <None Include="$(SolutionDir)docs\Common\Json.Converters\README.md" Pack="true" PackagePath="" Link="Properties\README.md" />
   </ItemGroup>
 
 </Project>

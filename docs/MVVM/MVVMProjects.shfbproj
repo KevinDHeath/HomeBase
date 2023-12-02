@@ -15,7 +15,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
-    <OutputPath>..\..\..\Documentation\MVVMProjects\</OutputPath>
+    <OutputPath>C:\Temp\Documentation\MVVMProjects\</OutputPath>
     <HtmlHelpName>MVVM.Projects</HtmlHelpName>
     <Language>en-US</Language>
     <HelpFileFormat>Website</HelpFileFormat>
@@ -54,7 +54,7 @@
       <NamespaceSummaryItem name="MVVM.Wpf.Views" isDocumented="True">Contains classes to use as views for the WPF user interface.</NamespaceSummaryItem>
     </NamespaceSummaries>
     <VisibleItems>ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
-    <BuildLogFile>..\..\..\Documentation\MVVMProjects.log</BuildLogFile>
+    <BuildLogFile>C:\Temp\Documentation\MVVMProjects.log</BuildLogFile>
     <RootNamespaceTitle>Introduction</RootNamespaceTitle>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform

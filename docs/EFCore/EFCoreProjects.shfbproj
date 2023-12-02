@@ -18,7 +18,7 @@
     <Name>EFCore</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
-    <OutputPath>..\..\..\Documentation\EFCoreProjects\</OutputPath>
+    <OutputPath>C:\Temp\Documentation\EFCoreProjects\</OutputPath>
     <HtmlHelpName>EFCore.Projects</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
@@ -53,7 +53,7 @@
       <NamespaceSummaryItem name="EFCore.RestApi.Controllers" isDocumented="True">Provides MVC controllers without view support.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="EFCore.RestApi.Services" isDocumented="True">Provides Interfaces used by the Service implementations.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <BuildLogFile>..\..\..\Documentation\EFCoreProjects.log</BuildLogFile>
+    <BuildLogFile>C:\Temp\Documentation\EFCoreProjects.log</BuildLogFile>
     <VisibleItems>InheritedMembers, Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
     <RootNamespaceTitle>Introduction</RootNamespaceTitle>
   </PropertyGroup>

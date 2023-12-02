@@ -4,25 +4,13 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
-  
-  <PropertyGroup>
     <AssemblyTitle>Common Api data factory.</AssemblyTitle>
-    <AssemblyVersion>1.3.0.0</AssemblyVersion>
-    <FileVersion>3.0.3.0</FileVersion>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
-    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <Version>1.0.3</Version>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
-  </ItemGroup>
- 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\Common.Core.csproj" />
+    <PackageReference Include="kdheath.Common.Core" Version="1.0.3" />
   </ItemGroup>
 
 </Project>

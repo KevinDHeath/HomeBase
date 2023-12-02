@@ -15,7 +15,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
-    <OutputPath>..\..\..\Documentation\CommonProjects\</OutputPath>
+    <OutputPath>C:\Temp\Documentation\CommonProjects\</OutputPath>
     <HtmlHelpName>Common.Projects</HtmlHelpName>
     <Language>en-US</Language>
     <HelpFileFormat>Website</HelpFileFormat>
@@ -69,7 +69,7 @@
 <NamespaceSummaryItem name="Json.Converters" isDocumented="True">Contains classes that are used to customize and extend serialization and deserialization of string objects into JSON formatted documents or streams via type converters.</NamespaceSummaryItem>
       </NamespaceSummaries>
     <VisibleItems>ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
-    <BuildLogFile>..\..\..\Documentation\CommonProjects.log</BuildLogFile>
+    <BuildLogFile>C:\Temp\Documentation\CommonProjects.log</BuildLogFile>
     <ComponentConfigurations>
       <ComponentConfig id="Syntax Component" enabled="True" xmlns="">
         <component id="Syntax Component">

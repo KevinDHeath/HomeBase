@@ -5,6 +5,9 @@
 
 # Private exclude files
 Notes*.txt
+*.docx
+*.pdf
+*.vsdx
 *.xlsx
 
 # User-specific files
