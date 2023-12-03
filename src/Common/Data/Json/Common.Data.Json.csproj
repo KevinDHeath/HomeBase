@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="kdheath.Common.Core" Version="1.0.3" />
+    <PackageReference Include="kdheath.Common.Core" />
   </ItemGroup>
 
 </Project>

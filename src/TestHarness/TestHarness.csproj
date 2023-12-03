@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="kdheath.Logging.Helper" Version="2.0.1-alpha" />
+    <PackageReference Include="kdheath.Logging.Helper" />
   </ItemGroup>
 
   <ItemGroup>
