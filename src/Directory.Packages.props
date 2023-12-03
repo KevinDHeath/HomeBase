@@ -11,7 +11,7 @@
     <PackageVersion Include="Azure.Identity" Version="1.10.4" />
 
     <!-- Common.Data.Api, Common.Data.Json, Common.Data.Sql, EFCore.Data  -->
-    <PackageVersion Include="kdheath.Common.Core" Version="1.0.3" />
+    <PackageVersion Include="kdheath.Common.Core" Version="2.0.0" />
 
     <!-- Common.Data.Sql -->
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.2" />

@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyTitle>Common classes and interfaces.</AssemblyTitle>
-    <Version>1.0.3</Version>
+    <Version>2.0.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
@@ -14,7 +14,7 @@
     <PackageReleaseNotes>* Private package.</PackageReleaseNotes>
     <PackageId>kdheath.Common.Core</PackageId>
     <PackageDescription>The Common Core local package contains classes and interfaces for .NET components.</PackageDescription>
-    <PackageProjectUrl>https://github.com/KevinDHeath/HomeBase/tree/main/docs/Common</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/KevinDHeath/HomeBase/tree/main/docs/Common/Core</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KevinDHeath/HomeBase</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <DebugType>Embedded</DebugType> <!-- NuGet Health: Compiler Flags -->
@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="$(SolutionDir)docs\Common\README.md" Pack="true" PackagePath="" Link="Properties\README.md" />
+    <None Include="$(SolutionDir)docs\Common\Core\README.md" Pack="true" PackagePath="" Link="Properties\README.md" />
   </ItemGroup>
 
 </Project>
