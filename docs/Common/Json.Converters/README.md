@@ -1,8 +1,7 @@
 ## About
 The Json.Converters package provides null, string, and interface converters for JSON serialization classes that are provided in the System.Text.Json namespace.
 
-## Change Log
-- 1.0.0 - Package created.
+See [Change Log](https://github.com/KevinDHeath/HomeBase/tree/main/src/Json.Converters) for release notes.
 
 ## How to Use
 To use in a C# program:

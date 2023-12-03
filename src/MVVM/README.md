@@ -1,8 +1,6 @@
 # MVVM Projects
 ![](MVVMPattern.png)
 
-11/14/2023 - upgraded to .NET 8.0
-
 ## MVVM Core
 
 Dependencies:
@@ -21,8 +19,8 @@ The connection strings and endpoints are set in the MVVM.Wpf `appsettings.json` 
 ## MVVM Wpf
 
 Dependencies:
-- [Common.Wpf.Controls](https://github.com/KevinDHeath/MyProjects/tree/main/src/Common/Wpf/Controls)
-- [MVVM.Core](https://github.com/KevinDHeath/MyProjects/tree/main/src/MVVM/Core)
+- [MVVM.Core](https://github.com/KevinDHeath/HomeBase/tree/main/src/MVVM/Core)
+- [kdheath.Wpf.Controls](https://www.nuget.org/packages/kdheath.Wpf.Controls)
 
 References:
 - [WPF MVVM Navigation](https://www.youtube.com/playlist?list=PLA8ZIAm2I03ggP55JbLOrXl6puKw4rEb2) <sub><sup>(YouTube)</sup></sub>

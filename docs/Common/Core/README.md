@@ -1,6 +1,8 @@
 ## About
 The Common Core local package contains classes and interfaces for .NET components.
 
+See [Change Log](https://github.com/KevinDHeath/HomeBase/tree/main/src/Common/Core) for release notes.
+
 ## Key Features
 - It is not published on NuGet.
 

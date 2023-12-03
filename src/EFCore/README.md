@@ -1,17 +1,14 @@
 # Entity Framework Projects
 
-11/14/2023 - upgraded to .NET 8.0
-
 ## EFCore Data
 This contains the code, Sql scripts, and data files used to define and populate tables in an existing database. 
 
 Dependencies:
-- [Microsoft.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore)
+- [kdheath.Common.Core](https://github.com/KevinDHeath/HomeBase/tree/main/src/Common/Core)
 - [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer)
-- [Common.Core](https://github.com/KevinDHeath/MyProjects/tree/main/src/Common/Core)
 
 References:
-- [SQL Data Scripts](https://github.com/KevinDHeath/MyProjects/tree/main/src/EFCore/Data/Scripts)
+- [SQL Data Scripts](https://github.com/KevinDHeath/HomeBase/tree/main/src/EFCore/Data/Scripts)
 
 ## EFCore Database
 This contains the Entity Framework code to populate an existing SQL Server database with the necessary tables and indexes.
@@ -26,10 +23,10 @@ The connection string to access the database is stored in project user secrets. 
 }
 ```
 Dependencies:
+- [EFCore.Data](https://github.com/KevinDHeath/HomeBase/tree/main/src/EFCore/Data)
 - [Microsoft.EntityFrameworkCore.Design](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design)
 - [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)
 - [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets)
-- [EFCore.Data](https://github.com/KevinDHeath/MyProjects/tree/main/src/EFCore/Data)
 
 References:
 - [Using a Separate Migrations Project](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/projects)
@@ -41,9 +38,9 @@ This ASP.NET REST API exposes the data stored in a Sql database as JSON using th
 The connection string to access the database is stored in `appsettings.json`.
 
 Dependencies:
+- [EFCore.Data](https://github.com/KevinDHeath/HomeBase/tree/main/src/EFCore/Data)
 - [Microsoft.AspNetCore.OpenApi](https://www.nuget.org/packages/Microsoft.AspNetCore.OpenApi)
 - [Swashbuckle.AspNetCore](https://www.nuget.org/packages/Swashbuckle.AspNetCore)
-- [EFCore.Data](https://github.com/KevinDHeath/MyProjects/tree/main/src/EFCore/Data)
 
 References:
 - [Get started with Swashbuckle and ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle)
