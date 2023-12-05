@@ -11,10 +11,10 @@ References:
 - [Null Forgiving Operator in C#](https://jeremybytes.blogspot.com/2022/07/null-forgiving-operator-in-c.html)
 - [Serialize Interface Instances With System.Text.Json](https://khalidabuhakmeh.com/serialize-interface-instances-system-text-json)
 
-## Common Data
+# Common Data
 Implements 3 methods of providing data.
 
-### Common.Data.API
+## Common.Data.API
 Uses a restful API to access data using the Entity Framework provided by Microsoft.
 
 - Caches zip code data
@@ -23,7 +23,7 @@ Uses a restful API to access data using the Entity Framework provided by Microso
 Dependencies:
 - [kdheath.Common.Core](https://github.com/KevinDHeath/HomeBase/tree/main/src/Common/Core)
 
-### Common.Data.Json
+## Common.Data.Json
 Uses JSON data embedded in the binary file and is therefore not changeable.
 
 Dependencies:
@@ -32,7 +32,7 @@ Dependencies:
 References:
 - [Using embedded files in NET Core](https://josef.codes/using-embedded-files-in-dotnet-core/)
 
-### Common.Data.Sql
+## Common.Data.Sql
 Uses data directly from SQL Server.
 
 - Caches zip code data
@@ -41,3 +41,17 @@ Uses data directly from SQL Server.
 Dependencies:
 - [kdheath.Common.Core](https://github.com/KevinDHeath/HomeBase/tree/main/src/Common/Core)
 - [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient)
+
+# Json.Converters
+Framework: .NET 6.0 _and_ .NET 8.0
+
+> Note: This is not yet available on NuGet.
+
+Dependencies:
+- None
+
+References:
+- [JSON serialization and de-serialization in .NET](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/overview)\
+[Compare Newtonsoft.Json to System.Text.Json, and migrate to System.Text.Json](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/migrate-from-newtonsoft)
+- [De-serializing generic interfaces with System.Text.Json](https://www.mrlacey.com/2019/10/deserializing-generic-interfaces-with.html)
+

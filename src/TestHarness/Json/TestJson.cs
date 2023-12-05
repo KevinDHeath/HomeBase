@@ -12,6 +12,23 @@ namespace TestHarness.Json;
 
 internal class TestJson
 {
+	internal static bool RunTest()
+	{
+		Console.WriteLine();
+		Program.sLogger.Info( "Test of Json.Converters" );
+
+		// Can test loading with TestJson.json or TestJson-null.json
+		var obj = Deserialize( @"Json\TestJson-null.json" );
+		if( obj is null ) return false;
+
+		// Test saving of loaded data
+		bool rtn = Serialize( obj, @"Json\TestJson-out.json" );
+		if( rtn ) { Console.WriteLine( File.ReadAllText( @"Json\TestJson-out.json" ) ); }
+		if( obj is null ) return false;
+
+		return true;
+	}
+
 	#region Serialization
 
 	/// <summary>Root element.</summary>
