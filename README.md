@@ -4,7 +4,7 @@
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/KevinDHeath/HomeBase?style=plastic)\
 [![.NET Build](https://github.com/KevinDHeath/HomeBase/actions/workflows/dotnet.yml/badge.svg)](https://github.com/KevinDHeath/HomeBase/actions/workflows/dotnet.yml)
 
-## Contents
+# Contents
 - [Common](src/Common/README.md)
 - [EFCore](src/EFCore/README.md)
 - [MVVM](src/MVVM/README.md)
