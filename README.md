@@ -11,3 +11,7 @@
 >:warning: This repository uses the Sandcastle Help File Builder (SHFB) to generate documentation. You may experience issues opening the solution if you do not have the extension installed.\
 See [Installation Instructions](https://ewsoftware.github.io/SHFB/html/8c0c97d0-c968-4c15-9fe9-e8f3a443c50a.htm) for more information.
 
+References:
+- [Customize the build by folder](https://learn.microsoft.com/en-us/visualstudio/msbuild/customize-by-directory) :high_brightness:
+- [Central Package Management (CPM)](https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management) :high_brightness:
+- [Markdown Emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) :high_brightness:

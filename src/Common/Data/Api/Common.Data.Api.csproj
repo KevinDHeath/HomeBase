@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="kdheath.Common.Core" />
+    <ProjectReference Include="..\..\Core\Common.Core.csproj" />
   </ItemGroup>
 
 </Project>

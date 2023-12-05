@@ -14,8 +14,11 @@
   </ItemGroup>
  
   <ItemGroup>
-    <PackageReference Include="kdheath.Common.Core" />
     <PackageReference Include="Microsoft.Data.SqlClient" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Common.Core.csproj" />
   </ItemGroup>
 
 </Project>
