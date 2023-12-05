@@ -19,18 +19,18 @@ References:
 
 ## GitHub Actions
 The available Actions are only triggered _on-demand_ and allow for the selection of branch, runner _(i.e. Operating System)_, and working folder. Each run must be provided with a name.\
-To build the entire solution the working folder should be set as '`.`', to build a single project set it can be the location of the project file, e.g. '`./src/Common/Core`'.
+To build the entire solution the working folder should be set as '`.`', to build a single project it must be the location of the project file, e.g. '`./src/Common/Core`'.
 
 - **.NET Build**
-1. Checks out the repository for the selected branch.
-2. Sets up the .NET 8.0 SDK.
-3. Creates a temporary `packages` folder.
-4. Restores any dependencies for the project _(or solution)_ based on the working directory provided as an input variable.
-5. Executes the .NET CLI command to perform the build.
-6. Uploads the package artifacts as `HomeBase-Packages` with a retention period of 2 days.
+  - Checks out the repository for the selected branch.
+  - Sets up the .NET 8.0 SDK.
+  - Creates a temporary `packages` folder.
+  - Restores any dependencies for the project _(or solution)_ based on the provided working folder.
+  - Executes the .NET CLI command to perform the build.
+  - Uploads the package artifacts as `HomeBase-Packages` with a retention period of 2 days.
 
 - **Log Environment**\
 _This demonstrates the different ways to retrieve environment variables depending on the runner platform._
-1. Gets the selected branch details.
-2. Echoes the variables when running on a Linux platform.
-3. Echoes the variables when running on a Windows platform.
+  - Gets the details of the selected branch.
+  - Echoes the variables when running on a Linux platform.
+  - Echoes the variables when running on a Windows platform.
