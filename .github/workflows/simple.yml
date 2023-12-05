@@ -1,4 +1,4 @@
-name: Environment
+name: Log Environment
 
 on:
   workflow_dispatch:
