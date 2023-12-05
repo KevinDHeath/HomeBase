@@ -18,9 +18,9 @@ on:
         - windows-latest
         default: ubuntu-latest
       project-folder:
-        description: Folder containing the solution
+        description: Folder containing the project
         type: string
-        default: .
+        default: ./src/Common/Core
 
 run-name: ${{ inputs.run-name }}
 

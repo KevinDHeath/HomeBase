@@ -13,12 +13,12 @@
 
   <!-- Package Information -->
   <PropertyGroup Condition="'$(PackageReadmeFile)' != ''">
-    <PackageOutputPath>$(PackLocal)</PackageOutputPath>
+    <PackageOutputPath>$(PackLocation)</PackageOutputPath>
     <PackageIcon>icon.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(PackageReadmeFile)' != ''">
+  <ItemGroup Condition="'$(PackageReadmeFile)' != '' And '$(PackNoSolution)' == 'false'">
     <None Include="$(SolutionDir)icon.png" Pack="true" PackagePath="" Visible="false" />
     <None Include="$(SolutionDir)LICENSE" Pack="true" PackagePath="" Visible="false" />
   </ItemGroup>
