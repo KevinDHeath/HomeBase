@@ -23,7 +23,7 @@ To setup a single website with links to each project follow these steps:
   for the local user: `IIS APPPOOL\Documentation`.
 
 Finally, copy the following items from this folder to `C:\Temp\Documentation`
-``` cmd
+``` console
 CommonProjects
 icon-orange.ico
 index.html

@@ -54,6 +54,3 @@ References:
 - [JSON serialization and de-serialization in .NET](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/overview)\
 [Compare Newtonsoft.Json to System.Text.Json, and migrate to System.Text.Json](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/migrate-from-newtonsoft)
 - [De-serializing generic interfaces with System.Text.Json](https://www.mrlacey.com/2019/10/deserializing-generic-interfaces-with.html)
-
-# Common Theme
-Contains branding details and instructions on how to set-up a local web site to host the Sandcastle Web Site output. For details see [Common Theme](https://github.com/KevinDHeath/HomeBase/tree/main/docs/Common/Theme)
