@@ -31,10 +31,10 @@
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 
     <!-- MVVM.Wpf -->
-    <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.0" />
+    <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.1" />
 
     <!-- TestHarness -->
-    <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.0" />
+    <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.1" />
 
   </ItemGroup>
 

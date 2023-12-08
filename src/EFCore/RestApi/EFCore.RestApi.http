@@ -2,19 +2,19 @@
 @contentType = application/json
 
 ### Company
-GET {{EFCore.RestApi_HostAddress}}/api/company?count=4&last=10
+GET {{EFCore.RestApi_HostAddress}}/api/Company?count=4&last=10
 
 ###
-GET {{EFCore.RestApi_HostAddress}}/api/company/43
+GET {{EFCore.RestApi_HostAddress}}/api/Company/43
 
 ### Person
-GET {{EFCore.RestApi_HostAddress}}/api/person
+GET {{EFCore.RestApi_HostAddress}}/api/Person
 
 ### Movie
-GET {{EFCore.RestApi_HostAddress}}/api/movie
+GET {{EFCore.RestApi_HostAddress}}/api/Movie
 
 ### Superhero
-GET {{EFCore.RestApi_HostAddress}}/api/superhero?count=4&last=20
+GET {{EFCore.RestApi_HostAddress}}/api/Superhero?count=4&last=20
 
 ###
 GET {{EFCore.RestApi_HostAddress}}/api/superhero/3
@@ -24,22 +24,21 @@ PUT {{EFCore.RestApi_HostAddress}}/api/superhero/3
 Content-Type: {{contentType}}
 
 {
-  "id":3,
-  "name":"Aquaman",
-  "firstName":"Arthur",
-  "lastName":"Curry",
-  "publisher":0,
-  "place": "Gotham City"
+  "id": 23,
+  "name": "Daredevil",
+  "firstName": "Matt",
+  "lastName": "Murdock",
+  "publisher": 1
 }
 
 ### ISO Country
-GET {{EFCore.RestApi_HostAddress}}/api/isocountry
+GET {{EFCore.RestApi_HostAddress}}/api/ISOCountry
 
 ### US State
-GET {{EFCore.RestApi_HostAddress}}/api/usstate
+GET {{EFCore.RestApi_HostAddress}}/api/USState
 
 ### US Zip code
-GET {{EFCore.RestApi_HostAddress}}/api/uszipcode
+GET {{EFCore.RestApi_HostAddress}}/api/USZipCode
 
 ###
-GET {{EFCore.RestApi_HostAddress}}/api/uszipcode/32937
+GET {{EFCore.RestApi_HostAddress}}/api/USZipCode/32937
