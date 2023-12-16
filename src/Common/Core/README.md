@@ -2,6 +2,8 @@
 The Common Core local package contains classes and interfaces for .NET components.
 
 ## Change Log
+- v2.0.2
+  - Add AddressFactoryBase class to support multi-country data.
 - v2.0.1
   - Add Postcode model _(replaces USZipCode)_\
   Column order changed in data file\

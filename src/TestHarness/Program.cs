@@ -1,6 +1,5 @@
 ﻿using System;
 using Logging.Helper;
-using TestHarness.Json;
 
 namespace TestHarness;
 

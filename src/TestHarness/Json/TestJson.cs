@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Json.Converters;
 
-namespace TestHarness.Json;
+namespace TestHarness;
 
 // Paste JSON or XML as classes
 // https://learn.microsoft.com/en-us/visualstudio/ide/reference/paste-json-xml
