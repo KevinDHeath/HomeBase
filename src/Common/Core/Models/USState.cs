@@ -16,7 +16,7 @@ public class USState : ModelData
 	/// <summary>2-digit US Postal Service State abbreviation.</summary>
 	[MaxLength( 2 )]
 	[JsonIgnore( Condition = JsonIgnoreCondition.WhenWritingNull )]
-	public string? Alpha { get; set; } = string.Empty;
+	public string? Alpha { get; set; }
 
 	/// <summary>State name.</summary>
 	[Required]
@@ -26,7 +26,7 @@ public class USState : ModelData
 	/// <summary>State capital.</summary>
 	[MaxLength( 50 )]
 	[JsonIgnore( Condition = JsonIgnoreCondition.WhenWritingNull )]
-	public string? Capital { get; set; } = string.Empty;
+	public string? Capital { get; set; }
 
 	#endregion
 

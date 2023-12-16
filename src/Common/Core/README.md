@@ -2,6 +2,16 @@
 The Common Core local package contains classes and interfaces for .NET components.
 
 ## Change Log
+- v2.0.1
+  - Add Postcode model _(replaces USZipCode)_\
+  Column order changed in data file\
+  ZipCode -> Code _(size changed from 5 to 10)_\
+  State -> Province _(size changed from 2 to 10)_\
+  County - no longer required\
+  City - no longer required
+  - Add Province model (replaces USState)\
+  Alpha -> Code _(size changed from 2 to 10)_\
+  Capital - Removed
 - v2.0.0
   - GitHub repository name changed from `MyProjects` to `HomeBase`.
   - Updated to .NET 8

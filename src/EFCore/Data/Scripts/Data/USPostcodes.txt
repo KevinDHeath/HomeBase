@@ -1,0 +1,159 @@
+Code	Province	County	City
+71601	AR	Jefferson	Pine Bluff
+72205	AR	Pulaski	Little Rock
+85012	AZ	Maricopa	Phoenix
+85013	AZ	Maricopa	Phoenix
+85016	AZ	Maricopa	Phoenix
+85017	AZ	Maricopa	Phoenix
+85020	AZ	Maricopa	Phoenix
+85034	AZ	Maricopa	Phoenix
+85204	AZ	Maricopa	Mesa
+85282	AZ	Maricopa	Tempe
+90021	CA	Los Angeles	Los Angeles
+90067	CA	Los Angeles	Los Angeles
+90248	CA	Los Angeles	Gardena
+90302	CA	Los Angeles	Inglewood
+91010	CA	Los Angeles	Duarte
+91325	CA	Los Angeles	Northridge
+91745	CA	Los Angeles	Hacienda Heights
+91761	CA	San Bernardino	Ontario
+92705	CA	Orange	Santa Ana
+93232	CA	Kings	Hanford
+93551	CA	Los Angeles	Palmdale
+93901	CA	Monterey	Salinas
+94104	CA	San Francisco	San Francisco
+94105	CA	San Francisco	San Francisco
+94111	CA	San Francisco	San Francisco
+94565	CA	Contra Costa	Pittsburg
+94577	CA	Alameda	San Leandro
+94607	CA	Alameda	Oakland
+95008	CA	Santa Clara	Campbell
+95240	CA	San Joaquin	Lodi
+95404	CA	Sonoma	Santa Rosa
+80110	CO	Arapahoe	Englewood
+80112	CO	Arapahoe	Englewood
+80126	CO	Douglas	Littleton
+80205	CO	Denver	Denver
+80212	CO	Denver	Denver
+80221	CO	Adams	Denver
+80223	CO	Denver	Denver
+80231	CO	Denver	Denver
+80234	CO	Adams	Denver
+80303	CO	Boulder	Boulder
+80304	CO	Boulder	Boulder
+80904	CO	El Paso	Colorado Springs
+81211	CO	Chaffee	Buena Vista
+06484	CT	Fairfield	Shelton
+06511	CT	New Haven	New Haven
+32937	FL	Brevard	Satellite Beach
+32940	FL	Brevard	Melbourne
+34786	FL	Orange	Windermere
+30308	GA	Fulton	Atlanta
+30328	GA	Fulton	Atlanta
+30340	GA	Dekalb	Atlanta
+30344	GA	Fulton	Atlanta
+30728	GA	Walker	La Fayette
+30741	GA	Walker	Rossville
+30753	GA	Chattooga	Trion
+96701	HI	Honolulu	Aiea
+96720	HI	Hawaii	Hilo
+96740	HI	Hawaii	Kailua Kona
+96782	HI	Honolulu	Pearl City
+96815	HI	Honolulu	Honolulu
+50658	IA	Chickasaw	Nashua
+83211	ID	Power	American Falls
+60601	IL	Cook	Chicago
+60611	IL	Cook	Chicago
+46204	IN	Marion	Indianapolis
+66441	KS	Geary	Junction City
+67401	KS	Saline	Salina
+70819	LA	East Baton Rouge	Baton Rouge
+01001	MA	Hampden	Agawam
+01020	MA	Hampden	Chicopee
+01109	MA	Hampden	Springfield
+01201	MA	Berkshire	Pittsfield
+01453	MA	Worcester	Leominster
+01527	MA	Worcester	Millbury
+01545	MA	Worcester	Shrewsbury
+01602	MA	Worcester	Worcester
+01930	MA	Essex	Gloucester
+01944	MA	Essex	Manchester
+02108	MA	Suffolk	Boston
+02116	MA	Suffolk	Boston
+02141	MA	Middlesex	Cambridge
+02149	MA	Middlesex	Everett
+02171	MA	Norfolk	Quincy
+02346	MA	Plymouth	Middleboro
+02360	MA	Plymouth	Plymouth
+02703	MA	Bristol	Attleboro
+20781	MD	Prince Georges	Hyattsville
+20785	MD	Prince Georges	Hyattsville
+20814	MD	Montgomery	Bethesda
+20850	MD	Montgomery	Rockville
+20866	MD	Montgomery	Burtonsville
+20910	MD	Montgomery	Silver Spring
+21001	MD	Harford	Aberdeen
+21014	MD	Harford	Bel Air
+21076	MD	Anne Arundel	Hanover
+21117	MD	Baltimore	Owings Mills
+21136	MD	Baltimore	Reisterstown
+21202	MD	Baltimore City	Baltimore
+21204	MD	Baltimore	Towson
+21215	MD	Baltimore City	Baltimore
+21227	MD	Baltimore	Halethorpe
+21230	MD	Baltimore City	Baltimore
+21234	MD	Baltimore	Parkville
+21237	MD	Baltimore	Rosedale
+21801	MD	Wicomico	Salisbury
+48009	MI	Oakland	Birmingham
+48908	MI	Eaton	Lansing
+55425	MN	Hennepin	Minneapolis
+63102	MO	Saint Louis City	Saint Louis
+64158	MO	Clay	Kansas City
+08232	NJ	Atlantic	Pleasantville
+89101	NV	Clark	Las Vegas
+10001	NY	New York	New York
+10002	NY	New York	New York
+10009	NY	New York	New York
+10011	NY	New York	New York
+10025	NY	New York	New York
+10309	NY	Richmond	Staten Island
+11530	NY	Nassau	Garden City
+11563	NY	Nassau	Lynbrook
+12180	NY	Rensselaer	Troy
+13214	NY	Onondaga	Syracuse
+13601	NY	Jefferson	Watertown
+14895	NY	Allegany	Wellsville
+43551	OH	Wood	Perrysburg
+43606	OH	Lucas	Toledo
+43609	OH	Lucas	Toledo
+43613	OH	Lucas	Toledo
+43617	OH	Lucas	Toledo
+44103	OH	Cuyahoga	Cleveland
+44114	OH	Cuyahoga	Cleveland
+44129	OH	Cuyahoga	Cleveland
+44136	OH	Cuyahoga	Strongsville
+44142	OH	Cuyahoga	Brook Park
+44320	OH	Summit	Akron
+44446	OH	Trumbull	Niles
+44505	OH	Mahoning	Youngstown
+44512	OH	Mahoning	Youngstown
+44718	OH	Stark	Canton
+44827	OH	Crawford	Crestline
+45002	OH	Hamilton	Cleves
+45238	OH	Hamilton	Cincinnati
+45817	OH	Allen	Bluffton
+45840	OH	Hancock	Findlay
+17043	PA	Cumberland	Lemoyne
+18701	PA	Luzerne	Wilkes Barre
+19140	PA	Philadelphia	Philadelphia
+37210	TN	Davidson	Nashville
+75034	TX	Denton	Frisco
+75044	TX	Dallas	Garland
+75229	TX	Dallas	Dallas
+75287	TX	Collin	Dallas
+76265	TX	Montague	Saint Jo
+79901	TX	El Paso	El Paso
+79912	TX	El Paso	El Paso
+98119	WA	King	Seattle
+98499	WA	Pierce	Lakewood
