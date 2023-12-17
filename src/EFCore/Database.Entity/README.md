@@ -22,4 +22,4 @@ Use the following options when importing:
 References:
 - [SQL Server Import and Export Wizard](https://learn.microsoft.com/en-us/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard)
 - [SQLiteStudio Import](https://github.com/pawelsalawa/sqlitestudio/wiki/CsvImport)
-- [EFCore.Database.Address](..\Database.Address\README.md)
+- [EFCore.Database.Address](../Database.Address/README.md)

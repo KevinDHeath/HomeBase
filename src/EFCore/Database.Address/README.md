@@ -16,7 +16,7 @@ The JSON files in the Data folder are used during the create process to automati
 References:
 - [Data Seeding](https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding)
 - [Collations and Case Sensitivity](https://learn.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity)
-- [EFCore.Database.Entity](..\Database.Entity\README.md)
+- [EFCore.Database.Entity](../Database.Entity/README.md)
 
 Testing:
 
