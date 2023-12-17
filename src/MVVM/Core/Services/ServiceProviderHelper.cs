@@ -132,14 +132,14 @@ public static class ServiceProviderHelper
 			() => serviceProvider.GetRequiredService<NavigationBarViewModel>() );
 	}
 
-	private static INavigationService CreateLoginNavigationService( IServiceProvider serviceProvider )
+	private static ModalNavigationService<LoginViewModel> CreateLoginNavigationService( IServiceProvider serviceProvider )
 	{
 		return new ModalNavigationService<LoginViewModel>(
 			serviceProvider.GetRequiredService<ModalNavigationStore>(),
 			() => serviceProvider.GetRequiredService<LoginViewModel>() );
 	}
 
-	private static INavigationService CreateUsersNavigationService( IServiceProvider serviceProvider )
+	private static LayoutNavigationService<UsersViewModel> CreateUsersNavigationService( IServiceProvider serviceProvider )
 	{
 		return new LayoutNavigationService<UsersViewModel>(
 			serviceProvider.GetRequiredService<NavigationStore>(),
@@ -147,7 +147,7 @@ public static class ServiceProviderHelper
 			() => serviceProvider.GetRequiredService<NavigationBarViewModel>() );
 	}
 
-	private static INavigationService CreatePeopleNavigationService( IServiceProvider serviceProvider )
+	private static LayoutNavigationService<PeopleViewModel> CreatePeopleNavigationService( IServiceProvider serviceProvider )
 	{
 		return new LayoutNavigationService<PeopleViewModel>(
 			serviceProvider.GetRequiredService<NavigationStore>(),
@@ -155,7 +155,7 @@ public static class ServiceProviderHelper
 			() => serviceProvider.GetRequiredService<NavigationBarViewModel>() );
 	}
 
-	private static INavigationService CreateCompaniesNavigationService( IServiceProvider serviceProvider )
+	private static LayoutNavigationService<CompaniesViewModel> CreateCompaniesNavigationService( IServiceProvider serviceProvider )
 	{
 		return new LayoutNavigationService<CompaniesViewModel>(
 			serviceProvider.GetRequiredService<NavigationStore>(),
@@ -163,7 +163,7 @@ public static class ServiceProviderHelper
 			() => serviceProvider.GetRequiredService<NavigationBarViewModel>() );
 	}
 
-	private static INavigationService CreateSettingsNavigationService( IServiceProvider serviceProvider )
+	private static ModalNavigationService<SettingsViewModel> CreateSettingsNavigationService( IServiceProvider serviceProvider )
 	{
 		return new ModalNavigationService<SettingsViewModel>(
 			serviceProvider.GetRequiredService<ModalNavigationStore>(),

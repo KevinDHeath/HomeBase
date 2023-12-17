@@ -1,0 +1,136 @@
+Id	Name	Address_Street	Address_City	Address_State	Address_ZipCode	Address_Country	GovernmentNumber	PrimaryPhone	SecondaryPhone	Email	NaicsCode	Private	DepositsCount	DepositsBal
+1	Ridgewood Press	1331 E Edinger Ave	Santa Ana	CA	92705	USA	14-1235460	714-667-9444	714-667-9281	wyatt@paddock.com	236115	Y		215122.24
+2	Founders Title Co Placer Co	10190 Bannock St	Denver	CO	80221	USA	15-1235680	303-452-6161	303-452-6249	delilah@leonides.com	541211		1	57759.86
+3	National Fishery Research Cntr	2185 S Jason St	Denver	CO	80223	USA	15-1235734	303-934-7761	303-934-3619	adriana@shorten.com	112111			200.79
+4	Bens Iron Works	9625 E Arapahoe Rd #-l	Englewood	CO	80112	USA	15-1235678	303-649-0525	303-649-5773	conrad@rosu.com	531120			476172.52
+5	Internal Medicine Clinic	1604 S 21st St	Colorado Springs	CO	80904	USA	15-1235679	719-633-3890	719-633-7744	lenore@chopra.com	311822	Y		241.03
+6	Mega Allied Services	55892 Jacksonville Rd	Owings Mills	MD	21117	USA	29-1236967	410-224-9462	410-916-8015	gkulzer@kulzer.org	238310		1	
+7	Protecta Pack Systems	Quebec	Littleton	CO	80126	USA	15-1235736	303-694-1154	303-694-7571	sophia@lansang.com	541110		2	110467.81
+8	WM Moyer Co	1107 Kenilworth Dr	Towson	MD	21204	USA	29-1236959	410-821-6217	410-821-4466	angelia@scampoli.com	541370			111793.7
+9	QA Service	6 Kains Ave	Baltimore	MD	21215	USA	29-1236966	410-520-4832	410-957-6903	laurel_reitler@reitler.com	924120			244254.95
+10	Expert Object Corp	3929 Tennyson St	Denver	CO	80212	USA	15-1235681	303-458-8176	303-458-8696	rose@kuokkanen.com	541110			800.45
+11	Verdin Co	3031 E 40th Ave	Denver	CO	80205	USA	15-1235732	303-377-9137	303-377-3683	polly@gabard.com	531120			2033.71
+12	Haas Publishing Companies Inc	1043 Taft St	Rockville	MD	20850	USA	29-1236878	301-762-7679	301-762-1027	caitlin@zarnick.com	813410			51.89
+13	Campbell Tob Rehandling Co Inc	16 E Fayette St	Baltimore	MD	21202	USA	29-1236881	410-385-5328	410-385-7847	scot@mccrimon.com	115114	Y		9500
+14	"Smith, Rebecca M Cpa"	3577 S Santa Fe Dr	Englewood	CO	80110	USA	15-1235683	303-781-4333	303-781-2771	summer@belts.com	112111			423093.51
+15	Mega Allied Services	6950 S Tucson Way #-c	Englewood	CO	80112	USA	15-1235684	303-290-5086	303-290-8688	fernando@schmeidler.com	531190			9918.77
+16	Cal State Glass & Mirror Co	49 S Main St	Pleasantville	NJ	8232	USA	40-1237886	609-641-3190	609-641-6107	helene@gaulzetti.com				29911.72
+17	Moschitto Trim & Jewelry Co	900 Front St	San Francisco	CA	94111	USA	14-1235462	415-956-5016	415-956-6664	tiffany@bintliff.com	541310			5116.45
+18	Diamond Shamrock Real Est Dept	779 Hartford Tpke	Shrewsbury	MA	1545	USA	28-1236750	508-842-5474	508-842-1919	vito@pedez.com	813319	Y	1	51933.02
+19	Riley Riper Hollin & Colagreco	9 W Central Ave	Phoenix	AZ	85013	USA	13-1234758	602-896-2993	602-575-3457	elke_sengbusch@yahoo.com	522292		2	50959.52
+20	Plaza Nine	1888 Century Park E	Los Angeles	CA	90067	USA	14-1235463	310-553-8257	310-553-9572	mara@liechty.com	541490	Y	1	
+21	Mason Candlelight Co	8632 Old Ardmore Rd	Hyattsville	MD	20785	USA	29-1236874	301-773-9007	301-773-4006	armand@dampier.com	813910		1	15000
+22	"Doerr, Fred L Cpa"	955 Commerce Dr	Perrysburg	OH	43551	USA	44-1238758	419-874-5764	419-874-8627	janelle@yearta.com	813211		1	1735.88
+23	Grant County Glass	133 Centre	Middleboro	MA	2346	USA	28-1236749	508-946-0947	508-946-5378	sharlene@lauridsen.com	813110		1	25277.02
+24	"Lett, Marvin H Esq"	2150 S Kalamath St	Denver	CO	80223	USA	15-1235738	303-936-5828	303-936-4762	katina@selin.com	311223		1	1462.71
+25	Prospect Florist	67 Mechanic St	Attleboro	MA	2703	USA	28-1236746	508-226-6231	508-226-9811	warren@hibbitts.com	561720		1	48.72
+26	Orlite Applncs & Elec Miami	15a W Pine St	Lodi	CA	95240	USA	14-1235464	209-369-7492	209-369-2707	tillie@crenshaw.com	813110	Y	1	952.03
+27	Wmmt Radio Station	26 Montgomery St	Atlanta	GA	30328	USA	19-1236177	770-679-4752	770-930-9967	renea@hotmail.com	811121		2	41460.98
+28	Merlin Electric Co	9 Norristown Rd	Troy	NY	12180	USA	43-1238609	518-497-2940	518-931-7852	hdemesa@cox.net	444220		1	2454.62
+29	Ban Inc	40 Beach St #-105	Manchester	MA	1944	USA	28-1236748	978-526-6789	978-526-6846	emile@carpente.com	524210		1	964.47
+30	Nazette Marner Good Wendt	72 Southern Blvd	Mesa	AZ	85204	USA	13-1234759	480-293-2882	480-866-6544	iluminada.ohms@yahoo.com			1	1619.54
+31	Schott Fiber Optics Inc	96950 Hidden Ln	Aberdeen	MD	21001	USA	29-1236970	410-739-9277	410-259-2118	detra@aol.com	713990		1	729438.75
+32	Lane Promotions	9648 S Main	Salisbury	MD	21801	USA	29-1236971	410-351-1863	410-951-2667	reena@hotmail.com	541219		1	90740.72
+33	Mainline Pipe Service	244 Pedretti Ave	Cincinnati	OH	45238	USA	44-1238755	513-251-0996	513-251-3566	nettie@carothers.com	811111		2	1108324.82
+34	Hughes Consulting	278 Court St	Plymouth	MA	2360	USA	28-1236747	508-746-1301	508-746-5855	casandra@mountjoy.com	611310		1	344.1
+35	J&F Lumber	77 Massillon Rd #822	Satellite Beach	FL	32937	USA	18-1236099	321-518-5938	321-597-2159	jzurcher@zurcher.org	925120		1	1681.8
+36	Rockford Midland	Box #-801	Hanford	CA	93232	USA	14-1235465	559-583-0856	559-583-6367	christian@topliffe.com	541330		1	369.7
+37	Silver Bros Inc	8 Industry Ln	New York	NY	10002	USA	43-1238612	212-332-8435	212-880-8865	oshealy@hotmail.com	522291		1	3259.25
+38	Fogel Anderson Constr Co	1520 Caton Center Dr #-d	Halethorpe	MD	21227	USA	29-1236872	410-247-2174	410-247-9331	joy@ukich.com	813410		1	7255.28
+39	Diamond Head Sprinkler Inc	3131 Executive Pky	Toledo	OH	43606	USA	44-1238753	419-531-7593	419-531-5371	sadie@pulford.com	522220		2	33919.22
+40	Johnson Hardware Inc	9585 Cilley Rd	Cleves	OH	45002	USA	44-1238754	513-353-4161	513-353-1346	mallory@landess.com	813110			
+41	Janney Montgomery Scott Inc	850 3rd St	Santa Rosa	CA	95404	USA	14-1235467	707-575-2958	707-575-1702	marlene@caravantes.com	522298		2	4023.68
+42	Production Specialties	418 S Main St	Bel Air	MD	21014	USA	29-1236871	410-531-7572	410-531-4872	andreas@rase.com	523991		1	3152.63
+43	Packet Facilities Inc	18153 Napa St	Northridge	CA	91325	USA	14-1234792	818-886-7434	818-886-1632	luigi@silvis.com	541922		1	4579.52
+44	Mayar Silk Inc	99 5th Ave #33	Trion	GA	30753	USA	19-1236178	706-221-4243	706-616-5131	leota.ragel@gmail.com	813990		1	100
+45	Chadds Ford Winery	229 N Forty Driv	New York	NY	10011	USA	43-1238617	212-260-3151	212-253-7448	layla.springe@cox.net	532299		1	14948.13
+46	Centerline Engineering	86350 Roszel Rd	Phoenix	AZ	85012	USA	13-1234757	602-919-4211	602-442-3092	keneth@yahoo.com	525920			
+47	DAL Tile Corporation	422 E 21st St	Syracuse	NY	13214	USA	43-1238613	315-304-4759	315-640-6357	yolando@cox.net	621610		1	474751.28
+48	Tecton Corporation	7150 E County Line Rd	Littleton	CO	80126	USA	15-1235737	303-694-5521	303-694-3787	phil@renn.com	722110			45.75
+49	Grant Family Health Center	94 Chase Rd	Hyattsville	MD	20785	USA	29-1236974	301-998-9644	301-257-4883	ernest@cox.net	115210		1	36731.43
+50	"Koivunen, Debra G Md"	171 12th St #-300	Oakland	CA	94607	USA	14-1235468	510-835-2036	510-835-7036	miquel@libel.com	444190		1	19402.87
+51	Oh My Goodknits Inc	455 N Main Ave	Garden City	NY	11530	USA	43-1238614	516-212-1915	516-376-4230	gpawlowicz@yahoo.com	541410			
+52	Seabrook Machine Co	441 Murfreesboro Rd	Nashville	TN	37210	USA	52-1239433	615-248-0584	615-248-1974	denny@giambattista.com	813110			
+53	Horning Chevrolet Inc	44 Montgomery St #-2550	San Francisco	CA	94104	USA	14-1235471	415-421-0623	415-421-4984	lois@gorczyca.com	424920			
+54	Earnhardt Printing	3387 Ryan Dr	Hanover	MD	21076	USA	29-1236975	410-678-2473	410-912-6032	llizama@cox.net	621210			
+55	Microwave Printed Circuitry	55 Spring St	Pittsfield	MA	1201	USA	28-1236738	413-442-0301	413-442-9262	jordan@wohld.com	524210		1	10.28
+56	Cooper Graci & Co Cpas	5627 Lafayette Pl	Hyattsville	MD	20781	USA	29-1236869	301-277-2400	301-277-2558	antione@farina.com	522292		1	106380.86
+57	Syring Wayne Ins Agcy Inc	Pearlridge	Aiea	HI	96701	USA	20-1236181	808-488-7186	808-488-3278	antionette@andree.com	441120		1	136521.26
+58	Heidelberg Press Inc	104 Tremont St	Everett	MA	2149	USA	28-1236741	617-381-6692	617-381-5929	dwain@maio.com	524210		1	92935.96
+59	Ross Sacks & Glazier	Niles Bg	Findlay	OH	45840	USA	44-1238765	419-423-1828	419-423-6866	delia@bushlen.com	541110		1	76.71
+60	Phenix Label Co Inc	4730 N 16th St	Phoenix	AZ	85016	USA	13-1234750	602-234-4986	602-234-6955	alphonse@mailliard.com	531120		1	202050.6
+61	Value Line Corp	180 Pond St	Leominster	MA	1453	USA	28-1236743	978-534-6404	978-534-4433	les@ippolito.com	523991		1	736929.39
+62	Duarte Skating Center	2086 Central Ave	Duarte	CA	91010	USA	14-1234793	626-303-8909	626-303-7626	dong@bolick.com	561710		4	3141656.32
+63	Ware Nielson & Associates Cpas	31 River St	Millbury	MA	1527	USA	28-1236744	508-865-6758	508-865-6131	bryce@verros.com	524210		1	840.06
+64	IO Interconnect	214 Fulford Ave	Bel Air	MD	21014	USA	29-1236870	410-879-4455	410-879-4732	rosanna@groscost.com	523991		1	260328.01
+65	Leisure World	36 Charles St	Cambridge	MA	2141	USA	28-1236745	617-547-2607	617-547-9439	rafaela@delash.com	332710		1	124821.28
+66	Gunn Godfrey & Allison	6565 Eastland Rd	Brook Park	OH	44142	USA	44-1238762	216-826-3475	216-826-9672	mari@shively.com	722213		1	18492.61
+67	Katco Office Supplies	554 White Pond Dr #-c	Akron	OH	44320	USA	44-1238763	330-836-6547	330-836-2302	marcia@maruyama.com	722110			3177.35
+68	American Arts & Graphics	7 W Pinhook Rd	Lynbrook	NY	11563	USA	43-1238608	516-509-2347	516-365-7266	ckorando@hotmail.com	511110		1	56823.09
+69	"Coates, Mary Ann"	201 N Main St	Bluffton	OH	45817	USA	44-1238759	419-358-0096	419-358-0029	dwight@remenaric.com	112111		1	7547.21
+70	Baird Kurtz & Dobson	82 Winsor St #54	Atlanta	GA	30340	USA	19-1236180	770-844-3447	770-584-4119	izetta.funnell@hotmail.com	236115			
+71	Casco Services Inc	96541 W Central Blvd	Phoenix	AZ	85034	USA	13-1234754	602-390-4944	602-330-6894	christiane.eschberger@yahoo.com	236117		1	62335.77
+72	Marriott Catering	65 Makaala St	Hilo	HI	96720	USA	20-1236184	808-969-4325	808-969-7778	aurora@wunsch.com	423440		1	49175.23
+73	Mega Allied Services	17 E Gabilan St	Salinas	CA	93901	USA	14-1235472	831-758-4087	831-758-2124	olive@sessions.com	238210		3	299575.59
+74	Century Communications	73 State Road 434 E	Phoenix	AZ	85013	USA	13-1234751	602-277-4385	602-953-6360	mattie@aol.com	531210		5	111879.6
+75	Archer Rubber Co	44 Montgomery St	San Francisco	CA	94104	USA	14-1235473	415-421-0662	415-421-8727	eduardo@wombolt.com	488410			
+76	Saronix Nymph Products	44 W 4th St	Staten Island	NY	10309	USA	43-1238607	718-332-6527	718-654-7063	timothy_mulqueen@mulqueen.org	238210		2	143796.52
+77	Hunterdon Concrete	2250 Kalakaua Ave #-310	Honolulu	HI	96815	USA	20-1236182	808-923-3649	808-923-6898	debra@elmo.com	236220			11232.94
+78	PC Service	47 Brownell St	Worcester	MA	1602	USA	28-1236737	508-791-5154	508-791-6997	alton@rupke.com	523920		4	312501.97
+79	Sunnywoods Flower Shop Inc	333 Market St	San Francisco	CA	94105	USA	14-1235474	415-227-4799	415-227-1194	vesta@papik.com	812320		4	309764.91
+80	Diversified Industries	4593 Broadway St #-c109	Boulder	CO	80304	USA	15-1235676	303-444-6235	303-444-8831	roy@pecue.com	922160			8595.66
+81	Oyama Cabinet Inc	8200 E Pacific Pl #-210	Denver	CO	80231	USA	15-1235677	303-752-0656	303-752-5237	cristopher@lazar.com	531190		1	0.06
+82	John Robert Powers School	430 Hancock St	Quincy	MA	2171	USA	28-1236735	617-328-6665	617-328-2808	hilda@blankenbaker.com	518111		1	250593.06
+83	Uniglobe Travel	44 Montgomery St	San Francisco	CA	94104	USA	14-1235475	415-421-6259	415-421-2457	christin@streczywilk.com	238990			119.44
+84	Euro Alamo Management Inc	11450 Cherokee St #-b1	Denver	CO	80234	USA	15-1235674	303-450-9021	303-450-9403	faith@kloster.com	531210		2	84232.24
+85	"Williams, Constance S Cpa"	425 Cedar	Buena Vista	CO	81211	USA	15-1235739	719-395-5644	719-395-0604	brock@tassey.com	713940		3	159061.43
+86	Fashion Craft	5002 S Ash Ave	Tempe	AZ	85282	USA	13-1234747	480-820-9548	480-820-2489	deanna@casilles.com	523991		2	283026.26
+87	Hotel Edison Beauty Shop	17 E Gabilan St	Salinas	CA	93901	USA	14-1235476	831-758-8001	831-758-5939	cyrus@erazmus.com	561790		4	818058.76
+88	Whitney H Roddy Inc	53 Batavia St	Springfield	MA	1109	USA	28-1236736	413-734-1389	413-734-7324	kylie@hoseman.com	524210		2	799990.92
+89	Newtec Inc	1 Huntwood Ave	Phoenix	AZ	85017	USA	13-1234752	602-906-9419	602-277-3025	arminda@parvis.com	236115		1	5719.14
+90	Elliot Barry Company	222 N Seltzer St	Crestline	OH	44827	USA	44-1238769	419-683-6361	419-683-6634	janette@neidich.com	813110		1	1176.98
+91	Dabico Inc	15405 S San Pedro St	Gardena	CA	90248	USA	14-1235479	310-532-3081	310-532-4936	latanya@weaving.com	238990		1	1068.22
+92	Adcraft Printers	534 E Thomas Rd	Phoenix	AZ	85012	USA	13-1234748	602-650-2594	602-650-5258	dee@nigon.com	523991		2	2384.67
+93	MTS Scaffold Inc	937 Youngstown Warren Rd	Niles	OH	44446	USA	44-1238775	330-652-7269	330-652-1195	ericka@galietti.com	523991		2	81738.66
+94	HHH Enterprises Inc	3305 Nabell Ave #679	New York	NY	10009	USA	43-1238605	212-674-9610	212-462-9157	tawna@gmail.com	525920		1	953.5
+95	Parkway Business Machines Inc	8975 Yellow Brick Rd #-a	Rosedale	MD	21237	USA	29-1236868	410-574-6387	410-574-5385	denice@burri.com	332312		1	9192.95
+96	American Fireworks Co	1275 Boardman Canfield Rd	Youngstown	OH	44512	USA	44-1238774	330-726-1315	330-726-3992	allen@tandetzke.com	524210		1	50429.22
+97	Star Beauty Supply	14920 S Main St	Gardena	CA	90248	USA	14-1235480	310-323-5609	310-323-8872	julius@krivanec.com	423120		1	404.16
+98	McCutchan Publishing Corp	745599 Luhia St #-f	Kailua Kona	HI	96740	USA	20-1236185	808-334-5651	808-334-1938	lucio@reyome.com	541611		2	307558.42
+99	Country Fresh Mushrooms	6000 S Marginal Rd	Cleveland	OH	44103	USA	44-1238776	216-361-2258	216-361-0493	silvia@siers.com	813110		2	58457.5
+100	Ashleys	7150 W Central Ave	Toledo	OH	43617	USA	44-1238777	419-843-3889	419-843-7982	kenton@brathwaite.com	531120		1	11166.31
+101	Print Shop	1250 Albert St	Youngstown	OH	44505	USA	44-1238781	330-744-6170	330-744-2701	hector@delaroca.com	444190		1	9591.94
+102	Portage Casting & Mold Inc	12 Cleveland Pl	Gloucester	MA	1930	USA	28-1236733	978-281-4265	978-281-3083	mary@polintan.com	524210		2	55736.89
+103	Abbotts Frozen Custard	1203 Dell Ave	Campbell	CA	95008	USA	14-1235481	408-374-5675	408-374-9367	rena@scherma.com	236220		1	13320.97
+104	H&H Qwik Mail Copy Center	961197 Waihona St	Pearl City	HI	96782	USA	20-1236187	808-456-2020	808-456-7534	kellie@sowinski.com	237110		2	7732.31
+105	"Ambelang, Jessica M Md"	74989 Brandon St	Wellsville	NY	14895	USA	43-1238606	585-866-8313	585-498-4278	moon@yahoo.com	531210		2	47005.27
+106	Vico Products Mfg Co	5 W 7th St	Parkville	MD	21234	USA	29-1236977	410-757-1035	410-234-2267	annelle@yahoo.com	713990		1	71649.02
+107	Chips Pro Rehab	8808 Monard Dr	Silver Spring	MD	20910	USA	29-1236867	301-585-6997	301-585-1168	sterling@kalaf.com	518210		1	8908.4
+108	Automated Builders	2630 W Laskey Rd	Toledo	OH	43613	USA	44-1238771	419-473-4797	419-473-1175	ellen@bretz.com	541810		1	109300.92
+109	Precision Engineered Products	7330 N 16th St #-b206	Phoenix	AZ	85020	USA	13-1234749	602-997-4559	602-997-2034	alba@cangemi.com	523991		3	143237.3
+110	Riley Haddad and Lombardi	4853 Cordell Ave	Bethesda	MD	20814	USA	29-1236861	301-951-5805	301-951-1394	walker@styons.com	443111		1	49999.63
+111	White Star Packing Corp	Bicntnl	Wilkes Barre	PA	18701	USA	47-1239190	570-825-4059	570-825-4695	verda@mcclenic.com	541990		2	53700.39
+112	NJW & Associates Inc	41770 12th St W #-f	Palmdale	CA	93551	USA	14-1234794	661-940-2742	661-940-0529	gus@prather.com			2	396476.18
+113	Todd Annell Communications	2650 S Grand Ave	Santa Ana	CA	92705	USA	14-1235482	714-662-7913	714-662-7076	israel@pearman.com	236115		2	97173.44
+114	King Ins Agcy	1941 West Aven #-140	San Leandro	CA	94577	USA	14-1235483	510-483-9016	510-483-8088	derrick@benny.com	722110		1	105396.49
+115	Marble Works Inc	2556 Clearview Ave Nw	Canton	OH	44718	USA	44-1238782	330-456-1769	330-456-9264	eugenio@casgrove.com	236220			163864.35
+116	Squire Corrugated Contnr Corp	19571 Progress Dr	Strongsville	OH	44136	USA	44-1238784	440-572-3546	440-572-7627	hilton@lafon.com			1	212.1
+117	Sailor Plastics Inc	1320 Light St	Baltimore	MD	21230	USA	29-1236866	410-727-3130	410-727-3026	omer@rotering.com	441110		1	103162.85
+118	Garden Complements Inc	6661 Arapahoe Rd	Boulder	CO	80303	USA	15-1235740	303-449-4725	303-449-1526	stewart@nolder.com	531311		1	2966.48
+119	Xorbox Corp	1295 S Johnson Dr	Hacienda Heights	CA	91745	USA	14-1235484	626-937-1365	626-937-9781	dorris@rownd.com			1	12083.28
+120	Milford Enterprises Inc	2742 Distribution Way	New York	NY	10025	USA	43-1238601	212-860-1579	212-753-2740	asergi@gmail.com	238210		2	57991.73
+121	Custard Gem Services	110 N Washington St #-500	Rockville	MD	20850	USA	29-1236863	301-217-7148	301-217-1918	don@anzora.com	541211			254505.17
+122	Rexnord Technical Services	970 Garcia Ave #-a	Pittsburg	CA	94565	USA	14-1235486	925-427-3334	925-427-3551	jerrold@kettler.com	813410			
+123	Tri State Refueler Co	128 Bransten Rd	New York	NY	10011	USA	43-1238602	212-675-8570	212-569-4233	jose@yahoo.com	238220		1	798.72
+124	General Filtration Corp	Landmark	Reisterstown	MD	21136	USA	29-1236864	410-833-0139	410-833-9097	silvia@macintyre.com	236220		1	648.78
+125	Ryan Electronics Corp	720 Centinela Ave	Inglewood	CA	90302	USA	14-1235490	310-671-2932	310-671-1301	francisca@maskaly.com	323110		1	207.31
+126	First Securities Corp	1115 E Broomtown Rd	La Fayette	GA	30728	USA	19-1236157	706-638-1813	706-638-7755	alba@donnie.com	312130		2	114090.79
+127	Jack Opler Sales Company Inc	2498 Superior Ave E	Cleveland	OH	44114	USA	44-1238715	216-861-2421	216-861-1826	sheena@laker.com	448310		1	217.32
+128	Mega Allied Services	1165 E Acacia Ct	Ontario	CA	91761	USA	14-1234764	909-923-0954	909-923-0555	ann@senff.com			1	23.43
+129	Harvest Naturals	1000 N Front St	Lemoyne	PA	17043	USA	47-1239150	717-763-1670	717-763-0915	myron@bormuth.com	448190		4	280112.31
+130	Anne Wilson Personnel Cnslnts	5427 Pearl Rd	Cleveland	OH	44129	USA	44-1238651	440-886-9407	440-886-4251	alfreda@hennies.com	443120		1	5792.74
+131	Mail Boxes Etc	5344 Jackman Rd	Toledo	OH	43613	USA	44-1238653	419-476-8153	419-476-8689	ollie@ausley.com	531120		1	21500
+132	Vacuum Schmelze	15312 Spencerville Ct	Burtonsville	MD	20866	USA	29-1236897	301-421-2031	301-421-9856	rachel@tietze.com	532490		2	27562.33
+133	Baseline Software Group	3060 South Ave	Toledo	OH	43609	USA	44-1238714	419-385-8238	419-385-3835	scott@slim.com	236118		1	26488.27
+134	Sir Speedy Printing Centers	1530 Nabell Ave	Atlanta	GA	30344	USA	19-1236153	404-761-1954	404-761-7698	ira@parmar.com	337122		1	66147.74
+135	Evergreen Real Estate	725 Cloud Springs Rd	Rossville	GA	30741	USA	19-1236154	706-866-5329	706-866-3228	rosalind@macklem.com	451211		1	28931.92

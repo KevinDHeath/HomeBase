@@ -36,6 +36,8 @@
       <DocumentationSource sourceFile="..\..\src\Common\Data\Json\bin\Debug\net8.0\Common.Data.Json.xml" />
       <DocumentationSource sourceFile="..\..\src\Common\Data\Sql\bin\Debug\net8.0\Common.Data.Sql.dll" />
       <DocumentationSource sourceFile="..\..\src\Common\Data\Sql\bin\Debug\net8.0\Common.Data.Sql.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\net8.0\Common.Data.SQLite.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\net8.0\Common.Data.SQLite.xml" />
       <DocumentationSource sourceFile="..\..\src\Json.Converters\bin\Debug\net8.0\Json.Converters.dll" />
       <DocumentationSource sourceFile="..\..\src\Json.Converters\bin\Debug\net8.0\Json.Converters.xml" />
     </DocumentationSources>
@@ -56,8 +58,10 @@
       <NamespaceSummaryItem name="Common.Core.Interfaces" isDocumented="True">Provides interfaces for common functionality.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Common.Core.Models" isDocumented="True">Provides models for common functionality.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Common.Data.Api" isDocumented="True">Provides highly scalable, light, and maintainable RESTful Web service access to process data for testing purposes.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Common.Data.Classes" isDocumented="True">Provides classes for common data functionality.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Common.Data.Json" isDocumented="True">Provides high-performance, low-allocating, and standards-compliant capabilities to process UTF-8 JavaScript Object Notation (JSON) data for testing purposes.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Common.Data.Sql" isDocumented="True">Provides consistent access to data sources such as SQL Server and XML to process data for testing purposes.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Common.Data.SQLite" isDocumented="True">Provides consistent access to SQLite data sources to process data for testing purposes.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Json.Converters" isDocumented="True">Contains classes that are used to customize and extend serialization and deserialization of string objects into JSON formatted documents or streams via type converters.</NamespaceSummaryItem>
     </NamespaceSummaries>
     <VisibleItems>ProtectedInternalAsProtected, NonBrowsable</VisibleItems>

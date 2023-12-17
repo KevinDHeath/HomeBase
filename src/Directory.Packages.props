@@ -19,13 +19,15 @@
 
     <!-- EFCore.Data -->
     <!-- <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.0" /> -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
 
     <!-- EFCore.Database -->
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
-  
+
     <!-- MVVM.Core -->
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />

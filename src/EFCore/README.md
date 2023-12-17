@@ -1,5 +1,7 @@
 # Entity Framework Projects
 
+> For SQLServer databases use [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms).
+
 ## EFCore Data
 This contains the code, Sql scripts, and data files used to define and populate tables in an existing database. 
 
@@ -31,6 +33,20 @@ Dependencies:
 References:
 - [Using a Separate Migrations Project](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/projects)
 - [Design-time DbContext Creation](https://learn.microsoft.com/en-us/ef/core/cli/dbcontext-creation)
+
+## EFCore.Database.Address
+This contains the Entity Framework code to create and populate a database with the necessary tables and indexes for Address data.
+
+Dependencies:
+- [Microsoft.EntityFrameworkCore.Design](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design)
+- _The Common.Data project for the database type being used._
+
+## EFCore.Database.Entity
+This contains the Entity Framework code to create and populate a database with the necessary tables and indexes for Entity data.
+
+Dependencies:
+- [Microsoft.EntityFrameworkCore.Design](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design)
+- _The Common.Data project for the database type being used._
 
 ## EFCore RestApi
 This ASP.NET REST API exposes the data stored in a Sql database as JSON using the HTTP protocol.

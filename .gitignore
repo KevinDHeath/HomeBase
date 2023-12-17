@@ -9,6 +9,8 @@ Notes*.txt
 *.pdf
 *.vsdx
 *.xlsx
+*.db*
+**/Migrations/
 
 # User-specific files
 *.rsuser
