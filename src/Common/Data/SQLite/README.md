@@ -14,8 +14,8 @@ The default location for the SQLite databases is in a `Data` sub-folder. To poin
 ~~~json
 {
   "ConnectionStrings": {
-    "AddressData": "Data Source=C:\\Databases\\usAddressData.db",
-    "EntityData": "Data Source=C:\\Databases\\usEntityData.db"
+    "AddressDb": "Data Source=C:\\Databases\\usAddressData.db",
+    "EntityDb": "Data Source=C:\\Databases\\usEntityData.db"
   }
 }
 ~~~

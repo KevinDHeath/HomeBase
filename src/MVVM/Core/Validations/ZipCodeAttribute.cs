@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
-using Common.Core.Classes;
+using Common.Data.Classes;
 using MVVM.Core.ViewModels;
 
 namespace MVVM.Core.Validations;
@@ -10,6 +10,9 @@ internal partial class ZipCodeAttribute : ValidationAttribute
 	[GeneratedRegex( @"^[0-9]{5}(?:-[0-9]{4})?$" )]
 	private static partial Regex ZipCodeRegex();
 
+	internal static readonly string[] provinceMember = ["Province"];
+	internal static readonly string[] cityMember = ["City"];
+
 	/// <inheritdoc/>
 	protected override ValidationResult? IsValid( object? value, ValidationContext context )
 	{
@@ -17,15 +20,15 @@ internal partial class ZipCodeAttribute : ValidationAttribute
 			context.MemberName is not null && context.ObjectInstance is AddressViewModel avm )
 		{
 			avm.County = null;
-			if( AddressFactory.DefaultCountry.Equals( avm.Country, StringComparison.OrdinalIgnoreCase ) )
+			if( AddressFactoryBase.DefaultCountry.Equals( avm.Country, StringComparison.OrdinalIgnoreCase ) )
 			{
 				if( !ZipCodeRegex().IsMatch( val ) )
 				{
 					return new( "Format not valid.", new string[] { context.MemberName } );
 				}
-				else if( AddressData.ZipCodeCount > 0 )
+				else if( AddressFactoryBase.PostcodeCount > 0 )
 				{
-					var zip = AddressData.GetZipCode( val );
+					var zip = AddressData.GetPostcode( val );
 					if( zip is null )
 					{
 						return new( "Zip code is not valid.", new string[] { context.MemberName } );
@@ -33,14 +36,14 @@ internal partial class ZipCodeAttribute : ValidationAttribute
 					else
 					{
 						avm.County = zip.County;
-						if( !zip.State.Equals( avm.State, StringComparison.OrdinalIgnoreCase ) )
+						if( !zip.Province.Equals( avm.State, StringComparison.OrdinalIgnoreCase ) )
 						{
-							var name = AddressFactory.GetStateName( zip.State );
-							return new( "Zip code is for '" + name + "'", new string[] { "State" } );
+							string name = AddressFactoryBase.GetProvinceName( zip.Province );
+							return new( "Zip code is for '" + name + "'", provinceMember );
 						}
-						if( !zip.City.Equals( avm.City, StringComparison.OrdinalIgnoreCase ) )
+						if( zip.City is not null && !zip.City.Equals( avm.City, StringComparison.OrdinalIgnoreCase ) )
 						{
-							return new( "Zip code is for '" + zip.City + "'", new string[] { "City" } );
+							return new( "Zip code is for '" + zip.City + "'", cityMember );
 						}
 					}
 				}

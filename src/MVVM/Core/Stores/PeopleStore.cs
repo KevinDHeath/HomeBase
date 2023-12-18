@@ -1,18 +1,21 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Microsoft.EntityFrameworkCore;
 using Common.Core.Interfaces;
+using Common.Core.Models;
 using MVVM.Core.Models;
 
 namespace MVVM.Core.Stores;
 
 /// <summary>People storage.</summary>
-public class PeopleStore
+public class PeopleStore : People
 {
 	#region Properties
 
 	internal ObservableCollection<IPerson> People { get; private set; }
 
-	internal int Count => _factory.TotalCount;
+	/// <summary>Gets the total number of people available.</summary>
+	public int Count => _context.People.Count();
 
 	internal IPerson? CurrentPerson
 	{
@@ -37,22 +40,22 @@ public class PeopleStore
 
 	#region Constructor and Variables
 
-	private readonly IDataFactory<IPerson> _factory;
+	private readonly EntityContextBase _context;
 	private IPerson? _currentPerson;
 	private string? _dataFolder;
 	private bool _useExternal;
 
 	/// <summary>Initializes a new instance of the PeopleStore class.</summary>
 	/// <param name="settingsStore">Settings storage.</param>
-	/// <param name="factory">Person data factory.</param>
-	public PeopleStore( SettingsStore settingsStore, IDataFactory<IPerson> factory )
+	/// <param name="context">Database context.</param>
+	public PeopleStore( SettingsStore settingsStore, EntityContextBase context )
 	{
 		settingsStore.SettingsChanged += SettingsPropertyChanged;
 		_useExternal = settingsStore.CurrentSettings?.UseExternal ?? false;
-		_factory = factory;
+		_context = context;
 
 		Initialize( settingsStore.CurrentSettings );
-		People ??= new();
+		People ??= [];
 	}
 
 	#endregion
@@ -61,11 +64,19 @@ public class PeopleStore
 
 	internal void AddPerson( int max = 0 )
 	{
-		if( _factory is null ) return;
-
-		foreach( var person in _factory.Get( max ) )
+		foreach( var person in Get( max ) )
 		{
 			People.Add( person );
+		}
+	}
+
+	internal void UpdatePerson( IPerson person )
+	{
+		Person? res = null;
+		if( CurrentPerson is not null && CurrentPerson is Person cur )
+		{
+			if( !_useExternal ) { res = Update( CurrentPerson.Id, person ).Result; }
+			if( res is not null ) { cur.Update( person ); }
 		}
 	}
 
@@ -75,25 +86,27 @@ public class PeopleStore
 
 		if( !string.IsNullOrWhiteSpace( folder ) && !string.IsNullOrWhiteSpace( fileName ) )
 		{
-			_factory.Serialize( folder, fileName, new List<IPerson>( People ) );
+			Serialize( folder, fileName, new List<IPerson>( People ) );
 		}
 
 		return false;
 	}
 
-	internal void UpdatePerson( IPerson person )
-	{
-		bool ok = true;
-		if( CurrentPerson is not null && CurrentPerson is Common.Core.Models.Person cur )
-		{
-			if( !_useExternal ) { ok = _factory.Update( CurrentPerson, person ); }
-			if( ok ) { cur.Update( person ); }
-		}
-	}
-
 	#endregion
 
 	#region Private Methods
+
+	private List<IPerson> Get( int max = 0 )
+	{
+		if( max > 0 )
+		{
+			int start = GetStartIndex( Count, max );
+			return [.. _context.People.Where( p => p.Id > start && p.Id <= start + max )];
+		}
+
+		List<IPerson> rtn = [];
+		return rtn;
+	}
 
 	private void Initialize( Settings? settings )
 	{
@@ -113,11 +126,11 @@ public class PeopleStore
 	private void Initialize( int? recs, string? fileName = "" )
 	{
 		int max = recs is null ? 1 : recs.Value;
-		_factory.Data.Clear();
+		Data.Clear();
 
 		People = !string.IsNullOrWhiteSpace( _dataFolder ) && !string.IsNullOrWhiteSpace( fileName )
-			? new ObservableCollection<IPerson>( _factory.Get( _dataFolder, fileName, max ) )
-			: new ObservableCollection<IPerson>( _factory.Get( max ) );
+			? new ObservableCollection<IPerson>( Get( _dataFolder, fileName, max ) )
+			: new ObservableCollection<IPerson>( Get( max ) );
 	}
 
 	private void SettingsPropertyChanged( object? sender, PropertyChangedEventArgs e )
@@ -139,6 +152,55 @@ public class PeopleStore
 				default: break;
 			}
 		}
+	}
+
+	#endregion
+
+	#region CRUD Operations
+
+	/// <summary>Creates a Person.</summary>
+	/// <param name="details">The Person details.</param>
+	/// <returns>The created Person details.</returns>
+	public async Task<Person> Create( Person details )
+	{
+		_ = _context.People.Add( details );
+		_ = await _context.SaveChangesAsync();
+		return details;
+	}
+
+	/// <summary>Gets a specific Person.</summary>
+	/// <param name="id">Unique Person Id.</param>
+	/// <returns>The Person details.</returns>
+	private async Task<Person?> Read( int id )
+	{
+		return await _context.People.Include( x => x.Address ).FirstOrDefaultAsync( x => x.Id == id );
+	}
+
+	/// <summary>Updates a specific Person.</summary>
+	/// <param name="id">Unique Person Id.</param>
+	/// <param name="changes">The Person detail changes.</param>
+	/// <returns>The updated Person details.</returns>
+	public async Task<Person?> Update( int id, IPerson changes )
+	{
+		Person? current = await Read( id );
+		if( current is null ) { return current; }
+
+		current.Update( changes );
+		_ = await _context.SaveChangesAsync();
+		return current;
+	}
+
+	/// <summary>Deletes a Person.</summary>
+	/// <param name="id">Unique Person Id.</param>
+	/// <returns>The deleted Person details.</returns>
+	public async Task<Person?> Delete( int id )
+	{
+		Person? current = await Read( id );
+		if( current is null ) return null;
+
+		_context.People.Remove( current );
+		_ = await _context.SaveChangesAsync();
+		return current;
 	}
 
 	#endregion

@@ -44,9 +44,10 @@ class Program
 		//if( DataTasks.TestAddress() ) { return true; }
 		//if( DataTasks.TestData() ) { return true; }
 		//if( TestJson.RunTest() ) { return true; }
-		if( TestLINQ.RunTest() ) { return true; }
+		//if( TestLINQ.RunTest() ) { return true; }
 		//if( Reflection.TestReflection.Test() ) { return true; }
 		//if( TestRestAPI.RunTest() ) { return true; }
+		if( TestMVVM.RunTest() ) { return true; }
 
 		return false;
 	}

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Common.Core.Classes;
 using Common.Core.Models;
+using Common.Data.Classes;
 using MVVM.Core.Validations;
 
 namespace MVVM.Core.ViewModels;
@@ -11,10 +11,10 @@ public abstract class AddressViewModel : ViewModelEdit
 	#region Properties
 
 	/// <summary>Gets a list of US State data.</summary>
-	public static IList<USState> States => AddressFactory.States;
+	public static IList<Province> States => AddressFactoryBase.Provinces;
 
 	/// <summary>Gets a sorted list of ISO Country data.</summary>
-	public static IList<CountryCode> Countries => AddressFactory.Countries;
+	public static IList<CountryCode> Countries => AddressFactoryBase.Countries;
 
 	/// <summary>Gets or sets the Street.</summary>
 	[Required( ErrorMessage = "Street cannot be empty." )]

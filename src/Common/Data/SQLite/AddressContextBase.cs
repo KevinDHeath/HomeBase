@@ -18,7 +18,7 @@ public class AddressContextBase() : DbContext()
 	/// <inheritdoc />
 	protected override void OnConfiguring( DbContextOptionsBuilder optionsBuilder )
 	{
-		string? connStr = EntityContextBase.GetConnectionString( "AddressData" );
+		string? connStr = EntityContextBase.GetConnectionString( "AddressDb" );
 		if( string.IsNullOrWhiteSpace( connStr ) ) { connStr = @"Data Source=.\Data\AddressData.db"; }
 		_ = optionsBuilder.UseSqlite( connStr );
 

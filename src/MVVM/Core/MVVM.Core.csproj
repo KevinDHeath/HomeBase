@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <DebugType>Embedded</DebugType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
@@ -22,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Data\Api\Common.Data.Api.csproj" />
-    <ProjectReference Include="..\..\Common\Data\Json\Common.Data.Json.csproj" />
-    <ProjectReference Include="..\..\Common\Data\Sql\Common.Data.Sql.csproj" />
+    <ProjectReference Include="..\..\Common\Data\SQLite\Common.Data.SQLite.csproj" />
   </ItemGroup>
 
 </Project>

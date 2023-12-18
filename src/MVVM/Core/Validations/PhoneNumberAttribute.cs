@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
-using Common.Core.Classes;
+using Common.Data.Classes;
 using MVVM.Core.ViewModels;
 
 namespace MVVM.Core.Validations;
@@ -17,7 +17,7 @@ internal partial class PhoneNumberAttribute : ValidationAttribute
 			context.MemberName is not null )
 		{
 			if( context.ObjectInstance is AddressViewModel avm &&
-				!AddressFactory.DefaultCountry.Equals( avm.Country, StringComparison.OrdinalIgnoreCase ) )
+				!AddressFactoryBase.DefaultCountry.Equals( avm.Country, StringComparison.OrdinalIgnoreCase ) )
 			{
 				// If Country is not US validate min 11 max 15 digits
 				string onlyNumbers = new( val.ToCharArray().Where( c => char.IsDigit( c ) ).ToArray() );

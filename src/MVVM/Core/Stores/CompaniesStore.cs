@@ -1,18 +1,21 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Microsoft.EntityFrameworkCore;
 using Common.Core.Interfaces;
+using Common.Core.Models;
 using MVVM.Core.Models;
 
 namespace MVVM.Core.Stores;
 
 /// <summary>Companies storage.</summary>
-public class CompaniesStore
+public class CompaniesStore : Companies
 {
 	#region Properties
 
 	internal ObservableCollection<ICompany> Companies { get; private set; }
 
-	internal int Count => _factory.TotalCount;
+	/// <summary>Gets the total number of companies available.</summary>
+	public int Count => _context.Companies.Count();
 
 	internal ICompany? CurrentCompany
 	{
@@ -37,22 +40,22 @@ public class CompaniesStore
 
 	#region Constructor and Variables
 
-	private readonly IDataFactory<ICompany> _factory;
+	private readonly EntityContextBase _context;
 	private ICompany? _currentCompany;
 	private string? _dataFolder;
 	private bool _useExternal;
 
 	/// <summary>Initializes a new instance of the CompaniesStore class.</summary>
 	/// <param name="settingsStore">Settings storage.</param>
-	/// <param name="factory">Company data factory.</param>
-	public CompaniesStore( SettingsStore settingsStore, IDataFactory<ICompany> factory )
+	/// <param name="context">Database context.</param>
+	public CompaniesStore( SettingsStore settingsStore, EntityContextBase context )
 	{
 		settingsStore.SettingsChanged += SettingsPropertyChanged;
 		_useExternal = settingsStore.CurrentSettings?.UseExternal ?? false;
-		_factory = factory;
+		_context = context;
 
 		Initialize( settingsStore.CurrentSettings );
-		Companies ??= new();
+		Companies ??= [];
 	}
 
 	#endregion
@@ -61,9 +64,7 @@ public class CompaniesStore
 
 	internal void AddCompany( int max = 0 )
 	{
-		if( _factory is null ) return;
-
-		foreach( var company in _factory.Get( max ) )
+		foreach( var company in Get( max ) )
 		{
 			Companies.Add( company );
 		}
@@ -71,11 +72,11 @@ public class CompaniesStore
 
 	internal void UpdateCompany( ICompany company )
 	{
-		bool ok = true;
-		if( CurrentCompany is not null && CurrentCompany is Common.Core.Models.Company cur )
+		Company? res = null;
+		if( CurrentCompany is not null && CurrentCompany is Company cur )
 		{
-			if( !_useExternal ) { ok = _factory.Update( CurrentCompany, company ); }
-			if( ok ) { cur.Update( company ); }
+			if( !_useExternal ) { res = Update( CurrentCompany.Id, company ).Result; }
+			if( res is not null ) { cur.Update( company ); }
 		}
 	}
 
@@ -85,7 +86,7 @@ public class CompaniesStore
 
 		if( !string.IsNullOrWhiteSpace( folder ) && !string.IsNullOrWhiteSpace( fileName ) )
 		{
-			return _factory.Serialize( folder, fileName, new List<ICompany>( Companies ) );
+			return Serialize( folder, fileName, new List<ICompany>( Companies ) );
 		}
 
 		return false;
@@ -94,6 +95,18 @@ public class CompaniesStore
 	#endregion
 
 	#region Private Methods
+
+	private List<ICompany> Get( int max = 0 )
+	{
+		if( max > 0 )
+		{
+			int start = GetStartIndex( Count, max );
+			return [.. _context.Companies.Where( p => p.Id > start && p.Id <= start + max )];
+		}
+
+		List<ICompany> rtn = [];
+		return rtn;
+	}
 
 	private void Initialize( Settings? settings )
 	{
@@ -113,11 +126,11 @@ public class CompaniesStore
 	private void Initialize( int? recs, string? fileName = "" )
 	{
 		int max = recs is null ? 1 : recs.Value;
-		_factory.Data.Clear();
+		Data.Clear();
 
 		Companies = !string.IsNullOrWhiteSpace( _dataFolder ) && !string.IsNullOrWhiteSpace( fileName )
-			? new ObservableCollection<ICompany>( _factory.Get( _dataFolder, fileName, max ) )
-			: new ObservableCollection<ICompany>( _factory.Get( max ) );
+			? new ObservableCollection<ICompany>( Get( _dataFolder, fileName, max ) )
+			: new ObservableCollection<ICompany>( Get( max ) );
 	}
 
 	private void SettingsPropertyChanged( object? sender, PropertyChangedEventArgs e )
@@ -139,6 +152,55 @@ public class CompaniesStore
 				default: break;
 			}
 		}
+	}
+
+	#endregion
+
+	#region CRUD Operations
+
+	/// <summary>Creates a Company.</summary>
+	/// <param name="details">The Company details.</param>
+	/// <returns>The created Company details.</returns>
+	public async Task<Company> Create( Company details )
+	{
+		_context.Companies.Add( details );
+		_ = await _context.SaveChangesAsync();
+		return details;
+	}
+
+	/// <summary>Gets a specific Company.</summary>
+	/// <param name="id">Unique Company Id.</param>
+	/// <returns>The Company details.</returns>
+	public async Task<Company?> Read( int id )
+	{
+		return await _context.Companies.Include( x => x.Address ).FirstOrDefaultAsync( x => x.Id == id );
+	}
+
+	/// <summary>Updates a specific Company.</summary>
+	/// <param name="id">Unique Company Id.</param>
+	/// <param name="changes">The Company detail changes.</param>
+	/// <returns>The updated Company details.</returns>
+	public async Task<Company?> Update( int id, ICompany changes )
+	{
+		Company? current = await Read( id );
+		if( current is null ) { return current; }
+
+		current.Update( changes );
+		_ = await _context.SaveChangesAsync();
+		return current;
+	}
+
+	/// <summary>Deletes a Company.</summary>
+	/// <param name="id">Unique Company Id.</param>
+	/// <returns>The deleted Company details.</returns>
+	public async Task<Company?> Delete( int id )
+	{
+		Company? current = await Read( id );
+		if( current is null ) return null;
+
+		_context.Companies.Remove( current );
+		_ = await _context.SaveChangesAsync();
+		return current;
 	}
 
 	#endregion

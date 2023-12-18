@@ -30,7 +30,7 @@ public class EntityContextBase() : DbContext()
 	/// <inheritdoc />
 	protected override void OnConfiguring( DbContextOptionsBuilder optionsBuilder )
 	{
-		string? connStr = GetConnectionString( "EntityData" );
+		string? connStr = GetConnectionString( "EntityDb" );
 		if( string.IsNullOrWhiteSpace( connStr ) ) { connStr = @"Data Source=.\Data\EntityData.db"; }
 		_ = optionsBuilder.UseSqlite( connStr );
 	}

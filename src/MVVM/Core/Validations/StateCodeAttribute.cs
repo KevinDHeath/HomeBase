@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Common.Core.Classes;
+using Common.Data.Classes;
 using MVVM.Core.ViewModels;
 
 namespace MVVM.Core.Validations;
@@ -12,9 +12,9 @@ internal class StateCodeAttribute : ValidationAttribute
 		if( value is not null && value is string val && val.Length > 0 &&
 			context.MemberName is not null && context.ObjectInstance is AddressViewModel avm )
 		{
-			if( AddressFactory.DefaultCountry.Equals( avm.Country, StringComparison.OrdinalIgnoreCase ) )
+			if( AddressFactoryBase.DefaultCountry.Equals( avm.Country, StringComparison.OrdinalIgnoreCase ) )
 			{
-				if( AddressFactory.States.Count > 0 && !AddressFactory.CheckStateCode( val ) )
+				if( AddressFactoryBase.Provinces.Count > 0 && !AddressFactoryBase.CheckProvinceCode( val ) )
 				{
 					return new( $"State code '{val}' is not valid.", new string[] { context.MemberName } );
 				}

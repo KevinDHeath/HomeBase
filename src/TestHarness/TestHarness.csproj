@@ -22,6 +22,7 @@
     <ProjectReference Include="..\Common\Data\Sql\Common.Data.Sql.csproj" />
     <ProjectReference Include="..\EFCore\Data\EFCore.Data.csproj" />
     <ProjectReference Include="..\Json.Converters\Json.Converters.csproj" />
+    <ProjectReference Include="..\MVVM\Core\MVVM.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +46,12 @@
     </None>
     <None Update="nlog.config">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Include="..\EFCore\Database.Address\Data\AddressData.db" Link="Data\AddressData.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\EFCore\Database.Entity\Data\EntityData.db" Link="Data\EntityData.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

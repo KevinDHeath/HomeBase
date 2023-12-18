@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Common.Core.Classes;
+using Common.Data.Classes;
 
 namespace MVVM.Core.Validations;
 
@@ -11,7 +11,7 @@ internal class CountryCodeAttribute : ValidationAttribute
 		if( value is not null && value is string val && val.Length > 0 &&
 			context.MemberName is not null )
 		{
-			if( !AddressFactory.CheckCountryCode( val ) )
+			if( !AddressFactoryBase.CheckCountryCode( val ) )
 			{
 				return new( $"Country code '{val}' is not valid.", new string[] { context.MemberName } );
 			}
