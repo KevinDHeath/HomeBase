@@ -69,17 +69,23 @@
 					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
 				<TextBlock Grid.Row="0" Padding="3,0,0,0" Text="Location:" Style="{StaticResource appFilePathStyle}"/>
-				<cc:FilePathTextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource appLayoutStyle}"
-									DialogType="Folder" IsReadOnly="True">
+				<cc:FilePathTextBox Grid.Row="0" Grid.Column="1" x:Name="txtFolder" Style="{StaticResource appLayoutStyle}"
+					DialogType="Folder" IsReadOnly="True">
 					<Binding Path="ExternalData" UpdateSourceTrigger="PropertyChanged" BindingGroupName="none"/>
 				</cc:FilePathTextBox>
 				<TextBlock Grid.Row="1" Padding="0,0,5,0" Text="People file:" Style="{StaticResource appFilePathStyle}"/>
 				<cc:FilePathTextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource appLayoutStyle}">
 					<Binding Path="ExtPeople" UpdateSourceTrigger="PropertyChanged" BindingGroupName="none"/>
+					<cc:FilePathTextBox.RelativePath>
+						<Binding ElementName="txtFolder" Path="Text"/>
+					</cc:FilePathTextBox.RelativePath>
 				</cc:FilePathTextBox>
 				<TextBlock Grid.Row="2" Padding="0,0,5,0" Text="Companies file:" Style="{StaticResource appFilePathStyle}"/>
 				<cc:FilePathTextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource appLayoutStyle}">
 					<Binding Path="ExtCompanies" UpdateSourceTrigger="PropertyChanged" BindingGroupName="none"/>
+					<cc:FilePathTextBox.RelativePath>
+						<Binding ElementName="txtFolder" Path="Text"/>
+					</cc:FilePathTextBox.RelativePath>
 				</cc:FilePathTextBox>
 			</Grid>
 		</GroupBox>
