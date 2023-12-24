@@ -49,7 +49,7 @@
 						<StackPanel Orientation="Horizontal">
 							<TextBlock Text="For more information see "/>
 							<TextBlock>							
-								<Hyperlink NavigateUri="https://kevindheath.github.io/tech/mvvm-wpf-refs.html"
+								<Hyperlink NavigateUri="https://kevindheath.github.io/tech/mvvm-wpf.html"
 											RequestNavigate="Hyperlink_RequestNavigate">
 											References
 								</Hyperlink>

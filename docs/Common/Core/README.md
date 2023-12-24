@@ -1,20 +1,21 @@
 ## About
-The Common Core local package contains classes and interfaces for .NET components.
+The Common Core package contains useful classes and interfaces for .NET components.
 
 See [Change Log](https://github.com/KevinDHeath/HomeBase/tree/main/src/Common/Core) for release notes.
 
 ## Key Features
-- It is not published on NuGet.
-
 It provides:
 - Classes
 - Converters
 - Interfaces
 - Models
 
-## How to Use
-
 ## Main Types
+- `Classes.JsonHelper` - Provides methods for serialization of data files and custom object types.
+- `Classes.ModelBase` - Base class for models that require the `INotifyPropertyChanged` interface.
+- `Classes.ModelDataError` - Base class for models that require the `INotifyPropertyChanged` and `INotifyDataErrorInfo` interfaces.
+- `Converters.JsonBoolean` - Converts `yes/no` or `y/n` string values to a boolean.
+- `Converters.StringConverter` - Provides Try/Parse static methods to convert strings to other data types.
 
 ## Feedback
 This is provided as open source under the MIT license.\
