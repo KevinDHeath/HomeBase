@@ -178,8 +178,16 @@ public class ModelDataError : ModelBase, INotifyDataErrorInfo
 		_context.DisplayName = GetDisplayNameForProperty( propertyName );
 
 		var results = new List<ValidationResult>();
-		Validator.TryValidateProperty( value, _context, results );
-
+		try
+		{
+			Validator.TryValidateProperty( value, _context, results );
+		}
+		catch( Exception ex )
+		{
+			// Handle System.InvalidCastException exception
+			// Unable to cast object of type 'System.DateTime' to type 'System.String'.
+			results.Add( new ValidationResult( ex.Message ) );
+		}
 		ClearErrors( propertyName );
 		AddValidationResults( results );
 
