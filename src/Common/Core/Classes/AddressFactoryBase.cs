@@ -1,6 +1,6 @@
 ﻿using Common.Core.Models;
 
-namespace Common.Data.Classes;
+namespace Common.Core.Classes;
 
 /// <summary>Contains data used for Addresses.</summary>
 public abstract class AddressFactoryBase

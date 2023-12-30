@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
-using Common.Data.Classes;
+using Common.Core.Classes;
 using MVVM.Core.ViewModels;
 
 namespace MVVM.Core.Validations;

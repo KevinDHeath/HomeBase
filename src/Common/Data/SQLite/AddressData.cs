@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using Microsoft.EntityFrameworkCore;
 using Common.Core.Models;
-using Common.Data.Classes;
+using Common.Core.Classes;
 
 namespace Common.Data.SQLite;
 

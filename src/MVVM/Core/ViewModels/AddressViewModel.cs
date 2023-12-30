@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Common.Core.Models;
-using Common.Data.Classes;
+using Common.Core.Classes;
 using MVVM.Core.Validations;
 
 namespace MVVM.Core.ViewModels;

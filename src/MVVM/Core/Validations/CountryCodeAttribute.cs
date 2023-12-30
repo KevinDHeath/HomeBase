@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Common.Data.Classes;
+using Common.Core.Classes;
 
 namespace MVVM.Core.Validations;
 
