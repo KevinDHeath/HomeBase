@@ -105,7 +105,7 @@ public class AddressData : AddressFactory
 	[EditorBrowsable( EditorBrowsableState.Never )]
 	public static IList<string> GetCountyNames( string? state )
 	{
-		List<string> rtn = new();
+		List<string> rtn = [];
 		if( _service is null || state is null || state.Length != 2 ) { return rtn; }
 
 		string query = $"{sZipCode}?state={state}";
@@ -125,7 +125,7 @@ public class AddressData : AddressFactory
 	[EditorBrowsable( EditorBrowsableState.Never )]
 	public static IList<string> GetCityNames( string? state, string? county = null )
 	{
-		List<string> rtn = new();
+		List<string> rtn = [];
 		if( _service is null || state is null || state.Length != 2 ) { return rtn; }
 
 		string query = $"{sZipCode}?state={state}";
@@ -147,7 +147,7 @@ public class AddressData : AddressFactory
 	[EditorBrowsable( EditorBrowsableState.Never )]
 	public static IList<string> GetZipCodes( string? state, string? county = null, string? city = null )
 	{
-		List<string> rtn = new();
+		List<string> rtn = [];
 		if( _service is null || state is null || state.Length != 2 ) { return rtn; }
 
 		string query = $"{sZipCode}?state={state}";
@@ -168,7 +168,7 @@ public class AddressData : AddressFactory
 		if( json is not null )
 		{
 			var obj = JsonHelper.DeserializeJson<ResultsSet<USZipCode>>( ref json );
-			if( obj is not null ) { return obj.Results.ToList(); }
+			if( obj is not null ) { return [.. obj.Results]; }
 		}
 		return null;
 	}
