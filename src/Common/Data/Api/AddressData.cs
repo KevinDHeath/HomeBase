@@ -21,7 +21,7 @@ public class AddressData : AddressFactory
 	public AddressData( string configFile = DataFactoryBase.cConfigFile, bool useAlpha2 = false,
 		bool countries = true, bool usStates = true, bool usZipCodes = true )
 	{
-		_service = Factory.GetDataService( Factory.cEndpointKey, configFile );
+		_service = Factory.GetDataService( Factory.cEndpointKey, ref configFile );
 
 		if( countries & Countries.Count == 0 ) { LoadCountries( useAlpha2 ); }
 		if( usStates & States.Count == 0 ) { LoadStates(); }

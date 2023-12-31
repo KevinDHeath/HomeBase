@@ -21,13 +21,13 @@ Uses a restful API to access data using the Entity Framework provided by Microso
 - Can maintain data
 
 Dependencies:
-- [kdheath.Common.Core](https://github.com/KevinDHeath/HomeBase/tree/main/src/Common/Core)
+- [kdheath.Common.Core](https://www.nuget.org/packages/kdheath.Common.Core)
 
 ## Common.Data.Json
 Uses JSON data embedded in the binary file and is therefore not changeable.
 
 Dependencies:
-- [kdheath.Common.Core](https://github.com/KevinDHeath/HomeBase/tree/main/src/Common/Core)
+- [kdheath.Common.Core](https://www.nuget.org/packages/kdheath.Common.Core)
 
 References:
 - [Using embedded files in NET Core](https://josef.codes/using-embedded-files-in-dotnet-core/)
@@ -39,7 +39,7 @@ Uses data directly from SQL Server.
 - Can maintain data
 
 Dependencies:
-- [kdheath.Common.Core](https://github.com/KevinDHeath/HomeBase/tree/main/src/Common/Core)
+- [kdheath.Common.Core](https://www.nuget.org/packages/kdheath.Common.Core)
 - [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient)
 
 # Json.Converters

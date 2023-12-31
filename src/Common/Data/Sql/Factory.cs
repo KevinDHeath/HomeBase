@@ -21,7 +21,7 @@ public abstract class Factory : DataFactoryBase
 {
 	/// <summary>The database tables Address prefix.</summary>
 	protected const string cAddressPrefix = "Address_";
-	private const string cConnectionsSection = "ConnectionStrings";
+	private static string? connectionsSection = "ConnectionStrings";
 
 	#region Constructor and Initialization
 
@@ -41,7 +41,7 @@ public abstract class Factory : DataFactoryBase
 	{
 		if( string.IsNullOrWhiteSpace( connectionStringName ) ) { return string.Empty; }
 
-		Dictionary<string, string?> config = JsonHelper.ReadAppSettings( configFile, cConnectionsSection );
+		Dictionary<string, string?> config = JsonHelper.ReadAppSettings( ref configFile, ref connectionsSection );
 		config.TryGetValue( connectionStringName, out string? setting );
 		if( !string.IsNullOrWhiteSpace( setting ) )
 		{

@@ -6,7 +6,7 @@
 This contains the code, Sql scripts, and data files used to define and populate tables in an existing database. 
 
 Dependencies:
-- [kdheath.Common.Core](https://github.com/KevinDHeath/HomeBase/tree/main/src/Common/Core)
+- [kdheath.Common.Core](https://www.nuget.org/packages/kdheath.Common.Core)
 - [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer)
 
 References:

@@ -17,7 +17,7 @@ namespace Common.Data.Api;
 public abstract class Factory : DataFactoryBase
 {
 	internal const string cEndpointKey = "CommonData";
-	private const string cEndpointSection = "Endpoints";
+	private static string? endpointSection = "Endpoints";
 
 	#region Constructor and Initialization
 
@@ -32,15 +32,15 @@ public abstract class Factory : DataFactoryBase
 	protected Factory( string endpointName, string configFile = "" )
 	{
 		if( string.IsNullOrWhiteSpace( configFile ) ) { configFile = cConfigFile; }
-		_service = GetDataService( endpointName, configFile );
+		_service = GetDataService( endpointName, ref configFile );
 	}
 
-	internal static DataServiceBase? GetDataService( string endpointName, string configFile )
+	internal static DataServiceBase? GetDataService( string endpointName, ref string configFile )
 	{
 		if( _service is not null ) { return _service; }
 		if( string.IsNullOrWhiteSpace( endpointName ) ) { return null; }
 
-		Dictionary<string, string?> config = JsonHelper.ReadAppSettings( configFile, cEndpointSection );
+		Dictionary<string, string?> config = JsonHelper.ReadAppSettings( ref configFile, ref endpointSection );
 		config.TryGetValue( endpointName, out string? setting );
 		if( !string.IsNullOrWhiteSpace( setting ) )
 		{
