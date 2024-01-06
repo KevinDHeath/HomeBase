@@ -246,17 +246,17 @@ public sealed partial class PeopleViewModel : IPerson
 		}
 	}
 
-	/// <summary>Gets or sets the Identification State.</summary>
-	[StateCode()]
-	public string? IdState
+	/// <summary>Gets or sets the Identification Province.</summary>
+	[Province()]
+	public string? IdProvince
 	{
-		get => _dc.IdState;
+		get => _dc.IdProvince;
 		set
 		{
-			if( value != _dc.IdState )
+			if( value != _dc.IdProvince )
 			{
 				_validation.ValidateProperty( value );
-				_dc.IdState = value?.ToUpper();
+				_dc.IdProvince = value?.ToUpper();
 				EvaluateCommands();
 			}
 		}

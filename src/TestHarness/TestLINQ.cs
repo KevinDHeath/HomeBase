@@ -10,11 +10,11 @@ internal class TestLINQ
 	{
 		AddressData data = new();
 
-		// Min and Max Zip Codes by State
+		//Min and Max Postcodes by Province
 		//foreach( var (s, min, max) in
-		//		from s in AddressData.GetZipCodes()
-		//		let min = s.Min( z => z.ZipCode )
-		//		let max = s.Max( z => z.ZipCode )
+		//		from s in AddressData.GetPostcodes()
+		//		let min = s.Min( z => z.Code )
+		//		let max = s.Max( z => z.Code )
 		//		select (s, min, max) )
 		//{
 		//	System.Console.WriteLine( $"{s.Key} Min: {min} Max: {max}" );
@@ -22,22 +22,21 @@ internal class TestLINQ
 
 		var city = "Charleston";
 
-		var test = from a in AddressFactory.ZipCodes
+		var test = from a in AddressFactoryBase.Postcodes
 				   where a.City == city
-				   orderby a.State
-				   group a by a.State;
+				   orderby a.Province
+				   group a by a.Province;
 		var count = test.Count();
 
 		var query =
-			from state in AddressFactory.States
-			join zip in AddressFactory.ZipCodes on state.Alpha equals zip.State
-			where zip.City == city
+			from province in AddressFactoryBase.Provinces
+			join postcode in AddressFactoryBase.Postcodes on province.Code equals postcode.Province
+			where postcode.City == city
 			select new
 			{
-				State = state.Name,
-				state.Capital,
-				zip.City,
-				zip.ZipCode
+				State = province.Name,
+				postcode.City,
+				postcode.Code
 			};
 
 		count = query.Count();

@@ -1,4 +1,4 @@
-Name	Address_Street	Address_City	Address_State	Address_ZipCode	Address_Country	GovernmentNumber	PrimaryPhone	SecondaryPhone	Email	NaicsCode	Private	DepositsCount	DepositsBal
+Name	Address_Street	Address_City	Address_Province	Address_Postcode	Address_Country	GovernmentNumber	PrimaryPhone	SecondaryPhone	Email	NaicsCode	Private	DepositsCount	DepositsBal
 Ridgewood Press	1331 E Edinger Ave	Santa Ana	CA	92705	USA	14-1235460	714-667-9444	714-667-9281	wyatt@paddock.com	236115	Y		215122.24
 Founders Title Co Placer Co	10190 Bannock St	Denver	CO	80221	USA	15-1235680	303-452-6161	303-452-6249	delilah@leonides.com	541211		1	57759.86
 National Fishery Research Cntr	2185 S Jason St	Denver	CO	80223	USA	15-1235734	303-934-7761	303-934-3619	adriana@shorten.com	112111			200.79

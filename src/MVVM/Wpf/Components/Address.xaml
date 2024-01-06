@@ -35,14 +35,14 @@
 		<TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource appTextBoxStyle}"
 				 Text="{Binding Street, UpdateSourceTrigger=PropertyChanged}"/>
 
-		<TextBlock Grid.Row="3" Text="Zip code:" Style="{StaticResource appTextBlockStyle}"/>
+		<TextBlock Grid.Row="3" Text="Postcode:" Style="{StaticResource appTextBlockStyle}"/>
 		<TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource appTextBoxStyle}"
-				 Text="{Binding ZipCode, UpdateSourceTrigger=PropertyChanged}"/>
+				 Text="{Binding Postcode, UpdateSourceTrigger=PropertyChanged}"/>
 
-		<TextBlock Grid.Row="4" Text="State:" Style="{StaticResource appTextBlockStyle}"/>
+    <TextBlock Grid.Row="4" Text="Province:" Style="{StaticResource appTextBlockStyle}"/>
 		<cc:ComboBox Grid.Row="4" Grid.Column="1" Style="{StaticResource appLayoutStyle}"
-					 ItemsSource="{Binding States}" SelectedValuePath="Alpha" DisplayMemberPath="Name"
-					 SelectedValue="{Binding State, UpdateSourceTrigger=PropertyChanged}" IsErrorShown="True"/>
+					 ItemsSource="{Binding Provinces}" SelectedValuePath="Code" DisplayMemberPath="Name"
+					 SelectedValue="{Binding Province, UpdateSourceTrigger=PropertyChanged}" IsErrorShown="True"/>
 
 		<TextBlock Grid.Row="5" Text="County:" Style="{StaticResource appTextBlockStyle}"/>
 		<TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource appTextBoxStyle}" IsEnabled="False"

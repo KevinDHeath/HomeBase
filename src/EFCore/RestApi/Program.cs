@@ -1,4 +1,4 @@
-global using Microsoft.EntityFrameworkCore;
+﻿global using Microsoft.EntityFrameworkCore;
 global using Common.Core.Classes;
 global using Common.Core.Models;
 global using EFCore.RestApi.Services;
@@ -14,9 +14,9 @@ builder.Services.AddScoped<CompanyService>();
 builder.Services.AddScoped<PersonService>();
 builder.Services.AddScoped<MovieService>();
 builder.Services.AddScoped<SuperHeroService>();
-builder.Services.AddScoped<USStateService>();
+builder.Services.AddScoped<ProvinceService>();
 builder.Services.AddScoped<ISOCountryService>();
-builder.Services.AddScoped<USZipCodeService>();
+builder.Services.AddScoped<PostcodeService>();
 
 builder.Services.AddDbContext<EFCoreDbContext>(
 	options => options.UseSqlServer( builder.Configuration["ConnectionStrings:CommonData"] ) );

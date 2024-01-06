@@ -5,7 +5,7 @@ using Common.Core.Models;
 namespace Common.Data.Sql;
 
 /// <summary>Contains data used for Addresses.</summary>
-public class AddressData : AddressFactory
+public class AddressData : AddressFactoryBase
 {
 	private static string _connString = string.Empty;
 
@@ -15,16 +15,16 @@ public class AddressData : AddressFactory
 	/// <param name="configFile">The name of the configuration file. The default is appsettings.json</param>
 	/// <param name="useAlpha2">Indicates whether to use Alpha-2 ISO Country codes. The default is false.</param>
 	/// <param name="countries">Indicates whether ISO Countries should be loaded. The default is true.</param>
-	/// <param name="usStates">Indicates whether US States should be loaded. The default is true.</param>
-	/// <param name="usZipCodes">Indicates whether US Zip Codes should be loaded. The default is true.</param>
+	/// <param name="provinces">Indicates whether Provinces should be loaded. The default is true.</param>
+	/// <param name="postcodes">Indicates whether Postcodes should be loaded. The default is true.</param>
 	public AddressData( string configFile = DataFactoryBase.cConfigFile, bool useAlpha2 = false,
-		bool countries = true, bool usStates = true, bool usZipCodes = true )
+		bool countries = true, bool provinces = true, bool postcodes = true )
 	{
 		_connString = Factory.SetConnectionString( typeof( AddressData ).Name, configFile );
 
 		if( countries & Countries.Count == 0 ) { LoadCountries( useAlpha2 ); }
-		if( usStates & States.Count == 0 ) { LoadStates(); }
-		if( usZipCodes & ZipCodes.Count == 0 ) { LoadZipCodes(); }
+		if( provinces & Provinces.Count == 0 ) { LoadProvinces(); }
+		if( postcodes & Postcodes.Count == 0 ) { LoadPostcodes(); }
 	}
 
 	private static void LoadCountries( bool useAlpha2 )
@@ -39,38 +39,41 @@ public class AddressData : AddressFactory
 		SetCountries( list );
 	}
 
-	private static void LoadStates()
+	private static void LoadProvinces()
 	{
 		if( string.IsNullOrWhiteSpace( _connString ) ) { return; }
-		States = new List<USState>();
-		string query = "SELECT * FROM [USStates];";
+		Provinces = new List<Province>();
+		string query = "SELECT * FROM [Provinces];";
 		DataTable? dt = Factory.GetDataTable( ref query, ref _connString );
-		if( dt is not null ) { foreach( DataRow row in dt.Rows ) { States.Add( USState.Read( row ) ); } }
+		if( dt is not null ) { foreach( DataRow row in dt.Rows ) { Provinces.Add( Province.Read( row ) ); } }
 	}
 
-	private static void LoadZipCodes()
+	private static void LoadPostcodes()
 	{
 		if( string.IsNullOrWhiteSpace( _connString ) ) { return; }
-		ZipCodeCount = Factory.GetRowCount( "USZipCodes", ref _connString );
+		PostcodeCount = Factory.GetRowCount( "Postcodes", ref _connString );
 	}
 
 	#endregion
 
-	/// <summary>Gets the information for a requested US Zip code.</summary>
-	/// <param name="usZipCode">5-digit US Postal Service Zip code.</param>
-	/// <returns>Null is returned if the Zip code was not found.</returns>
-	public static new USZipCode? GetZipCode( string? usZipCode )
+	/// <summary>Gets the information for a requested Postcode.</summary>
+	/// <param name="code">Postal Service code.</param>
+	/// <returns>Null is returned if the Postcode was not found.</returns>
+	public static new Postcode? GetPostcode( string? code )
 	{
-		USZipCode? rtn = AddressFactory.GetZipCode( usZipCode );
+		Postcode? rtn = AddressFactoryBase.GetPostcode( code );
 		if( rtn is not null ) { return rtn; }
-		if( string.IsNullOrWhiteSpace( _connString ) || usZipCode is null || usZipCode.Length < 5 ) { return null; }
 
-		string query = $"SELECT * FROM [USZipCodes] WHERE [ZipCode]='{usZipCode}';";
+		if( string.IsNullOrWhiteSpace( _connString ) ) { return null; }
+		if( code is null || ( DefaultCountry.StartsWith( "US" ) & code.Length < 5 ) ) { return null; }
+		if( code.Length > 5 & DefaultCountry.StartsWith( "US" ) ) { code = code[..5]; }
+
+		string query = $"SELECT * FROM [Postcodes] WHERE [Code]='{code}';";
 		DataTable? dt = Factory.GetDataTable( ref query, ref _connString );
 		if( dt is not null && dt.Rows.Count > 0 )
 		{
-			rtn = USZipCode.Read( dt.Rows[0] );
-			ZipCodes.Add( rtn );
+			rtn = Postcode.Read( dt.Rows[0] );
+			Postcodes.Add( rtn );
 			return rtn;
 		}
 
@@ -79,54 +82,54 @@ public class AddressData : AddressFactory
 
 	#region Testing Methods
 
-	/// <summary>Gets a sorted list of County names for a requested US State.</summary>
-	/// <param name="code">2-digit US Postal Service State abbreviation.</param>
-	/// <returns>An empty list is returned if the State code was not found.</returns>
+	/// <summary>Gets a sorted list of County names for a requested Province.</summary>
+	/// <param name="code">Postal Service Province abbreviation.</param>
+	/// <returns>An empty list is returned if the Province code was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
 	public static IList<string> GetCountyNames( string? code )
 	{
 		List<string> rtn = new();
 		if( code is null || code.Length != 2 ) { return rtn; }
 
-		string query = $"SELECT [County] FROM [USZipCodes] WHERE [State]='{code}' GROUP BY [County] ORDER BY [County];";
+		string query = $"SELECT [County] FROM [Postcodes] WHERE [Province]='{code}' GROUP BY [County] ORDER BY [County];";
 		RunQuery( ref query, rtn );
 		return rtn;
 	}
 
-	/// <summary>Gets a sorted list of City names for a requested US State and County.</summary>
-	/// <param name="state">2-digit US Postal Service State abbreviation.</param>
+	/// <summary>Gets a sorted list of City names for a requested Province and County.</summary>
+	/// <param name="province">Postal Service Province abbreviation.</param>
 	/// <param name="county">County name.</param>
-	/// <returns>An empty list is returned if the State code or County name was not found.</returns>
+	/// <returns>An empty list is returned if the Province code or County name was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string> GetCityNames( string? state, string? county = null )
+	public static IList<string> GetCityNames( string? province, string? county = null )
 	{
 		List<string> rtn = new();
-		if( state is null || state.Length != 2 ) { return rtn; }
-		state = state.ToUpper() ?? string.Empty;
+		if( province is null ) { return rtn; }
+		province = province.ToUpper() ?? string.Empty;
 
-		string query = $"SELECT [City] FROM [USZipCodes] WHERE [State]='{state}'";
+		string query = $"SELECT [City] FROM [Postcodes] WHERE [Province]='{province}'";
 		if( !string.IsNullOrWhiteSpace( county ) ) { query += $" AND [County]='{county}'"; }
 		query += $" GROUP BY [City] ORDER BY [City];";
 		RunQuery( ref query, rtn );
 		return rtn;
 	}
 
-	/// <summary>Gets a sorted list of Zip codes for a requested US State, County and City.</summary>
-	/// <param name="state">2-digit US Postal Service State abbreviation.</param>
+	/// <summary>Gets a sorted list of Zip codes for a requested Province, County and City.</summary>
+	/// <param name="province">Postal Service Province abbreviation.</param>
 	/// <param name="county">County name.</param>
 	/// <param name="city">City name.</param>
 	/// <returns>An empty list is returned if the State code, County name, or City name was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string> GetZipCodes( string? state, string? county = null, string? city = null )
+	public static IList<string> GetPostcodes( string? province, string? county = null, string? city = null )
 	{
 		List<string> rtn = new();
-		if( state is null || state.Length != 2 ) { return rtn; }
-		state = state.ToUpper() ?? string.Empty;
+		if( province is null ) { return rtn; }
+		province = province.ToUpper() ?? string.Empty;
 
-		string query = $"SELECT [ZipCode] FROM [USZipCodes] WHERE [State]='{state}'";
+		string query = $"SELECT [Code] FROM [Postcodes] WHERE [Province]='{province}'";
 		if( !string.IsNullOrWhiteSpace( county ) ) { query += $" AND [County]='{county}'"; }
 		if( !string.IsNullOrWhiteSpace( city ) ) { query += $" AND [City]='{city}'"; }
-		query += $" ORDER BY [ZipCode];";
+		query += $" ORDER BY [Code];";
 		RunQuery( ref query, rtn );
 		return rtn;
 	}

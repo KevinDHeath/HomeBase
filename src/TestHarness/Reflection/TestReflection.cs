@@ -42,7 +42,7 @@ internal class TestReflection
 			if( target is not null )
 			{
 				target.MiddleName = "D";
-				target.Address.ZipCode = "32746-4733";
+				target.Address.Postcode = "32746-4733";
 				ReflectionHelper.ApplyChanges( target, source );
 			}
 
@@ -99,7 +99,7 @@ internal class TestReflection
 		{
 			Street = "1731 Oak Springs PL",
 			City = "Lake Mary",
-			State = "Florida",
+			Province = "Florida",
 			Country = "USA"
 		};
 	}

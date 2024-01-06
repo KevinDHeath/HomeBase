@@ -5,7 +5,7 @@ using Common.Core.Models;
 namespace Common.Data.Json;
 
 /// <summary>Contains data used for Addresses.</summary>
-public class AddressData : AddressFactory
+public class AddressData : AddressFactoryBase
 {
 	#region Constructor
 
@@ -13,12 +13,12 @@ public class AddressData : AddressFactory
 	/// <param name="configFile">The name of the configuration file. This is not used for Json data.</param>
 	/// <param name="useAlpha2">Indicates whether to use Alpha-2 ISO Country codes. The default is false.</param>
 	/// <param name="countries">Indicates whether ISO Countries should be loaded. The default is true.</param>
-	/// <param name="usStates">Indicates whether US States should be loaded. The default is true.</param>
-	/// <param name="usZipCodes">Indicates whether US Zip Codes should be loaded. The default is true.</param>
+	/// <param name="provinces">Indicates whether Provinces should be loaded. The default is true.</param>
+	/// <param name="postcodes">Indicates whether Postcodes should be loaded. The default is true.</param>
 #pragma warning disable IDE0060 // Remove unused parameter
 	public AddressData( string configFile = "",
+		bool useAlpha2 = false, bool countries = true, bool provinces = true, bool postcodes = true )
 #pragma warning restore IDE0060 // Remove unused parameter
-		bool useAlpha2 = false, bool countries = true, bool usStates = true, bool usZipCodes = true )
 	{
 		string? json;
 		if( countries & Countries.Count == 0 )
@@ -27,17 +27,17 @@ public class AddressData : AddressFactory
 			json = Factory.GetEmbeddedResource( "ISOCountries.json" );
 			SetCountries( JsonHelper.DeserializeList<ISOCountry>( ref json ) );
 		}
-		if( usStates )
+		if( provinces )
 		{
-			json = Factory.GetEmbeddedResource( "USStates.json" );
-			States = JsonHelper.DeserializeList<USState>( ref json );
+			json = Factory.GetEmbeddedResource( "USProvinces.json" );
+			Provinces = JsonHelper.DeserializeList<Province>( ref json );
 		}
 
-		if( usZipCodes )
+		if( postcodes )
 		{
-			json = Factory.GetEmbeddedResource( "USZipCodes.json" );
-			ZipCodes = JsonHelper.DeserializeList<USZipCode>( ref json );
-			ZipCodeCount = ZipCodes.Count;
+			json = Factory.GetEmbeddedResource( "USPostcodes.json" );
+			Postcodes = JsonHelper.DeserializeList<Postcode>( ref json );
+			PostcodeCount = Postcodes.Count;
 		}
 	}
 
@@ -45,94 +45,94 @@ public class AddressData : AddressFactory
 
 	#region Testing Methods
 
-	/// <summary>Gets a sorted list of County names for a requested US State.</summary>
-	/// <param name="code">2-digit US Postal Service State abbreviation.</param>
-	/// <returns>An empty list is returned if the State code was not found.</returns>
+	/// <summary>Gets a sorted list of County names for a requested Province.</summary>
+	/// <param name="code">Postal Service Province abbreviation.</param>
+	/// <returns>An empty list is returned if the Province code was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string> GetCountyNames( string? code )
+	public static IList<string?> GetCountyNames( string? code )
 	{
-		if( code is null || code.Length != 2 ) { return new List<string>(); }
+		if( code is null ) { return new List<string?>(); }
 
-		return ZipCodes.Where( z => z.State.Equals( code, sCompare ) )
+		return Postcodes.Where( z => z.Province.Equals( code, sCompare ) )
 			.OrderBy( z => z.County )
 			.GroupBy( z => z.County )
 			.Select( z => z.Key ).ToList();
 	}
 
-	/// <summary>Gets a sorted list of City names for a requested US State and County.</summary>
-	/// <param name="state">2-digit US Postal Service State abbreviation.</param>
+	/// <summary>Gets a sorted list of City names for a requested Province and County.</summary>
+	/// <param name="province">Postal Service Province abbreviation.</param>
 	/// <param name="county">County name.</param>
-	/// <returns>An empty list is returned if the State code or County name was not found.</returns>
+	/// <returns>An empty list is returned if the Province code or County name was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string> GetCityNames( string? state, string? county = null )
+	public static IList<string?> GetCityNames( string? province, string? county = null )
 	{
-		if( state is null || state.Length != 2 ) { return new List<string>(); }
-		state = state.ToUpper() ?? string.Empty;
+		if( province is null ) { return new List<string?>(); }
+		province = province.ToUpper() ?? string.Empty;
 
 		if( !string.IsNullOrWhiteSpace( county ) )
 		{
-			return ZipCodes.Where( z => z.State == state && z.County.Equals( county, sCompare ) )
+			return Postcodes.Where( z => z.Province == province && z.County is not null && z.County.Equals( county, sCompare ) )
 				.OrderBy( z => z.City )
 				.GroupBy( z => z.City )
 				.Select( z => z.Key ).ToList();
 		}
 		else
 		{
-			return ZipCodes.Where( z => z.State == state )
+			return Postcodes.Where( z => z.Province == province )
 				.OrderBy( z => z.City )
 				.GroupBy( z => z.City )
 				.Select( z => z.Key ).ToList();
 		}
 	}
 
-	/// <summary>Gets a sorted list of Zip codes for a requested US State, County and City.</summary>
-	/// <param name="state">2-digit US Postal Service State abbreviation.</param>
+	/// <summary>Gets a sorted list of Zip codes for a requested Province, County and City.</summary>
+	/// <param name="province">Postal Service Province abbreviation.</param>
 	/// <param name="county">County name.</param>
 	/// <param name="city">City name.</param>
-	/// <returns>An empty list is returned if the State code, County name, or City name was not found.</returns>
+	/// <returns>An empty list is returned if the Province code, County name, or City name was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string> GetZipCodes( string? state, string? county = null, string? city = null )
+	public static IList<string> GetPostcodes( string? province, string? county = null, string? city = null )
 	{
-		if( state is null || state.Length != 2 ) { return new List<string>(); }
-		state = state.ToUpper() ?? string.Empty;
+		if( province is null || province.Length != 2 ) { return new List<string>(); }
+		province = province.ToUpper() ?? string.Empty;
 
 		if( !string.IsNullOrWhiteSpace( county ) && !string.IsNullOrWhiteSpace( city ) )
 		{
 			// County and City supplied
-			return ZipCodes.Where( z => z.State == state && z.County.Equals( county, sCompare ) &&
-				z.City.Equals( city, sCompare ) )
-				.OrderBy( z => z.ZipCode )
-				.Select( z => z.ZipCode ).ToList();
+			return Postcodes.Where( z => z.Province == province && z.County is not null && z.County.Equals( county, sCompare ) &&
+				z.City is not null && z.City.Equals( city, sCompare ) )
+				.OrderBy( z => z.Code )
+				.Select( z => z.Code ).ToList();
 		}
 		else if( !string.IsNullOrWhiteSpace( county ) && string.IsNullOrWhiteSpace( city ) )
 		{
 			// County but no City supplied
-			return ZipCodes.Where( z => z.State == state && z.County.Equals( county, sCompare ) )
-				.OrderBy( z => z.ZipCode )
-				.Select( z => z.ZipCode ).ToList();
+			return Postcodes.Where( z => z.Province == province && z.County is not null && z.County.Equals( county, sCompare ) )
+				.OrderBy( z => z.Code )
+				.Select( z => z.Code ).ToList();
 		}
 		else if( string.IsNullOrWhiteSpace( county ) && !string.IsNullOrWhiteSpace( city ) )
 		{
 			// City but no County supplied
-			return ZipCodes.Where( z => z.State == state && z.City.Equals( city, sCompare ) )
-				.OrderBy( z => z.ZipCode )
-				.Select( z => z.ZipCode ).ToList();
+			return Postcodes.Where( z => z.Province == province && z.City is not null && z.City.Equals( city, sCompare ) )
+				.OrderBy( z => z.Code )
+				.Select( z => z.Code ).ToList();
 		}
 		else
 		{
 			// No County or City supplied
-			return ZipCodes.Where( z => z.State == state )
-				.OrderBy( z => z.ZipCode )
-				.Select( z => z.ZipCode ).ToList();
+			return Postcodes.Where( z => z.Province == province )
+				.OrderBy( z => z.Code )
+				.Select( z => z.Code ).ToList();
 		}
 	}
 
-	/// <summary>Testing method to get a grouped collection of Zip codes.</summary>
-	/// <returns>Collection of US Zip Codes grouped by US State.</returns>
+	/// <summary>Testing method to get a grouped collection of Postal codes.</summary>
+	/// <returns>Collection of Postcodes grouped by Province.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static List<IGrouping<string, USZipCode>> GetZipCodes()
+	public static List<IGrouping<string, Postcode>> GetPostcodes()
 	{
-		return ZipCodes.OrderBy( s => s.State ).GroupBy( s => s.State ).ToList();
+		return Postcodes.OrderBy( s => s.Province ).GroupBy( s => s.Province ).ToList();
 	}
 
 	#endregion

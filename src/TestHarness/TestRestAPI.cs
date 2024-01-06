@@ -27,15 +27,15 @@ internal class TestRestAPI
 	{
 		string company = typeof( Company ).Name.ToLower();
 		string person = typeof( Person ).Name.ToLower();
-		string uszipcode = typeof( USZipCode ).Name.ToLower();
+		string postcode = typeof( Postcode ).Name.ToLower();
 		string superhero = typeof( SuperHero ).Name.ToLower();
 
-		string? data = service.GetResource( uszipcode + "/32937" );
+		string? data = service.GetResource( postcode + "/32937" );
 		if( data is null ) { return false; }
-		var obj = JsonHelper.DeserializeJson<USZipCode>( ref data );
+		var obj = JsonHelper.DeserializeJson<Postcode>( ref data );
 		if( obj is not null )
 		{
-			Program.sLogger.Info( $"Zip City: {obj.City}" );
+			Program.sLogger.Info( $"Postcode City: {obj.City}" );
 		}
 
 		// Get a specific company
@@ -98,7 +98,7 @@ internal class TestRestAPI
 	internal static bool AddressDataTest()
 	{
 		var data = new Common.Data.Api.AddressData( useAlpha2: false );
-		_ = Common.Data.Api.AddressData.GetZipCode( "32937" );
+		_ = Common.Data.Api.AddressData.GetPostcode( "32937" );
 
 		return data is not null;
 	}

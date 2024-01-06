@@ -13,7 +13,7 @@
     <None Remove="Json\Company.json" />
     <None Remove="Json\ISOCountries.json" />
     <None Remove="Json\Person.json" />
-    <None Remove="Json\USStates.json" />
+    <None Remove="Json\USProvinces.json" />
     <None Remove="Json\USZipCodes.json" />
   </ItemGroup>
 
@@ -21,8 +21,8 @@
     <EmbeddedResource Include="Json\Company.json" />
     <EmbeddedResource Include="Json\ISOCountries.json" />
     <EmbeddedResource Include="Json\Person.json" />
-    <EmbeddedResource Include="Json\USStates.json" />
-    <EmbeddedResource Include="Json\USZipCodes.json" />
+    <EmbeddedResource Include="Json\USProvinces.json" />
+    <EmbeddedResource Include="Json\USPostcodes.json" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,10 +5,10 @@ using Common.Core.Models;
 namespace Common.Data.Api;
 
 /// <summary>Contains data used for Addresses.</summary>
-public class AddressData : AddressFactory
+public class AddressData : AddressFactoryBase
 {
 	private static DataServiceBase? _service;
-	private static readonly string sZipCode = typeof( USZipCode ).Name.ToLower();
+	private static readonly string sPostcode = typeof( Postcode ).Name.ToLower();
 
 	#region Constructor
 
@@ -16,16 +16,16 @@ public class AddressData : AddressFactory
 	/// <param name="configFile">The name of the configuration file. The default is appsettings.json</param>
 	/// <param name="useAlpha2">Indicates whether to use Alpha-2 ISO Country codes. The default is false.</param>
 	/// <param name="countries">Indicates whether ISO Countries should be loaded. The default is true.</param>
-	/// <param name="usStates">Indicates whether US States should be loaded. The default is true.</param>
-	/// <param name="usZipCodes">Indicates whether US Zip Codes should be loaded. The default is true.</param>
+	/// <param name="provinces">Indicates whether Provinces should be loaded. The default is true</param>
+	/// <param name="postcodes">Indicates whether Postcodes should be loaded. The default is true.</param>
 	public AddressData( string configFile = DataFactoryBase.cConfigFile, bool useAlpha2 = false,
-		bool countries = true, bool usStates = true, bool usZipCodes = true )
+		bool countries = true, bool provinces = true, bool postcodes = true )
 	{
 		_service = Factory.GetDataService( Factory.cEndpointKey, ref configFile );
 
 		if( countries & Countries.Count == 0 ) { LoadCountries( useAlpha2 ); }
-		if( usStates & States.Count == 0 ) { LoadStates(); }
-		if( usZipCodes & ZipCodes.Count == 0 ) { LoadZipCodes(); }
+		if( provinces & Provinces.Count == 0 ) { LoadProvinces(); }
+		if( postcodes & Postcodes.Count == 0 ) { LoadPostcodes(); }
 	}
 
 	private static void LoadCountries( bool useAlpha2 )
@@ -44,52 +44,55 @@ public class AddressData : AddressFactory
 		}
 	}
 
-	private static void LoadStates()
+	private static void LoadProvinces()
 	{
 		if( _service is null ) { return; }
-		string? json = _service.GetResource( typeof( USState ).Name.ToLower() );
+		string? json = _service.GetResource( typeof( Province ).Name.ToLower() );
 		if( json is not null )
 		{
-			ResultsSet<USState>? obj = JsonHelper.DeserializeJson<ResultsSet<USState>>( ref json );
+			ResultsSet<Province>? obj = JsonHelper.DeserializeJson<ResultsSet<Province>>( ref json );
 			if( obj is not null )
 			{
-				States = obj.Results.ToList();
+				Provinces = obj.Results.ToList();
 			}
 		}
 	}
 
-	private static void LoadZipCodes()
+	private static void LoadPostcodes()
 	{
 		if( _service is null ) { return; }
-		string? json = _service.GetResource( sZipCode );
+		string? json = _service.GetResource( sPostcode );
 		if( json is not null )
 		{
-			ResultsSet<USZipCode>? obj = JsonHelper.DeserializeJson<ResultsSet<USZipCode>>( ref json );
+			ResultsSet<Postcode>? obj = JsonHelper.DeserializeJson<ResultsSet<Postcode>>( ref json );
 			if( obj is not null && obj.Total is not null )
 			{
-				ZipCodeCount = obj.Total.Value;
+				PostcodeCount = obj.Total.Value;
 			}
 		}
 	}
 
 	#endregion
 
-	/// <summary>Gets the information for a requested US Zip code.</summary>
-	/// <param name="usZipCode">5-digit US Postal Service Zip code.</param>
-	/// <returns>Null is returned if the Zip code was not found.</returns>
-	public static new USZipCode? GetZipCode( string? usZipCode )
+	/// <summary>Gets the information for a requested Postal code.</summary>
+	/// <param name="code">Postal Service code.</param>
+	/// <returns>Null is returned if the Postcode was not found.</returns>
+	public static new Postcode? GetPostcode( string? code )
 	{
-		USZipCode? rtn = AddressFactory.GetZipCode( usZipCode );
+		Postcode? rtn = AddressFactoryBase.GetPostcode( code );
 		if( rtn is not null ) { return rtn; }
-		if( _service is null || usZipCode is null || usZipCode.Length < 5 ) { return null; }
 
-		var json = _service.GetResource( sZipCode + "/" + usZipCode );
+		if( _service is null ) { return null; }
+		if( code is null || ( DefaultCountry.StartsWith( "US" ) & code.Length < 5 ) ) { return null; }
+		if( code.Length > 5 & DefaultCountry.StartsWith( "US" ) ) { code = code[..5]; }
+
+		var json = _service.GetResource( sPostcode + "/" + code );
 		if( json is not null )
 		{
-			var obj = JsonHelper.DeserializeJson<USZipCode>( ref json );
+			var obj = JsonHelper.DeserializeJson<Postcode>( ref json );
 			if( obj is not null )
 			{
-				ZipCodes.Add( obj );
+				Postcodes.Add( obj );
 				return obj;
 			}
 		}
@@ -99,17 +102,17 @@ public class AddressData : AddressFactory
 
 	#region Testing Methods
 
-	/// <summary>Gets a sorted list of County names for a requested US State.</summary>
-	/// <param name="state">2-digit US Postal Service State abbreviation.</param>
-	/// <returns>An empty list is returned if the State code was not found.</returns>
+	/// <summary>Gets a sorted list of County names for a requested Province.</summary>
+	/// <param name="province">Postal Service Province abbreviation.</param>
+	/// <returns>An empty list is returned if the Province code was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string> GetCountyNames( string? state )
+	public static IList<string?> GetCountyNames( string? province )
 	{
-		List<string> rtn = [];
-		if( _service is null || state is null || state.Length != 2 ) { return rtn; }
+		List<string?> rtn = [];
+		if( _service is null || province is null || province.Length != 2 ) { return rtn; }
 
-		string query = $"{sZipCode}?state={state}";
-		List<USZipCode>? list = RunQuery( ref query, _service );
+		string query = $"{sPostcode}?province={province}";
+		List<Postcode>? list = RunQuery( ref query, _service );
 		if( list is not null )
 		{
 			var groups = list.OrderBy( x => x.County ).GroupBy( x => x.County );
@@ -118,19 +121,19 @@ public class AddressData : AddressFactory
 		return rtn;
 	}
 
-	/// <summary>Gets a sorted list of City names for a requested US State and County.</summary>
-	/// <param name="state">2-digit US Postal Service State abbreviation.</param>
+	/// <summary>Gets a sorted list of City names for a requested Province and County.</summary>
+	/// <param name="province">Postal Service Province abbreviation.</param>
 	/// <param name="county">County name.</param>
-	/// <returns>An empty list is returned if the State code or County name was not found.</returns>
+	/// <returns>An empty list is returned if the Province code or County name was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string> GetCityNames( string? state, string? county = null )
+	public static IList<string?> GetCityNames( string? province, string? county = null )
 	{
-		List<string> rtn = [];
-		if( _service is null || state is null || state.Length != 2 ) { return rtn; }
+		List<string?> rtn = [];
+		if( _service is null || province is null ) { return rtn; }
 
-		string query = $"{sZipCode}?state={state}";
+		string query = $"{sPostcode}?province={province}";
 		if( !string.IsNullOrWhiteSpace( county ) ) { query += $"&county={Uri.EscapeDataString( county )}"; }
-		List<USZipCode>? list = RunQuery( ref query, _service );
+		List<Postcode>? list = RunQuery( ref query, _service );
 		if( list is not null )
 		{
 			var groups = list.OrderBy( x => x.City ).GroupBy( x => x.City );
@@ -139,35 +142,35 @@ public class AddressData : AddressFactory
 		return rtn;
 	}
 
-	/// <summary>Gets a sorted list of Zip codes for a requested US State, County and City.</summary>
-	/// <param name="state">2-digit US Postal Service State abbreviation.</param>
+	/// <summary>Gets a sorted list of Postal codes for a requested Province, County and City.</summary>
+	/// <param name="province">Postal Service Province abbreviation.</param>
 	/// <param name="county">County name.</param>
 	/// <param name="city">City name.</param>
-	/// <returns>An empty list is returned if the State code, County name, or City name was not found.</returns>
+	/// <returns>An empty list is returned if the Province code, County name, or City name was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string> GetZipCodes( string? state, string? county = null, string? city = null )
+	public static IList<string> GetPostcodes( string? province, string? county = null, string? city = null )
 	{
 		List<string> rtn = [];
-		if( _service is null || state is null || state.Length != 2 ) { return rtn; }
+		if( _service is null || province is null || province.Length != 2 ) { return rtn; }
 
-		string query = $"{sZipCode}?state={state}";
+		string query = $"{sPostcode}?province={province}";
 		if( !string.IsNullOrWhiteSpace( county ) ) { query += $"&county={Uri.EscapeDataString( county )}"; }
 		if( !string.IsNullOrWhiteSpace( city ) ) { query += $"&city={Uri.EscapeDataString( city )}"; }
 
-		List<USZipCode>? list = RunQuery( ref query, _service );
+		List<Postcode>? list = RunQuery( ref query, _service );
 		if( list is not null )
 		{
-			return list.OrderBy( x => x.ZipCode ).Select( x => x.ZipCode ).ToList();
+			return list.OrderBy( x => x.Code ).Select( x => x.Code ).ToList();
 		}
 		return rtn;
 	}
 
-	private static List<USZipCode>? RunQuery( ref string query, DataServiceBase service )
+	private static List<Postcode>? RunQuery( ref string query, DataServiceBase service )
 	{
 		var json = service.GetResource( query );
 		if( json is not null )
 		{
-			var obj = JsonHelper.DeserializeJson<ResultsSet<USZipCode>>( ref json );
+			var obj = JsonHelper.DeserializeJson<ResultsSet<Postcode>>( ref json );
 			if( obj is not null ) { return [.. obj.Results]; }
 		}
 		return null;

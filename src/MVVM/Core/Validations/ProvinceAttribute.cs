@@ -4,7 +4,7 @@ using MVVM.Core.ViewModels;
 
 namespace MVVM.Core.Validations;
 
-internal class StateCodeAttribute : ValidationAttribute
+internal class ProvinceAttribute : ValidationAttribute
 {
 	/// <inheritdoc/>
 	protected override ValidationResult? IsValid( object? value, ValidationContext context )
@@ -16,7 +16,7 @@ internal class StateCodeAttribute : ValidationAttribute
 			{
 				if( AddressFactoryBase.Provinces.Count > 0 && !AddressFactoryBase.CheckProvinceCode( val ) )
 				{
-					return new( $"State code '{val}' is not valid.", new string[] { context.MemberName } );
+					return new( $"Province code '{val}' is not valid.", new string[] { context.MemberName } );
 				}
 			}
 		}

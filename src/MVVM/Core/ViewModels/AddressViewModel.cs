@@ -10,8 +10,8 @@ public abstract class AddressViewModel : ViewModelEdit
 {
 	#region Properties
 
-	/// <summary>Gets a list of US State data.</summary>
-	public static IList<Province> States => AddressFactoryBase.Provinces;
+	/// <summary>Gets a list of Province data.</summary>
+	public static IList<Province> Provinces => AddressFactoryBase.Provinces;
 
 	/// <summary>Gets a sorted list of ISO Country data.</summary>
 	public static IList<CountryCode> Countries => AddressFactoryBase.Countries;
@@ -41,8 +41,8 @@ public abstract class AddressViewModel : ViewModelEdit
 			{
 				_validation.ValidateProperty( value );
 				_ad.City = value;
-				if( _ad.ZipCode is not null ) _validation.ValidateProperty( _ad.ZipCode, nameof( ZipCode ) );
-				OnPropertyChanged(); // Need this as it may change in Zip code validation
+				if( _ad.Postcode is not null ) _validation.ValidateProperty( _ad.Postcode, nameof( Postcode ) );
+				OnPropertyChanged(); // Need this as it may change in Postcode validation
 			}
 		}
 	}
@@ -62,35 +62,35 @@ public abstract class AddressViewModel : ViewModelEdit
 		}
 	}
 
-	/// <summary>Gets or sets the State code.</summary>
-	[StateCode()]
-	public string? State
+	/// <summary>Gets or sets the Province code.</summary>
+	[Province()]
+	public string? Province
 	{
-		get => _ad.State;
+		get => _ad.Province;
 		set
 		{
 			value = value?.ToUpper();
-			if( value != _ad.State )
+			if( value != _ad.Province )
 			{
 				_validation.ValidateProperty( value );
-				_ad.State = value;
-				if( _ad.ZipCode is not null ) _validation.ValidateProperty( _ad.ZipCode, nameof( ZipCode ) );
-				OnPropertyChanged(); // Need this as it may change in Zip code validation
+				_ad.Province = value;
+				if( _ad.Postcode is not null ) _validation.ValidateProperty( _ad.Postcode, nameof( Postcode ) );
+				OnPropertyChanged(); // Need this as it may change in Postcode validation
 			}
 		}
 	}
 
-	/// <summary>Gets or sets the Zip code.</summary>
-	[ZipCode]
-	public string? ZipCode
+	/// <summary>Gets or sets the Postcode.</summary>
+	[Postcode]
+	public string? Postcode
 	{
-		get => _ad.ZipCode;
+		get => _ad.Postcode;
 		set
 		{
-			if( value != _ad.ZipCode )
+			if( value != _ad.Postcode )
 			{
 				_validation.ValidateProperty( value );
-				_ad.ZipCode = value;
+				_ad.Postcode = value;
 			}
 		}
 	}

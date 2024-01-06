@@ -5,12 +5,9 @@
 <tr><td>ISOCountries.sql</td><td>Data/ISOCountries.txt</td><td>Data</td></tr>
 <tr><td>Movies.sql</td><td>Data/Movies.txt</td><td>Flat File</td></tr>
 <tr><td>People.sql</td><td>Data/People.txt</td><td>Flat File</td>
-<tr><td>*Postcodes.sql</td><td>Data/USPostcodes.txt</td><td>Flat File</td></tr>
-<tr><td>*Provinces.sql</td><td>Data/USProvinces.txt</td><td>Flat File</td></tr>
+<tr><td>Postcodes.sql</td><td>Data/USPostcodes.txt</td><td>Flat File</td></tr>
+<tr><td>Provinces.sql</td><td>Data/USProvinces.txt</td><td>Flat File</td></tr>
 <tr><td>SuperHeroes.sql</td><td>Data/SuperHeroes.txt</td><td>Flat File</td></tr>
-<tr><td>USStates.sql</td><td>Data/USStates.txt</td><td>Flat File</td></tr>
-<tr><td>USZipCodes.sql</td><td>Data/USZipCodes.txt</td><td>Data</td></tr>
-<tr><td colspan="3">* <i>new as of Common.Core v2.0.1</i></td></tr>
 </table>
 
 The following Tasks rely on having [SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) installed.

@@ -49,9 +49,9 @@
     <PackageVersion Include="Microsoft.Extensions.ApiDescription.Server" Version="8.0.0" />
 
     <!-- kdheath -->
-    <PackageVersion Include="kdheath.Common.Core" Version="2.0.3" />
+    <PackageVersion Include="kdheath.Common.Core" Version="2.1.0" />
     <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.1" />
-    <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.1" />
+    <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.2" />
 
     <!-- Common.Data.Sql -->
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.2" />

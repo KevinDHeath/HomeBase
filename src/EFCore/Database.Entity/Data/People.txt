@@ -1,4 +1,4 @@
-Id	FirstName	MiddleName	LastName	Address_Street	Address_City	Address_State	Address_ZipCode	Address_Country	GovernmentNumber	IdState	IdNumber	HomePhone	BirthDate
+Id	FirstName	MiddleName	LastName	Address_Street	Address_City	Address_Province	Address_Postcode	Address_Country	GovernmentNumber	IdProvince	IdNumber	HomePhone	BirthDate
 1	Tristan		Philabaum	13 West 29Th St	New York 	NY	10001-4514	USA	666-99-4814	NY	104000048	(201) 854-0013	08/10/1962
 2	Ricardo		Wear	6625 Echo Bluff	Austin	TX	50658	USA	665-41-2456				09/16/1958
 3	Ernestine		Keyna	1617 Saracen St	Pine Bluff	AR	71601	USA	666-99-4957			(248) 203-0199	01/01/1963

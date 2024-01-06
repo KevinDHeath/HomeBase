@@ -25,8 +25,8 @@ internal class TestMVVM
 		PeopleStore store = _serviceProvider.GetRequiredService<PeopleStore>();
 		Console.WriteLine( "Records in store: " + store.Count );
 
-		Postcode? zipCode = AddressData.GetPostcode( "85013" );
-		Console.WriteLine( zipCode?.Code );
+		Postcode? postCode = AddressData.GetPostcode( "85013" );
+		Console.WriteLine( postCode?.Code );
 	}
 
 	internal static void TestContext()

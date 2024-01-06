@@ -1,8 +1,4 @@
 ﻿global using Common.Data.SQLite;
-//global using Common.Data.Json;
-//global using Common.Data.Sql;
-//global using Common.Data.Api;
-
 using Microsoft.Extensions.DependencyInjection;
 using MVVM.Core.Stores;
 using MVVM.Core.ViewModels;

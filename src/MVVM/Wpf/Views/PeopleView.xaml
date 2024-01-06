@@ -161,10 +161,10 @@
             <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource appTextBoxStyle}"
                      Text="{Binding GovernmentNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <TextBlock Grid.Row="4" Text="Id State:" Style="{StaticResource appTextBlockStyle}"/>
+            <TextBlock Grid.Row="4" Text="Id Province:" Style="{StaticResource appTextBlockStyle}"/>
             <cc:ComboBox Grid.Row="4" Grid.Column="1" Style="{StaticResource appLayoutStyle}"
-                         ItemsSource="{Binding States}" SelectedValuePath="Alpha" DisplayMemberPath="Name"
-                         SelectedValue="{Binding IdState, UpdateSourceTrigger=PropertyChanged}"/>
+                         ItemsSource="{Binding Provinces}" SelectedValuePath="Code" DisplayMemberPath="Name"
+                         SelectedValue="{Binding IdProvince, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Grid.Row="5" Text="Id Number:" Style="{StaticResource appTextBlockStyle}"/>
             <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource appTextBoxStyle}"

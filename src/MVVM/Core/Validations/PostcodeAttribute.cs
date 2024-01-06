@@ -5,7 +5,7 @@ using MVVM.Core.ViewModels;
 
 namespace MVVM.Core.Validations;
 
-internal partial class ZipCodeAttribute : ValidationAttribute
+internal partial class PostcodeAttribute : ValidationAttribute
 {
 	[GeneratedRegex( @"^[0-9]{5}(?:-[0-9]{4})?$" )]
 	private static partial Regex ZipCodeRegex();
@@ -31,19 +31,19 @@ internal partial class ZipCodeAttribute : ValidationAttribute
 					var zip = AddressData.GetPostcode( val );
 					if( zip is null )
 					{
-						return new( "Zip code is not valid.", new string[] { context.MemberName } );
+						return new( "Postcode is not valid.", new string[] { context.MemberName } );
 					}
 					else
 					{
 						avm.County = zip.County;
-						if( !zip.Province.Equals( avm.State, StringComparison.OrdinalIgnoreCase ) )
+						if( !zip.Province.Equals( avm.Province, StringComparison.OrdinalIgnoreCase ) )
 						{
 							string name = AddressFactoryBase.GetProvinceName( zip.Province );
-							return new( "Zip code is for '" + name + "'", provinceMember );
+							return new( "Postcode is for '" + name + "'", provinceMember );
 						}
 						if( zip.City is not null && !zip.City.Equals( avm.City, StringComparison.OrdinalIgnoreCase ) )
 						{
-							return new( "Zip code is for '" + zip.City + "'", cityMember );
+							return new( "Postcode is for '" + zip.City + "'", cityMember );
 						}
 					}
 				}

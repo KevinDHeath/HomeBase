@@ -1,6 +1,9 @@
 ﻿using System.ComponentModel;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Common.Core.Classes;
 using Common.Core.Models;
 using EFCore.Data.Models;
 
@@ -19,11 +22,11 @@ public class EFCoreDbContext( DbContextOptions<EFCoreDbContext> options ) : DbCo
 	/// <summary>Gets or sets the People data set.</summary>
 	public virtual DbSet<Person> People { get; set; }
 
-	/// <summary>Gets or sets the USState data set.</summary>
-	public virtual DbSet<USState> USStates { get; set; }
+	/// <summary>Gets or sets the Province data set.</summary>
+	public virtual DbSet<Province> Provinces { get; set; }
 
-	/// <summary>Gets or sets the USZipCode data set.</summary>
-	public virtual DbSet<USZipCode> USZipCodes { get; set; }
+	/// <summary>Gets or sets the Postcode data set.</summary>
+	public virtual DbSet<Postcode> Postcodes { get; set; }
 
 	/// <summary>Gets or sets the ISOCountry data set.</summary>
 	public virtual DbSet<ISOCountry> ISOCountries { get; set; }
@@ -60,22 +63,64 @@ public class EFCoreDbContext( DbContextOptions<EFCoreDbContext> options ) : DbCo
 	protected override void OnModelCreating( ModelBuilder modelBuilder )
 	{
 		ValueConverter<bool, char> converter = new( v => v ? 'Y' : 'N', v => v == 'Y' );
-		modelBuilder.Entity<Company>().Property( e => e.Private ).HasConversion( converter );
-		modelBuilder.Entity<Company>().OwnsOne( p => p.Address );
+		_ = modelBuilder.Entity<Company>().Property( e => e.Private ).HasConversion( converter );
+		_ = modelBuilder.Entity<Company>().OwnsOne( p => p.Address );
 
-		modelBuilder.Entity<Person>().OwnsOne( p => p.Address );
+		_ = modelBuilder.Entity<Person>().OwnsOne( p => p.Address );
 
-		modelBuilder.Entity<ISOCountry>().HasIndex( b => b.Alpha2 );
-		modelBuilder.Entity<ISOCountry>().HasIndex( b => b.Alpha3 );
-		modelBuilder.Entity<USState>().HasIndex( b => b.Alpha );
-		modelBuilder.Entity<USZipCode>().HasIndex( b => b.ZipCode );
+		_ = modelBuilder.Entity<ISOCountry>().HasIndex( b => b.Alpha2 );
+		_ = modelBuilder.Entity<ISOCountry>().HasIndex( b => b.Alpha3 );
+		_ = modelBuilder.Entity<Province>().HasIndex( b => b.Code );
+		_ = modelBuilder.Entity<Postcode>().HasIndex( b => b.Code );
 
-		modelBuilder.Entity<SuperHero>().Property( e => e.Publisher ).HasColumnType( @"nvarchar(20)" );
-		modelBuilder.Entity<SuperHero>().HasIndex( b => b.Name );
+		_ = modelBuilder.Entity<SuperHero>().Property( e => e.Publisher ).HasColumnType( @"nvarchar(20)" );
+		_ = modelBuilder.Entity<SuperHero>().HasIndex( b => b.Name );
 
-		modelBuilder.Entity<Movie>().HasIndex( b => b.Title );
+		_ = modelBuilder.Entity<Movie>().HasIndex( b => b.Title );
+
+		_ = modelBuilder.Entity<ISOCountry>().HasData( GetSeedDataISOCountry() );
+		_ = modelBuilder.Entity<Postcode>().HasData( GetSeedDataPostcode() );
+		_ = modelBuilder.Entity<Province>().HasData( GetSeedDataProvince() );
 
 		base.OnModelCreating( modelBuilder );
+	}
+
+	#endregion
+
+	#region Data Seeding
+
+	private const string cDataLocation = @"..\Database.Address\Data";
+
+	private static JsonSerializerOptions SerializerOptions()
+	{
+		JsonSerializerOptions rtn = JsonHelper.DefaultSerializerOptions();
+		rtn.NumberHandling = JsonNumberHandling.AllowReadingFromString;
+		rtn.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.Create( System.Text.Unicode.UnicodeRanges.BasicLatin );
+		return rtn;
+	}
+
+	private static ISOCountry[] GetSeedDataISOCountry()
+	{
+		FileInfo fi = new( Path.Combine( cDataLocation, "ISOCountries.json" ) );
+		if( !fi.Exists ) { return []; }
+		string? json = File.ReadAllText( fi.FullName );
+		return [.. JsonHelper.DeserializeList<ISOCountry>( ref json, SerializerOptions() )];
+	}
+
+	private static Postcode[] GetSeedDataPostcode()
+	{
+		FileInfo fi = new( Path.Combine( cDataLocation, "USPostCodes.json" ) );
+		if( !fi.Exists ) { return []; }
+		string? json = File.ReadAllText( fi.FullName );
+		return [.. JsonHelper.DeserializeList<Postcode>( ref json, SerializerOptions() )];
+	}
+
+	private static Province[] GetSeedDataProvince()
+	{
+		FileInfo fi = new( Path.Combine( cDataLocation, "USProvinces.json" ) );
+		if( !fi.Exists ) { return []; }
+		string? json = File.ReadAllText( fi.FullName );
+		return [.. JsonHelper.DeserializeList<Province>( ref json, SerializerOptions() )];
 	}
 
 	#endregion
