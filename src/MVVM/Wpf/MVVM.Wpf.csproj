@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <Resource Include="Assets\MVVMPattern1.png" />
+    <Resource Include="..\..\..\docs\Common\Theme\icon-orange.ico" Link="Assets\icon-orange.ico" />
   </ItemGroup>
 
   <ItemGroup>

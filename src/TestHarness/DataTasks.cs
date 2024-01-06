@@ -1,27 +1,27 @@
 ﻿using System;
 using Common.Core.Classes;
-using Common.Data.Api;
+//using Common.Data.Api;
 //using Common.Data.Json;
-//using Common.Data.Sql;
+using Common.Data.Sql;
 
 namespace TestHarness;
 
 internal static class DataTasks
 {
-	internal const string cTestDataDir = @"C:\Users\Kevin\source\repos\Sandbox\TestData";
+	internal const string cTestDataDir = @"C:\Temp\TestData";
 
 	#region Test Data
 
 	internal static bool TestData()
 	{
-		//Companies factory = new();
-		//var data = factory.Get( 5 );
+		Companies factory = new();
+		var data = factory.Get( 5 );
 		//var data = factory.Get( cTestDataDir, "Company-test.json", max: 5 );
 		//var data = factory.Get( cTestDataDir, "Company-test1.json", max: 15 );
 		//_ = factory.Serialize( cTestDataDir, "Company-testout.json", data );
 
-		People factory = new();
-		var data = factory.Get( 5 );
+		//People factory = new();
+		//var data = factory.Get( 5 );
 		//var data = factory.Get( cTestDataDir, "Person-test.json", max: 5 );
 		//var data = factory.Get( cTestDataDir, "Person-test1.json", max: 15 );
 		//_ = factory.Serialize( cTestDataDir, "Person-testout.json", data );

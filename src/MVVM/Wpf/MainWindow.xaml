@@ -10,7 +10,7 @@
 		mc:Ignorable="d"
 		d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
 		Title="MVVM Wpf" Width="800" MinHeight="480" FontSize="{DynamicResource Common.FontSize}"
-		WindowStartupLocation="CenterScreen" SizeToContent="Height">
+		WindowStartupLocation="CenterScreen" SizeToContent="Height" Icon="{StaticResource appIcon}">
 	<Grid>
 		<Grid.Resources>
 			<DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">

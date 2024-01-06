@@ -22,13 +22,14 @@
       <!-- Margin is outside the UI element, Padding is inside it -->
       <pf:Thickness x:Key="appMargin">3</pf:Thickness>
       <pf:Thickness x:Key="appPadding">3</pf:Thickness>
-      <pf:VerticalAlignment x:Key="appVerticalAlignment">Center</pf:VerticalAlignment>
+      <pf:VerticalAlignment x:Key="appVerticalAlignment">Top</pf:VerticalAlignment>
 
       <!-- Converters -->
       <cv:DateOnlyToDateTime x:Key="DateOnlyToDateTime"/>
       <cv:IntegerToString x:Key="IntegerToString"/>
 
       <!-- Styles -->
+      <BitmapImage x:Key="appIcon" UriSource=".\Assets\icon-orange.ico"/>
       <Style x:Key="appViewTitleStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="20"/>
       </Style>
