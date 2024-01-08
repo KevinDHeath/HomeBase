@@ -18,12 +18,17 @@ public class AddressData : AddressFactoryBase
 	/// <param name="countries">Indicates whether ISO Countries should be loaded. The default is true.</param>
 	/// <param name="provinces">Indicates whether Provinces should be loaded. The default is true</param>
 	/// <param name="postcodes">Indicates whether Postcodes should be loaded. The default is true.</param>
+	/// <param name="isoCountry">The ISO-3166 Country code to use for Address data. The default is USA.</param>
 	public AddressData( string configFile = DataFactoryBase.cConfigFile, bool useAlpha2 = false,
-		bool countries = true, bool provinces = true, bool postcodes = true )
+		bool countries = true, bool provinces = true, bool postcodes = true, string isoCountry = "" )
 	{
 		_service = Factory.GetDataService( Factory.cEndpointKey, ref configFile );
 
-		if( countries & Countries.Count == 0 ) { LoadCountries( useAlpha2 ); }
+		if( countries & Countries.Count == 0 )
+		{
+			LoadCountries( useAlpha2 );
+			DefaultCountry = isoCountry;
+		}
 		if( provinces & Provinces.Count == 0 ) { LoadProvinces(); }
 		if( postcodes & Postcodes.Count == 0 ) { LoadPostcodes(); }
 	}

@@ -34,11 +34,11 @@ Content-Type: {{contentType}}
 ### ISO Country
 GET {{EFCore.RestApi_HostAddress}}/api/ISOCountry
 
-### US State
-GET {{EFCore.RestApi_HostAddress}}/api/USState
+### Province
+GET {{EFCore.RestApi_HostAddress}}/api/Province
 
-### US Zip code
-GET {{EFCore.RestApi_HostAddress}}/api/USZipCode
+### Postcode
+GET {{EFCore.RestApi_HostAddress}}/api/Postcode
 
 ###
-GET {{EFCore.RestApi_HostAddress}}/api/USZipCode/32937
+GET {{EFCore.RestApi_HostAddress}}/api/Postcode/32937

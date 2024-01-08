@@ -47,7 +47,7 @@ public static class ServiceProviderHelper
 
 	private static SettingsStore CreateSettingsStore( IServiceProvider sp )
 	{
-		_ = new AddressData( useAlpha2: false ); // Address data is required
+		_ = new AddressData( useAlpha2: false, isoCountry: "USA" ); // Address data is required
 		return new SettingsStore( "appsettings.json" );
 	}
 

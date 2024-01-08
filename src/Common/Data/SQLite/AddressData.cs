@@ -15,10 +15,16 @@ public class AddressData : AddressFactoryBase
 	/// <param name="countries">Indicates whether ISO Countries should be loaded. The default is true.</param>
 	/// <param name="provinces">Indicates whether Provinces should be loaded. The default is true.</param>
 	/// <param name="postcodes">Indicates whether Postcodes should be loaded. The default is true.</param>
-	public AddressData( bool useAlpha2 = false, bool countries = true, bool provinces = true, bool postcodes = true )
+	/// <param name="isoCountry">The ISO-3166 Country code to use for Address data. The default is USA.</param>
+	public AddressData( bool useAlpha2 = false, bool countries = true, bool provinces = true,
+		bool postcodes = true, string isoCountry = "" )
 	{
 		using AddressContextBase context = new();
-		if( countries & Countries.Count == 0 ) { LoadCountries( useAlpha2, context ); }
+		if( countries & Countries.Count == 0 )
+		{
+			LoadCountries( useAlpha2, context );
+			DefaultCountry = isoCountry;
+		}
 		if( provinces & Provinces.Count == 0 ) { LoadProvinces( context ); }
 		if( postcodes & Postcodes.Count == 0 ) { LoadPostcodes( context ); }
 	}
