@@ -89,8 +89,11 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Core">
+      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\net8.0\Common.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore">
-      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

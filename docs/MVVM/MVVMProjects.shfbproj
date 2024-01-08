@@ -89,6 +89,9 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Core">
+      <HintPath>..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\Common.Core.dll</HintPath>
+    </Reference>
     <Reference Include="CommunityToolkit.Mvvm, Version=8.2.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2">
       <HintPath>..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\CommunityToolkit.Mvvm.dll</HintPath>
       <Private>True</Private>
