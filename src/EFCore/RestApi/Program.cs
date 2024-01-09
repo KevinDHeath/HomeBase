@@ -5,7 +5,7 @@ global using EFCore.RestApi.Services;
 
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using EFCore.Data;
+using Common.Data.SqlServer;
 
 var builder = WebApplication.CreateBuilder( args );
 
@@ -18,7 +18,7 @@ builder.Services.AddScoped<ProvinceService>();
 builder.Services.AddScoped<ISOCountryService>();
 builder.Services.AddScoped<PostcodeService>();
 
-builder.Services.AddDbContext<EFCoreDbContext>(
+builder.Services.AddDbContext<FullContextBase>(
 	options => options.UseSqlServer( builder.Configuration["ConnectionStrings:CommonData"] ) );
 
 builder.Services.AddControllers();

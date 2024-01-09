@@ -3,23 +3,14 @@
 namespace EFCore.RestApi.Controllers;
 
 /// <summary>Defines the available HTTP verbs for Companies.</summary>
+/// <remarks>Initializes a new instance of the CompanyController class.</remarks>
+/// <param name="service">A company service.</param>
 [Route( @"api/company" )]
 [ApiController]
 [Produces( "application/json" )]
-public class CompanyController : ControllerBase
+public class CompanyController( CompanyService service ) : ControllerBase
 {
-	#region Constructor and Variables
-
-	private readonly CompanyService _service;
-
-	/// <summary>Initializes a new instance of the CompanyController class.</summary>
-	/// <param name="service">A company service.</param>
-	public CompanyController( CompanyService service )
-	{
-		_service = service;
-	}
-
-	#endregion
+	private readonly CompanyService _service = service;
 
 	/// <summary>Get a collection of Companies.</summary>
 	/// <param name="count">Maximum count of results to return.</param>

@@ -1,13 +1,13 @@
-﻿using EFCore.Data;
+﻿using Common.Data.SqlServer;
 
 namespace EFCore.RestApi.Services;
 
 /// <summary>Defines the available database operations for Postcodes.</summary>
 /// <remarks>Initializes a new instance of the PostcodeService class.</remarks>
 /// <param name="context">Entity database context.</param>
-public class PostcodeService( EFCoreDbContext context )
+public class PostcodeService( FullContextBase context )
 {
-	private readonly EFCoreDbContext _context = context;
+	private readonly FullContextBase _context = context;
 
 	/// <summary>Gets the count of Postcodes.</summary>
 	/// <param name="province">Optional Postal Service Province abbreviation.</param>

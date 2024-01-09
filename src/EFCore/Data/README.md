@@ -1,13 +1,13 @@
 ## SQL Data
 <table>
-<tr><th align="left">SQL script</th><th align="left">Data file</th><th align="left">Import</th></tr>
-<tr><td>Companies.sql</td><td>Data/Companies.txt</td><td>Flat File</td></tr>
-<tr><td>ISOCountries.sql</td><td>Data/ISOCountries.txt</td><td>Data</td></tr>
-<tr><td>Movies.sql</td><td>Data/Movies.txt</td><td>Flat File</td></tr>
-<tr><td>People.sql</td><td>Data/People.txt</td><td>Flat File</td>
-<tr><td>Postcodes.sql</td><td>Data/USPostcodes.txt</td><td>Flat File</td></tr>
-<tr><td>Provinces.sql</td><td>Data/USProvinces.txt</td><td>Flat File</td></tr>
-<tr><td>SuperHeroes.sql</td><td>Data/SuperHeroes.txt</td><td>Flat File</td></tr>
+<tr><th align="left">Data file</th><th align="left">Import</th><th align="left">SQL script</th></tr>
+<tr><td>Companies.txt</td><td>Flat File</td><td>Scripts/Companies.sql</td></tr>
+<tr><td>ISOCountries.txt</td><td>Data</td><td>Scripts/ISOCountries.sql</td></tr>
+<tr><td>Movies.txt</td><td>Flat File</td><td>Scripts/Movies.sql</td></tr>
+<tr><td>People.txt</td><td>Flat File</td><td>Scripts/People.sql</td>
+<tr><td>USPostcodes.txt</td><td>Flat File</td><td>Scripts/Postcodes.sql</td></tr>
+<tr><td>USProvinces.txt</td><td>Flat File</td><td>Scripts/Provinces.sql</td></tr>
+<tr><td>SuperHeroes.txt</td><td>Flat File</td><td>Scripts/SuperHeroes.sql</td></tr>
 </table>
 
 The following Tasks rely on having [SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) installed.
@@ -25,8 +25,11 @@ Use Tasks>Import **Data** to load a text file with no NULL values directly into 
   Make sure that the column data types are set correctly.\
   \
   Companies:\
-  Address_ZipCode: nvarchar(20)\
+  Address_Postode: nvarchar(20)\
   NaicsCode: nvarchar(20)
+  \
+  People:\
+  Address_Postode: nvarchar(20)\
 
 - Then copy the data from the import table to the actual table\
    ```INSERT INTO [table name] SELECT * FROM [table name_temp];```

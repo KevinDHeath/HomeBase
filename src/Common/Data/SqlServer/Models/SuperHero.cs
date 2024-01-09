@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using Common.Core.Classes;
 
-namespace EFCore.Data.Models;
+namespace Common.Data.SqlServer.Models;
 
 /// <summary>This class contains details of a Super Hero.</summary>
 public class SuperHero : ModelData
@@ -10,6 +10,7 @@ public class SuperHero : ModelData
 	#region Publishers
 
 	/// <summary>Super Hero publishers.</summary>
+	[JsonConverter( typeof( JsonStringEnumConverter<Publishers> ) )]
 	public enum Publishers
 	{
 		/// <summary>DC comics.</summary>

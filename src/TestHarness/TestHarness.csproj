@@ -21,7 +21,7 @@
     <ProjectReference Include="..\Common\Data\Json\Common.Data.Json.csproj" />
     <ProjectReference Include="..\Common\Data\Sql\Common.Data.Sql.csproj" />
     <ProjectReference Include="..\Common\Data\SQLite\Common.Data.SQLite.csproj" />
-    <ProjectReference Include="..\EFCore\Data\EFCore.Data.csproj" />
+    <ProjectReference Include="..\Common\Data\SqlServer\Common.Data.SqlServer.csproj" />
     <ProjectReference Include="..\Json.Converters\Json.Converters.csproj" />
     <ProjectReference Include="..\MVVM\Core\MVVM.Core.csproj" />
   </ItemGroup>

@@ -3,23 +3,14 @@
 namespace EFCore.RestApi.Controllers;
 
 /// <summary>Defines the available HTTP verbs for ISO Countries.</summary>
+/// <remarks>Initializes a new instance of the ISOCountryController class.</remarks>
+/// <param name="service">An ISO Country service.</param>
 [Route( @"api/isocountry" )]
 [ApiController]
 [Produces( "application/json" )]
-public class ISOCountryController : ControllerBase
+public class ISOCountryController( ISOCountryService service ) : ControllerBase
 {
-	#region Constructor and Variables
-
-	private readonly ISOCountryService _service;
-
-	/// <summary>Initializes a new instance of the ISOCountryController class.</summary>
-	/// <param name="service">An ISO Country service.</param>
-	public ISOCountryController( ISOCountryService service )
-	{
-		_service = service;
-	}
-
-	#endregion
+	private readonly ISOCountryService _service = service;
 
 	/// <summary>Get a collection of all ISO Countries.</summary>
 	/// <returns>A result set of ISO Country details.</returns>

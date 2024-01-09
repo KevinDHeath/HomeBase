@@ -1,23 +1,14 @@
-﻿using EFCore.Data;
-using EFCore.Data.Models;
+﻿using Common.Data.SqlServer;
+using Common.Data.SqlServer.Models;
 
 namespace EFCore.RestApi.Services;
 
 /// <summary>Defines the available database operations for Movies.</summary>
-public class MovieService
+/// <remarks>Initializes a new instance of the MovieService class.</remarks>
+/// <param name="context">Entity database context.</param>
+public class MovieService( FullContextBase context )
 {
-	#region Constructor and Variables
-
-	private readonly EFCoreDbContext _context;
-
-	/// <summary>Initializes a new instance of the MovieService class.</summary>
-	/// <param name="context">Entity database context.</param>
-	public MovieService( EFCoreDbContext context )
-	{
-		_context = context;
-	}
-
-	#endregion
+	private readonly FullContextBase _context = context;
 
 	/// <summary>Gets the collection of Movies.</summary>
 	/// <param name="uri">Request Uri.</param>

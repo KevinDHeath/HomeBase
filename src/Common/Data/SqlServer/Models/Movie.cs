@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using Common.Core.Classes;
 
-namespace EFCore.Data.Models;
+namespace Common.Data.SqlServer.Models;
 
 /// <summary>This class contains details of a Movie.</summary>
 public class Movie : ModelData

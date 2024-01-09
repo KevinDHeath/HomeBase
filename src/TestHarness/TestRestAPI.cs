@@ -1,7 +1,7 @@
 ﻿using Common.Core.Classes;
 using Common.Core.Interfaces;
 using Common.Core.Models;
-using EFCore.Data.Models;
+using Common.Data.SqlServer.Models;
 
 namespace TestHarness;
 

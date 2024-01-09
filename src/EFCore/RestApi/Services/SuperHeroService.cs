@@ -1,23 +1,14 @@
-﻿using EFCore.Data;
-using EFCore.Data.Models;
+﻿using Common.Data.SqlServer;
+using Common.Data.SqlServer.Models;
 
 namespace EFCore.RestApi.Services;
 
 /// <summary>Defines the available database operations for Super Heroes.</summary>
-public class SuperHeroService
+/// <remarks>Initializes a new instance of the SuperHeroService class.</remarks>
+/// <param name="context">Entity database context.</param>
+public class SuperHeroService( FullContextBase context )
 {
-	#region Constructor and Variables
-
-	private readonly EFCoreDbContext _context;
-
-	/// <summary>Initializes a new instance of the SuperHeroService class.</summary>
-	/// <param name="context">Entity database context.</param>
-	public SuperHeroService( EFCoreDbContext context )
-	{
-		_context = context;
-	}
-
-	#endregion
+	private readonly FullContextBase _context = context;
 
 	/// <summary>Gets a collection of Super Heroes.</summary>
 	/// <param name="uri">Request Uri.</param>

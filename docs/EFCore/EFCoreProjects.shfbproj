@@ -22,8 +22,6 @@
     <HtmlHelpName>EFCore.Projects</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\..\src\EFCore\Data\bin\Debug\net8.0\EFCore.Data.dll" />
-      <DocumentationSource sourceFile="..\..\src\EFCore\Data\bin\Debug\net8.0\EFCore.Data.xml" />
       <DocumentationSource sourceFile="..\..\src\EFCore\RestApi\bin\Debug\net8.0\EFCore.RestApi.xml" />
       <DocumentationSource sourceFile="..\..\src\EFCore\RestApi\bin\Debug\net8.0\EFCore.RestApi.dll" />
     </DocumentationSources>
@@ -48,8 +46,6 @@
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="False" />
-      <NamespaceSummaryItem name="EFCore.Data" isDocumented="True">Provides classes used by the Entity Framework.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="EFCore.Data.Models" isDocumented="True">Provides models for API usage.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="EFCore.RestApi.Controllers" isDocumented="True">Provides MVC controllers without view support.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="EFCore.RestApi.Services" isDocumented="True">Provides Interfaces used by the Service implementations.</NamespaceSummaryItem>
     </NamespaceSummaries>

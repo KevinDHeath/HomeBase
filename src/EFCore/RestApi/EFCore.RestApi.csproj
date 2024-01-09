@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data\EFCore.Data.csproj" />
+    <ProjectReference Include="..\..\Common\Data\SqlServer\Common.Data.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>

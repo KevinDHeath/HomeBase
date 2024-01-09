@@ -1,22 +1,13 @@
-﻿using EFCore.Data;
+﻿using Common.Data.SqlServer;
 
 namespace EFCore.RestApi.Services;
 
 /// <summary>Defines the available database operations for Companies.</summary>
-public class CompanyService
+/// <remarks>Initializes a new instance of the CompanyService class.</remarks>
+/// <param name="context">Entity database context.</param>
+public class CompanyService( FullContextBase context )
 {
-	#region Constructor and Variables
-
-	private readonly EFCoreDbContext _context;
-
-	/// <summary>Initializes a new instance of the CompanyService class.</summary>
-	/// <param name="context">Entity database context.</param>
-	public CompanyService( EFCoreDbContext context )
-	{
-		_context = context;
-	}
-
-	#endregion
+	private readonly FullContextBase _context = context;
 
 	/// <summary>Gets a collection of Companies.</summary>
 	/// <param name="uri">Request Uri.</param>

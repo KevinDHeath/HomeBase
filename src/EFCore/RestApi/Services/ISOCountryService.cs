@@ -1,22 +1,13 @@
-﻿using EFCore.Data;
+﻿using Common.Data.SqlServer;
 
 namespace EFCore.RestApi.Services;
 
 /// <summary>Defines the available database operations for ISO Countries.</summary>
-public class ISOCountryService
+/// <remarks>Initializes a new instance of the ISOCountryService class.</remarks>
+/// <param name="context">Entity database context.</param>
+public class ISOCountryService( FullContextBase context )
 {
-	#region Constructor and Variables
-
-	private readonly EFCoreDbContext _context;
-
-	/// <summary>Initializes a new instance of the ISOCountryService class.</summary>
-	/// <param name="context">Entity database context.</param>
-	public ISOCountryService( EFCoreDbContext context )
-	{
-		_context = context;
-	}
-
-	#endregion
+	private readonly FullContextBase _context = context;
 
 	/// <summary>Gets a collection of all ISO Countries.</summary>
 	/// <returns>A result set of ISO Country details.</returns>

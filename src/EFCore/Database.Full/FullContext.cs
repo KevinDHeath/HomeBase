@@ -3,12 +3,13 @@ using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Common.Core.Classes;
 using Common.Core.Models;
-using Common.Data.SQLite;
+using Common.Data.SqlServer;
+using Common.Data.SqlServer.Models;
 
-namespace EFCore.Database.Address;
+namespace Database.Full;
 
-/// <summary>Initializes a new instance of the AddressContext class.</summary>
-public sealed class AddressContext() : AddressContextBase
+/// <summary>Initializes a new instance of the FullContext class.</summary>
+public class FullContext : FullContextBase
 {
 	protected override void OnConfiguring( DbContextOptionsBuilder optionsBuilder )
 	{
@@ -22,6 +23,8 @@ public sealed class AddressContext() : AddressContextBase
 		_ = modelBuilder.Entity<ISOCountry>().HasData( GetSeedDataISOCountry() );
 		_ = modelBuilder.Entity<Postcode>().HasData( GetSeedDataPostcode() );
 		_ = modelBuilder.Entity<Province>().HasData( GetSeedDataProvince() );
+		_ = modelBuilder.Entity<Movie>().HasData( GetSeedDataMovie() );
+		_ = modelBuilder.Entity<SuperHero>().HasData( GetSeedDataSuperHero() );
 	}
 
 	#region Data Seeding
@@ -58,6 +61,22 @@ public sealed class AddressContext() : AddressContextBase
 		if( !fi.Exists ) { Console.WriteLine( $"Could not find {fi.FullName}" ); return []; }
 		string? json = File.ReadAllText( fi.FullName );
 		return [.. JsonHelper.DeserializeList<Province>( ref json, SerializerOptions() )];
+	}
+
+	private static Movie[] GetSeedDataMovie()
+	{
+		FileInfo fi = new( Path.Combine( cDataLocation, "Movies.json" ) );
+		if( !fi.Exists ) { Console.WriteLine( $"Could not find {fi.FullName}" ); return []; }
+		string? json = File.ReadAllText( fi.FullName );
+		return [.. JsonHelper.DeserializeList<Movie>( ref json, SerializerOptions() )];
+	}
+
+	private static SuperHero[] GetSeedDataSuperHero()
+	{
+		FileInfo fi = new( Path.Combine( cDataLocation, "SuperHeroes.json" ) );
+		if( !fi.Exists ) { Console.WriteLine( $"Could not find {fi.FullName}" ); return []; }
+		string? json = File.ReadAllText( fi.FullName );
+		return [.. JsonHelper.DeserializeList<SuperHero>( ref json, SerializerOptions() )];
 	}
 
 	#endregion

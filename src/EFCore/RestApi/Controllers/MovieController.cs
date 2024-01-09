@@ -1,26 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using EFCore.Data.Models;
+using Common.Data.SqlServer.Models;
 
 namespace EFCore.RestApi.Controllers;
 
 /// <summary>Defines the available HTTP verbs for Movies.</summary>
+/// <remarks>Initializes a new instance of the MovieController class.</remarks>
+/// <param name="service">A Movie service.</param>
 [Route( @"api/movie" )]
 [ApiController]
 [Produces( "application/json" )]
-public class MovieController : ControllerBase
+public class MovieController( MovieService service ) : ControllerBase
 {
-	#region Constructor and Variables
-
-	private readonly MovieService _service;
-
-	/// <summary>Initializes a new instance of the MovieController class.</summary>
-	/// <param name="service">A Movie service.</param>
-	public MovieController( MovieService service )
-	{
-		_service = service;
-	}
-
-	#endregion
+	private readonly MovieService _service = service;
 
 	/// <summary>Get a collection of Movies.</summary>
 	/// <param name="count">Maximum count of results to return.</param>

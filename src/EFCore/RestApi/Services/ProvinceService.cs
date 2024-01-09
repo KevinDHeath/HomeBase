@@ -1,13 +1,13 @@
-﻿using EFCore.Data;
+﻿using Common.Data.SqlServer;
 
 namespace EFCore.RestApi.Services;
 
 /// <summary>Defines the available database operations for Provinces.</summary>
 /// <remarks>Initializes a new instance of the ProvinceService class.</remarks>
 /// <param name="context">Entity database context.</param>
-public class ProvinceService( EFCoreDbContext context )
+public class ProvinceService( FullContextBase context )
 {
-	private readonly EFCoreDbContext _context = context;
+	private readonly FullContextBase _context = context;
 
 	/// <summary>Gets a collection of all Provinces.</summary>
 	/// <returns>A result set of Province details.</returns>

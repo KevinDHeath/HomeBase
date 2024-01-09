@@ -3,23 +3,14 @@
 namespace EFCore.RestApi.Controllers;
 
 /// <summary>Defines the available HTTP verbs for People.</summary>
+/// <remarks>Initializes a new instance of the PersonController class.</remarks>
+/// <param name="service">A person service.</param>
 [Route( @"api/person" )]
 [ApiController]
 [Produces( "application/json" )]
-public class PersonController : ControllerBase
+public class PersonController( PersonService service ) : ControllerBase
 {
-	#region Constructor and Variables
-
-	private readonly PersonService _service;
-
-	/// <summary>Initializes a new instance of the PersonController class.</summary>
-	/// <param name="service">A person service.</param>
-	public PersonController( PersonService service )
-	{
-		_service = service;
-	}
-
-	#endregion
+	private readonly PersonService _service = service;
 
 	/// <summary>Get a collection of People.</summary>
 	/// <param name="count">Maximum count of results to return.</param>

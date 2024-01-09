@@ -1,26 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using EFCore.Data.Models;
+using Common.Data.SqlServer.Models;
 
 namespace EFCore.RestApi.Controllers;
 
 /// <summary>Defines the available HTTP verbs for Super Heroes.</summary>
+/// <remarks>Initializes a new instance of the SuperHeroController class.</remarks>
+/// <param name="service">A Super Hero service.</param>
 [Route( @"api/superhero" )]
 [ApiController]
 [Produces( "application/json" )]
-public class SuperHeroController : ControllerBase
+public class SuperHeroController( SuperHeroService service ) : ControllerBase
 {
-	#region Constructor and Variables
-
-	private readonly SuperHeroService _service;
-
-	/// <summary>Initializes a new instance of the SuperHeroController class.</summary>
-	/// <param name="service">A Super Hero service.</param>
-	public SuperHeroController( SuperHeroService service )
-	{
-		_service = service;
-	}
-
-	#endregion
+	private readonly SuperHeroService _service = service;
 
 	/// <summary>Get a collection of Super Heroes.</summary>
 	/// <param name="count">Maximum count of results to return.</param>

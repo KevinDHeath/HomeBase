@@ -1,22 +1,13 @@
-﻿using EFCore.Data;
+﻿using Common.Data.SqlServer;
 
 namespace EFCore.RestApi.Services;
 
 /// <summary>Defines the available database operations for People.</summary>
-public class PersonService
+/// <remarks>Initializes a new instance of the PersonService class.</remarks>
+/// <param name="context">Entity database context.</param>
+public class PersonService( FullContextBase context )
 {
-	#region Constructor and Variables
-
-	private readonly EFCoreDbContext _context;
-
-	/// <summary>Initializes a new instance of the PersonService class.</summary>
-	/// <param name="context">Entity database context.</param>
-	public PersonService( EFCoreDbContext context )
-	{
-		_context = context;
-	}
-
-	#endregion
+	private readonly FullContextBase _context = context;
 
 	/// <summary>Gets a collection of People.</summary>
 	/// <param name="uri">Request Uri.</param>
