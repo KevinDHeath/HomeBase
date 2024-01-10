@@ -113,17 +113,18 @@ public class AddressData : AddressFactoryBase
 	[EditorBrowsable( EditorBrowsableState.Never )]
 	public static IList<string?> GetCountyNames( string? province )
 	{
-		List<string?> rtn = [];
-		if( _service is null || province is null || province.Length != 2 ) { return rtn; }
+		List<string?> list = [];
+		if( _service is null || province is null || string.IsNullOrWhiteSpace( province ) ) { return list; }
+		province = province.Trim();
 
 		string query = $"{sPostcode}?province={province}";
-		List<Postcode>? list = RunQuery( ref query, _service );
-		if( list is not null )
+		List<Postcode>? pcs = RunQuery( ref query, _service );
+		if( pcs is not null )
 		{
-			var groups = list.OrderBy( x => x.County ).GroupBy( x => x.County );
+			var groups = pcs.OrderBy( x => x.County ).GroupBy( x => x.County );
 			return groups.Select( c => c.Key ).ToList();
 		}
-		return rtn;
+		return list;
 	}
 
 	/// <summary>Gets a sorted list of City names for a requested Province and County.</summary>
@@ -133,18 +134,19 @@ public class AddressData : AddressFactoryBase
 	[EditorBrowsable( EditorBrowsableState.Never )]
 	public static IList<string?> GetCityNames( string? province, string? county = null )
 	{
-		List<string?> rtn = [];
-		if( _service is null || province is null ) { return rtn; }
+		List<string?> list = [];
+		if( _service is null || province is null ) { return list; }
+		province = province.Trim();
 
 		string query = $"{sPostcode}?province={province}";
 		if( !string.IsNullOrWhiteSpace( county ) ) { query += $"&county={Uri.EscapeDataString( county )}"; }
-		List<Postcode>? list = RunQuery( ref query, _service );
-		if( list is not null )
+		List<Postcode>? pcs = RunQuery( ref query, _service );
+		if( pcs is not null )
 		{
-			var groups = list.OrderBy( x => x.City ).GroupBy( x => x.City );
+			var groups = pcs.OrderBy( x => x.City ).GroupBy( x => x.City );
 			return groups.Select( c => c.Key ).ToList();
 		}
-		return rtn;
+		return list;
 	}
 
 	/// <summary>Gets a sorted list of Postal codes for a requested Province, County and City.</summary>
@@ -155,19 +157,20 @@ public class AddressData : AddressFactoryBase
 	[EditorBrowsable( EditorBrowsableState.Never )]
 	public static IList<string> GetPostcodes( string? province, string? county = null, string? city = null )
 	{
-		List<string> rtn = [];
-		if( _service is null || province is null || province.Length != 2 ) { return rtn; }
+		List<string> list = [];
+		if( _service is null || province is null || province.Length != 2 ) { return list; }
+		province = province.Trim();
 
 		string query = $"{sPostcode}?province={province}";
 		if( !string.IsNullOrWhiteSpace( county ) ) { query += $"&county={Uri.EscapeDataString( county )}"; }
 		if( !string.IsNullOrWhiteSpace( city ) ) { query += $"&city={Uri.EscapeDataString( city )}"; }
 
-		List<Postcode>? list = RunQuery( ref query, _service );
-		if( list is not null )
+		List<Postcode>? pcs = RunQuery( ref query, _service );
+		if( pcs is not null )
 		{
-			return list.OrderBy( x => x.Code ).Select( x => x.Code ).ToList();
+			return pcs.OrderBy( x => x.Code ).Select( x => x.Code ).ToList();
 		}
-		return rtn;
+		return list;
 	}
 
 	private static List<Postcode>? RunQuery( ref string query, DataServiceBase service )

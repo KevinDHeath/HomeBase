@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:cc="clr-namespace:Common.Wpf.Controls;assembly=Common.Wpf.Controls"
-             xmlns:viewmodels="clr-namespace:MVVM.Core.ViewModels;assembly=MVVM.Core"
+             xmlns:vm="clr-namespace:MVVM.Core.ViewModels;assembly=MVVM.Core"
              mc:Ignorable="d"
              d:DesignHeight="340" d:DesignWidth="380" d:Background="Beige"
-             d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
+             d:DataContext="{d:DesignInstance Type=vm:SettingsViewModel}"
              MinHeight="340" MinWidth="380" Loaded="UserControl_Loaded">
   <Grid x:Name="MainGrid" MaxWidth="1000" Margin="20" Validation.ErrorTemplate="{x:Null}">
     <Grid.Resources>

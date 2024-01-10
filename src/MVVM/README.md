@@ -7,10 +7,11 @@ Dependencies:
 - [CommunityToolkit.Mvvm](https://www.nuget.org/packages/CommunityToolkit.Mvvm)
 - [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection)
 
-There are multiple option for the data source:
-- Json embedded files
-- Sql database
+There are multiple options for the data source:
+- SQLite databases _(default)_
 - Api using Entity Framework
+- SQL database
+- Json embedded files
 
 The data source is set in the `SericeProviderHelper` class by changing the `global using` statement.
 

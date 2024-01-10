@@ -110,6 +110,7 @@ KE	KEN	Kenya
 KI	KIR	Kiribati
 KP	PRK	Korea, People's Democratic Republic
 KR	KOR	Korea, Republic of
+XK	XKK	Kosovo
 KW	KWT	Kuwait
 KG	KGZ	Kyrgyzstan
 LA	LAO	Lao People's Democratic Republic

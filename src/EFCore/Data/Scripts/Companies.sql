@@ -1,4 +1,4 @@
-/****** Object: Companies    Script Date: 09/27/2023 ******/
+/****** Object: Companies    Script Date: 12/16/2023 ******/
 CREATE TABLE [dbo].[Companies](
   [Id] [int] IDENTITY(1,1) NOT NULL,
   [Name] [nvarchar](100) NOT NULL,

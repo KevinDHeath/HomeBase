@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Common.Core.Models;
 using Common.Data.SQLite;
@@ -23,10 +21,10 @@ internal class TestMVVM
 	{
 		IServiceProvider _serviceProvider = ServiceProviderHelper.Create();
 		PeopleStore store = _serviceProvider.GetRequiredService<PeopleStore>();
-		Console.WriteLine( "Records in store: " + store.Count );
+		_ = Program.sLogger.Info( $"Records in store: {store.Count}" );
 
 		Postcode? postCode = AddressData.GetPostcode( "85013" );
-		Console.WriteLine( postCode?.Code );
+		_ = Program.sLogger.Info( $"Postcode county: {postCode?.County}" );
 	}
 
 	internal static void TestContext()
@@ -44,7 +42,7 @@ internal class TestMVVM
 
 		foreach( Company rec in context.Companies.Include( c => c.Address ).OrderBy( c => c.Name ) )
 		{
-			Console.WriteLine( $"{rec.Name}: {rec.Address.FullAddress}" );
+			_ = Program.sLogger.Info( $"{rec.Name}: {rec.Address.FullAddress}" );
 		}
 	}
 }

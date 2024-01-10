@@ -23,6 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{C14D2E
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{6599B873-2CCE-48AF-862F-36C4CD9F5B6D}"
+	ProjectSection(SolutionItems) = preProject
+		src\Common\Data\README.md = src\Common\Data\README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Data.Api", "src\Common\Data\Api\Common.Data.Api.csproj", "{B3B95EEB-DE3C-4BCF-AB08-1BE3A5C54B06}"
 EndProject

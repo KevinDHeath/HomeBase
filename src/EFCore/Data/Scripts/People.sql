@@ -1,4 +1,4 @@
-/****** Object: People    Script Date: 09/27/2023 ******/
+/****** Object: People    Script Date: 12/16/2023 ******/
 CREATE TABLE [dbo].[People](
   [Id] [int] IDENTITY(1,1) NOT NULL,
   [FirstName] [nvarchar](50) NOT NULL,

@@ -1,45 +1,45 @@
 ﻿<Window x:Class="MVVM.Wpf.MainWindow"
-		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-		xmlns:components="clr-namespace:MVVM.Wpf.Components"
-		xmlns:custom="clr-namespace:Common.Wpf.Controls;assembly=Common.Wpf.Controls"
-		xmlns:viewmodels="clr-namespace:MVVM.Core.ViewModels;assembly=MVVM.Core"
-		xmlns:views="clr-namespace:MVVM.Wpf.Views"
-		mc:Ignorable="d"
-		d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
-		Title="MVVM Wpf" Width="800" MinHeight="480" FontSize="{DynamicResource Common.FontSize}"
-		WindowStartupLocation="CenterScreen" SizeToContent="Height" Icon="{StaticResource appIcon}">
-	<Grid>
-		<Grid.Resources>
-			<DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
-				<components:Layout/>
-			</DataTemplate>
-			<DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
-				<views:HomeView/>
-			</DataTemplate>
-			<DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
-				<views:LoginView/>
-			</DataTemplate>
-			<DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
-				<views:SettingsView/>
-			</DataTemplate>
-			<DataTemplate DataType="{x:Type viewmodels:PeopleViewModel}">
-				<views:PeopleView/>
-			</DataTemplate>
-			<DataTemplate DataType="{x:Type viewmodels:CompaniesViewModel}">
-				<views:CompaniesView/>
-			</DataTemplate>
-			<DataTemplate DataType="{x:Type viewmodels:UsersViewModel}">
-				<views:UsersView/>
-			</DataTemplate>
-		</Grid.Resources>
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:cc="clr-namespace:Common.Wpf.Controls;assembly=Common.Wpf.Controls"
+        xmlns:vm="clr-namespace:MVVM.Core.ViewModels;assembly=MVVM.Core"
+        xmlns:local="clr-namespace:MVVM.Wpf.Components"
+        xmlns:views="clr-namespace:MVVM.Wpf.Views"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+        Title="MVVM Wpf" Width="800" MinHeight="480" FontSize="{DynamicResource Common.FontSize}"
+        WindowStartupLocation="CenterScreen" SizeToContent="Height" Icon="{StaticResource appIcon}">
+  <Grid>
+    <Grid.Resources>
+      <DataTemplate DataType="{x:Type vm:LayoutViewModel}">
+        <local:Layout/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+        <views:HomeView/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type vm:LoginViewModel}">
+        <views:LoginView/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+        <views:SettingsView/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type vm:PeopleViewModel}">
+        <views:PeopleView/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type vm:CompaniesViewModel}">
+        <views:CompaniesView/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type vm:UsersViewModel}">
+        <views:UsersView/>
+      </DataTemplate>
+    </Grid.Resources>
 
-		<custom:ModalDialog Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
-			<ContentControl Content="{Binding CurrentModalViewModel}"/>
-		</custom:ModalDialog>
+    <cc:ModalDialog Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
+      <ContentControl Content="{Binding CurrentModalViewModel}"/>
+    </cc:ModalDialog>
 
-		<ContentControl Content="{Binding CurrentViewModel}"/>
-	</Grid>
+    <ContentControl Content="{Binding CurrentViewModel}"/>
+  </Grid>
 </Window>

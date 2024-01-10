@@ -46,14 +46,15 @@ public class AddressData : AddressFactoryBase
 	#region Testing Methods
 
 	/// <summary>Gets a sorted list of County names for a requested Province.</summary>
-	/// <param name="code">Postal Service Province abbreviation.</param>
+	/// <param name="province">Postal Service Province abbreviation.</param>
 	/// <returns>An empty list is returned if the Province code was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string?> GetCountyNames( string? code )
+	public static IList<string?> GetCountyNames( string? province )
 	{
-		if( code is null ) { return new List<string?>(); }
+		if( province is null || string.IsNullOrWhiteSpace( province ) ) { return new List<string?>(); }
+		province = province.Trim();
 
-		return Postcodes.Where( z => z.Province.Equals( code, sCompare ) )
+		return Postcodes.Where( z => z.Province.Equals( province, sCompare ) )
 			.OrderBy( z => z.County )
 			.GroupBy( z => z.County )
 			.Select( z => z.Key ).ToList();
@@ -66,8 +67,8 @@ public class AddressData : AddressFactoryBase
 	[EditorBrowsable( EditorBrowsableState.Never )]
 	public static IList<string?> GetCityNames( string? province, string? county = null )
 	{
-		if( province is null ) { return new List<string?>(); }
-		province = province.ToUpper() ?? string.Empty;
+		if( province is null || string.IsNullOrWhiteSpace( province ) ) { return new List<string?>(); }
+		province = province.Trim();
 
 		if( !string.IsNullOrWhiteSpace( county ) )
 		{
@@ -91,10 +92,10 @@ public class AddressData : AddressFactoryBase
 	/// <param name="city">City name.</param>
 	/// <returns>An empty list is returned if the Province code, County name, or City name was not found.</returns>
 	[EditorBrowsable( EditorBrowsableState.Never )]
-	public static IList<string> GetPostcodes( string? province, string? county = null, string? city = null )
+	public static IList<string?> GetPostcodes( string? province, string? county = null, string? city = null )
 	{
-		if( province is null || province.Length != 2 ) { return new List<string>(); }
-		province = province.ToUpper() ?? string.Empty;
+		if( province is null || string.IsNullOrWhiteSpace( province ) ) { return new List<string?>(); }
+		province = province.Trim();
 
 		if( !string.IsNullOrWhiteSpace( county ) && !string.IsNullOrWhiteSpace( city ) )
 		{
@@ -102,28 +103,28 @@ public class AddressData : AddressFactoryBase
 			return Postcodes.Where( z => z.Province == province && z.County is not null && z.County.Equals( county, sCompare ) &&
 				z.City is not null && z.City.Equals( city, sCompare ) )
 				.OrderBy( z => z.Code )
-				.Select( z => z.Code ).ToList();
+				.Select( z => z.Code ).ToList()!;
 		}
 		else if( !string.IsNullOrWhiteSpace( county ) && string.IsNullOrWhiteSpace( city ) )
 		{
 			// County but no City supplied
 			return Postcodes.Where( z => z.Province == province && z.County is not null && z.County.Equals( county, sCompare ) )
 				.OrderBy( z => z.Code )
-				.Select( z => z.Code ).ToList();
+				.Select( z => z.Code ).ToList()!;
 		}
 		else if( string.IsNullOrWhiteSpace( county ) && !string.IsNullOrWhiteSpace( city ) )
 		{
 			// City but no County supplied
 			return Postcodes.Where( z => z.Province == province && z.City is not null && z.City.Equals( city, sCompare ) )
 				.OrderBy( z => z.Code )
-				.Select( z => z.Code ).ToList();
+				.Select( z => z.Code ).ToList()!;
 		}
 		else
 		{
 			// No County or City supplied
 			return Postcodes.Where( z => z.Province == province )
 				.OrderBy( z => z.Code )
-				.Select( z => z.Code ).ToList();
+				.Select( z => z.Code ).ToList()!;
 		}
 	}
 

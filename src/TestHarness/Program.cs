@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Application.Helper;
 using Logging.Helper;
 
 namespace TestHarness;
@@ -8,7 +8,7 @@ class Program
 	// Important: Set the application settings file Property in project to:
 	// Copy to Output Directory = Copy if newer
 
-	internal static readonly OverrideConsoleApp sApp = new();
+	internal static readonly ConsoleApp sApp = new();
 	internal static readonly Logger sLogger = new( typeof( Program ) );
 
 	#region Program Entry Point
@@ -41,13 +41,14 @@ class Program
 
 	internal static bool RunTest()
 	{
-		//if( DataTasks.TestAddress() ) { return true; }
-		//if( DataTasks.TestData() ) { return true; }
+		//if( TestSql.RunTest() ) { return true; }
+		if( TestAPI.RunTest() ) { return true; }
+		//if( TestSqlServer.RunTest() ) { return true; }
+
 		//if( TestJson.RunTest() ) { return true; }
 		//if( TestLINQ.RunTest() ) { return true; }
-		if( Reflection.TestReflection.Test() ) { return true; }
-		//if( TestRestAPI.RunTest() ) { return true; }
 		//if( TestMVVM.RunTest() ) { return true; }
+		//if( Reflection.TestReflection.Test() ) { return true; }
 
 		return false;
 	}
