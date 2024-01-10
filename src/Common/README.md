@@ -1,5 +1,5 @@
 # Common Data
-Implements 4 methods of providing data.
+Implements 5 methods of providing data.
 
 ## Common.Data.API
 Uses a restful API to access data using the Entity Framework provided by Microsoft.
@@ -38,6 +38,18 @@ Uses data directly from a SQLite database.
 Dependencies:
 - [kdheath.Common.Core](https://www.nuget.org/packages/kdheath.Common.Core)
 - [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite)
+- [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)
+- [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json)
+
+## Common.Data.SqlServer
+Uses data directly from a SQLite database.
+
+- Caches zip code data
+- Can maintain data
+
+Dependencies:
+- [kdheath.Common.Core](https://www.nuget.org/packages/kdheath.Common.Core)
+- [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer)
 - [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)
 - [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json)
 
