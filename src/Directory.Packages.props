@@ -12,32 +12,20 @@
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="8.0.0" />
     <PackageVersion Include="System.Memory.Data" Version="8.0.0" />
-    <PackageVersion Include="System.Text.Json" Version="8.0.0" />
-    <PackageVersion Include="System.Text.Encodings.Web" Version="8.0.0" />
-
 
     <!-- Transitive, referenced by Microsoft.Data.SqlClient -->
     <PackageVersion Include="Azure.Identity" Version="1.10.4" />
     <PackageVersion Include="Microsoft.Identity.Client" Version="4.58.1" />
     <PackageVersion Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.58.1" />
-    <PackageVersion Include="Microsoft.IdentityModel.Abstractions" Version="7.0.3" />
+    <PackageVersion Include="Microsoft.IdentityModel.Abstractions" Version="7.1.2" />
 
-    <!-- Transitive, Microsoft.Data.SqlClient -->
-    <PackageVersion Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.0.3" />
-    <PackageVersion Include="Microsoft.IdentityModel.Logging" Version="7.0.3" />
-    <PackageVersion Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
-    <PackageVersion Include="System.Runtime.Caching" Version="8.0.0" />
-    <PackageVersion Include="System.Text.Encoding.CodePages" Version="8.0.0" />
-
-    <PackageVersion Include="System.Formats.Asn1" Version="8.0.0" />
-    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
-    <PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="7.0.3" />
-    <PackageVersion Include="System.Security.AccessControl" Version="6.0.0" />
-    <PackageVersion Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
-
+    <!-- Transitive, referenced by Microsoft.Extensions.DependencyModel -->
+    <PackageVersion Include="System.Text.Encodings.Web" Version="8.0.0" />
+    <PackageVersion Include="System.Text.Json" Version="8.0.1" />
 
     <!-- Transitive, referenced by Microsoft.EntityFrameworkCore.Design -->
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.8.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="8.0.0" />
     <PackageVersion Include="Mono.TextTemplating" Version="2.3.1" />
     <PackageVersion Include="System.CodeDom" Version="8.0.0" />
     <PackageVersion Include="System.Collections.Immutable" Version="8.0.0" />
@@ -49,37 +37,46 @@
     <!-- Transitive, referenced by Microsoft.EntityFrameworkCore.Sqlite and Microsoft.Data.SqlClient -->
     <PackageVersion Include="System.Memory" Version="4.5.5" />
 
+    <!-- Transitive, referenced by Swashbuckle.AspNetCore -->
+    <PackageVersion Include="Microsoft.Extensions.ApiDescription.Server" Version="8.0.1" />
+
     <!-- Transitive, referenced by Microsoft.AspNetCore.OpenApi -->
     <PackageVersion Include="Microsoft.OpenApi" Version="1.6.11" />
 
-    <!-- Transitive, referenced by Swashbuckle.AspNetCore -->
-    <PackageVersion Include="Microsoft.Extensions.ApiDescription.Server" Version="8.0.0" />
+    <!-- Transitive, referenced by Microsoft.EntityFrameworkCore.SqlServer and Common.Data.Sql -->
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.4" />
+    <PackageVersion Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.1.2" />
+    <PackageVersion Include="Microsoft.IdentityModel.Logging" Version="7.1.2" />
+    <PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="7.1.2" />
+    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="7.1.2" />
+    <PackageVersion Include="System.Formats.Asn1" Version="8.0.0" />
+    <PackageVersion Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageVersion Include="System.Runtime.Caching" Version="8.0.0" />
+    <PackageVersion Include="System.Security.AccessControl" Version="6.0.0" />
+    <PackageVersion Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
+    <PackageVersion Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+
+    <!-- Microsoft.EntityFrameworkCore -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+
+    <!-- Microsoft.Extensions -->
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.1" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+
+    <!-- EFCore.RestApi -->
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 
     <!-- kdheath -->
     <PackageVersion Include="kdheath.Common.Core" Version="2.1.0" />
     <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.1" />
     <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.2" />
 
-    <!-- Common.Data.Sql -->
-    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.2" />
-
-    <!-- EFCore.RestApi -->
-    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
-    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-
-    <!-- EFCore.Data -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
-
-    <!-- EFCore.Database -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
-
     <!-- MVVM.Core -->
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 
   </ItemGroup>
 
