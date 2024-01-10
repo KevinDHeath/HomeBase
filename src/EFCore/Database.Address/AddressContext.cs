@@ -26,7 +26,7 @@ public sealed class AddressContext() : AddressContextBase
 
 	#region Data Seeding
 
-	private const string cDataLocation = @"..\Data";
+	private const string cDataLocation = @"..\Data\Seed";
 
 	private static JsonSerializerOptions SerializerOptions()
 	{

@@ -4,6 +4,12 @@
 
 > The [Entity Framework Core tools](https://learn.microsoft.com/en-us/ef/core/cli/dotnet) must be installed to perform migrations.
 
+```shell
+dotnet-ef # Displays the current version
+dotnet tool install --global dotnet-ef # Installs the tools
+dotnet tool update --global dotnet-ef # Updates the tools version
+```
+
 ## EFCore Data
 This folder contains the SQL scripts, and data files used to define and populate tables in an existing database. 
 

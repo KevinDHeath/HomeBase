@@ -21,18 +21,19 @@ Use Tasks>Import **Data** to load a text file with no NULL values directly into 
   - Destination: SQL Server Native Client 11.0
 
 > **Note**: To preserve NULL values SSMS v17.3 or higher must be installed.
-- Use Tasks>Import **Flat File** to load a text file to a new table named [_table name_temp_].\
-  Make sure that the column data types are set correctly.\
-  \
+- Use Tasks>Import **Flat File** to load a text file to a new table named [_table name_temp_].
+
+  Make sure that the column data types are set correctly.
+
   Companies:\
   Address_Postode: nvarchar(20)\
   NaicsCode: nvarchar(20)
-  \
+ 
   People:\
-  Address_Postode: nvarchar(20)\
+  Address_Postode: nvarchar(20)
 
-- Then copy the data from the import table to the actual table\
-   ```INSERT INTO [table name] SELECT * FROM [table name_temp];```
+- Then copy the data from the generated temporary table to the actual table\
+  ```INSERT INTO [table name] SELECT * FROM [table name_temp];```
 
 - Finally, remove the temporary table\
    ```DROP TABLE [table name_temp];```

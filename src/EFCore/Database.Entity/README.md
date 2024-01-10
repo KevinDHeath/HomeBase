@@ -1,12 +1,16 @@
 # EFCore.Database.Entity
+This builds the migrations to update an EFCore SQLite Entity database used by `Common.Data.SQLite`.
 
 To create the Entity database, start a PowerShell session and run the following commands:
 
 ~~~shell
 cd src/EFCore/Database.Entity
 
-dotnet-ef migrations add InitialCreate
-dotnet-ef database update
+dotnet-ef migrations add [migration name]
+
+dotnet-ef database update # applies the latest migration
+-or-
+dotnet-ef migrations remove # remove the latest migration
 ~~~
 
 Because the Company and Person data cannot be automatically seeded due to them having a 'owns one' relationship to Address, import directly into the database tables with the tab-delimited files supplied in the `Data` folder.\

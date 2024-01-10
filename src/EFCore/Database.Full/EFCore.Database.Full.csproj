@@ -20,4 +20,10 @@
     <ProjectReference Include="..\..\Common\Data\SqlServer\Common.Data.SqlServer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

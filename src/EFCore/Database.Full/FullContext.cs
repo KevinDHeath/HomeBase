@@ -29,7 +29,7 @@ public class FullContext : FullContextBase
 
 	#region Data Seeding
 
-	private const string cDataLocation = @"..\Data";
+	private const string cDataLocation = @"..\Data\Seed";
 
 	private static JsonSerializerOptions SerializerOptions()
 	{

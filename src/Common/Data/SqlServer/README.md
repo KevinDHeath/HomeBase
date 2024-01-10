@@ -13,7 +13,8 @@ The default name of the SQL Server database is `EFCommonData`. To point to anoth
 ~~~json
 {
   "ConnectionStrings": {
-    "CommonData": "Server=localhost;Database=EFCommonData;TrustServerCertificate=true;MultipleActiveResultSets=true;Integrated Security=SSPI;"
+    "CommonData": "Server=localhost;Database=[database-name];TrustServerCertificate=true;MultipleActiveResultSets=true;Integrated Security=SSPI;"
   }
 }
 ~~~
+**Important:** If you are using an `appsettings.json` file please make sure to set the file 'Copy to Output Directory' properties in the project as 'Copy if newer'.

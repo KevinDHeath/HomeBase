@@ -1,14 +1,16 @@
 # EFCore.Database.Address
+This builds the migrations to update an EFCore SQLite Address database used by `Common.Data.SQLite`.
 
 To create the Address database, start a PowerShell session and run the following commands:
 
 ~~~shell
 cd src/EFCore/Database.Address
 
-dotnet-ef migrations add InitialCreate
-dotnet-ef database update
+dotnet-ef database update # applies the latest migration
+-or-
+dotnet-ef migrations remove # remove the latest migration
 ~~~
-The JSON files in the Data folder are used during the create process to automatically seed the data in the tables.
+The JSON files in the Data\Seed folder are used during the create process to automatically seed the data in the tables.
 
 > Note: There is also a very large flat file that contains all the US Postcodes that can be used to replace the default data.\
 > **Important**: The `Postcodes` table must be cleared before importing this file.
