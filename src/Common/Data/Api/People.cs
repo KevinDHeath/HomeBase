@@ -75,4 +75,14 @@ public class People : Factory, IDataFactory<IPerson>
 	{
 		return PutResource( sResource, obj.Id, mod, Person.GetSerializerOptions() );
 	}
+
+	/// <summary>Find a Person.</summary>
+	/// <param name="id">Person Id.</param>
+	/// <returns>Null is returned if the Person is not found.</returns>
+	public static Person? Find( int id )
+	{
+		Person? person = GetResource<Person>( sResource, Person.GetSerializerOptions(), id );
+		if( person is not null ) { return person; }
+		return null;
+	}
 }

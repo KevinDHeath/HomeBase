@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using Json.Converters;
 
@@ -10,7 +7,7 @@ namespace TestHarness;
 // Paste JSON or XML as classes
 // https://learn.microsoft.com/en-us/visualstudio/ide/reference/paste-json-xml
 
-internal class TestJson
+internal class TestConverters
 {
 	internal static bool RunTest()
 	{
@@ -18,13 +15,13 @@ internal class TestJson
 		Program.sLogger.Info( "Test of Json.Converters" );
 
 		// Can test loading with TestJson.json or TestJson-null.json
-		var obj = Deserialize( @"Json\TestJson-null.json" );
+		TestConverters? obj = Deserialize( @"Json\TestJson-null.json" );
 		if( obj is null ) return false;
 
 		// Test saving of loaded data
-		bool rtn = Serialize( obj, @"Json\TestJson-out.json" );
-		if( rtn ) { Console.WriteLine( File.ReadAllText( @"Json\TestJson-out.json" ) ); }
-		if( obj is null ) return false;
+		//bool rtn = Serialize( obj, @"Json\TestJson-out.json" );
+		//if( rtn ) { Console.WriteLine( File.ReadAllText( @"Json\TestJson-out.json" ) ); }
+		//if( obj is null ) return false;
 
 		return true;
 	}
@@ -34,12 +31,12 @@ internal class TestJson
 	/// <summary>Root element.</summary>
 	public List<ITestClass>? Data { get; set; }
 
-	internal static TestJson? Deserialize( string fileName )
+	internal static TestConverters? Deserialize( string fileName )
 	{
 		var fi = new FileInfo( fileName );
 		if( fi.Exists )
 		{
-			var obj = Common.Core.Classes.JsonHelper.DeserializeFile<TestJson>( fi.FullName, GetSerializerOptions() );
+			var obj = Common.Core.Classes.JsonHelper.DeserializeFile<TestConverters>( fi.FullName, GetSerializerOptions() );
 			if( obj is not null )
 			{
 				Program.sLogger.Log( $"File {fileName} loaded." );
@@ -51,7 +48,7 @@ internal class TestJson
 		return null;
 	}
 
-	internal static bool Serialize( TestJson? obj, string fileName )
+	internal static bool Serialize( TestConverters? obj, string fileName )
 	{
 		if( null == obj ) return false;
 

@@ -75,4 +75,14 @@ public class Companies : Factory, IDataFactory<ICompany>
 	{
 		return PutResource( sResource, obj.Id, mod, Company.GetSerializerOptions() );
 	}
+
+	/// <summary>Find a Company.</summary>
+	/// <param name="id">Company Id.</param>
+	/// <returns>Null is returned if the Company is not found.</returns>
+	public static Company? Find( int id )
+	{
+		Company? company = GetResource<Company>( sResource, Company.GetSerializerOptions(), id );
+		if( company is not null ) { return company; }
+		return null;
+	}
 }

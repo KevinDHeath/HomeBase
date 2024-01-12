@@ -80,4 +80,14 @@ public class Companies : Factory, IDataFactory<ICompany>
 	{
 		return true;
 	}
+
+	/// <summary>Find a Company.</summary>
+	/// <param name="id">Company Id.</param>
+	/// <returns>Null is returned if the Company is not found.</returns>
+	public ICompany? Find( int id )
+	{
+		ICompany? company = Data.Find( c => c.Id == id );
+		if( company is not null ) { return company; }
+		return null;
+	}
 }

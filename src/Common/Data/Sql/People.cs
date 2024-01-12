@@ -104,4 +104,17 @@ public class People : Factory, IDataFactory<IPerson>
 		}
 		return false;
 	}
+
+	/// <summary>Find a Person.</summary>
+	/// <param name="id">Person Id.</param>
+	/// <returns>Null is returned if the Person is not found.</returns>
+	public Person? Find( int id )
+	{
+		string sql = $"SELECT * FROM [{_dataTable.TableName}] WHERE [Id]={id};";
+		if( FillDataTable( ref sql, ref _connString, _dataTable ) && _dataTable.Rows.Count == 1 )
+		{
+			return Person.Read( _dataTable.Rows[0], cAddressPrefix );
+		}
+		return null;
+	}
 }

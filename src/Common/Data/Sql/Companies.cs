@@ -104,4 +104,17 @@ public class Companies : Factory, IDataFactory<ICompany>
 		}
 		return false;
 	}
+
+	/// <summary>Find a Company for a given Id.</summary>
+	/// <param name="id">Id of the Company.</param>
+	/// <returns>Null is returned if the Company is not found.</returns>
+	public Company? Find( int id )
+	{
+		string sql = $"SELECT * FROM [{_dataTable.TableName}] WHERE [Id]={id};";
+		if( FillDataTable( ref sql, ref _connString, _dataTable ) && _dataTable.Rows.Count == 1 )
+		{
+			return Company.Read( _dataTable.Rows[0], cAddressPrefix );
+		}
+		return null;
+	}
 }

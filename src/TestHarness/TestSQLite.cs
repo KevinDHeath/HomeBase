@@ -1,17 +1,16 @@
 ﻿using Common.Core.Classes;
 using Common.Core.Models;
-using Common.Data.SqlServer;
-using Common.Data.SqlServer.Models;
+using Common.Data.SQLite;
 
 namespace TestHarness;
 
-internal class TestSqlServer : DataFactoryBase
+internal class TestSQLite : DataFactoryBase
 {
 	internal static bool RunTest()
 	{
-		_ = Program.sLogger.Info( "Testing Common.Data.SqlServer (EFCore.Database.Full)" );
-		_ = Program.sLogger.Info( "CommonData database connection string" );
-		_ = Program.sLogger.Info( "Uses SQL Server databases (TestEF)" );
+		_ = Program.sLogger.Info( "Testing Common.Data.SQLite (EFCore.Database.Entity)" );
+		_ = Program.sLogger.Info( "AddressDb and EntityDb database connection strings" );
+		_ = Program.sLogger.Info( "Uses SQLite databases (AddressData.db and EntityData.db)" );
 		Console.WriteLine();
 
 		// Test the address data
@@ -30,23 +29,16 @@ internal class TestSqlServer : DataFactoryBase
 		if( !TestAddress.RunTest( args ) ) { return false; }
 
 		// Test the entity data
-		FullContextBase ctx = new();
+		EntityContextBase ctx = new();
 
-		// Connection string in debug:
-		// context => ChangeTracker => Context =>
-		//  Database => Non-Public members =>
-		//  Dependencies => RelationalConnection
-
-		_ = Program.sLogger.Info( $"Companies count.: {ctx.Companies.Count():00#}" );
-		_ = Program.sLogger.Info( $"People count....: {ctx.People.Count():00#}" );
-		_ = Program.sLogger.Info( $"Movies count....: {ctx.Movies.Count():00#}" );
-		_ = Program.sLogger.Info( $"SuperHero count.: {ctx.SuperHeroes.Count():00#}" );
+		_ = Program.sLogger.Info( $"Companies count.: {ctx.Companies.Count():###,###,###,###}" );
+		_ = Program.sLogger.Info( $"People count....: {ctx.People.Count():###,###,###,###}" );
 		Console.WriteLine();
 
 		// Get a list of 5 Companies
 		if( ctx.Companies.Count() < 5 )
 		{
-			_ = Program.sLogger.Info( "Companies count is less than 5!" );
+			_ = Program.sLogger.Info( "Companies count is less than 5" );
 			return false;
 		}
 		int startId = GetStartIndex( ctx.Companies.Count(), 5 );
@@ -56,7 +48,7 @@ internal class TestSqlServer : DataFactoryBase
 		// Get a list of 10 People
 		if( ctx.People.Count() < 10 )
 		{
-			_ = Program.sLogger.Info( "People count is less than 10!" );
+			_ = Program.sLogger.Info( "People count is less than 10" );
 			return false;
 		}
 		startId = GetStartIndex( ctx.People.Count(), 10 );
@@ -67,16 +59,13 @@ internal class TestSqlServer : DataFactoryBase
 		Company? company = ctx.Companies.Find( [listc[0].Id] );
 		_ = company is not null
 			? Program.sLogger.Info( $"Company Id {listc[0].Id:00#} is {company.Name}" )
-			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found!" );
+			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found." );
 
 		// Get a specific Person
 		Person? person = ctx.People.Find( [listp[0].Id] );
 		_ = person is not null
-			? Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} is {person.FullName}" )
-			: Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} not found!" );
-
-		SuperHero? hero = ctx.SuperHeroes.Find( [35] );
-		_ = Program.sLogger.Info( $"SuperHero name..: {hero?.Name}" );
+			? Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} is {person.FullName}" )
+			: Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} not found." );
 
 		return true;
 	}

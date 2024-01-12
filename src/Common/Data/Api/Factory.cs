@@ -80,6 +80,19 @@ public abstract class Factory : DataFactoryBase
 		return new List<T>();
 	}
 
+	internal static T? GetResource<T>( string resource, JsonSerializerOptions options,
+		int id ) where T : class
+	{
+		string uri = resource + $"/{id}";
+		string? json = _service?.GetResource( uri );
+		if( json is not null )
+		{
+			T? obj = JsonHelper.DeserializeJson<T>( ref json, options );
+			if( obj is not null ) { return obj; }
+		}
+		return null;
+	}
+
 	internal static bool PutResource<T>( string resourceName, int Id, T data,
 		JsonSerializerOptions? options = null ) where T : class
 	{

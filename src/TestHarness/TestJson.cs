@@ -1,20 +1,20 @@
 ﻿using Common.Core.Classes;
 using Common.Core.Models;
-using Common.Data.Api;
+using Common.Core.Interfaces;
+using Common.Data.Json;
 
 namespace TestHarness;
 
-internal class TestAPI : DataFactoryBase
+internal class TestJson : DataFactoryBase
 {
 	internal static bool RunTest()
 	{
-		_ = Program.sLogger.Info( "Testing Common.Data.Api (EFCore.RestApi)" );
-		_ = Program.sLogger.Info( "CommonData endpoint connection string" );
-		_ = Program.sLogger.Info( "Uses EFCommonData database with Common user login." );
+		_ = Program.sLogger.Info( "Testing Common.Data.Json" );
+		_ = Program.sLogger.Info( "Uses embedded JSON resources" );
 		Console.WriteLine();
 
 		// Test the address data
-		_ = new AddressData( Program.sApp.ConfigFile, useAlpha2: false );
+		_ = new AddressData();
 		AddrParams args = new();
 		foreach( string code in TestAddress.postcodes )
 		{
@@ -29,8 +29,10 @@ internal class TestAPI : DataFactoryBase
 		if( !TestAddress.RunTest( args ) ) { return false; }
 
 		// Test the entity data
-		Companies companies = new( Program.sApp.ConfigFile );
-		People people = new( Program.sApp.ConfigFile );
+		Companies companies = new();
+		_ = companies.Get( 1 );
+		People people = new();
+		_ = people.Get( 1 );
 
 		_ = Program.sLogger.Info( $"Companies count.: {companies.TotalCount:00#}" );
 		_ = Program.sLogger.Info( $"People count....: {people.TotalCount:00#}" );
@@ -55,39 +57,16 @@ internal class TestAPI : DataFactoryBase
 		_ = Program.sLogger.Info( $"People list.....: {listp.Count:00#}" );
 
 		// Get a specific Company
-		Company? company = Companies.Find( listc[0].Id );
+		ICompany? company = companies.Find( listc[0].Id );
 		_ = company is not null
 			? Program.sLogger.Info( $"Company Id {listc[0].Id:00#} is {company.Name}" )
 			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found!" );
 
 		// Get a specific Person
-		Person? person = People.Find( listc[0].Id );
+		IPerson? person = people.Find( listc[0].Id );
 		_ = person is not null
 			? Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} is {person.FullName}" )
 			: Program.sLogger.Info( $"Person Id {listp[0].Id:00#} not found!" );
-
-		// Create a new SuperHero
-		//var obj3 = new SuperHero { Name = "KevKogs", FirstName = "Test", Publisher = SuperHero.Publishers.Marvel };
-		//obj3 = service.PostResource( superhero, obj3 );
-		//if( obj3 is not null )
-		//{
-		//	Program.sLogger.Info( $"Superhero name: {obj3.Name}" );
-
-		//	// Update the SuperHero
-		//	obj3.Publisher = SuperHero.Publishers.DC;
-		//	obj3 = service.PutResource( $"{superhero}/{obj3.Id}", obj3 );
-		//	if( obj3 is not null )
-		//	{
-		//		Program.sLogger.Info( $"Superhero updated: {obj3.Publisher}" );
-
-		//		// Delete the SuperHero
-		//		obj3 = service.DeleteResource<SuperHero>( superhero + $"/{obj3?.Id}" );
-		//		if( obj3 is not null )
-		//		{
-		//			Program.sLogger.Info( $"Superhero deleted: {obj3.Id}" );
-		//		}
-		//	}
-		//}
 
 		return true;
 	}
