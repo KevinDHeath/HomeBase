@@ -30,6 +30,16 @@ public class People : Factory, IDataFactory<IPerson>
 	/// <summary>Gets the total number of People available.</summary>
 	public int TotalCount { get => Data.Count; }
 
+	/// <summary>Find a Person.</summary>
+	/// <param name="Id">Person Id.</param>
+	/// <returns>Null is returned if the Person is not found.</returns>
+	public IPerson? Find( int Id )
+	{
+		IPerson? person = Data.Find( c => c.Id == Id );
+		if( person is not null ) { return person; }
+		return null;
+	}
+
 	/// <inheritdoc/>
 	/// <summary>Gets a collection of Person objects from the embedded Json resource.</summary>
 	/// <returns>A collection of Person objects.</returns>
@@ -79,15 +89,5 @@ public class People : Factory, IDataFactory<IPerson>
 	public bool Update( IPerson obj, IPerson mod )
 	{
 		return true;
-	}
-
-	/// <summary>Find a Person.</summary>
-	/// <param name="id">Person Id.</param>
-	/// <returns>Null is returned if the Person is not found.</returns>
-	public IPerson? Find( int id )
-	{
-		IPerson? person = Data.Find( c => c.Id == id );
-		if( person is not null ) { return person; }
-		return null;
 	}
 }

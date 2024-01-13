@@ -33,6 +33,16 @@ public class People : Factory, IDataFactory<IPerson>
 	/// <summary>Gets the total number of People available.</summary>
 	public int TotalCount { get; private set; }
 
+	/// <summary>Find a Person.</summary>
+	/// <param name="Id">Person Id.</param>
+	/// <returns>Null is returned if the Person is not found.</returns>
+	public IPerson? Find( int Id )
+	{
+		Person? person = GetResource<Person>( sResource, Person.GetSerializerOptions(), Id );
+		if( person is not null ) { return person; }
+		return null;
+	}
+
 	/// <inheritdoc/>
 	/// <summary>Gets a collection of Person objects from the REST API.</summary>
 	/// <returns>A collection of Person objects.</returns>
@@ -74,15 +84,5 @@ public class People : Factory, IDataFactory<IPerson>
 	public bool Update( IPerson obj, IPerson mod )
 	{
 		return PutResource( sResource, obj.Id, mod, Person.GetSerializerOptions() );
-	}
-
-	/// <summary>Find a Person.</summary>
-	/// <param name="id">Person Id.</param>
-	/// <returns>Null is returned if the Person is not found.</returns>
-	public static Person? Find( int id )
-	{
-		Person? person = GetResource<Person>( sResource, Person.GetSerializerOptions(), id );
-		if( person is not null ) { return person; }
-		return null;
 	}
 }

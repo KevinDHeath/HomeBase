@@ -1,10 +1,10 @@
-﻿using Common.Core.Classes;
+﻿using Common.Core.Interfaces;
 using Common.Core.Models;
 using Common.Data.Sql;
 
 namespace TestHarness;
 
-internal class TestSql : DataFactoryBase
+internal class TestSql
 {
 	internal const string cTestDataDir = @"C:\Temp\TestData";
 
@@ -44,7 +44,7 @@ internal class TestSql : DataFactoryBase
 			_ = Program.sLogger.Info( "Companies count is less than 5!" );
 			return false;
 		}
-		var listc = companies.Get( 5 );
+		IList<ICompany> listc = companies.Get( 5 );
 		_ = Program.sLogger.Info( $"Companies list..: {listc.Count:00#}" );
 
 		//var data = companies.Get( cTestDataDir, "Company-test.json", max: 5 );
@@ -57,7 +57,7 @@ internal class TestSql : DataFactoryBase
 			_ = Program.sLogger.Info( "People count is less than 10!" );
 			return false;
 		}
-		var listp = people.Get( 10 );
+		IList<IPerson> listp = people.Get( 10 );
 		_ = Program.sLogger.Info( $"People list.....: {listp.Count:00#}" );
 
 		//var data = people.Get( cTestDataDir, "Person-test.json", max: 5 );
@@ -65,13 +65,13 @@ internal class TestSql : DataFactoryBase
 		//_ = people.Serialize( cTestDataDir, "Person-testout.json", data );
 
 		// Get a specific Company
-		Company? company = companies.Find( listc[0].Id );
+		ICompany? company = companies.Find( listc[0].Id );
 		_ = company is not null
 			? Program.sLogger.Info( $"Company Id {listc[0].Id:00#} is {company.Name}" )
 			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found!" );
 
 		// Get a specific Person
-		Person? person = people.Find( listp[0].Id );
+		IPerson? person = people.Find( listp[0].Id );
 		_ = person is not null
 			? Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} is {person.FullName}" )
 			: Program.sLogger.Info( $"Person Id {listp[0].Id:00#} not found!" );

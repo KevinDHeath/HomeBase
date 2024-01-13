@@ -96,7 +96,7 @@ public class CompaniesStore : Companies
 
 	#region Private Methods
 
-	private List<ICompany> Get( int max = 0 )
+	private new List<ICompany> Get( int max = 0 )
 	{
 		if( max > 0 )
 		{

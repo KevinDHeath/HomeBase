@@ -3,7 +3,7 @@ using Logging.Helper;
 
 namespace TestHarness;
 
-class Program
+public class Program
 {
 	// Important: Set the application settings file Property in project to:
 	// Copy to Output Directory = Copy if newer

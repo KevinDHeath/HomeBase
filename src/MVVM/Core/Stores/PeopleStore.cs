@@ -96,7 +96,7 @@ public class PeopleStore : People
 
 	#region Private Methods
 
-	private List<IPerson> Get( int max = 0 )
+	private new List<IPerson> Get( int max = 0 )
 	{
 		if( max > 0 )
 		{

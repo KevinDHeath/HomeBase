@@ -34,6 +34,19 @@ public class People : Factory, IDataFactory<IPerson>
 	/// <summary>Gets the total number of People available.</summary>
 	public int TotalCount { get; private set; }
 
+	/// <summary>Find a Person.</summary>
+	/// <param name="Id">Person Id.</param>
+	/// <returns>Null is returned if the Person is not found.</returns>
+	public IPerson? Find( int Id )
+	{
+		string sql = $"SELECT * FROM [{_dataTable.TableName}] WHERE [Id]={Id};";
+		if( FillDataTable( ref sql, ref _connString, _dataTable ) && _dataTable.Rows.Count == 1 )
+		{
+			return Person.Read( _dataTable.Rows[0], cAddressPrefix );
+		}
+		return null;
+	}
+
 	/// <inheritdoc/>
 	/// <summary>Gets a collection of Person objects from the SQL database table.</summary>
 	/// <returns>A collection of Person objects.</returns>
@@ -103,18 +116,5 @@ public class People : Factory, IDataFactory<IPerson>
 			return true;
 		}
 		return false;
-	}
-
-	/// <summary>Find a Person.</summary>
-	/// <param name="id">Person Id.</param>
-	/// <returns>Null is returned if the Person is not found.</returns>
-	public Person? Find( int id )
-	{
-		string sql = $"SELECT * FROM [{_dataTable.TableName}] WHERE [Id]={id};";
-		if( FillDataTable( ref sql, ref _connString, _dataTable ) && _dataTable.Rows.Count == 1 )
-		{
-			return Person.Read( _dataTable.Rows[0], cAddressPrefix );
-		}
-		return null;
 	}
 }

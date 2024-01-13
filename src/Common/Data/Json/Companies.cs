@@ -30,6 +30,16 @@ public class Companies : Factory, IDataFactory<ICompany>
 	/// <summary>Gets the total number of Companies available.</summary>
 	public int TotalCount { get => Data.Count; }
 
+	/// <summary>Find a Company.</summary>
+	/// <param name="Id">Company Id.</param>
+	/// <returns>Null is returned if the Company is not found.</returns>
+	public ICompany? Find( int Id )
+	{
+		ICompany? company = Data.Find( c => c.Id == Id );
+		if( company is not null ) { return company; }
+		return null;
+	}
+
 	/// <inheritdoc/>
 	/// <summary>Gets a collection of Company objects from the embedded Json resource.</summary>
 	/// <returns>A collection of Company objects.</returns>
@@ -79,15 +89,5 @@ public class Companies : Factory, IDataFactory<ICompany>
 	public bool Update( ICompany obj, ICompany mod )
 	{
 		return true;
-	}
-
-	/// <summary>Find a Company.</summary>
-	/// <param name="id">Company Id.</param>
-	/// <returns>Null is returned if the Company is not found.</returns>
-	public ICompany? Find( int id )
-	{
-		ICompany? company = Data.Find( c => c.Id == id );
-		if( company is not null ) { return company; }
-		return null;
 	}
 }

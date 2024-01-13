@@ -1,11 +1,10 @@
-﻿using Common.Core.Classes;
+﻿using Common.Core.Interfaces;
 using Common.Core.Models;
-using Common.Core.Interfaces;
 using Common.Data.Json;
 
 namespace TestHarness;
 
-internal class TestJson : DataFactoryBase
+internal class TestJson
 {
 	internal static bool RunTest()
 	{
@@ -30,9 +29,9 @@ internal class TestJson : DataFactoryBase
 
 		// Test the entity data
 		Companies companies = new();
-		_ = companies.Get( 1 );
+		_ = companies.Get( 1 ); // Initializes collection on 1st Get
 		People people = new();
-		_ = people.Get( 1 );
+		_ = people.Get( 1 ); // Initializes collection on 1st Get
 
 		_ = Program.sLogger.Info( $"Companies count.: {companies.TotalCount:00#}" );
 		_ = Program.sLogger.Info( $"People count....: {people.TotalCount:00#}" );
@@ -44,7 +43,7 @@ internal class TestJson : DataFactoryBase
 			_ = Program.sLogger.Info( "Companies count is less than 5!" );
 			return false;
 		}
-		var listc = companies.Get( 5 );
+		IList<ICompany> listc = companies.Get( 5 );
 		_ = Program.sLogger.Info( $"Companies list..: {listc.Count:00#}" );
 
 		// Get a list of 10 People
@@ -53,7 +52,7 @@ internal class TestJson : DataFactoryBase
 			_ = Program.sLogger.Info( "People count is less than 10!" );
 			return false;
 		}
-		var listp = people.Get( 10 );
+		IList<IPerson> listp = people.Get( 10 );
 		_ = Program.sLogger.Info( $"People list.....: {listp.Count:00#}" );
 
 		// Get a specific Company

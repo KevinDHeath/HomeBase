@@ -33,6 +33,16 @@ public class Companies : Factory, IDataFactory<ICompany>
 	/// <summary>Gets the total number of Companies available.</summary>
 	public int TotalCount { get; private set; }
 
+	/// <summary>Find a Company.</summary>
+	/// <param name="Id">Company Id.</param>
+	/// <returns>Null is returned if the Company is not found.</returns>
+	public ICompany? Find( int Id )
+	{
+		Company? company = GetResource<Company>( sResource, Company.GetSerializerOptions(), Id );
+		if( company is not null ) { return company; }
+		return null;
+	}
+
 	/// <inheritdoc/>
 	/// <summary>Gets a collection of Company objects from the REST API.</summary>
 	/// <returns>A collection of Company objects.</returns>
@@ -74,15 +84,5 @@ public class Companies : Factory, IDataFactory<ICompany>
 	public bool Update( ICompany obj, ICompany mod )
 	{
 		return PutResource( sResource, obj.Id, mod, Company.GetSerializerOptions() );
-	}
-
-	/// <summary>Find a Company.</summary>
-	/// <param name="id">Company Id.</param>
-	/// <returns>Null is returned if the Company is not found.</returns>
-	public static Company? Find( int id )
-	{
-		Company? company = GetResource<Company>( sResource, Company.GetSerializerOptions(), id );
-		if( company is not null ) { return company; }
-		return null;
 	}
 }

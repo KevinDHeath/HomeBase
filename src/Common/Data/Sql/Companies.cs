@@ -34,6 +34,19 @@ public class Companies : Factory, IDataFactory<ICompany>
 	/// <summary>Gets the total number of Companies available.</summary>
 	public int TotalCount { get; private set; }
 
+	/// <summary>Find a Company.</summary>
+	/// <param name="Id">Company Id.</param>
+	/// <returns>Null is returned if the Company is not found.</returns>
+	public ICompany? Find( int Id )
+	{
+		string sql = $"SELECT * FROM [{_dataTable.TableName}] WHERE [Id]={Id};";
+		if( FillDataTable( ref sql, ref _connString, _dataTable ) && _dataTable.Rows.Count == 1 )
+		{
+			return Company.Read( _dataTable.Rows[0], cAddressPrefix );
+		}
+		return null;
+	}
+
 	/// <inheritdoc/>
 	/// <summary>Gets a collection of Company objects from the SQL database table.</summary>
 	/// <returns>A collection of Company objects.</returns>
@@ -103,18 +116,5 @@ public class Companies : Factory, IDataFactory<ICompany>
 			return true;
 		}
 		return false;
-	}
-
-	/// <summary>Find a Company for a given Id.</summary>
-	/// <param name="id">Id of the Company.</param>
-	/// <returns>Null is returned if the Company is not found.</returns>
-	public Company? Find( int id )
-	{
-		string sql = $"SELECT * FROM [{_dataTable.TableName}] WHERE [Id]={id};";
-		if( FillDataTable( ref sql, ref _connString, _dataTable ) && _dataTable.Rows.Count == 1 )
-		{
-			return Company.Read( _dataTable.Rows[0], cAddressPrefix );
-		}
-		return null;
 	}
 }
