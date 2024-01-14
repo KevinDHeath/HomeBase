@@ -34,7 +34,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Text="Name:" Style="{StaticResource appTextBlockStyle}"/>
-        <TextBox Grid.Column="1" Style="{StaticResource appTextBoxStyle}"
+        <TextBox Grid.Column="1" Style="{StaticResource appTextBoxStyle}" Loaded="FirstFocus"
                  Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
 

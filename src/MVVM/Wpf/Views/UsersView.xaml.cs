@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace MVVM.Wpf.Views;
 
@@ -56,6 +57,11 @@ public partial class UsersView : UserControl
 				_lastPickerDate = pickerDate;
 			}
 		}
+	}
+
+	private void FirstFocus( object sender, RoutedEventArgs e )
+	{
+		if( sender is TextBox tb ) { _ = Keyboard.Focus( tb ); }
 	}
 
 	#endregion

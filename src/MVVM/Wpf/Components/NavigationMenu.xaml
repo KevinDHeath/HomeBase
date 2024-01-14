@@ -28,13 +28,25 @@
       <Grid Grid.Row="0">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="Auto"/>
-          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid.Resources>
+          <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        </Grid.Resources>
 
         <CheckBox x:Name="cbToggleMenu" Grid.Column="0" Style="{StaticResource controlToggleMenuStyle}"
                   IsChecked="{Binding IsMenuOpen}"/>
-        <TextBlock Grid.Column="1" Text="Menu Navigation" FontStyle="Italic" FontSize="18"
-                   Margin="20 0 0 0" Foreground="White"/>
+
+        <DockPanel Grid.Column="1" Margin="20 0 0 0">
+          <TextBlock DockPanel.Dock="Left" Height="20" Text="Menu Navigation" FontStyle="Italic" FontSize="18"
+                     Foreground="White"/>
+          <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                      Visibility="{Binding IsLoggedIn, Converter={StaticResource BoolToVisibilityConverter}}">
+            <TextBlock Text="Welcome" Foreground="White"/>
+            <TextBlock Text="{Binding CurrentLogin.Name, Mode=TwoWay}" Foreground="White" Margin="5 0"/>
+          </StackPanel>
+        </DockPanel>
+
       </Grid>
     </Border>
     <Grid Grid.Row="1">

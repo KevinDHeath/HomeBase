@@ -6,7 +6,7 @@
              xmlns:cc="clr-namespace:Common.Wpf.Controls;assembly=Common.Wpf.Controls"
              xmlns:vm="clr-namespace:MVVM.Core.ViewModels;assembly=MVVM.Core"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800" d:Background="Beige"
+             d:DesignHeight="400" d:DesignWidth="400" d:Background="Beige"
              d:DataContext="{d:DesignInstance Type=vm:LoginViewModel}">
   <UserControl.Resources>
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -27,16 +27,24 @@
     <StackPanel Grid.Row="1" Margin="0 20 0 0">
       <StackPanel>
         <TextBlock>
-					<Run Foreground="Red">*</Run>
-					<Run>Email address</Run>
+          <Run Foreground="Red">*</Run>
+          <Run>Name</Run>
+        </TextBlock>
+        <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" MinWidth="200" Margin="7,3,0,0"
+                 Style="{StaticResource appTextBoxStyle}" IsEnabled="{Binding IsNew}" Loaded="FirstFocus"/>
+      </StackPanel>
+      <StackPanel Margin="0,5,0,0">
+        <TextBlock>
+          <Run Foreground="Red">*</Run>
+          <Run>Email address</Run>
         </TextBlock>
         <TextBox Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" MinWidth="200" Margin="7,3,0,0"
                  Style="{StaticResource appTextBoxStyle}" IsEnabled="{Binding IsNew}"/>
       </StackPanel>
-      <StackPanel Margin="0,10,0,0" Visibility="{Binding IsNew, Converter={StaticResource BooleanToVisibilityConverter}}">
+      <StackPanel Margin="0,5,0,0" Visibility="{Binding IsNew, Converter={StaticResource BooleanToVisibilityConverter}}">
         <TextBlock>
-					<Run Foreground="Red">*</Run>
-					<Run>Date of birth</Run>
+          <Run Foreground="Red">*</Run>
+          <Run>Date of birth</Run>
         </TextBlock>
         <cc:DatePicker Style="{StaticResource appLayoutStyle}" Margin="7,3,0,0"
                        SelectedDateChanged="SelectedDateChanged" IsErrorShown="True">
@@ -46,12 +54,12 @@
           </DatePicker.SelectedDate>
         </cc:DatePicker>
       </StackPanel>
-      <StackPanel Margin="0 10 0 10">
+      <StackPanel Margin="0 5 0 10">
         <TextBlock ToolTip="Required, Maximum length of 25">
-					<Run Foreground="Red">*</Run>
-					<Run>Password</Run>
+          <Run Foreground="Red">*</Run>
+          <Run>Password</Run>
         </TextBlock>
-        <PasswordBox MaxLength="25" Style="{StaticResource appLayoutStyle}"
+        <PasswordBox MaxLength="25" Style="{StaticResource appLayoutStyle}" Loaded="FirstFocus"
                      PasswordChanged="PasswordChanged" Margin="7,3,0,0"/>
       </StackPanel>
     </StackPanel>

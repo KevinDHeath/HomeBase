@@ -13,6 +13,22 @@ public sealed partial class LoginViewModel : ViewModelEdit
 {
 	#region Properties
 
+	/// <summary>Gets or sets the user name.</summary>
+	[Required( ErrorMessage = "Please enter name." )]
+	public string? UserName
+	{
+		get => _name;
+		set
+		{
+			if( value != _name )
+			{
+				_validation.ValidateProperty( value );
+				SetProperty( ref _name, value );
+				LoginCommand.NotifyCanExecuteChanged();
+			}
+		}
+	}
+
 	/// <summary>Gets or sets the user e-mail address.</summary>
 	[Required( ErrorMessage = "Please enter email." )]
 	[RegularExpression( cEmailRegex, ErrorMessage = "Format not valid." )]
@@ -64,6 +80,7 @@ public sealed partial class LoginViewModel : ViewModelEdit
 		{
 			_store.CurrentLogin = new()
 			{
+				Name = UserName,
 				Email = UserEmail
 			};
 			if( BirthDate is not null )
@@ -94,6 +111,7 @@ public sealed partial class LoginViewModel : ViewModelEdit
 
 	internal readonly UsersStore _store;
 	private readonly INavigationService _service;
+	private string? _name;
 	private string? _userEmail;
 	private DateOnly? _dob;
 
@@ -108,6 +126,7 @@ public sealed partial class LoginViewModel : ViewModelEdit
 		IsNew = true;
 		if( store.CurrentUser is not null )
 		{
+			_name = store.CurrentUser.Name;
 			_userEmail = store.CurrentUser.Email;
 			_dob = store.CurrentUser.BirthDate;
 			IsNew = false;

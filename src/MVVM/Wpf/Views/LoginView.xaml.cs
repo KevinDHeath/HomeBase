@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using MVVM.Core.ViewModels;
 
 namespace MVVM.Wpf.Views;
@@ -13,7 +15,7 @@ public partial class LoginView : UserControl
 		InitializeComponent();
 	}
 
-	private void PasswordChanged( object sender, System.Windows.RoutedEventArgs e )
+	private void PasswordChanged( object sender, RoutedEventArgs e )
 	{
 		if( sender is PasswordBox pb && DataContext is LoginViewModel vm )
 		{
@@ -35,6 +37,21 @@ public partial class LoginView : UserControl
 			{
 				_lastPickerDate = pickerDate;
 			}
+		}
+	}
+
+	private bool _focusSet = false;
+
+	private void FirstFocus( object sender, RoutedEventArgs e )
+	{
+		if( sender is TextBox tb && tb.IsEnabled )
+		{
+			_ = Keyboard.Focus( tb );
+			_focusSet = true;
+		}
+		else if( sender is PasswordBox pb && !_focusSet )
+		{
+			_ = Keyboard.Focus( pb );
 		}
 	}
 }

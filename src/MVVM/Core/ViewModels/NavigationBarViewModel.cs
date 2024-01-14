@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using Common.Core.Models;
 using MVVM.Core.Services;
 using MVVM.Core.Stores;
 
@@ -11,6 +12,9 @@ public sealed partial class NavigationBarViewModel : ViewModelBase
 
 	/// <summary>Determines if an account is logged in.</summary>
 	public bool IsLoggedIn => _store.IsLoggedIn;
+
+	/// <summary>Gets the current login information.</summary>
+	public User? CurrentLogin => _store.CurrentLogin;
 
 	/// <summary>Determines if an account is logged out.</summary>
 	public bool IsLoggedOut => !_store.IsLoggedIn;
