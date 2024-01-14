@@ -1,44 +1,55 @@
-@EFCore.RestApi_HostAddress = https://localhost:7065
+@HostAddress = https://localhost:7065
 @contentType = application/json
 
-### Company
-GET {{EFCore.RestApi_HostAddress}}/api/Company?count=4&last=10
+### ISO Country
+GET {{HostAddress}}/api/ISOCountry
+
+### Province
+GET {{HostAddress}}/api/Province
 
 ###
-GET {{EFCore.RestApi_HostAddress}}/api/Company/43
+GET {{HostAddress}}/api/Postcode/32937
+
+### Company
+GET {{HostAddress}}/api/Company?count=4&last=10
+
+###
+GET {{HostAddress}}/api/Company/43
 
 ### Person
-GET {{EFCore.RestApi_HostAddress}}/api/Person
+GET {{HostAddress}}/api/Person
 
 ### Movie
-GET {{EFCore.RestApi_HostAddress}}/api/Movie
+GET {{HostAddress}}/api/Movie
 
 ### Superhero
-GET {{EFCore.RestApi_HostAddress}}/api/Superhero?count=4&last=20
+GET {{HostAddress}}/api/Superhero?count=4&last=20
 
 ###
-GET {{EFCore.RestApi_HostAddress}}/api/superhero/3
+GET {{HostAddress}}/api/superhero/3
 
-###
-PUT {{EFCore.RestApi_HostAddress}}/api/superhero/3
+### Create New
+POST {{HostAddress}}/api/superhero
 Content-Type: {{contentType}}
 
 {
-  "id": 23,
-  "name": "Daredevil",
-  "firstName": "Matt",
-  "lastName": "Murdock",
-  "publisher": 1
+  "name": "KevKogs",
+  "firstName": "Kevin",
+  "lastName": "Heath",
+  "publisher": "Marvel"
 }
 
-### ISO Country
-GET {{EFCore.RestApi_HostAddress}}/api/ISOCountry
+### Update
+PUT {{HostAddress}}/api/superhero/xx
+Content-Type: {{contentType}}
 
-### Province
-GET {{EFCore.RestApi_HostAddress}}/api/Province
+{
+  "name": "KevKogs",
+  "firstName": "Kevin",
+  "lastName": "Heath",
+  "place": "Orlando",
+  "publisher": "Marvel"
+}
 
-### Postcode
-GET {{EFCore.RestApi_HostAddress}}/api/Postcode
-
-###
-GET {{EFCore.RestApi_HostAddress}}/api/Postcode/32937
+### Delete
+DELETE {{HostAddress}}/api/superhero/xx

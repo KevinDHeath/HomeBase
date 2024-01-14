@@ -5,7 +5,7 @@ using Common.Data.Helpers;
 
 namespace Common.Data.Json;
 
-/// <summary>Base class to provide common Json data access functionality.</summary>
+/// <summary>Base class to provide common embedded Json data access functionality.</summary>
 public abstract class Factory : DataFactoryBase
 {
 	private const string cAssembly = "Common.Data.Json";

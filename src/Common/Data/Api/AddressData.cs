@@ -4,7 +4,7 @@ using Common.Core.Models;
 
 namespace Common.Data.Api;
 
-/// <summary>Contains data used for Addresses.</summary>
+/// <summary>Populates static Address data from a REST API.</summary>
 public class AddressData : AddressFactoryBase
 {
 	private static DataServiceBase? _service;
@@ -15,12 +15,12 @@ public class AddressData : AddressFactoryBase
 	/// <summary>Initializes a new instance of the AddressData class.</summary>
 	/// <param name="configFile">The name of the configuration file. The default is appsettings.json</param>
 	/// <param name="useAlpha2">Indicates whether to use Alpha-2 ISO Country codes. The default is false.</param>
+	/// <param name="isoCountry">The ISO-3166 Country code to use for Address data. The default is USA.</param>
 	/// <param name="countries">Indicates whether ISO Countries should be loaded. The default is true.</param>
 	/// <param name="provinces">Indicates whether Provinces should be loaded. The default is true</param>
 	/// <param name="postcodes">Indicates whether Postcodes should be loaded. The default is true.</param>
-	/// <param name="isoCountry">The ISO-3166 Country code to use for Address data. The default is USA.</param>
 	public AddressData( string configFile = DataFactoryBase.cConfigFile, bool useAlpha2 = false,
-		bool countries = true, bool provinces = true, bool postcodes = true, string isoCountry = "" )
+		string isoCountry = "", bool countries = true, bool provinces = true, bool postcodes = true )
 	{
 		_service = Factory.GetDataService( Factory.cEndpointKey, ref configFile );
 
@@ -79,9 +79,10 @@ public class AddressData : AddressFactoryBase
 
 	#endregion
 
-	/// <summary>Gets the information for a requested Postal code.</summary>
+	/// <summary>Gets the information for a Postcode.</summary>
 	/// <param name="code">Postal Service code.</param>
 	/// <returns>Null is returned if the Postcode was not found.</returns>
+	/// <remarks>The postcode is added to the cache the first time it is referenced.</remarks>
 	public static new Postcode? GetPostcode( string? code )
 	{
 		Postcode? rtn = AddressFactoryBase.GetPostcode( code );
@@ -91,6 +92,7 @@ public class AddressData : AddressFactoryBase
 		if( code is null || ( DefaultCountry.StartsWith( "US" ) & code.Length < 5 ) ) { return null; }
 		if( code.Length > 5 & DefaultCountry.StartsWith( "US" ) ) { code = code[..5]; }
 
+		// Try to get the Postcode from the REST API
 		var json = _service.GetResource( sPostcode + "/" + code );
 		if( json is not null )
 		{

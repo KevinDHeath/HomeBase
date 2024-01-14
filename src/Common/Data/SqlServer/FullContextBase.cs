@@ -2,11 +2,21 @@
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Configuration;
 using Common.Core.Models;
-using Common.Data.SqlServer.Models;
+using Common.Models;
 
 namespace Common.Data.SqlServer;
 
 /// <summary>Base class for a Full database context.</summary>
+/// <remarks>This uses connections strings contained in a Json application settings file.<br/>
+/// The default file name is "appsettings.json".
+/// <code language="JSON">
+/// {
+///   "ConnectionStrings": {
+///     "CommonData": "Server=XX;Database=YY;Trusted_Connection=true;TrustServerCertificate=true;"
+///   }
+/// }
+/// </code>
+/// </remarks>
 public class FullContextBase : DbContext
 {
 	#region Constructors

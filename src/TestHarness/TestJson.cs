@@ -26,16 +26,14 @@ internal class TestJson
 			}
 		}
 		if( !TestAddress.RunTest( args ) ) { return false; }
+		Console.WriteLine();
 
-		// Test the entity data
+		#region Test the Company data
+
 		Companies companies = new();
 		_ = companies.Get( 1 ); // Initializes collection on 1st Get
-		People people = new();
-		_ = people.Get( 1 ); // Initializes collection on 1st Get
 
-		_ = Program.sLogger.Info( $"Companies count.: {companies.TotalCount:00#}" );
-		_ = Program.sLogger.Info( $"People count....: {people.TotalCount:00#}" );
-		Console.WriteLine();
+		_ = Program.sLogger.Info( $"Companies total.: {companies.TotalCount:00#}" );
 
 		// Get a list of 5 Companies
 		if( companies.TotalCount < 5 )
@@ -46,6 +44,21 @@ internal class TestJson
 		IList<ICompany> listc = companies.Get( 5 );
 		_ = Program.sLogger.Info( $"Companies list..: {listc.Count:00#}" );
 
+		// Get a specific Company
+		ICompany? company = companies.Find( listc[0].Id );
+		_ = company is not null
+			? Program.sLogger.Info( $"Company Id {listc[0].Id:00#} is {company.Name}" )
+			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found!" );
+
+		#endregion
+
+		#region Test the Person data
+
+		People people = new();
+		_ = people.Get( 1 ); // Initializes collection on 1st Get
+
+		_ = Program.sLogger.Info( $"People total....: {people.TotalCount:00#}" );
+
 		// Get a list of 10 People
 		if( people.TotalCount < 10 )
 		{
@@ -55,17 +68,13 @@ internal class TestJson
 		IList<IPerson> listp = people.Get( 10 );
 		_ = Program.sLogger.Info( $"People list.....: {listp.Count:00#}" );
 
-		// Get a specific Company
-		ICompany? company = companies.Find( listc[0].Id );
-		_ = company is not null
-			? Program.sLogger.Info( $"Company Id {listc[0].Id:00#} is {company.Name}" )
-			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found!" );
-
 		// Get a specific Person
 		IPerson? person = people.Find( listc[0].Id );
 		_ = person is not null
 			? Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} is {person.FullName}" )
 			: Program.sLogger.Info( $"Person Id {listp[0].Id:00#} not found!" );
+
+		#endregion
 
 		return true;
 	}

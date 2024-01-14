@@ -29,14 +29,12 @@ internal class TestSql
 			}
 		}
 		if( !TestAddress.RunTest( args ) ) { return false; }
-
-		// Test the entity data
-		Companies companies = new();
-		People people = new();
-
-		_ = Program.sLogger.Info( $"Companies count.: {companies.TotalCount:00#}" );
-		_ = Program.sLogger.Info( $"People count....: {people.TotalCount:00#}" );
 		Console.WriteLine();
+
+		#region Test the Company data
+
+		Companies companies = new();
+		_ = Program.sLogger.Info( $"Companies total.: {companies.TotalCount:00#}" );
 
 		// Get a list of 5 Companies
 		if( companies.TotalCount < 5 )
@@ -51,6 +49,19 @@ internal class TestSql
 		//var data = companies.Get( cTestDataDir, "Company-test1.json", max: 15 );
 		//_ = companies.Serialize( cTestDataDir, "Company-testout.json", data );
 
+		// Get a specific Company
+		ICompany? company = companies.Find( listc[0].Id );
+		_ = company is not null
+			? Program.sLogger.Info( $"Company Id {listc[0].Id:00#} is {company.Name}" )
+			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found!" );
+
+		#endregion
+
+		#region Test the Person data
+
+		People people = new();
+		_ = Program.sLogger.Info( $"People total....: {people.TotalCount:00#}" );
+
 		// Get a list of 10 People
 		if( people.TotalCount < 10 )
 		{
@@ -64,17 +75,13 @@ internal class TestSql
 		//var data = people.Get( cTestDataDir, "Person-test1.json", max: 15 );
 		//_ = people.Serialize( cTestDataDir, "Person-testout.json", data );
 
-		// Get a specific Company
-		ICompany? company = companies.Find( listc[0].Id );
-		_ = company is not null
-			? Program.sLogger.Info( $"Company Id {listc[0].Id:00#} is {company.Name}" )
-			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found!" );
-
 		// Get a specific Person
 		IPerson? person = people.Find( listp[0].Id );
 		_ = person is not null
 			? Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} is {person.FullName}" )
 			: Program.sLogger.Info( $"Person Id {listp[0].Id:00#} not found!" );
+
+		#endregion
 
 		return true;
 	}

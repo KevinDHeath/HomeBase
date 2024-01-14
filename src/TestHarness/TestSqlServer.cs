@@ -27,39 +27,26 @@ internal class TestSqlServer
 			}
 		}
 		if( !TestAddress.RunTest( args ) ) { return false; }
+		Console.WriteLine();
 
-		// Test the entity data
 		FullContextBase ctx = new();
 		// Connection string in debug:
 		// context => ChangeTracker => Context => Database => Non-Public members =>
 		//  Dependencies => RelationalConnection
 
-		Companies companies = new( ctx );
-		People people = new( ctx );
+		#region Test the Company data
 
-		_ = Program.sLogger.Info( $"Companies count.: {companies.TotalCount:00#}" );
-		_ = Program.sLogger.Info( $"People count....: {people.TotalCount:00#}" );
-		_ = Program.sLogger.Info( $"Movies count....: {ctx.Movies.Count():00#}" );
-		_ = Program.sLogger.Info( $"SuperHero count.: {ctx.SuperHeroes.Count():00#}" );
-		Console.WriteLine();
+		Companies companies = new( ctx );
+		_ = Program.sLogger.Info( $"Companies total.: {companies.TotalCount:00#}" );
 
 		// Get a list of 5 Companies
 		if( companies.TotalCount < 5 )
 		{
-			_ = Program.sLogger.Info( "Companies count is less than 5!" );
+			_ = Program.sLogger.Info( "Companies total is less than 5!" );
 			return false;
 		}
 		IList<ICompany> listc = companies.Get( 5 );
 		_ = Program.sLogger.Info( $"Companies list..: {listc.Count:00#}" );
-
-		// Get a list of 10 People
-		if( people.TotalCount < 10 )
-		{
-			_ = Program.sLogger.Info( "People count is less than 10!" );
-			return false;
-		}
-		IList<IPerson> listp = people.Get( 10 );
-		_ = Program.sLogger.Info( $"People list.....: {listp.Count:00#}" );
 
 		// Get a specific Company
 		ICompany? company = companies.Find( listc[0].Id );
@@ -67,21 +54,46 @@ internal class TestSqlServer
 			? Program.sLogger.Info( $"Company Id {listc[0].Id:00#} is {company.Name}" )
 			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found!" );
 
+		#endregion
+
+		#region Test the Person data
+
+		People people = new( ctx );
+		_ = Program.sLogger.Info( $"People total....: {people.TotalCount:00#}" );
+
+		// Get a list of 10 People
+		if( people.TotalCount < 10 )
+		{
+			_ = Program.sLogger.Info( "People total is less than 10!" );
+			return false;
+		}
+		IList<IPerson> listp = people.Get( 10 );
+		_ = Program.sLogger.Info( $"People list.....: {listp.Count:00#}" );
+
 		// Get a specific Person
 		IPerson? person = people.Find( listp[0].Id );
 		_ = person is not null
 			? Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} is {person.FullName}" )
 			: Program.sLogger.Info( $"Person Id {listp[0].Id:00#} not found!" );
 
+		#endregion
+
+		#region Test the Additional data
+
 		Console.WriteLine();
+		_ = Program.sLogger.Info( $"Movies total....: {ctx.Movies.Count():00#}" );
 
 		// Get a specific Movie
-		Common.Data.SqlServer.Models.Movie? movie = ctx.Movies.Find( [5] );
+		Common.Models.Movie? movie = ctx.Movies.Find( [5] );
 		_ = Program.sLogger.Info( $"Movie title.....: {movie?.Title}" );
 
+		_ = Program.sLogger.Info( $"SuperHero total.: {ctx.SuperHeroes.Count():00#}" );
+
 		// Get a specific SuperHero
-		Common.Data.SqlServer.Models.SuperHero? hero = ctx.SuperHeroes.Find( [35] );
+		Common.Models.SuperHero? hero = ctx.SuperHeroes.Find( [35] );
 		_ = Program.sLogger.Info( $"SuperHero name..: {hero?.Name}" );
+
+		#endregion
 
 		return true;
 	}

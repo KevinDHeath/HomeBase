@@ -38,6 +38,8 @@
       <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\net8.0\Common.Data.SQLite.xml" />
       <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\net8.0\Common.Data.SqlServer.dll" />
       <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\net8.0\Common.Data.SqlServer.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\net8.0\Common.Models.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\net8.0\Common.Models.xml" />
       <DocumentationSource sourceFile="..\..\src\Json.Converters\bin\Debug\net8.0\Json.Converters.dll" />
       <DocumentationSource sourceFile="..\..\src\Json.Converters\bin\Debug\net8.0\Json.Converters.xml" />
     </DocumentationSources>
@@ -58,7 +60,7 @@
       <NamespaceSummaryItem name="Common.Data.Sql" isDocumented="True">Provides consistent access to data sources such as SQL Server and XML to process data for testing purposes.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Common.Data.SQLite" isDocumented="True">Provides consistent access to SQLite data sources to process data for testing purposes.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Common.Data.SqlServer" isDocumented="True">Provides consistent access to SqlServer data sources to process data for testing purposes.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Common.Data.SqlServer.Models" isDocumented="True">Provides additional model classes used by SqlServer for testing purposes.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Common.Models" isDocumented="True">Provides additional model classes used for testing purposes.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Json.Converters" isDocumented="True">Contains classes that are used to customize and extend serialization and deserialization of string objects into JSON formatted documents or streams via type converters.</NamespaceSummaryItem>
     </NamespaceSummaries>
     <VisibleItems>ProtectedInternalAsProtected, NonBrowsable</VisibleItems>

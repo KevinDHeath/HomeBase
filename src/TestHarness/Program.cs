@@ -41,8 +41,8 @@ public class Program
 
 	internal static bool RunTest()
 	{
-		//if( TestJson.RunTest() ) { return true; }
 		//if( TestAPI.RunTest() ) { return true; }
+		//if( TestJson.RunTest() ) { return true; }
 		//if( TestSql.RunTest() ) { return true; }
 		//if( TestSQLite.RunTest() ) { return true; }
 		if( TestSqlServer.RunTest() ) { return true; }

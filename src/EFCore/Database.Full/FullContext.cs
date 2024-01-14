@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Common.Core.Classes;
 using Common.Core.Models;
 using Common.Data.SqlServer;
-using Common.Data.SqlServer.Models;
+using Common.Models;
 
-namespace Database.Full;
+namespace EFCore.Database.Full;
 
 /// <summary>Initializes a new instance of the FullContext class.</summary>
 public class FullContext : FullContextBase

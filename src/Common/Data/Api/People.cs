@@ -3,7 +3,7 @@ using Common.Core.Interfaces;
 
 namespace Common.Data.Api;
 
-/// <summary>This class provides access to Person REST API data.</summary>
+/// <summary>Provides access to REST API Person data.</summary>
 public class People : Factory, IDataFactory<IPerson>
 {
 	private static readonly string sResource = nameof( Person ).ToLower();
@@ -33,7 +33,7 @@ public class People : Factory, IDataFactory<IPerson>
 	/// <summary>Gets the total number of People available.</summary>
 	public int TotalCount { get; private set; }
 
-	/// <summary>Find a Person.</summary>
+	/// <summary>Finds a Person in the collection.</summary>
 	/// <param name="Id">Person Id.</param>
 	/// <returns>Null is returned if the Person is not found.</returns>
 	public IPerson? Find( int Id )
@@ -43,16 +43,18 @@ public class People : Factory, IDataFactory<IPerson>
 		return null;
 	}
 
-	/// <inheritdoc/>
-	/// <summary>Gets a collection of Person objects from the REST API.</summary>
+	/// <summary>Gets a collection of Person objects.</summary>
+	/// <param name="max">Maximum number of objects to return. Zero indicates all available.</param>
 	/// <returns>A collection of Person objects.</returns>
 	public IList<IPerson> Get( int max = 0 )
 	{
 		return GetResource<IPerson>( sResource, Person.GetSerializerOptions(), max, TotalCount );
 	}
 
-	/// <inheritdoc/>
 	/// <summary>Gets a collection of Person objects from an external Json file.</summary>
+	/// <param name="path">Location of the data file.</param>
+	/// <param name="file">Name of the file. If not supplied the default name is used.</param>
+	/// <param name="max">Maximum number of objects to return. Zero indicates all available.</param>
 	/// <returns>A collection of Person objects.</returns>
 	public IList<IPerson> Get( string path, string? file, int max = 0 )
 	{
@@ -68,7 +70,12 @@ public class People : Factory, IDataFactory<IPerson>
 		return null == Data ? new List<IPerson>() : ReturnItems( Data, max );
 	}
 
-	/// <inheritdoc/>
+	/// <summary>Serialize a collection of People to a specified file location.</summary>
+	/// <param name="path">Location for the file.</param>
+	/// <param name="file">Name of the file. If not supplied the default name is used.</param>
+	/// <param name="list">The collection to serialize.</param>
+	/// <returns>True if the file was saved, otherwise false is returned.</returns>
+	/// <remarks>There must be data already loaded and the path must exist.</remarks>
 	public bool Serialize( string path, string? file, IList<IPerson>? list )
 	{
 		if( string.IsNullOrWhiteSpace( file ) ) { file = Person.cDefaultFile; }
@@ -79,8 +86,10 @@ public class People : Factory, IDataFactory<IPerson>
 			SerializeJson( obj, path, file, Person.GetSerializerOptions() );
 	}
 
-	/// <inheritdoc/>
-	/// <summary>Updates an IPerson object with data from another IPerson object.</summary>
+	/// <summary>Updates a Person with data from another of the same kind.</summary>
+	/// <param name="obj">Person containing the original values.</param>
+	/// <param name="mod">Person containing the modified values.</param>
+	/// <returns>False is returned if there were any failures during the update.</returns>
 	public bool Update( IPerson obj, IPerson mod )
 	{
 		return PutResource( sResource, obj.Id, mod, Person.GetSerializerOptions() );

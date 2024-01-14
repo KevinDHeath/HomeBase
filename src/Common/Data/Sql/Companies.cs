@@ -3,7 +3,7 @@ using Common.Core.Interfaces;
 
 namespace Common.Data.Sql;
 
-/// <summary>This class provides access to Company SQL data.</summary>
+/// <summary>Provides access to SQL Company data.</summary>
 public class Companies : Factory, IDataFactory<ICompany>
 {
 	private static readonly DataTable _dataTable = new( tableName: "Companies" );
@@ -34,7 +34,7 @@ public class Companies : Factory, IDataFactory<ICompany>
 	/// <summary>Gets the total number of Companies available.</summary>
 	public int TotalCount { get; private set; }
 
-	/// <summary>Find a Company.</summary>
+	/// <summary>Finds a Company in the collection.</summary>
 	/// <param name="Id">Company Id.</param>
 	/// <returns>Null is returned if the Company is not found.</returns>
 	public ICompany? Find( int Id )
@@ -47,8 +47,8 @@ public class Companies : Factory, IDataFactory<ICompany>
 		return null;
 	}
 
-	/// <inheritdoc/>
-	/// <summary>Gets a collection of Company objects from the SQL database table.</summary>
+	/// <summary>Gets a collection of Company objects.</summary>
+	/// <param name="max">Maximum number of objects to return. Zero indicates all available.</param>
 	/// <returns>A collection of Company objects.</returns>
 	public IList<ICompany> Get( int max = 0 )
 	{
@@ -72,8 +72,10 @@ public class Companies : Factory, IDataFactory<ICompany>
 		return rtn;
 	}
 
-	/// <inheritdoc/>
 	/// <summary>Gets a collection of Company objects from an external Json file.</summary>
+	/// <param name="path">Location of the data file.</param>
+	/// <param name="file">Name of the file. If not supplied the default name is used.</param>
+	/// <param name="max">Maximum number of objects to return. Zero indicates all available.</param>
 	/// <returns>A collection of Company objects.</returns>
 	public IList<ICompany> Get( string path, string? file, int max = 0 )
 	{
@@ -89,7 +91,12 @@ public class Companies : Factory, IDataFactory<ICompany>
 		return null == Data ? new List<ICompany>() : ReturnItems( Data, max );
 	}
 
-	/// <inheritdoc/>
+	/// <summary>Serialize a collection of Companies to a specified file location.</summary>
+	/// <param name="path">Location for the file.</param>
+	/// <param name="file">Name of the file. If not supplied the default name is used.</param>
+	/// <param name="list">The collection to serialize.</param>
+	/// <returns>True if the file was saved, otherwise false is returned.</returns>
+	/// <remarks>There must be data already loaded and the path must exist.</remarks>
 	public bool Serialize( string path, string? file, IList<ICompany>? list )
 	{
 		if( string.IsNullOrWhiteSpace( file ) ) { file = Company.cDefaultFile; }
@@ -100,8 +107,10 @@ public class Companies : Factory, IDataFactory<ICompany>
 			SerializeJson( obj, path, file, Company.GetSerializerOptions() );
 	}
 
-	/// <inheritdoc/>
-	/// <summary>Updates an ICompany object with data from another ICompany object.</summary>
+	/// <summary>Updates a Company with data from another of the same kind.</summary>
+	/// <param name="obj">Company containing the original values.</param>
+	/// <param name="mod">Company containing the modified values.</param>
+	/// <returns>False is returned if there were any failures during the update.</returns>
 	public bool Update( ICompany obj, ICompany mod )
 	{
 		string sql = $"SELECT * FROM [{_dataTable.TableName}] WHERE [Id]={obj.Id};";

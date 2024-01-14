@@ -5,7 +5,17 @@ using Common.Core.Models;
 
 namespace Common.Data.SQLite;
 
-/// <summary>Initializes a new instance of the EntityContextBase class.</summary>
+/// <summary>Base class for an Entity database context.</summary>
+/// <remarks>This uses connections strings contained in a Json application settings file.<br/>
+/// The default file name is "appsettings.json".
+/// <code language="JSON">
+/// {
+///   "ConnectionStrings": {
+///     "EntityDb": "Data Source=[location]/[database].db"
+///   }
+/// }
+/// </code>
+/// </remarks>
 public class EntityContextBase() : DbContext()
 {
 	/// <summary>Gets or sets the Companies data set.</summary>

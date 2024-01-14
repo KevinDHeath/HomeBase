@@ -3,7 +3,17 @@ using Common.Core.Models;
 
 namespace Common.Data.SQLite;
 
-/// <summary>Initializes a new instance of the AddressContextBase class.</summary>
+/// <summary>Base class for an Address database context.</summary>
+/// <remarks>This uses connections strings contained in a Json application settings file.<br/>
+/// The default file name is "appsettings.json".
+/// <code language="JSON">
+/// {
+///   "ConnectionStrings": {
+///     "AddressDb": "Data Source=[location]/[database].db"
+///   }
+/// }
+/// </code>
+/// </remarks>
 public class AddressContextBase() : DbContext()
 {
 	/// <summary>Gets or sets the Province data set.</summary>

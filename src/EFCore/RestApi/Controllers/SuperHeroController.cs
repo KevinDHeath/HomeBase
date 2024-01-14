@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Common.Data.SqlServer.Models;
+using Common.Models;
 
 namespace EFCore.RestApi.Controllers;
 

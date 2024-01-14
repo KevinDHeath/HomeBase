@@ -4,7 +4,7 @@ using Common.Core.Classes;
 
 namespace Common.Data.SqlServer;
 
-/// <summary>This class provides access to external Person data.</summary>
+/// <summary>Provides access to Entity Framework SqlServer Person data.</summary>
 public class People : DataFactoryBase, IDataFactory<IPerson>
 {
 	#region Constructors
@@ -15,7 +15,7 @@ public class People : DataFactoryBase, IDataFactory<IPerson>
 	public People()
 	{ }
 
-	/// <summary>Initializes a new instance of the People class.</summary>
+	/// <summary>Initializes a new instance of the People class using an Entity Framework DbContext.</summary>
 	/// <param name="ctx">Entity Framework DbContext.</param>
 	public People( FullContextBase ctx )
 	{
@@ -36,7 +36,7 @@ public class People : DataFactoryBase, IDataFactory<IPerson>
 	/// <summary>Gets the total number of People available.</summary>
 	public int TotalCount { get; private set; }
 
-	/// <summary>Find a Person.</summary>
+	/// <summary>Finds a Person in the collection.</summary>
 	/// <param name="Id">Person Id.</param>
 	/// <returns>Null is returned if the Person is not found.</returns>
 	public IPerson? Find( int Id )
@@ -46,8 +46,8 @@ public class People : DataFactoryBase, IDataFactory<IPerson>
 		return person;
 	}
 
-	/// <inheritdoc/>
-	/// <summary>Gets a collection of Person objects from the Entity Framework.</summary>
+	/// <summary>Gets a collection of Person objects.</summary>
+	/// <param name="max">Maximum number of objects to return. Zero indicates all available.</param>
 	/// <returns>A collection of Person objects.</returns>
 	public IList<IPerson> Get( int max = 0 )
 	{
@@ -56,8 +56,10 @@ public class People : DataFactoryBase, IDataFactory<IPerson>
 		return [.. _ctx.People.Where( c => c.Id > startId ).Take( max )];
 	}
 
-	/// <inheritdoc/>
 	/// <summary>Gets a collection of Person objects from an external Json file.</summary>
+	/// <param name="path">Location of the data file.</param>
+	/// <param name="file">Name of the file. If not supplied the default name is used.</param>
+	/// <param name="max">Maximum number of objects to return. Zero indicates all available.</param>
 	/// <returns>A collection of Person objects.</returns>
 	public IList<IPerson> Get( string path, string? file, int max = 0 )
 	{
@@ -73,7 +75,13 @@ public class People : DataFactoryBase, IDataFactory<IPerson>
 		return null == Data ? new List<IPerson>() : ReturnItems( Data, max );
 	}
 
-	/// <inheritdoc/>
+
+	/// <summary>Serialize a collection of People to a specified file location.</summary>
+	/// <param name="path">Location for the file.</param>
+	/// <param name="file">Name of the file. If not supplied the default name is used.</param>
+	/// <param name="list">The collection to serialize.</param>
+	/// <returns>True if the file was saved, otherwise false is returned.</returns>
+	/// <remarks>There must be data already loaded and the path must exist.</remarks>
 	public bool Serialize( string path, string? file, IList<IPerson>? list )
 	{
 		if( string.IsNullOrWhiteSpace( file ) ) { file = Person.cDefaultFile; }
@@ -84,8 +92,10 @@ public class People : DataFactoryBase, IDataFactory<IPerson>
 			SerializeJson( obj, path, file, Person.GetSerializerOptions() );
 	}
 
-	/// <inheritdoc/>
-	/// <summary>Updates an IPerson object with data from another IPerson object.</summary>
+	/// <summary>Updates a Person with data from another of the same kind.</summary>
+	/// <param name="obj">Person containing the original values.</param>
+	/// <param name="mod">Person containing the modified values.</param>
+	/// <returns>False is returned if there were any failures during the update.</returns>
 	public bool Update( IPerson obj, IPerson mod )
 	{
 		return false;

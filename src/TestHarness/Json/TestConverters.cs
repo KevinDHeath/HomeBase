@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using Common.Core.Classes;
 using Json.Converters;
 
 namespace TestHarness;
@@ -36,7 +37,7 @@ internal class TestConverters
 		var fi = new FileInfo( fileName );
 		if( fi.Exists )
 		{
-			var obj = Common.Core.Classes.JsonHelper.DeserializeFile<TestConverters>( fi.FullName, GetSerializerOptions() );
+			var obj = JsonHelper.DeserializeFile<TestConverters>( fi.FullName, GetSerializerOptions() );
 			if( obj is not null )
 			{
 				Program.sLogger.Log( $"File {fileName} loaded." );
@@ -52,7 +53,7 @@ internal class TestConverters
 	{
 		if( null == obj ) return false;
 
-		if( Common.Core.Classes.JsonHelper.Serialize( obj, fileName, GetSerializerOptions() ) )
+		if( JsonHelper.Serialize( obj, fileName, GetSerializerOptions() ) )
 		{
 			Program.sLogger.Log( $"File {fileName} saved." );
 			return true;
@@ -67,7 +68,7 @@ internal class TestConverters
 		// https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializeroptions?view=net-7.0
 		// https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/converters-how-to?pivots=dotnet-7-0
 
-		JsonSerializerOptions rtn = Common.Core.Classes.JsonHelper.DefaultSerializerOptions();
+		JsonSerializerOptions rtn = JsonHelper.DefaultSerializerOptions();
 		rtn.Converters.Add( new InterfaceFactory( typeof( TestClass ), typeof( ITestClass ) ) );
 		rtn.Converters.Add( new BooleanNull() );
 		rtn.Converters.Add( new BooleanString() );

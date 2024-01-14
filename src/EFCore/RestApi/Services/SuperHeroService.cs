@@ -1,5 +1,5 @@
 ﻿using Common.Data.SqlServer;
-using Common.Data.SqlServer.Models;
+using Common.Models;
 
 namespace EFCore.RestApi.Services;
 

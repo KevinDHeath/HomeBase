@@ -1,4 +1,5 @@
 ﻿using Common.Core.Classes;
+using Common.Core.Models;
 
 namespace TestHarness;
 
@@ -15,10 +16,12 @@ internal class TestAddress : DataFactoryBase
 
 	internal static bool RunTest( AddrParams args )
 	{
+		#region Address Data Totals
+
 		switch( AddressFactoryBase.Countries )
 		{
 			case not null when AddressFactoryBase.Countries.Count > 0:
-				_ = Program.sLogger.Info( $"Countries count.: {AddressFactoryBase.Countries.Count:00#}" );
+				_ = Program.sLogger.Info( $"Countries total.: {AddressFactoryBase.Countries.Count:00#}" );
 				break;
 			default:
 				_ = Program.sLogger.Info( "No Countries loaded!" );
@@ -28,7 +31,7 @@ internal class TestAddress : DataFactoryBase
 		switch( AddressFactoryBase.Provinces )
 		{
 			case not null when AddressFactoryBase.Provinces.Count > 0:
-				_ = Program.sLogger.Info( $"Provinces count.: {AddressFactoryBase.Provinces.Count:00#}" );
+				_ = Program.sLogger.Info( $"Provinces total.: {AddressFactoryBase.Provinces.Count:00#}" );
 				break;
 			default:
 				_ = Program.sLogger.Info( "No Provinces loaded!" );
@@ -38,49 +41,79 @@ internal class TestAddress : DataFactoryBase
 		switch( AddressFactoryBase.PostcodeCount )
 		{
 			case > 0:
-				_ = Program.sLogger.Info( $"Postcodes count.: {AddressFactoryBase.PostcodeCount:#,00#}" );
+				_ = Program.sLogger.Info( $"Postcodes total.: {AddressFactoryBase.PostcodeCount:#,00#}" );
 				break;
 			default:
 				_ = Program.sLogger.Info( "No Postcodes loaded!" );
 				return false;
 		}
 
-		Address address = new() { Country = AddressFactoryBase.DefaultCountry };
-
-		// Pick a random Province
-		var province = AddressFactoryBase.Provinces[sRandom.Next( AddressFactoryBase.Provinces.Count - 1 )];
-		address.Province = province.Code;
-
-		// Pick a random County
-		if( args.Counties.Count == 0 )
+		switch( args.Counties.Count )
 		{
-			_ = Program.sLogger.Info( "No counties supplied!" );
-			return false;
+			case > 0:
+				_ = Program.sLogger.Info( $"County args.....: {args.Counties.Count:#,00#}" );
+				break;
+			default:
+				_ = Program.sLogger.Info( "No Counties supplied!" );
+				return false;
 		}
-		address.County = args.Counties[sRandom.Next( args.Counties.Count - 1 )];
 
-		// Pick a random City
-		if( args.Cities.Count == 0 )
+		switch( args.Cities.Count )
 		{
-			_ = Program.sLogger.Info( "No cities supplied!" );
-			return false;
+			case > 0:
+				_ = Program.sLogger.Info( $"City args.......: {args.Cities.Count:#,00#}" );
+				break;
+			default:
+				_ = Program.sLogger.Info( "No Cities supplied!" );
+				return false;
 		}
-		address.County = args.Cities[sRandom.Next( args.Cities.Count - 1 )];
+
+		switch( args.Postcodes.Count )
+		{
+			case > 0:
+				_ = Program.sLogger.Info( $"Postcode args...: {args.Postcodes.Count:#,00#}" );
+				break;
+			default:
+				_ = Program.sLogger.Info( "No Postcodes supplied!" );
+				return false;
+		}
+
+		#endregion
 
 		// Pick a random Postcode
-		if( args.Postcodes.Count == 0 )
+		Postcode? postcode = AddressFactoryBase.Postcodes[sRandom.Next( 0, AddressFactoryBase.Postcodes.Count - 1 )];
+		if( postcode is null )
 		{
-			_ = Program.sLogger.Info( "No postcodes supplied!" );
+			_ = Program.sLogger.Info( "Random Postcode not found!" );
 			return false;
 		}
-		address.Postcode = args.Postcodes[sRandom.Next( args.Postcodes.Count - 1 )];
+
+		string province = AddressFactoryBase.GetProvinceName( postcode.Province );
+		if( string.IsNullOrWhiteSpace( province ) )
+		{
+			_ = Program.sLogger.Info( $"Province name for {postcode.Province} not found!" );
+			return false;
+		}
+
+		Address address = new()
+		{
+			Country = AddressFactoryBase.DefaultCountry,
+			City = postcode.City,
+			Province = postcode.Province,
+			Postcode = postcode.Code,
+
+			// Pick a random County as the street
+			Street = args.Counties[sRandom.Next( args.Counties.Count - 1 )]
+		};
+
+		_ = Program.sLogger.Info( $"Random address..: {address}, {province}, {address.Country} {address.Postcode}" );
 
 		return true;
 	}
 
 	private class Address : Common.Core.Models.Address
 	{
-		public string? County { get; set; }
+		public override string ToString() => Street + ", " + City;
 	}
 }
 
