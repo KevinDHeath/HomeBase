@@ -56,6 +56,29 @@
     <VisibleItems>ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
     <BuildLogFile>C:\Temp\Documentation\MVVMProjects.log</BuildLogFile>
     <RootNamespaceTitle>Introduction</RootNamespaceTitle>
+    <ComponentConfigurations>
+      <ComponentConfig id="Resolve ThirdParty Reference Links" enabled="True">
+        <component id="Resolve ThirdParty Reference Links">
+          <configuration>
+            <urlProviders>
+              <formattedProvider title="Common.Core URL Provider">
+                <targetMatcher pattern=".:Common\.Core(\.|$).*" fullyQualifiedMemberName="false" sandcastleTarget="true"/>
+                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" target="_self"/>
+              </formattedProvider>
+              <formattedProvider title="CommunityToolkit.Mvvm API Provider">
+                <targetMatcher pattern="T:CommunityToolkit\.Mvvm\..+" fullyQualifiedMemberName="false" />
+                <targetFormatter>
+                  <steps>
+                    <replace pattern="T:" with="" />
+                  </steps>
+                </targetFormatter>
+                <urlFormatter format="https://learn.microsoft.com/en-us/dotnet/api/{target}" />
+              </formattedProvider>
+            </urlProviders>
+          </configuration>
+        </component>
+      </ComponentConfig>
+    </ComponentConfigurations>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->

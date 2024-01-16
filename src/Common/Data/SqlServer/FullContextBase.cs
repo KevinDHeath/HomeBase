@@ -26,7 +26,7 @@ public class FullContextBase : DbContext
 
 	/// <summary>Initializes a new instance of the FullContextBase class with context options.</summary>
 	/// <param name="options">Database context options.</param>
-	public FullContextBase( DbContextOptions<FullContextBase> options ) : base( options ) { }
+	public FullContextBase( DbContextOptions options ) : base( options ) { }
 
 	#endregion
 
