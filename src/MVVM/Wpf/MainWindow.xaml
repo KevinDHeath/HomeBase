@@ -9,7 +9,7 @@
         xmlns:views="clr-namespace:MVVM.Wpf.Views"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
-        Title="MVVM Wpf" Width="800" MinHeight="480" FontSize="{DynamicResource Common.FontSize}"
+        Title="MVVM Demo" Width="800" MinHeight="480" FontSize="{DynamicResource Common.FontSize}"
         WindowStartupLocation="CenterScreen" SizeToContent="Height" Icon="{StaticResource appIcon}">
   <Grid>
     <Grid.Resources>
@@ -37,7 +37,7 @@
     </Grid.Resources>
 
     <cc:ModalDialog Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
-      <ContentControl Content="{Binding CurrentModalViewModel}"/>
+      <ContentControl Content="{Binding CurrentModalViewModel}" Validation.ErrorTemplate="{x:Null}"/>
     </cc:ModalDialog>
 
     <ContentControl Content="{Binding CurrentViewModel}"/>

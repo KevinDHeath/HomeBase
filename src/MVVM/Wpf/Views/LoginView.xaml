@@ -59,8 +59,9 @@
           <Run Foreground="Red">*</Run>
           <Run>Password</Run>
         </TextBlock>
-        <PasswordBox MaxLength="25" Style="{StaticResource appLayoutStyle}" Loaded="FirstFocus"
-                     PasswordChanged="PasswordChanged" Margin="7,3,0,0"/>
+        <PasswordBox MaxLength="25" Style="{StaticResource appPasswordBoxStyle}" Loaded="FirstFocus"
+                     cc:PasswordBoxExtend.BindPassword="true" Margin="7,3,0,0"
+                     cc:PasswordBoxExtend.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
       </StackPanel>
     </StackPanel>
     <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">

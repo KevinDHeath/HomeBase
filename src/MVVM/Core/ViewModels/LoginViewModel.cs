@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Common.Core.Classes;
 using MVVM.Core.Services;
@@ -61,10 +60,17 @@ public sealed partial class LoginViewModel : ViewModelEdit
 	}
 
 	/// <summary>Gets or sets the password.</summary>
-	[ObservableProperty]
-	[NotifyCanExecuteChangedFor( nameof( LoginCommand ) )]
-	private System.Security.SecureString? _password;
-
+	[Required( ErrorMessage = "Please enter a password." )]
+	public string? Password
+	{
+		get => _password;
+		set
+		{
+			_validation.ValidateProperty( value );
+			SetProperty( ref _password, value );
+			LoginCommand.NotifyCanExecuteChanged();
+		}
+	}
 	/// <summary>Indicates whether a User has not been selected.</summary>
 	public bool IsNew { get; private set; }
 
@@ -114,6 +120,7 @@ public sealed partial class LoginViewModel : ViewModelEdit
 	private string? _name;
 	private string? _userEmail;
 	private DateOnly? _dob;
+	private string? _password;
 
 	/// <summary>Initializes a new instance of the LoginViewModel class.</summary>
 	/// <param name="store">Users storage.</param>

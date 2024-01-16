@@ -11,6 +11,7 @@
         <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Resources;component/Themes/Button.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Resources;component/Themes/CheckBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Resources;component/Themes/ListView.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Resources;component/Themes/PasswordBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Resources;component/Themes/TabControl.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Resources;component/Themes/TextBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Common.Wpf.Controls;component/Themes/Toolbar.xaml"/>
@@ -92,6 +93,17 @@
       <Style x:Key="appTextBoxStyle" TargetType="{x:Type TextBox}"
              BasedOn="{StaticResource commonTextBoxWithErrorsStyle}">
         <!--BasedOn="{StaticResource commonTextBoxStyle}">-->
+        <Setter Property="MinWidth" Value="250"/>
+        <Setter Property="Margin" Value="{StaticResource appMargin}"/>
+        <Setter Property="Padding" Value="{StaticResource appPadding}"/>
+        <Setter Property="VerticalAlignment" Value="{StaticResource appVerticalAlignment}"/>
+      </Style>
+
+      <!-- commonPasswordBoxStyle -->
+      <!-- commonPasswordBoxWithErrorsStyle -->
+      <Style x:Key="appPasswordBoxStyle" TargetType="{x:Type PasswordBox}"
+             BasedOn="{StaticResource commonPasswordBoxWithErrorsStyle}">
+        <!--BasedOn="{StaticResource commonPasswordBoxStyle}">-->
         <Setter Property="MinWidth" Value="250"/>
         <Setter Property="Margin" Value="{StaticResource appMargin}"/>
         <Setter Property="Padding" Value="{StaticResource appPadding}"/>

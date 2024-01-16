@@ -73,7 +73,7 @@
     <!-- kdheath -->
     <PackageVersion Include="kdheath.Common.Core" Version="2.1.1" />
     <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.1" />
-    <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.2" />
+    <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.3" />
 
     <!-- MVVM.Core -->
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.2" />
