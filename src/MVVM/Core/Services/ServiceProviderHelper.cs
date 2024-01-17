@@ -9,8 +9,9 @@ namespace MVVM.Core.Services;
 public static class ServiceProviderHelper
 {
 	/// <summary>Creates the service provider for the navigation sample.</summary>
+	/// <param name="appSettingsFile">Application settings file name.</param>
 	/// <returns>Dependency injection service provider.</returns>
-	public static IServiceProvider Create()
+	public static IServiceProvider Create( string appSettingsFile )
 	{
 		IServiceCollection retValue = new ServiceCollection();
 
@@ -20,7 +21,7 @@ public static class ServiceProviderHelper
 		retValue.AddSingleton<NavigationStore>();
 		retValue.AddSingleton<ModalNavigationStore>();
 		retValue.AddSingleton<UsersStore>();
-		retValue.AddSingleton( CreateSettingsStore );
+		retValue.AddSingleton( CreateSettingsStore( appSettingsFile ) );
 		retValue.AddSingleton( CreatePeopleStore );
 		retValue.AddSingleton( CreateCompaniesStore );
 
@@ -45,10 +46,10 @@ public static class ServiceProviderHelper
 
 	#region Create Stores
 
-	private static SettingsStore CreateSettingsStore( IServiceProvider sp )
+	private static SettingsStore CreateSettingsStore( string appSettingsFile )
 	{
 		_ = new AddressData( useAlpha2: false, isoCountry: "USA" ); // Address data is required
-		return new SettingsStore( "appsettings.json" );
+		return new SettingsStore( appSettingsFile );
 	}
 
 	private static PeopleStore CreatePeopleStore( IServiceProvider sp )

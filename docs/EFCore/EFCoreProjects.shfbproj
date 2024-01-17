@@ -22,6 +22,10 @@
     <HtmlHelpName>EFCore.Projects</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\net8.0\Common.Data.SqlServer.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\net8.0\Common.Data.SqlServer.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\net8.0\Common.Models.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\net8.0\Common.Models.xml" />
       <DocumentationSource sourceFile="..\..\src\EFCore\RestApi\bin\Debug\net8.0\EFCore.RestApi.xml" />
       <DocumentationSource sourceFile="..\..\src\EFCore\RestApi\bin\Debug\net8.0\EFCore.RestApi.dll" />
     </DocumentationSources>
@@ -46,12 +50,28 @@
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="False" />
+      <NamespaceSummaryItem name="Common.Data.SqlServer" isDocumented="True">Provides consistent access to SqlServer data sources to process data for testing purposes.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Common.Models" isDocumented="True">Provides additional model classes used for testing purposes.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="EFCore.RestApi.Controllers" isDocumented="True">Provides MVC controllers without view support.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="EFCore.RestApi.Services" isDocumented="True">Provides Interfaces used by the Service implementations.</NamespaceSummaryItem>
     </NamespaceSummaries>
     <BuildLogFile>C:\Temp\Documentation\EFCoreProjects.log</BuildLogFile>
-    <VisibleItems>InheritedMembers, Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <VisibleItems>Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
     <RootNamespaceTitle>Introduction</RootNamespaceTitle>
+    <ComponentConfigurations>
+      <ComponentConfig id="Resolve ThirdParty Reference Links" enabled="True">
+        <component id="Resolve ThirdParty Reference Links">
+          <configuration>
+            <urlProviders>
+              <formattedProvider title="Common.Core URL Provider">
+                <targetMatcher pattern=".:Common\.Core(\.|$).*" fullyQualifiedMemberName="false" sandcastleTarget="true" />
+                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" target="_self" />
+              </formattedProvider>
+            </urlProviders>
+          </configuration>
+        </component>
+      </ComponentConfig>
+    </ComponentConfigurations>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Configuration;
+using Common.Core.Classes;
 using Common.Core.Models;
 using Common.Models;
 
@@ -19,17 +20,6 @@ namespace Common.Data.SqlServer;
 /// </remarks>
 public class FullContextBase : DbContext
 {
-	#region Constructors
-
-	/// <summary>Initializes a new instance of the FullContextBase class.</summary>
-	public FullContextBase() { }
-
-	/// <summary>Initializes a new instance of the FullContextBase class with context options.</summary>
-	/// <param name="options">Database context options.</param>
-	public FullContextBase( DbContextOptions options ) : base( options ) { }
-
-	#endregion
-
 	#region Properties
 
 	/// <summary>Gets or sets the Companies data set.</summary>
@@ -55,11 +45,22 @@ public class FullContextBase : DbContext
 
 	#endregion
 
+	#region Constructors
+
+	/// <summary>Initializes a new instance of the FullContextBase class.</summary>
+	public FullContextBase() { }
+
+	/// <summary>Initializes a new instance of the FullContextBase class with context options.</summary>
+	/// <param name="options">Database context options.</param>
+	public FullContextBase( DbContextOptions options ) : base( options ) { }
+
+	#endregion
+
 	#region Private Methods
 
 	private static string GetConnectionString( string name )
 	{
-		const string cConfigFilename = "appsettings.json";
+		const string cConfigFilename = DataFactoryBase.cConfigFile;
 		string? rtn = null;
 
 		if( File.Exists( cConfigFilename ) )
@@ -78,14 +79,16 @@ public class FullContextBase : DbContext
 
 	#endregion
 
-	/// <inheritdoc />
+	/// <summary>Configures the database to be used for this context.</summary>
+	/// <param name="optionsBuilder">A builder used to create or modify options for this context.</param>
 	protected override void OnConfiguring( DbContextOptionsBuilder optionsBuilder )
 	{
 		string? connStr = GetConnectionString( "CommonData" );
 		_ = optionsBuilder.UseSqlServer( connStr );
 	}
 
-	/// <inheritdoc />
+	/// <summary>Configures the models for the entity types exposed in the datasets.</summary>
+	/// <param name="modelBuilder">The builder being used to construct the model for this context.</param>
 	protected override void OnModelCreating( ModelBuilder modelBuilder )
 	{
 		ValueConverter<bool, char> converter = new( v => v ? 'Y' : 'N', v => v == 'Y' );

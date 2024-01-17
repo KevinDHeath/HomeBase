@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Configuration;
+using Common.Core.Classes;
 using Common.Core.Models;
 
 namespace Common.Data.SQLite;
@@ -26,7 +27,7 @@ public class EntityContextBase() : DbContext()
 
 	internal static string? GetConnectionString( string name )
 	{
-		const string cConfigFilename = "appsettings.json";
+		const string cConfigFilename = DataFactoryBase.cConfigFile;
 		string? rtn = null;
 
 		if( File.Exists( cConfigFilename ) )
@@ -37,7 +38,8 @@ public class EntityContextBase() : DbContext()
 		return rtn;
 	}
 
-	/// <inheritdoc />
+	/// <summary>Configures the database to be used for this context.</summary>
+	/// <param name="optionsBuilder">A builder used to create or modify options for this context.</param>
 	protected override void OnConfiguring( DbContextOptionsBuilder optionsBuilder )
 	{
 		string? connStr = GetConnectionString( "EntityDb" );
@@ -45,7 +47,8 @@ public class EntityContextBase() : DbContext()
 		_ = optionsBuilder.UseSqlite( connStr );
 	}
 
-	/// <inheritdoc />
+	/// <summary>Configures the models for the entity types exposed in the datasets.</summary>
+	/// <param name="modelBuilder">The builder being used to construct the model for this context.</param>
 	protected override void OnModelCreating( ModelBuilder modelBuilder )
 	{
 		ValueConverter<bool, char> converter = new( v => v ? 'Y' : 'N', v => v == 'Y' );

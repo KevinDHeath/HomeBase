@@ -32,7 +32,7 @@ public partial class App : Application
 	/// <summary>Initializes a new instance of the App class.</summary>
 	public App()
 	{
-		_serviceProvider = ServiceProviderHelper.Create();
+		_serviceProvider = ServiceProviderHelper.Create( "appsettings.json" );
 	}
 
 	#endregion

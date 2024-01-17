@@ -63,7 +63,7 @@
       <NamespaceSummaryItem name="Common.Models" isDocumented="True">Provides additional model classes used for testing purposes.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Json.Converters" isDocumented="True">Contains classes that are used to customize and extend serialization and deserialization of string objects into JSON formatted documents or streams via type converters.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <VisibleItems>ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <VisibleItems>Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
     <BuildLogFile>C:\Temp\Documentation\CommonProjects.log</BuildLogFile>
     <RootNamespaceTitle>Introduction</RootNamespaceTitle>
     <ComponentConfigurations>
@@ -72,8 +72,8 @@
           <configuration>
             <urlProviders>
               <formattedProvider title="Common.Core URL Provider">
-                <targetMatcher pattern=".:Common\.Core(\.|$).*" fullyQualifiedMemberName="false" sandcastleTarget="true"/>
-                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" target="_self"/>
+                <targetMatcher pattern=".:Common\.Core(\.|$).*" fullyQualifiedMemberName="false" sandcastleTarget="true" />
+                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" target="_self" />
               </formattedProvider>
             </urlProviders>
           </configuration>
@@ -138,7 +138,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common.Core">
-      <HintPath>..\..\src\TestHarness\bin\Debug\net8.0\Common.Core.dll</HintPath>
+      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\net8.0\Common.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore">
+      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

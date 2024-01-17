@@ -28,6 +28,8 @@
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <DocumentationSources>
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\net8.0\Common.Data.SQLite.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\net8.0\Common.Data.SQLite.xml" />
       <DocumentationSource sourceFile="..\..\src\MVVM\Core\bin\Debug\net8.0\MVVM.Core.dll" />
       <DocumentationSource sourceFile="..\..\src\MVVM\Core\bin\Debug\net8.0\MVVM.Core.xml" />
       <DocumentationSource sourceFile="..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\MVVM.Wpf.dll" />
@@ -44,6 +46,7 @@
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <NamespaceSummaries>
+      <NamespaceSummaryItem name="Common.Data.SQLite" isDocumented="True">Provides consistent access to SQLite data sources to process data for testing purposes.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="MVVM.Core.Commands" isDocumented="True">Contains classes that implement the ICommand interface that enables a user to interact with the business logic.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="MVVM.Core.Models" isDocumented="True">Provides classes for testing data models.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="MVVM.Core.Services" isDocumented="True">Provides classes for navigation services.</NamespaceSummaryItem>
@@ -53,7 +56,7 @@
       <NamespaceSummaryItem name="MVVM.Wpf.Components" isDocumented="True">Contains classes for the user interface layout.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="MVVM.Wpf.Views" isDocumented="True">Contains classes to use as views for the WPF user interface.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <VisibleItems>ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <VisibleItems>Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
     <BuildLogFile>C:\Temp\Documentation\MVVMProjects.log</BuildLogFile>
     <RootNamespaceTitle>Introduction</RootNamespaceTitle>
     <ComponentConfigurations>
@@ -62,8 +65,8 @@
           <configuration>
             <urlProviders>
               <formattedProvider title="Common.Core URL Provider">
-                <targetMatcher pattern=".:Common\.Core(\.|$).*" fullyQualifiedMemberName="false" sandcastleTarget="true"/>
-                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" target="_self"/>
+                <targetMatcher pattern=".:Common\.Core(\.|$).*" fullyQualifiedMemberName="false" sandcastleTarget="true" />
+                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" target="_self" />
               </formattedProvider>
               <formattedProvider title="CommunityToolkit.Mvvm API Provider">
                 <targetMatcher pattern="T:CommunityToolkit\.Mvvm\..+" fullyQualifiedMemberName="false" />
@@ -115,9 +118,11 @@
     <Reference Include="Common.Core">
       <HintPath>..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\Common.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CommunityToolkit.Mvvm, Version=8.2.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2">
+    <Reference Include="CommunityToolkit.Mvvm">
       <HintPath>..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\CommunityToolkit.Mvvm.dll</HintPath>
-      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore">
+      <HintPath>..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

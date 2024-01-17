@@ -25,7 +25,8 @@ public class AddressContextBase() : DbContext()
 	/// <summary>Gets or sets the ISOCountry data set.</summary>
 	public DbSet<ISOCountry> ISOCountries { get; set; }
 
-	/// <inheritdoc />
+	/// <summary>Configures the database to be used for this context.</summary>
+	/// <param name="optionsBuilder">A builder used to create or modify options for this context.</param>
 	protected override void OnConfiguring( DbContextOptionsBuilder optionsBuilder )
 	{
 		string? connStr = EntityContextBase.GetConnectionString( "AddressDb" );
@@ -35,7 +36,8 @@ public class AddressContextBase() : DbContext()
 		base.OnConfiguring( optionsBuilder );
 	}
 
-	/// <inheritdoc />
+	/// <summary>Configures the models for the entity types exposed in the datasets.</summary>
+	/// <param name="modelBuilder">The builder being used to construct the model for this context.</param>
 	protected override void OnModelCreating( ModelBuilder modelBuilder )
 	{
 		_ = modelBuilder.Entity<ISOCountry>().HasIndex( b => b.Alpha2 );
