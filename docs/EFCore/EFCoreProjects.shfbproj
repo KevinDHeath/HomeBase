@@ -22,12 +22,12 @@
     <HtmlHelpName>EFCore.Projects</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\net8.0\Common.Data.SqlServer.dll" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\net8.0\Common.Data.SqlServer.xml" />
-      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\net8.0\Common.Models.dll" />
-      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\net8.0\Common.Models.xml" />
-      <DocumentationSource sourceFile="..\..\src\EFCore\RestApi\bin\Debug\net8.0\EFCore.RestApi.xml" />
-      <DocumentationSource sourceFile="..\..\src\EFCore\RestApi\bin\Debug\net8.0\EFCore.RestApi.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\Common.Data.SqlServer.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\Common.Data.SqlServer.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\Common.Models.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\Common.Models.xml" />
+      <DocumentationSource sourceFile="..\..\src\EFCore\RestApi\bin\Debug\EFCore.RestApi.xml" />
+      <DocumentationSource sourceFile="..\..\src\EFCore\RestApi\bin\Debug\EFCore.RestApi.dll" />
     </DocumentationSources>
     <HelpFileFormat>Website</HelpFileFormat>
     <SyntaxFilters>C#</SyntaxFilters>
@@ -106,10 +106,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common.Core">
-      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\net8.0\Common.Core.dll</HintPath>
+      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\Common.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore">
-      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

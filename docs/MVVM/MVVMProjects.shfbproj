@@ -28,12 +28,12 @@
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\net8.0\Common.Data.SQLite.dll" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\net8.0\Common.Data.SQLite.xml" />
-      <DocumentationSource sourceFile="..\..\src\MVVM\Core\bin\Debug\net8.0\MVVM.Core.dll" />
-      <DocumentationSource sourceFile="..\..\src\MVVM\Core\bin\Debug\net8.0\MVVM.Core.xml" />
-      <DocumentationSource sourceFile="..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\MVVM.Wpf.dll" />
-      <DocumentationSource sourceFile="..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\MVVM.Wpf.xml" />
+      <DocumentationSource sourceFile="..\..\src\MVVM\Wpf\bin\Debug\Common.Data.SQLite.dll" />
+      <DocumentationSource sourceFile="..\..\src\MVVM\Wpf\bin\Debug\Common.Data.SQLite.xml" />
+      <DocumentationSource sourceFile="..\..\src\MVVM\Core\bin\Debug\MVVM.Core.dll" />
+      <DocumentationSource sourceFile="..\..\src\MVVM\Core\bin\Debug\MVVM.Core.xml" />
+      <DocumentationSource sourceFile="..\..\src\MVVM\Wpf\bin\Debug\MVVM.Wpf.dll" />
+      <DocumentationSource sourceFile="..\..\src\MVVM\Wpf\bin\Debug\MVVM.Wpf.xml" />
     </DocumentationSources>
     <HelpTitle>MVVM Projects Documentation</HelpTitle>
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
@@ -134,13 +134,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common.Core">
-      <HintPath>..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\Common.Core.dll</HintPath>
+      <HintPath>..\..\src\MVVM\Wpf\bin\Debug\Common.Core.dll</HintPath>
     </Reference>
     <Reference Include="CommunityToolkit.Mvvm">
-      <HintPath>..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\CommunityToolkit.Mvvm.dll</HintPath>
+      <HintPath>..\..\src\MVVM\Wpf\bin\Debug\CommunityToolkit.Mvvm.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore">
-      <HintPath>..\..\src\MVVM\Wpf\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll</HintPath>
+      <HintPath>..\..\src\MVVM\Wpf\bin\Debug\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

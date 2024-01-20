@@ -28,20 +28,20 @@
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\..\src\Common\Data\Api\bin\Debug\net8.0\Common.Data.Api.dll" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\Api\bin\Debug\net8.0\Common.Data.Api.xml" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\Json\bin\Debug\net8.0\Common.Data.Json.dll" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\Json\bin\Debug\net8.0\Common.Data.Json.xml" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\Sql\bin\Debug\net8.0\Common.Data.Sql.dll" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\Sql\bin\Debug\net8.0\Common.Data.Sql.xml" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\net8.0\Common.Data.SQLite.dll" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\net8.0\Common.Data.SQLite.xml" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\net8.0\Common.Data.SqlServer.dll" />
-      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\net8.0\Common.Data.SqlServer.xml" />
-      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\net8.0\Common.Models.dll" />
-      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\net8.0\Common.Models.xml" />
-      <DocumentationSource sourceFile="..\..\src\Json.Converters\bin\Debug\net8.0\Json.Converters.dll" />
-      <DocumentationSource sourceFile="..\..\src\Json.Converters\bin\Debug\net8.0\Json.Converters.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Api\bin\Debug\Common.Data.Api.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Api\bin\Debug\Common.Data.Api.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Json\bin\Debug\Common.Data.Json.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Json\bin\Debug\Common.Data.Json.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Sql\bin\Debug\Common.Data.Sql.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\Sql\bin\Debug\Common.Data.Sql.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\Common.Data.SQLite.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SQLite\bin\Debug\Common.Data.SQLite.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\Common.Data.SqlServer.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Data\SqlServer\bin\Debug\Common.Data.SqlServer.xml" />
+      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\Common.Models.dll" />
+      <DocumentationSource sourceFile="..\..\src\Common\Models\bin\Debug\Common.Models.xml" />
+      <DocumentationSource sourceFile="..\..\src\Json.Converters\bin\Debug\Json.Converters.dll" />
+      <DocumentationSource sourceFile="..\..\src\Json.Converters\bin\Debug\Json.Converters.xml" />
     </DocumentationSources>
     <HelpTitle>Common Projects</HelpTitle>
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
@@ -138,10 +138,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common.Core">
-      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\net8.0\Common.Core.dll</HintPath>
+      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\Common.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore">
-      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+      <HintPath>..\..\src\EFCore\RestApi\bin\Debug\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

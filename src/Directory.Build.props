@@ -5,6 +5,7 @@
     <PackLocation>$(SolutionDir)packages</PackLocation>
     <PackNoSolution>false</PackNoSolution>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
   <!-- General Information -->
