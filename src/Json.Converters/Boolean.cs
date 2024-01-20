@@ -4,21 +4,17 @@ using System.Text.Json.Serialization;
 
 namespace Json.Converters;
 
-/// <summary>
-/// Converts a nullable boolean (System.Boolean) object or value to or from JSON.
-/// </summary>
+/// <summary>Converts a nullable boolean (System.Boolean) object or value to or from JSON.</summary>
 public class BooleanNull : JsonConverter<bool?>
 {
 	#region Overridden Methods
 
-	/// <summary>
-	/// Reads and converts the JSON to a three-valued boolean.
-	/// </summary>
+	/// <summary>Reads and converts the JSON to a three-valued boolean.</summary>
 	/// <param name="reader">The reader.</param>
 	/// <param name="TypeToConvert">The type to convert.</param>
 	/// <param name="options">An object that specifies serialization options to use.</param>
-	/// <returns>The converted value. If the value is empty or could not be converted a
-	/// null value is returned.</returns>
+	/// <returns>The converted value. If the value is empty or could not be converted
+	/// <see langword="null"/> is returned.</returns>
 	public override bool? Read( ref Utf8JsonReader reader, Type TypeToConvert, JsonSerializerOptions options )
 	{
 		Debug.Assert( TypeToConvert == typeof( bool? ) );
@@ -42,9 +38,7 @@ public class BooleanNull : JsonConverter<bool?>
 		return new bool?();
 	}
 
-	/// <summary>
-	/// Writes a specified value as JSON.
-	/// </summary>
+	/// <summary>Writes a specified value as JSON.</summary>
 	/// <param name="writer">The writer to write to.</param>
 	/// <param name="value">The value to convert to JSON.</param>
 	/// <param name="options">An object that specifies serialization options to use.</param>
@@ -63,21 +57,17 @@ public class BooleanNull : JsonConverter<bool?>
 	#endregion
 }
 
-/// <summary>
-/// Converts a boolean (System.Boolean) string to or from JSON.
-/// </summary>
+/// <summary>Converts a boolean (System.Boolean) string to or from JSON.</summary>
 public class BooleanString : JsonConverter<bool>
 {
 	#region Overridden Methods
 
-	/// <summary>
-	/// Reads and converts the JSON to a boolean.
-	/// </summary>
+	/// <summary>Reads and converts the JSON to a boolean.</summary>
 	/// <param name="reader">The reader.</param>
 	/// <param name="TypeToConvert">The type to convert.</param>
 	/// <param name="options">An object that specifies serialization options to use.</param>
-	/// <returns>The converted value. If the value is empty or could not be converted a
-	/// null value is returned.</returns>
+	/// <returns>The converted value. If the value is empty or could not be converted
+	/// <see langword="null"/> is returned.</returns>
 	public override bool Read( ref Utf8JsonReader reader, Type TypeToConvert, JsonSerializerOptions options )
 	{
 		Debug.Assert( TypeToConvert == typeof( bool ) );
@@ -101,9 +91,7 @@ public class BooleanString : JsonConverter<bool>
 		return false;
 	}
 
-	/// <summary>
-	/// Writes a specified value as JSON.
-	/// </summary>
+	/// <summary>Writes a specified value as JSON.</summary>
 	/// <param name="writer">The writer to write to.</param>
 	/// <param name="value">The value to convert to JSON.</param>
 	/// <param name="options">An object that specifies serialization options to use.</param>

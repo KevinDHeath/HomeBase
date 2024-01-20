@@ -67,7 +67,7 @@ public sealed partial class CompaniesViewModel : AddressViewModel
 
 		_count = store.Companies.Count;
 		_dc = new Company();
-		_ad = _dc.Address;
+		EntityAddress = _dc.Address;
 
 		AddCompanyCommand = new RelayCommand( AddCompany, AllowAdd );
 		ExportDataCommand = new RelayCommand<string?>( ExportData, AllowExport );
@@ -147,9 +147,9 @@ public sealed partial class CompaniesViewModel : AddressViewModel
 		if( CurrentCompany is not null )
 		{
 			_dc = (Company)( (Company)CurrentCompany ).Clone();
-			_ad.PropertyChanged -= OnAddressChanged;
-			_ad = _dc.Address;
-			_ad.PropertyChanged += OnAddressChanged;
+			EntityAddress.PropertyChanged -= OnAddressChanged;
+			EntityAddress = _dc.Address;
+			EntityAddress.PropertyChanged += OnAddressChanged;
 		}
 		RefreshAllProperties();
 		_validation.ValidateAllProperties();
@@ -196,8 +196,8 @@ public sealed partial class CompaniesViewModel : ICompany
 	/// <summary>Gets or sets the Primary Address.</summary>
 	public Address Address
 	{
-		get => _ad;
-		set => _ad = value;
+		get => EntityAddress;
+		set => EntityAddress = value;
 	}
 
 	/// <summary>Gets or sets the Government Number.</summary>

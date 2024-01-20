@@ -65,7 +65,7 @@
             <urlProviders>
               <formattedProvider title="Common.Core URL Provider">
                 <targetMatcher pattern=".:Common\.Core(\.|$).*" fullyQualifiedMemberName="false" sandcastleTarget="true" />
-                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" target="_self" />
+                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" />
               </formattedProvider>
             </urlProviders>
           </configuration>

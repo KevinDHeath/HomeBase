@@ -14,7 +14,7 @@ public class Companies : Factory, IDataFactory<ICompany>
 	public Companies() : this( cConfigFile ) { }
 
 	/// <summary>Initializes a new instance of the Companies class using a configuration file.</summary>
-	/// <param name="configFile">The name of the configuration file. The default is appsettings.json</param>
+	/// <param name="configFile">The name of the configuration file. The default is <c>appsettings.json</c></param>
 	public Companies( string configFile ) : base( cEndpointKey, configFile )
 	{
 		TotalCount = GetRowCount<Company>( sResource, Company.GetSerializerOptions() );
@@ -35,7 +35,7 @@ public class Companies : Factory, IDataFactory<ICompany>
 
 	/// <summary>Finds a Company in the collection.</summary>
 	/// <param name="Id">Company Id.</param>
-	/// <returns>Null is returned if the Company is not found.</returns>
+	/// <returns><see langword="null"/> is returned if the Company is not found.</returns>
 	public ICompany? Find( int Id )
 	{
 		Company? company = GetResource<Company>( sResource, Company.GetSerializerOptions(), Id );
@@ -74,7 +74,7 @@ public class Companies : Factory, IDataFactory<ICompany>
 	/// <param name="path">Location for the file.</param>
 	/// <param name="file">Name of the file. If not supplied the default name is used.</param>
 	/// <param name="list">The collection to serialize.</param>
-	/// <returns>True if the file was saved, otherwise false is returned.</returns>
+	/// <returns><see langword="true"/> if the file was saved, otherwise <see langword="false"/> is returned.</returns>
 	/// <remarks>There must be data already loaded and the path must exist.</remarks>
 	public bool Serialize( string path, string? file, IList<ICompany>? list )
 	{
@@ -89,7 +89,7 @@ public class Companies : Factory, IDataFactory<ICompany>
 	/// <summary>Updates a Company with data from another of the same kind.</summary>
 	/// <param name="obj">Company containing the original values.</param>
 	/// <param name="mod">Company containing the modified values.</param>
-	/// <returns>False is returned if there were any failures during the update.</returns>
+	/// <returns><see langword="false"/> is returned if there were any failures during the update.</returns>
 	public bool Update( ICompany obj, ICompany mod )
 	{
 		return PutResource( sResource, obj.Id, mod, Company.GetSerializerOptions() );

@@ -11,11 +11,12 @@ public class AddressData : AddressFactoryBase
 
 	/// <summary>Initializes a new instance of the AddressData class using embedded JSON data.</summary>
 	/// <param name="configFile">The name of the configuration file. This is not used for Json data.</param>
-	/// <param name="useAlpha2">Indicates whether to use Alpha-2 ISO Country codes. The default is false.</param>
-	/// <param name="countries">Indicates whether ISO Countries should be loaded. The default is true.</param>
-	/// <param name="provinces">Indicates whether Provinces should be loaded. The default is true.</param>
-	/// <param name="postcodes">Indicates whether Postcodes should be loaded. The default is true.</param>
-	/// <remarks>The JSON data is embedded in the binary file using the default country of USA.</remarks>
+	/// <param name="useAlpha2">Indicates whether to use Alpha-2 ISO Country codes. The default is <see langword="false"/>.</param>
+	/// <param name="countries">Indicates whether ISO Countries should be loaded. The default is <see langword="true"/>.</param>
+	/// <param name="provinces">Indicates whether Provinces should be loaded. The default is <see langword="true"/>.</param>
+	/// <param name="postcodes">Indicates whether Postcodes should be loaded. The default is <see langword="true"/>.</param>
+	/// <remarks>The JSON data is embedded in the binary file using the default country of <c>USA</c>.<br/>
+	/// The configuration file is not used as the data is embedded.</remarks>
 #pragma warning disable IDE0060 // Remove unused parameter of configFile
 	public AddressData( string configFile = "",
 		bool useAlpha2 = false, bool countries = true, bool provinces = true, bool postcodes = true )

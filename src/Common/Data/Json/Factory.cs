@@ -30,7 +30,7 @@ public abstract class Factory : DataFactoryBase
 	/// <summary>Returns the Json from a resource in an assembly.</summary>
 	/// <param name="resourceName">Resource name.</param>
 	/// <param name="assembly">Assembly name. If not supplied the default name is used.</param>
-	/// <returns>Null is returned if the resource could not be loaded.</returns>
+	/// <returns><see langword="null"/> is returned if the resource could not be loaded.</returns>
 	internal static string? GetEmbeddedResource( string resourceName, string assembly = cAssembly )
 	{
 		var stream = sEmbeddedResourceQuery.Read( assembly, cPrefix + resourceName );
@@ -46,7 +46,7 @@ public abstract class Factory : DataFactoryBase
 	/// <typeparam name="T">Type of factory to populate.</typeparam>
 	/// <param name="resource">Resource name.</param>
 	/// <param name="options">Json serializer options.</param>
-	/// <returns>Null is returned if the object could not be populated.</returns>
+	/// <returns><see langword="null"/> is returned if the object could not be populated.</returns>
 	protected static T? DeserializeJson<T>( string resource, JsonSerializerOptions options ) where T : Factory
 	{
 		var json = GetEmbeddedResource( resource );

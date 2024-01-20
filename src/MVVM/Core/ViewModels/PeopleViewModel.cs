@@ -66,7 +66,7 @@ public sealed partial class PeopleViewModel : AddressViewModel
 
 		_count = store.People.Count;
 		_dc = new Person();
-		_ad = _dc.Address;
+		EntityAddress = _dc.Address;
 
 		AddPersonCommand = new RelayCommand( AddPerson, AllowAdd );
 		ExportDataCommand = new RelayCommand<string?>( ExportData, AllowExport );
@@ -145,9 +145,9 @@ public sealed partial class PeopleViewModel : AddressViewModel
 		if( CurrentPerson is not null )
 		{
 			_dc = (Person)( (Person)CurrentPerson ).Clone();
-			_ad.PropertyChanged -= OnAddressChanged;
-			_ad = _dc.Address;
-			_ad.PropertyChanged += OnAddressChanged;
+			EntityAddress.PropertyChanged -= OnAddressChanged;
+			EntityAddress = _dc.Address;
+			EntityAddress.PropertyChanged += OnAddressChanged;
 		}
 		RefreshAllProperties();
 		_validation.ValidateAllProperties();
@@ -226,8 +226,8 @@ public sealed partial class PeopleViewModel : IPerson
 	/// <summary>Gets or sets the Primary Address.</summary>
 	public Address Address
 	{
-		get => _ad;
-		set => _ad = value;
+		get => EntityAddress;
+		set => EntityAddress = value;
 	}
 
 	/// <summary>Gets or sets the Government Number.</summary>

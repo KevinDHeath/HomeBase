@@ -66,10 +66,28 @@
             <urlProviders>
               <formattedProvider title="Common.Core URL Provider">
                 <targetMatcher pattern=".:Common\.Core(\.|$).*" fullyQualifiedMemberName="false" sandcastleTarget="true" />
-                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" target="_self" />
+                <urlFormatter format="https://kevindheath.github.io/nuget/html/{target}.htm" />
               </formattedProvider>
-              <formattedProvider title="CommunityToolkit.Mvvm API Provider">
-                <targetMatcher pattern="T:CommunityToolkit\.Mvvm\..+" fullyQualifiedMemberName="false" />
+              <formattedProvider title="CommunityToolkit.Mvvm ObservableObjects Provider">
+                <targetMatcher pattern="T:CommunityToolkit\.Mvvm\.ComponentModel\..+" fullyQualifiedMemberName="false" />
+                <targetFormatter>
+                  <steps>
+                    <replace pattern="T:CommunityToolkit\.Mvvm\.ComponentModel." with="" />
+                  </steps>
+                </targetFormatter>
+                <urlFormatter format="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/{target}" />
+              </formattedProvider>
+              <formattedProvider title="CommunityToolkit.Mvvm RelayCommand Provider">
+                <targetMatcher pattern="T:CommunityToolkit\.Mvvm\.Input\..+" fullyQualifiedMemberName="false" />
+                <targetFormatter>
+                  <steps>
+                    <replace pattern="T:" with="" />
+                  </steps>
+                </targetFormatter>
+                <urlFormatter format="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/relaycommand" />
+              </formattedProvider>
+             <formattedProvider title="CommunityToolkit.Mvvm API Provider">
+                <targetMatcher pattern="T:CommunityToolkit\.Mvvm\.Input\..+" fullyQualifiedMemberName="false" />
                 <targetFormatter>
                   <steps>
                     <replace pattern="T:" with="" />

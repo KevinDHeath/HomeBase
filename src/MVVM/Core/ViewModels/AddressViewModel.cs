@@ -113,10 +113,16 @@ public abstract class AddressViewModel : ViewModelEdit
 
 	#endregion
 
+	/// <summary>Gets or sets the entity address.</summary>
+	protected Address EntityAddress
+	{
+		get => _ad;
+		set => _ad = value;
+	}
+
 	#region Constructor and Variables
 
-	/// <summary>Internal address data.</summary>
-	protected Address _ad;
+	private Address _ad;
 
 	/// <summary>Initializes a new instance of the AddressViewModel class.</summary>
 	protected AddressViewModel()
