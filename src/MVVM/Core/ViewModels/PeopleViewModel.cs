@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿global using System.IO;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -6,6 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 using Common.Core.Classes;
 using Common.Core.Interfaces;
 using Common.Core.Models;
+using Common.Wpf.Attributes;
 using MVVM.Core.Stores;
 using MVVM.Core.Validations;
 
@@ -295,6 +297,7 @@ public sealed partial class PeopleViewModel : IPerson
 	/// <summary>Gets or sets the Date of Birth.</summary>
 	[Display( Name = "Birth Date" )]
 	[Required( ErrorMessage = "{0} cannot be empty." )]
+	[NoFutureDate]
 	public DateOnly? BirthDate
 	{
 		get => _dc.BirthDate;
