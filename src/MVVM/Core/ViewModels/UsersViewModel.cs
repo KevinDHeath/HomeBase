@@ -211,7 +211,7 @@ public sealed partial class UsersViewModel : ViewModelEdit, Common.Core.Interfac
 
 	/// <summary>Gets or sets the email address.</summary>
 	[Required( ErrorMessage = "{0} cannot be empty." )]
-	[RegularExpression( cEmailRegex, ErrorMessage = "Format not valid." )]
+	[RegularExpression( RegExAttribute.cEmail, ErrorMessage = "Format not valid." )]
 	[UserEmail]
 	public string? Email
 	{
@@ -227,6 +227,7 @@ public sealed partial class UsersViewModel : ViewModelEdit, Common.Core.Interfac
 	/// <summary>Gets or sets the date of birth.</summary>
 	[Display( Name = "Date of Birth" )]
 	[Required( ErrorMessage = "{0} cannot be empty." )]
+	[NoFutureDate]
 	public DateOnly? BirthDate
 	{
 		get => _dob;

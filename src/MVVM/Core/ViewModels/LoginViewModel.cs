@@ -30,7 +30,7 @@ public sealed partial class LoginViewModel : ViewModelEdit
 
 	/// <summary>Gets or sets the user e-mail address.</summary>
 	[Required( ErrorMessage = "Please enter email." )]
-	[RegularExpression( cEmailRegex, ErrorMessage = "Format not valid." )]
+	[RegularExpression( RegExAttribute.cEmail, ErrorMessage = "Format not valid." )]
 	[UserEmail]
 	public string? UserEmail
 	{
@@ -45,6 +45,7 @@ public sealed partial class LoginViewModel : ViewModelEdit
 
 	/// <summary>Gets or sets the user date of birth.</summary>
 	[Required( ErrorMessage = "Please enter date of birth." )]
+	[NoFutureDate]
 	public DateOnly? BirthDate
 	{
 		get => _dob;

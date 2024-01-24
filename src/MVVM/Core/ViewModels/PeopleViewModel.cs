@@ -7,7 +7,6 @@ using CommunityToolkit.Mvvm.Input;
 using Common.Core.Classes;
 using Common.Core.Interfaces;
 using Common.Core.Models;
-using Common.Wpf.Attributes;
 using MVVM.Core.Stores;
 using MVVM.Core.Validations;
 
