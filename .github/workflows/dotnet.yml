@@ -37,27 +37,15 @@ jobs:
 
     # Must be run first as working directory may not be the root
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-
-    - name: Create packages folder
-      run: mkdir ${{ github.workspace }}/packages
 
     - name: Restore dependencies
       run: dotnet restore
 
     - name: Build
       run: dotnet build --no-restore
-
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: HomeBase-Packages
-        path: ${{ github.workspace }}/packages
-        if-no-files-found: ignore
-        retention-days: 2
-
