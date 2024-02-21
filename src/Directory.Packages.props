@@ -7,6 +7,13 @@
 
   <ItemGroup>
 
+    <!-- kdheath -->
+    <PackageVersion Include="kdheath.Application.Helper" Version="2.0.2" />
+    <PackageVersion Include="kdheath.Common.Core" Version="2.1.2" />
+    <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.3" />
+    <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.3" />
+    <PackageVersion Include="kdheath.Wpf.Resources" Version="2.0.4" />
+
     <!-- Transitive, referenced by Azure.Identity -->
     <PackageVersion Include="Azure.Core" Version="1.36.0" />
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
@@ -74,12 +81,6 @@
     <!-- EFCore.RestApi -->
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="8.0.2" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-
-    <!-- kdheath -->
-    <PackageVersion Include="kdheath.Common.Core" Version="2.1.2" />
-    <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.2" />
-    <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.3" />
-    <PackageVersion Include="kdheath.Wpf.Resources" Version="2.0.4" />
 
     <!-- MVVM.Core -->
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.2" />
