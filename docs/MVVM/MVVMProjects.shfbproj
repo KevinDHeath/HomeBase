@@ -51,6 +51,7 @@
       <NamespaceSummaryItem name="MVVM.Core.Models" isDocumented="True">Provides classes for testing data models.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="MVVM.Core.Services" isDocumented="True">Provides classes for navigation services.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="MVVM.Core.Stores" isDocumented="True">Provides classes for navigation stores.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="MVVM.Core.Validations" isDocumented="True">Contains classes for data validations.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="MVVM.Core.ViewModels" isDocumented="True">Contains classes for view models.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="MVVM.Wpf" isDocumented="True">Contains classes used for the WPF user interface.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="MVVM.Wpf.Components" isDocumented="True">Contains classes for the user interface layout.</NamespaceSummaryItem>
@@ -86,7 +87,7 @@
                 </targetFormatter>
                 <urlFormatter format="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/relaycommand" />
               </formattedProvider>
-             <formattedProvider title="CommunityToolkit.Mvvm API Provider">
+              <formattedProvider title="CommunityToolkit.Mvvm API Provider">
                 <targetMatcher pattern="T:CommunityToolkit\.Mvvm\.Input\..+" fullyQualifiedMemberName="false" />
                 <targetFormatter>
                   <steps>

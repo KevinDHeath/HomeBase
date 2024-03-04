@@ -1,9 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackLocation>$(SolutionDir)packages</PackLocation>
-    <PackNoSolution>false</PackNoSolution>
+    <IsPackable>false</IsPackable>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
@@ -11,7 +9,7 @@
   <!-- General Information -->
   <PropertyGroup>
     <Authors>Kevin Heath</Authors>
-    <Product>Working Projects</Product>
+    <Product>My Projects</Product>
     <Copyright>Copyright © 2024 KevinDHeath</Copyright>
   </PropertyGroup>
 
