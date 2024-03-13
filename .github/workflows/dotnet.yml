@@ -20,7 +20,7 @@ on:
       project-folder:
         description: Folder containing the project
         type: string
-        default: ./src/Common/Core
+        default: .
 
 run-name: ${{ inputs.run-name }}
 
