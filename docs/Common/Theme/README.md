@@ -25,7 +25,7 @@ To setup a single website with links to each project follow these steps:
 
 Finally, copy the following items from this folder to `C:\Temp\Documentation`
 ``` console
-CommonProjects
+ArtifactsCopy.ps1 ??
 icon-orange.ico
 index.html
 ```

@@ -10,7 +10,7 @@
   <PropertyGroup>
     <Authors>Kevin Heath</Authors>
     <Product>My Projects</Product>
-    <Copyright>Copyright © 2024 KevinDHeath</Copyright>
+    <Copyright>Copyright © $([System.DateTime]::Now.Year) KevinDHeath</Copyright>
   </PropertyGroup>
 
 </Project>

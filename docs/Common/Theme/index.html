@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Documentation</title>
+  <title>Local Documentation</title>
   <link rel="shortcut icon" href="icon-orange.ico" />
   <link rel="stylesheet" href="CommonProjects\css\bulma.min.css">
 </head>
 
-<body>
+<body style="background-color:grey; min-height: 100svh;">
+
   <div class="fixedHeader">
     <div class="pageHeader level mt-1 mb-0">
       <div class="level-left">
-        <p style="margin-left: 10px;"><span class="title is-5">Sandcastle Help File Builder Output</span></p>  
+        <p style="margin-left: 10px;"><span class="title is-5 has-text-white">Local Documentation</span></p>  
       </div>
     </div>
   </div>
@@ -20,10 +21,10 @@
   <section class="section pt-0">
     <div class="container ml-0">
       <div class="columns mt-1 is-multiline">
-        <div class="column is-5">
+        <div class="column is-3">
           <div class="card">
             <header class="card-header has-background-black">
-              <p class="card-header-title has-text-white">Documentation</p>
+              <p class="card-header-title has-text-white">Projects</p>
             </header>
             <div class="card">
               <div class="card-content pt-0">
@@ -32,8 +33,48 @@
                     <li><a href="http://localhost:8080/CommonProjects">Common Projects</a></li>
                     <li><a href="http://localhost:8080/EFCoreProjects">EFCore Projects</a></li>
                     <li><a href="http://localhost:8080/MVVMProjects">MVVM Projects</a></li>
+                    <li><a href="http://localhost:8080/PrivateProjects">Private Projects</a></li>
                     <li><a href="http://localhost:8080/nuget">Helper Packages</a></li>
                     <li><a href="http://localhost:8080/shfb">WPF Packages</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-3">
+          <div class="card">
+            <header class="card-header has-background-black">
+              <p class="card-header-title has-text-white">Unit Tests</p>
+            </header>
+            <div class="card">
+              <div class="card-content pt-0">
+                <div class="content">
+                  <ul>
+                    <li><a href="http://localhost:8081/core/details.html">Core Unit Tests</a></li>
+                    <li><a href="http://localhost:8081/core/reports/html/index.html">Core Code Coverage</a></li>
+                    <li><a href="http://localhost:8081/helper/details.html">Helper Unit Tests</a></li>
+                    <li><a href="http://localhost:8081/helper/reports/html/index.html">Helper Code Coverage</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="column is-3">
+          <div class="card">
+            <header class="card-header has-background-black">
+              <p class="card-header-title has-text-white">APIs</p>
+            </header>
+            <div class="card">
+              <div class="card-content pt-0">
+                <div class="content">
+                  <ul>
+                    <li><a href="http://localhost:8083/swagger">Star Wars API</a></li>
+                    <li><a href="http://localhost:8084/swagger">EFCore.WebApi</a></li>
                   </ul>
                 </div>
               </div>
@@ -43,5 +84,6 @@
       </div>
     </div>
   </section>
+
 </body>
 </html>
