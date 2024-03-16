@@ -14,8 +14,11 @@
     <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.4" />
     <PackageVersion Include="kdheath.Wpf.Resources" Version="2.0.4" />
 
+    <!-- Transitive, referenced by Azure.Core -->
+    <PackageVersion Include="System.ClientModel" Version="1.0.0" />
+
     <!-- Transitive, referenced by Azure.Identity -->
-    <PackageVersion Include="Azure.Core" Version="1.36.0" />
+    <PackageVersion Include="Azure.Core" Version="1.38.0" />
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="8.0.0" />
     <PackageVersion Include="System.Memory.Data" Version="8.0.0" />
