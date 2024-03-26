@@ -6,29 +6,3 @@
 | -------------- | -------------- |
 | <img src="logo-orange.png" alt="drawing" height=100 width="100"/> | <img src="logo-blue.png" alt="drawing" height="100" width="100"/> |
 | <small>HTML: #ED753D<br/>RGB: 237, 117, 61<br/>HSL: 14, 212,145</small> | <small>HTML: #3EC2EE<br/>RGB: 62, 194, 238<br/>HSL: 138, 214, 150</small> |
-
----
-### Local SHFB Web Site
-The root output path of the Sandcastle Help File Builder website help format builds are configured as: `C:\Temp\Documentation`\
-To setup a single website with links to each project follow these steps:
-
-- In Internet Information Services (IIS) Manager:
-  - Add an Application Pool: `Documentation`\
-  `.NET CLR=v4.0, Managed Pipeline=Integrated`
-  - Add a Website named: `Documentation`\
-  `Application pool=Documentation, Physical path=C:\Temp\Documentation, Binding Type=http, Port=8080`
-  - Set IIS Authentication:\
-  `Anonymous Authentication=Disabled, Windows Authentication=Enabled`
-- In Windows Explorer:
-  - Grant normal permissions to the `C:\Temp\Documentation` folder\
-  for the local user: `IIS APPPOOL\Documentation`.
-
-Finally, copy the following items from this folder to `C:\Temp\Documentation`
-``` console
-ArtifactsCopy.ps1 ??
-icon-orange.ico
-index.html
-```
-> **Note**: The index.html page _(and SHFB)_ uses [Bulma: the modern
-CSS framework that
-just works.](https://bulma.io/)
