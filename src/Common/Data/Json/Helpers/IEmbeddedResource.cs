@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
 
+// https://josef.codes/using-embedded-files-in-dotnet-core/
+
 namespace Common.Data.Helpers;
 
 internal interface IEmbeddedResource

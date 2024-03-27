@@ -1,5 +1,7 @@
 ﻿// Ignore Spelling: Preload
 
+// https://josef.codes/using-embedded-files-in-dotnet-core/
+
 using System.Reflection;
 
 namespace Common.Data.Helpers;

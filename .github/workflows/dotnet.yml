@@ -1,9 +1,37 @@
-# This workflow will build a .NET solution or project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
+# This is a reusable workflow to build, pack, and upload a .NET project or solution
+# NuGet upload requires NUGET_URL variable and NUGET_AUTH_TOKEN secret defined at repository level
 name: .NET Build
 
 on:
+  # Called from another workflow passing input values
+  workflow_call:
+    inputs:
+      run-name:
+        description: A name for the run
+        type: string
+        default: ""
+      runs-on:
+        description: The runner type to use
+        type: string
+        default: ubuntu-latest
+      project-folder:
+        description: Folder containing the solution or project
+        type: string
+        default: .
+      build-config:
+        description: Build configuration
+        type: string
+        default: Release
+      artifact-name:
+        description: Name for any artifacts
+        type: string
+        default: ""
+      nuget-push:
+        description: Upload to NuGet
+        type: boolean
+        default: false
+
+  # Triggering manually prompting for input values
   workflow_dispatch:
     inputs:
       run-name:
@@ -18,11 +46,31 @@ on:
         - windows-latest
         default: ubuntu-latest
       project-folder:
-        description: Folder containing the project
+        description: Folder containing the solution or project
         type: string
         default: .
+      build-config:
+        description: Build configuration
+        type: choice
+        options: 
+        - Debug
+        - Release
+        default: Release
+      artifact-name:
+        description: Name for any artifacts
+        type: string
+        default: ""
+      nuget-push:
+        description: Upload to NuGet
+        type: boolean
+        default: false
 
 run-name: ${{ inputs.run-name }}
+
+env:
+  ARTIFACT_PATH: ${{ github.workspace }}/upload
+  DOTNET_PACK: ${{ inputs.artifact-name != '' }}
+  NUGET-PUSH: ${{ inputs.artifact-name != '' && inputs.nuget-push }}
 
 jobs:
 
@@ -35,17 +83,40 @@ jobs:
 
     steps:
 
-    # Must be run first as working directory may not be the root
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+      # - name: Setup .NET
+      #   uses: actions/setup-dotnet@v4
+      #   with:
+      #     dotnet-version: 8.0.x
 
-    - name: Restore dependencies
-      run: dotnet restore
+      - name: Create artifacts folder
+        if: env.DOTNET_PACK == 'true'
+        shell: pwsh
+        run: mkdir ${{ env.ARTIFACT_PATH }} > $null
 
-    - name: Build
-      run: dotnet build --no-restore
+      - name: .NET Restore
+        run: dotnet restore /property:Configuration=${{ inputs.build-config }}
+
+      - name: .NET Build
+        run: dotnet build --no-restore -c ${{ inputs.build-config }}
+
+      - name: .NET Pack
+        if: env.DOTNET_PACK == 'true'
+        run: dotnet pack -c ${{ inputs.build-config }} --no-restore --no-build --output ${{ env.ARTIFACT_PATH }}
+
+      - name: Upload artifacts
+        if: env.DOTNET_PACK == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event.repository.name }}-${{ inputs.artifact-name }}
+          path: ${{ env.ARTIFACT_PATH }}
+          retention-days: 10
+
+      - name: NuGet Push
+        if: env.NUGET-PUSH == 'true'
+        shell: pwsh
+        run: |
+          foreach($file in (Get-ChildItem "${{env.ARTIFACT_PATH}}" -Recurse -Include *.nupkg))
+          { dotnet nuget push $file -k "${{secrets.NUGET_AUTH_TOKEN}}" -s "${{vars.NUGET_URL}}" --skip-duplicate }
