@@ -1,7 +1,7 @@
 ﻿using Common.Core.Classes;
 using Common.Core.Models;
 
-namespace TestHarness;
+namespace TestHarness.Data;
 
 internal class TestAddress : DataFactoryBase
 {

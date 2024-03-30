@@ -2,7 +2,7 @@
 using Common.Core.Models;
 using Common.Data.Json;
 
-namespace TestHarness;
+namespace TestHarness.Data;
 
 internal class TestJson
 {
