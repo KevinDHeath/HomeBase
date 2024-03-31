@@ -10,9 +10,10 @@ internal class TestSql
 
 	internal static bool RunTest()
 	{
-		_ = Program.sLogger.Info( "Testing Common.Data.Sql (Microsoft.Data.SqkClient)" );
-		_ = Program.sLogger.Info( "AddressData, CompanyData, and PersonData database connection strings" );
-		_ = Program.sLogger.Info( "Uses SQL Server Express databases (AddressData.mdf and EntityData.mdf)" );
+		Console.WriteLine();
+		_ = Program.sLogger.Info( "** Testing Common.Data.Sql (Microsoft.Data.SqkClient)" );
+		_ = Program.sLogger.Info( "** AddressData, CompanyData, and PersonData database connection strings" );
+		_ = Program.sLogger.Info( "** Uses SQL Server Express databases (AddressData.mdf and EntityData.mdf)" );
 		Console.WriteLine();
 
 		// Test the address data
@@ -78,8 +79,8 @@ internal class TestSql
 		// Get a specific Person
 		IPerson? person = people.Find( listp[0].Id );
 		_ = person is not null
-			? Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} is {person.FullName}" )
-			: Program.sLogger.Info( $"Person Id {listp[0].Id:00#} not found!" );
+			? Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} is {person.FullName}" )
+			: Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} not found!" );
 
 		#endregion
 

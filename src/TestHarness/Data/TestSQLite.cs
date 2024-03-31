@@ -8,9 +8,10 @@ internal class TestSQLite
 {
 	internal static bool RunTest()
 	{
-		_ = Program.sLogger.Info( "Testing Common.Data.SQLite (EFCore.Database.Entity)" );
-		_ = Program.sLogger.Info( "AddressDb and EntityDb database connection strings" );
-		_ = Program.sLogger.Info( "Uses SQLite databases (AddressData.db and EntityData.db)" );
+		Console.WriteLine();
+		_ = Program.sLogger.Info( "** Testing Common.Data.SQLite (EFCore.Database.Entity)" );
+		_ = Program.sLogger.Info( "** AddressDb and EntityDb database connection strings" );
+		_ = Program.sLogger.Info( "** Uses SQLite databases (AddressData.db and EntityData.db)" );
 		Console.WriteLine();
 
 		// Test the address data

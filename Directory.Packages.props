@@ -9,7 +9,7 @@
 
     <!-- kdheath -->
     <PackageVersion Include="kdheath.Application.Helper" Version="2.0.3" />
-    <PackageVersion Include="kdheath.Common.Core" Version="2.1.3" />
+    <PackageVersion Include="kdheath.Common.Core" Version="2.1.4" />
     <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.3" />
     <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.4" />
     <PackageVersion Include="kdheath.Wpf.Resources" Version="2.0.4" />

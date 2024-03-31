@@ -8,9 +8,10 @@ internal class TestSqlServer
 {
 	internal static bool RunTest()
 	{
-		_ = Program.sLogger.Info( "Testing Common.Data.SqlServer (EFCore.Database.Full)" );
-		_ = Program.sLogger.Info( "CommonData database connection string" );
-		_ = Program.sLogger.Info( "Uses SQL Server databases (TestEF)" );
+		Console.WriteLine();
+		_ = Program.sLogger.Info( "** Testing Common.Data.SqlServer (EFCore.Database.Full)" );
+		_ = Program.sLogger.Info( "** CommonData database connection string" );
+		_ = Program.sLogger.Info( "** Uses SQL Server databases (TestEF)" );
 		Console.WriteLine();
 
 		// Test the address data
@@ -73,8 +74,8 @@ internal class TestSqlServer
 		// Get a specific Person
 		IPerson? person = people.Find( listp[0].Id );
 		_ = person is not null
-			? Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} is {person.FullName}" )
-			: Program.sLogger.Info( $"Person Id {listp[0].Id:00#} not found!" );
+			? Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} is {person.FullName}" )
+			: Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} not found!" );
 
 		#endregion
 

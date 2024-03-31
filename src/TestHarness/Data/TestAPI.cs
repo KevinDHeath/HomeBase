@@ -8,9 +8,10 @@ internal class TestAPI
 {
 	internal static bool RunTest()
 	{
-		_ = Program.sLogger.Info( "Testing Common.Data.Api (EFCore.RestApi)" );
-		_ = Program.sLogger.Info( "CommonData endpoint connection string" );
-		_ = Program.sLogger.Info( "Uses EFCommonData database with Common user login." );
+		Console.WriteLine();
+		_ = Program.sLogger.Info( "** Testing Common.Data.Api (EFCore.RestApi)" );
+		_ = Program.sLogger.Info( "** CommonData endpoint connection string" );
+		_ = Program.sLogger.Info( "** Uses EFCommonData database with Common user login." );
 		Console.WriteLine();
 
 		// Test the address data
@@ -68,8 +69,8 @@ internal class TestAPI
 		// Get a specific Person
 		IPerson? person = people.Find( listc[0].Id );
 		_ = person is not null
-			? Program.sLogger.Info( $"Person Id  {listp[0].Id:00#} is {person.FullName}" )
-			: Program.sLogger.Info( $"Person Id {listp[0].Id:00#} not found!" );
+			? Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} is {person.FullName}" )
+			: Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} not found!" );
 
 		#endregion
 
