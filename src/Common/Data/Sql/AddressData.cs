@@ -23,17 +23,19 @@ public class AddressData : AddressFactoryBase
 	{
 		_connString = Factory.SetConnectionString( typeof( AddressData ).Name, configFile );
 
-		if( countries & Countries.Count == 0 )
+		if( countries )
 		{
 			LoadCountries( useAlpha2 );
 			DefaultCountry = isoCountry;
 		}
-		if( provinces & Provinces.Count == 0 ) { LoadProvinces(); }
-		if( postcodes & Postcodes.Count == 0 ) { LoadPostcodes(); }
+		if( provinces ) { LoadProvinces(); }
+		if( postcodes ) { LoadPostcodes(); }
 	}
 
 	private static void LoadCountries( bool useAlpha2 )
 	{
+		Countries = new List<CountryCode>();
+
 		if( string.IsNullOrWhiteSpace( _connString ) ) { return; }
 		if( useAlpha2 ) { UseAlpha2 = useAlpha2; }
 
@@ -46,6 +48,8 @@ public class AddressData : AddressFactoryBase
 
 	private static void LoadProvinces()
 	{
+		Provinces = new List<Province>();
+
 		if( string.IsNullOrWhiteSpace( _connString ) ) { return; }
 		Provinces = new List<Province>();
 		string query = "SELECT * FROM [Provinces];";
@@ -55,6 +59,9 @@ public class AddressData : AddressFactoryBase
 
 	private static void LoadPostcodes()
 	{
+		Postcodes = new List<Postcode>();
+		PostcodeCount = 0;
+
 		if( string.IsNullOrWhiteSpace( _connString ) ) { return; }
 		PostcodeCount = Factory.GetRowCount( "Postcodes", ref _connString );
 	}

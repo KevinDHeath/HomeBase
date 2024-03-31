@@ -19,13 +19,13 @@ public class AddressData : AddressFactoryBase
 		bool provinces = true, bool postcodes = true )
 	{
 		using FullContextBase context = new();
-		if( countries & Countries.Count == 0 )
+		if( countries )
 		{
 			LoadCountries( useAlpha2, context );
 			DefaultCountry = isoCountry;
 		}
-		if( provinces & Provinces.Count == 0 ) { LoadProvinces( context ); }
-		if( postcodes & Postcodes.Count == 0 ) { LoadPostcodes( context ); }
+		if( provinces ) { LoadProvinces( context ); }
+		if( postcodes ) { LoadPostcodes( context ); }
 	}
 
 	private static void LoadCountries( bool useAlpha2, FullContextBase context )
@@ -42,6 +42,7 @@ public class AddressData : AddressFactoryBase
 
 	private static void LoadPostcodes( FullContextBase context )
 	{
+		Postcodes = new List<Postcode>();
 		PostcodeCount = context.Postcodes.Count();
 	}
 
