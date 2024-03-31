@@ -5,6 +5,8 @@ namespace TestHarness.Data;
 
 internal class TestAddress : DataFactoryBase
 {
+	#region Testing Postal codes
+
 	internal static string[] postcodes = [
 		"48908",      // Katheryn A Tanguma
 		"46204-3561", // Buford Cocopoti
@@ -13,6 +15,8 @@ internal class TestAddress : DataFactoryBase
 		"80904",      // Internal Medicine Clinic
 		"21117"       // Mega Allied Services
 		];
+
+	#endregion
 
 	internal static bool RunTest( AddrParams args )
 	{
@@ -109,6 +113,46 @@ internal class TestAddress : DataFactoryBase
 		_ = Program.sLogger.Info( $"Random address..: {address}, {province}, {address.Country} {address.Postcode}" );
 
 		return true;
+	}
+
+	internal static bool RunTest()
+	{
+		// Use Json as that has all postal codes
+		Common.Data.Json.AddressData data = new();
+
+		// Min and Max Postal codes by Province
+		foreach( var (s, min, max) in
+				from s in Common.Data.Json.AddressData.GetPostcodes()
+				let min = s.Min( z => z.Code )
+				let max = s.Max( z => z.Code )
+				select (s, min, max) )
+		{
+			_ = Program.sLogger.Info( $"Province: {s.Key} Min: {min} Max: {max}" );
+		}
+
+		// Pick a random Postal code
+		Postcode? postCode = AddressFactoryBase.Postcodes[sRandom.Next( 0, AddressFactoryBase.Postcodes.Count - 1 )];
+
+		// Postal codes by City name in all Provinces
+		var query1 = from a in AddressFactoryBase.Postcodes
+					 where a.City == postCode.City
+					 orderby a.Province
+					 group a by a.Province;
+		int count1 = query1.Count();
+
+		// Postal codes by City name and Province code
+		var query2 = from province in AddressFactoryBase.Provinces
+					 join postcode in AddressFactoryBase.Postcodes on province.Code equals postCode.Province
+					 where postcode.City == postCode.City
+					 select new
+					 {
+						State = province.Name,
+						postcode.City,
+						postcode.Code
+					 };
+		int count2 = query1.Count();
+
+		return count1 > 0 && count2 > 0;
 	}
 
 	private class Address : Common.Core.Models.Address
