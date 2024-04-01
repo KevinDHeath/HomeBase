@@ -41,16 +41,15 @@ public class Program
 
 	internal static bool RunTest()
 	{
-		//if( TestAPI.RunTest() ) { return true; }
-		//if( TestJson.RunTest() ) { return true; }
-		//if( TestSql.RunTest() ) { return true; }
-		//if( TestSQLite.RunTest() ) { return true; }
-		if( TestSqlServer.RunTest() ) { return true; }
+		if( !Data.TestAddress.RunTest() ) { return false; }
+		if( !Data.TestAPI.RunTest() ) { return false; }
+		if( !Data.TestJson.RunTest() ) { return false; }
+		if( !Data.TestSql.RunTest() ) { return false; }
+		if( !Data.TestSQLite.RunTest() ) { return false; }
+		if( !Data.TestSqlServer.RunTest() ) { return false; }
 
-		//if( TestConverters.RunTest() ) { return true; }
-		//if( TestLINQ.RunTest() ) { return true; }
-		//if( Reflection.TestReflection.Test() ) { return true; }
+		//if( !Json.TestConverters.RunTest() ) { return false; }
 
-		return false;
+		return true;
 	}
 }

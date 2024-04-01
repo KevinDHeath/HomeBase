@@ -24,17 +24,19 @@ public class AddressData : AddressFactoryBase
 	{
 		_service = Factory.GetDataService( Factory.cEndpointKey, ref configFile );
 
-		if( countries & Countries.Count == 0 )
+		if( countries )
 		{
 			LoadCountries( useAlpha2 );
 			DefaultCountry = isoCountry;
 		}
-		if( provinces & Provinces.Count == 0 ) { LoadProvinces(); }
-		if( postcodes & Postcodes.Count == 0 ) { LoadPostcodes(); }
+		if( provinces ) { LoadProvinces(); }
+		if( postcodes ) { LoadPostcodes(); }
 	}
 
 	private static void LoadCountries( bool useAlpha2 )
 	{
+		Countries = new List<CountryCode>();
+
 		if( _service is null ) { return; }
 		if( useAlpha2 ) { UseAlpha2 = useAlpha2; }
 
@@ -51,6 +53,8 @@ public class AddressData : AddressFactoryBase
 
 	private static void LoadProvinces()
 	{
+		Provinces = new List<Province>();
+
 		if( _service is null ) { return; }
 		string? json = _service.GetResource( typeof( Province ).Name.ToLower() );
 		if( json is not null )
@@ -65,6 +69,9 @@ public class AddressData : AddressFactoryBase
 
 	private static void LoadPostcodes()
 	{
+		Postcodes = new List<Postcode>();
+		PostcodeCount = 0;
+
 		if( _service is null ) { return; }
 		string? json = _service.GetResource( sPostcode );
 		if( json is not null )

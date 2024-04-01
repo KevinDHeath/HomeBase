@@ -1,16 +1,17 @@
 ﻿using Common.Core.Interfaces;
 using Common.Core.Models;
-using Common.Data.SQLite;
+using Common.Data.SqlServer;
 
-namespace TestHarness;
+namespace TestHarness.Data;
 
-internal class TestSQLite
+internal class TestSqlServer
 {
 	internal static bool RunTest()
 	{
-		_ = Program.sLogger.Info( "Testing Common.Data.SQLite (EFCore.Database.Entity)" );
-		_ = Program.sLogger.Info( "AddressDb and EntityDb database connection strings" );
-		_ = Program.sLogger.Info( "Uses SQLite databases (AddressData.db and EntityData.db)" );
+		Console.WriteLine();
+		_ = Program.sLogger.Info( "** Testing Common.Data.SqlServer (EFCore.Database.Full)" );
+		_ = Program.sLogger.Info( "** CommonData database connection string" );
+		_ = Program.sLogger.Info( "** Uses SQL Server databases (TestEF)" );
 		Console.WriteLine();
 
 		// Test the address data
@@ -29,7 +30,7 @@ internal class TestSQLite
 		if( !TestAddress.RunTest( args ) ) { return false; }
 		Console.WriteLine();
 
-		EntityContextBase ctx = new();
+		FullContextBase ctx = new();
 		// Connection string in debug:
 		// context => ChangeTracker => Context => Database => Non-Public members =>
 		//  Dependencies => RelationalConnection
@@ -42,7 +43,7 @@ internal class TestSQLite
 		// Get a list of 5 Companies
 		if( companies.TotalCount < 5 )
 		{
-			_ = Program.sLogger.Info( "Companies count is less than 5" );
+			_ = Program.sLogger.Info( "Companies total is less than 5!" );
 			return false;
 		}
 		IList<ICompany> listc = companies.Get( 5 );
@@ -52,7 +53,7 @@ internal class TestSQLite
 		ICompany? company = companies.Find( listc[0].Id );
 		_ = company is not null
 			? Program.sLogger.Info( $"Company Id {listc[0].Id:00#} is {company.Name}" )
-			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found." );
+			: Program.sLogger.Info( $"Company Id {listc[0].Id:00#} not found!" );
 
 		#endregion
 
@@ -64,7 +65,7 @@ internal class TestSQLite
 		// Get a list of 10 People
 		if( people.TotalCount < 10 )
 		{
-			_ = Program.sLogger.Info( "People count is less than 10" );
+			_ = Program.sLogger.Info( "People total is less than 10!" );
 			return false;
 		}
 		IList<IPerson> listp = people.Get( 10 );
@@ -74,7 +75,24 @@ internal class TestSQLite
 		IPerson? person = people.Find( listp[0].Id );
 		_ = person is not null
 			? Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} is {person.FullName}" )
-			: Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} not found." );
+			: Program.sLogger.Info( $"Person Id. {listp[0].Id:00#} not found!" );
+
+		#endregion
+
+		#region Test the Additional data
+
+		Console.WriteLine();
+		_ = Program.sLogger.Info( $"Movies total....: {ctx.Movies.Count():00#}" );
+
+		// Get a specific Movie
+		Common.Models.Movie? movie = ctx.Movies.Find( [5] );
+		_ = Program.sLogger.Info( $"Movie title.....: {movie?.Title}" );
+
+		_ = Program.sLogger.Info( $"SuperHero total.: {ctx.SuperHeroes.Count():00#}" );
+
+		// Get a specific SuperHero
+		Common.Models.SuperHero? hero = ctx.SuperHeroes.Find( [35] );
+		_ = Program.sLogger.Info( $"SuperHero name..: {hero?.Name}" );
 
 		#endregion
 

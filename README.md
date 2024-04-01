@@ -7,5 +7,5 @@
 
 Documentation can be found on the *[Wiki.](https://github.com/KevinDHeath/HomeBase/wiki/Home)*
 
->:warning: This repository uses the Sandcastle Help File Builder (SHFB) to generate documentation. You may experience issues opening the solution if you do not have the extension installed.\
-See [Installation Instructions](https://ewsoftware.github.io/SHFB/html/8c0c97d0-c968-4c15-9fe9-e8f3a443c50a.htm) for details on how to install it.
+> ⚠️ This repository uses the Sandcastle Help File Builder (SHFB) to generate documentation. You may experience issues opening the solution if you do not have the extension installed in Visual Studio.\
+See [Installation Instructions](https://github.com/EWSoftware/SHFB/releases) for details on how to install it.

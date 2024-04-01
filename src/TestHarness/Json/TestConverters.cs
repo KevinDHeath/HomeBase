@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using Common.Core.Classes;
 using Json.Converters;
 
-namespace TestHarness;
+namespace TestHarness.Json;
 
 // Paste JSON or XML as classes
 // https://learn.microsoft.com/en-us/visualstudio/ide/reference/paste-json-xml

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace TestHarness;
+namespace TestHarness.Json;
 
 #nullable enable
 

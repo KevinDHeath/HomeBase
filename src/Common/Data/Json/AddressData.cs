@@ -23,7 +23,7 @@ public class AddressData : AddressFactoryBase
 #pragma warning restore IDE0060 // Remove unused parameter of configFile
 	{
 		string? json;
-		if( countries & Countries.Count == 0 )
+		if( countries )
 		{
 			if( useAlpha2 ) { UseAlpha2 = useAlpha2; }
 			json = Factory.GetEmbeddedResource( "ISOCountries.json" );
