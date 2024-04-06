@@ -1,5 +1,6 @@
 ﻿using Application.Helper;
 using Logging.Helper;
+using Common.Core.Interfaces;
 
 namespace TestHarness;
 
@@ -49,6 +50,51 @@ public class Program
 		if( !Data.TestSqlServer.RunTest() ) { return false; }
 
 		//if( !Json.TestConverters.RunTest() ) { return false; }
+
+		return true;
+	}
+
+	internal static bool RunCompaniesTests( IDataFactory<ICompany> factory )
+	{
+		_ = sLogger.Info( $"Companies total.: {factory.TotalCount:00#}" );
+
+		// Get a list of 5 Companies
+		if( factory.TotalCount < 5 )
+		{
+			_ = sLogger.Info( "Companies count is less than 5!" );
+			return false;
+		}
+
+		IList<ICompany> list = factory.Get( 5 );
+		_ = sLogger.Info( $"Companies list..: {list.Count:00#}" );
+
+		// Get a specific Company
+		ICompany? company = factory.Find( list[0].Id );
+		_ = company is not null
+			? sLogger.Info( $"Company Id {list[0].Id:00#} is {company}" )
+			: sLogger.Info( $"Company Id {list[0].Id:00#} not found!" );
+
+		return true;
+	}
+
+	internal static bool RunPeopleTests( IDataFactory<IPerson> factory )
+	{
+		_ = sLogger.Info( $"People total....: {factory.TotalCount:00#}" );
+
+		// Get a list of 10 People
+		if( factory.TotalCount < 10 )
+		{
+			_ = Program.sLogger.Info( "People count is less than 10!" );
+			return false;
+		}
+		IList<IPerson> list = factory.Get( 10 );
+		_ = sLogger.Info( $"People list.....: {list.Count:00#}" );
+
+		// Get a specific Person
+		IPerson? person = factory.Find( list[0].Id );
+		_ = person is not null
+			? sLogger.Info( $"Person Id. {list[0].Id:00#} is {person.FullName}" )
+			: sLogger.Info( $"Person Id. {list[0].Id:00#} not found!" );
 
 		return true;
 	}
