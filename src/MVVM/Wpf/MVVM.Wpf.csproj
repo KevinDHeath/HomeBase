@@ -35,10 +35,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\..\EFCore\Database.Address\Data\AddressData.db" Link="Data\AddressData.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory Condition="Exists('..\..\EFCore\Database.Address\Data\AddressData.db')">PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\..\EFCore\Database.Entity\Data\EntityData.db" Link="Data\EntityData.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory Condition="Exists('..\..\EFCore\Database.Entity\Data\EntityData.db')">PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
