@@ -49,11 +49,11 @@
     <None Update="nlog.config">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\EFCore\Database.Address\Data\AddressData.db" Link="Data\AddressData.db">
-      <CopyToOutputDirectory Condition="Exists('..\..\EFCore\Database.Address\Data\AddressData.db')">PreserveNewest</CopyToOutputDirectory>
+    <None Include="..\EFCore\Database.Address\Data\AddressData.db" Link="Data\AddressData.db">
+      <CopyToOutputDirectory Condition="Exists('..\EFCore\Database.Address\Data\AddressData.db')">PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\EFCore\Database.Entity\Data\EntityData.db" Link="Data\EntityData.db">
-      <CopyToOutputDirectory Condition="Exists('..\..\EFCore\Database.Entity\Data\EntityData.db')">PreserveNewest</CopyToOutputDirectory>
+    <None Include="..\EFCore\Database.Entity\Data\EntityData.db" Link="Data\EntityData.db">
+      <CopyToOutputDirectory Condition="Exists('..\EFCore\Database.Entity\Data\EntityData.db')">PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
