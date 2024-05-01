@@ -44,11 +44,15 @@
             <TextBlock Text="{Binding Count, StringFormat='Count: {0}'}" VerticalAlignment="Center"
                        Style="{StaticResource commonSmallTextBlockStyle}"/>
             <Button ToolTip="Add 1" Command="{Binding AddCompanyCommand}"
-                    Style="{StaticResource toolbarButtonPlusStyle}"/>
+                    Style="{StaticResource toolbarButtonPlusStyle}">
+              <Image Width="14" Height="14" Source="{StaticResource fa-solid-plus}"/>
+            </Button>
             <Button ToolTip="Export Company data" Click="ExportData"
                     Style="{StaticResource toolbarButtonOpenStyle}"
                     Command="{Binding ExportDataCommand}"
-                    CommandParameter="{Binding ElementName=tbFile, Path=Text}"/>
+                    CommandParameter="{Binding ElementName=tbFile, Path=Text}">
+              <Image Width="14" Height="14" Source="{StaticResource fa-regular-folder-open}"/>
+            </Button>
             <TextBlock x:Name="tbPath" Visibility="Hidden" Width="0" Text="{Binding DataPath}"/>
             <TextBlock x:Name="tbFile" Visibility="Hidden" Width="0"/>
           </StackPanel>

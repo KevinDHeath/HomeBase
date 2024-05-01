@@ -10,7 +10,7 @@ internal class TestSql
 	internal static bool RunTest()
 	{
 		Console.WriteLine();
-		_ = Program.sLogger.Info( "** Testing Common.Data.Sql (Microsoft.Data.SqkClient)" );
+		_ = Program.sLogger.Info( "** Testing Common.Data.Sql (Microsoft.Data.SqlClient)" );
 		_ = Program.sLogger.Info( "** AddressData, CompanyData, and PersonData database connection strings" );
 		_ = Program.sLogger.Info( "** Uses SQL Server Express databases (AddressData.mdf and EntityData.mdf)" );
 		Console.WriteLine();
