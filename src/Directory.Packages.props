@@ -94,7 +94,7 @@
 
     <!-- EFCore.RestApi -->
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="8.0.5" />
-    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.6.1" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.6.2" />
 
     <!-- MVVM.Core -->
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.2" />
