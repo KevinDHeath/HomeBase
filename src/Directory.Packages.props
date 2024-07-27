@@ -48,58 +48,40 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Common.Data.SqlServer, Transitive for Microsoft.EntityFrameworkCore.SqlServer -->
+    <!-- Microsoft.Data.SqlClient -->
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.2.1" />
-    <!-- Transitive, referenced by Microsoft.Data.SqlClient -->
-    <PackageVersion Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.5.1" />
-    <PackageVersion Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.5.1" />
-    <PackageVersion Include="Microsoft.SqlServer.Server" Version="1.0.0" />
-    <PackageVersion Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
-    <PackageVersion Include="System.Runtime.Caching" Version="8.0.0" />
-
-    <!-- Not sure what these are used by -->
-    <PackageVersion Include="System.Formats.Asn1" Version="8.0.0" />
-    <PackageVersion Include="System.Security.AccessControl" Version="6.0.0" />
-    <PackageVersion Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Identity.Client" Version="4.62.0" />
+    <PackageVersion Include="Microsoft.IdentityModel.Abstractions" Version="8.0.1" />
+    <PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="8.0.1" />
+    <PackageVersion Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.0.1" />
+    <PackageVersion Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.0.1" />
 
     <!-- Transitive, referenced by Azure.Identity -->
     <PackageVersion Include="Azure.Core" Version="1.40.0" />
-    <PackageVersion Include="Microsoft.Identity.Client" Version="4.61.3" />
-    <PackageVersion Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.61.3" />
+    <PackageVersion Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.62.0" />
     <PackageVersion Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.IdentityModel.Abstractions" Version="7.5.1" />
-
     <!-- Transitive, referenced by Azure.Core -->
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
-    <PackageVersion Include="System.ClientModel" Version="1.0.0" />
-    <PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="8.0.0" />
     <PackageVersion Include="System.Memory.Data" Version="8.0.0" />
 
-    <!-- Transitive, referenced by Microsoft.IdentityModel.JsonWebTokens -->
-    <PackageVersion Include="Microsoft.IdentityModel.Logging" Version="7.5.1" />
-    <PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="7.5.1" />
-
-    <!-- Transitive, referenced by Microsoft.IdentityModel.Protocols.OpenIdConnect -->
-    <PackageVersion Include="Microsoft.IdentityModel.Protocols" Version="7.5.1" />
-    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+    <!-- Not sure what these are used by ?? -->
+    <PackageVersion Include="System.Formats.Asn1" Version="8.0.0" />
+    <PackageVersion Include="System.Security.AccessControl" Version="6.0.0" />
+    <PackageVersion Include="System.Text.Encoding.CodePages" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Entity Framework Core -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.6" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
-
-    <!-- EFCore.Database.Address, EFCore.Database.Entity and EFCore.Database.Full -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="8.0.1" /> <!-- 07/2024 -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.7" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7" />
 
     <!-- Transitive, referenced by Microsoft.EntityFrameworkCore.Design -->
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.9.2" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="8.0.0" />
     <PackageVersion Include="Mono.TextTemplating" Version="2.3.1" />
     <PackageVersion Include="System.CodeDom" Version="8.0.0" />
-    <PackageVersion Include="System.Composition" Version="8.0.0" />
-    <PackageVersion Include="System.IO.Pipelines" Version="8.0.0" />
     <PackageVersion Include="System.Threading.Channels" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.10.0" />
   </ItemGroup>
 
 </Project>
