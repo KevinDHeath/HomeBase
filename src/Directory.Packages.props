@@ -49,7 +49,7 @@
 
   <ItemGroup>
     <!-- Microsoft.Data.SqlClient -->
-    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     <PackageVersion Include="Microsoft.Identity.Client" Version="4.62.0" />
     <PackageVersion Include="Microsoft.IdentityModel.Abstractions" Version="8.0.1" />
     <PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="8.0.1" />
@@ -73,9 +73,9 @@
   <ItemGroup>
     <!-- Entity Framework Core -->
     <PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="8.0.1" /> <!-- 07/2024 -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.7" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8" />
 
     <!-- Transitive, referenced by Microsoft.EntityFrameworkCore.Design -->
     <PackageVersion Include="Mono.TextTemplating" Version="2.3.1" />
