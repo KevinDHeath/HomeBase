@@ -17,9 +17,10 @@
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" /> <!-- 03/2024 -->
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />             <!-- 03/2024 -->
     <PackageVersion Include="Microsoft.Extensions.Options" Version="8.0.2" />                          <!-- 02/2024 -->
-    <PackageVersion Include="Microsoft.OpenApi" Version="1.6.18" />                                    <!-- 08/2024 -->
-    <PackageVersion Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.8" />                         <!-- 02/2024 -->
-    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.7.3" />                                <!-- 08/2024 -->
+    <PackageVersion Include="Microsoft.OpenApi" Version="1.6.22" />                                    <!-- 08/2024 -->
+    <PackageVersion Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.9" />                         <!-- 08/2024 -->
+    <PackageVersion Include="SQLitePCLRaw.core" Version="2.1.9" />                                     <!-- 08/2024 -->
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.8.1" />                                <!-- 08/2024 -->
     <PackageVersion Include="System.Memory" Version="4.5.5" />                                         <!-- 05/2022 -->
 
     <!-- .NET 8.0 -->
@@ -33,7 +34,7 @@
     <!-- kdheath -->
     <PackageVersion Include="kdheath.Common.Core" Version="2.1.5" />
     <PackageVersion Include="kdheath.Application.Helper" Version="2.0.5" />
-    <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.6" />
+    <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.7" />
     <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.7" />
     <PackageVersion Include="kdheath.Wpf.Resources" Version="2.0.6" />
 
