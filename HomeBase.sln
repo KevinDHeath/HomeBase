@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository Items", "Reposit
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		src\Directory.Build.props = src\Directory.Build.props
-		src\Directory.Packages.props = src\Directory.Packages.props
+		Directory.Packages.props = Directory.Packages.props
 		LICENSE = LICENSE
 		nuget.config = nuget.config
 		README.md = README.md
@@ -65,6 +65,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Theme", "Theme", "{33EE14BC
 		docs\Common\Theme\logo-orange.png = docs\Common\Theme\logo-orange.png
 		docs\Common\Theme\README.md = docs\Common\Theme\README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{DF2F483C-A515-400D-93C8-76E53C510650}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza", "src\Blazor\BlazingPizza\BlazingPizza.csproj", "{71361BD5-98A8-4E36-81BF-E0D6530C8271}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFour", "src\Blazor\ConnectFour\ConnectFour.csproj", "{74ADAD6F-2858-4812-B175-564F89AEE19C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -199,6 +205,22 @@ Global
 		{D538BE34-51DB-4878-8CB4-8611B9E80B09}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D538BE34-51DB-4878-8CB4-8611B9E80B09}.Release|x86.ActiveCfg = Release|Any CPU
 		{D538BE34-51DB-4878-8CB4-8611B9E80B09}.Release|x86.Build.0 = Release|Any CPU
+		{71361BD5-98A8-4E36-81BF-E0D6530C8271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71361BD5-98A8-4E36-81BF-E0D6530C8271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71361BD5-98A8-4E36-81BF-E0D6530C8271}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{71361BD5-98A8-4E36-81BF-E0D6530C8271}.Debug|x86.Build.0 = Debug|Any CPU
+		{71361BD5-98A8-4E36-81BF-E0D6530C8271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71361BD5-98A8-4E36-81BF-E0D6530C8271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71361BD5-98A8-4E36-81BF-E0D6530C8271}.Release|x86.ActiveCfg = Release|Any CPU
+		{71361BD5-98A8-4E36-81BF-E0D6530C8271}.Release|x86.Build.0 = Release|Any CPU
+		{74ADAD6F-2858-4812-B175-564F89AEE19C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74ADAD6F-2858-4812-B175-564F89AEE19C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74ADAD6F-2858-4812-B175-564F89AEE19C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{74ADAD6F-2858-4812-B175-564F89AEE19C}.Debug|x86.Build.0 = Debug|Any CPU
+		{74ADAD6F-2858-4812-B175-564F89AEE19C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74ADAD6F-2858-4812-B175-564F89AEE19C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74ADAD6F-2858-4812-B175-564F89AEE19C}.Release|x86.ActiveCfg = Release|Any CPU
+		{74ADAD6F-2858-4812-B175-564F89AEE19C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -222,6 +244,8 @@ Global
 		{AF345542-D787-43AE-8BFB-44F7311B45FB} = {F7F5C327-E754-4056-BE39-F90C8D33904D}
 		{D538BE34-51DB-4878-8CB4-8611B9E80B09} = {C14D2EA3-FC9B-4B33-ACE7-B2B01CFACDD2}
 		{33EE14BC-839E-46C6-8519-A696F4B0A9F4} = {C14D2EA3-FC9B-4B33-ACE7-B2B01CFACDD2}
+		{71361BD5-98A8-4E36-81BF-E0D6530C8271} = {DF2F483C-A515-400D-93C8-76E53C510650}
+		{74ADAD6F-2858-4812-B175-564F89AEE19C} = {DF2F483C-A515-400D-93C8-76E53C510650}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A988AFD-1F61-4420-834A-6EAFADCA18BF}

@@ -15,6 +15,7 @@
     <PackageVersion Include="Microsoft.Extensions.ApiDescription.Server" Version="8.0.8" />            <!-- 08/2024 -->
     <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.2" />             <!-- 07/2024 -->
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" /> <!-- 03/2024 -->
+    <PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="8.0.1" />                  <!-- 07/2024 -->
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />             <!-- 03/2024 -->
     <PackageVersion Include="Microsoft.Extensions.Options" Version="8.0.2" />                          <!-- 02/2024 -->
     <PackageVersion Include="Microsoft.OpenApi" Version="1.6.22" />                                    <!-- 08/2024 -->
@@ -25,9 +26,9 @@
 
     <!-- .NET 8.0 -->
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <!-- Referenced by Microsoft.CodeAnalysis.CSharp.Workspaces -->
     <PackageVersion Include="System.Collections.Immutable" Version="8.0.0" />
     <PackageVersion Include="System.Reflection.Metadata" Version="8.0.0" />
+    <PackageVersion Include="System.Text.Encodings.Web" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,9 +38,6 @@
     <PackageVersion Include="kdheath.Logging.Helper" Version="2.0.7" />
     <PackageVersion Include="kdheath.Wpf.Controls" Version="2.0.7" />
     <PackageVersion Include="kdheath.Wpf.Resources" Version="2.0.6" />
-
-    <!-- Transitive, used by Microsoft.Extensions.DependencyModel, Azure.Core -->
-    <PackageVersion Include="System.Text.Encodings.Web" Version="8.0.0" />
 
     <!-- Common.Data.SQLite and Common.Data.SqlServer -->
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
@@ -73,7 +71,6 @@
 
   <ItemGroup>
     <!-- Entity Framework Core -->
-    <PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="8.0.1" /> <!-- 07/2024 -->
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8" />

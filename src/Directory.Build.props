@@ -9,7 +9,7 @@
   <!-- General Information -->
   <PropertyGroup>
     <Authors>Kevin Heath</Authors>
-    <Product>My Projects</Product>
+    <Product>Working Projects</Product>
     <Copyright>Copyright © $([System.DateTime]::Now.Year) KevinDHeath</Copyright>
   </PropertyGroup>
 
