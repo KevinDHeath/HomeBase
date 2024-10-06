@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # Private exclude files
+*[Nn]otes.txt
 Notes*.txt
 *.docx
 *.pdf
