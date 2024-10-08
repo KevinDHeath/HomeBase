@@ -22,6 +22,7 @@
     <PackageVersion Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.9" />                         <!-- 08/2024 -->
     <PackageVersion Include="SQLitePCLRaw.core" Version="2.1.9" />                                     <!-- 08/2024 -->
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.8.1" />                                <!-- 08/2024 -->
+    <PackageVersion Include="System.Drawing.Common" Version="8.0.8" />                                 <!-- 08/2024 -->
     <PackageVersion Include="System.Memory" Version="4.5.5" />                                         <!-- 05/2022 -->
 
     <!-- .NET 8.0 -->
@@ -42,7 +43,10 @@
     <!-- Common.Data.SQLite and Common.Data.SqlServer -->
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
 
-    <!-- MVVM.Core -->
+    <!-- Library.Data -->
+    <PackageVersion Include="HtmlAgilityPack" Version="1.11.67" />
+
+    <!-- Library.Core and MVVM.Core -->
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.2" />
   </ItemGroup>
 

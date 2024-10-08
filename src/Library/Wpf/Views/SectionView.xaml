@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Library.Wpf.Views.SectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:vm="clr-namespace:Library.Core.ViewModels;assembly=Library.Core"
+             d:Background="{StaticResource appBackground}"
+             d:DataContext="{d:DesignInstance Type=vm:SectionViewModel}"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+  <Grid Margin="5">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid.Resources>
+      <sys:Double x:Key="width">300</sys:Double>
+    </Grid.Resources>
+
+    <TextBlock Grid.Row="0"
+               Style="{StaticResource appViewTitleStyle}"
+               Text="Edit Section"/>
+
+    <TextBlock Grid.Row="1"
+               Style="{StaticResource appLabelStyle}"
+               Text="Name:"/>
+    <TextBox Grid.Row="1"
+             Grid.Column="1"
+             Width="{StaticResource width}"
+             Style="{StaticResource appTextBoxStyle}"
+             Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+    <TextBlock Grid.Row="2"
+               Style="{StaticResource appLabelStyle}"
+               Text="Location:"/>
+    <TextBox Grid.Row="2"
+             Grid.Column="1"
+             Width="{StaticResource width}"
+             Style="{StaticResource appTextBoxStyle}"
+             Text="{Binding Location, UpdateSourceTrigger=PropertyChanged}"/>
+
+    <StackPanel Grid.Row="3"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+      <Button Command="{Binding ApplyChangesCommand}"
+              Content="Apply"
+              Style="{StaticResource commonButtonStyle}"/>
+      <Button Command="{Binding CancelCommand}"
+              Content="Cancel"
+              Style="{StaticResource commonButtonStyle}"/>
+    </StackPanel>
+  </Grid>
+</UserControl>

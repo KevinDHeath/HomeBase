@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="Library.Wpf.Views.AuthorsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:cc="clr-namespace:Common.Wpf.Controls;assembly=Common.Wpf.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Library.Core.ViewModels;assembly=Library.Core"
+             d:DataContext="{d:DesignInstance Type=vm:AuthorsViewModel}"
+             d:DesignHeight="450"
+             d:DesignWidth="600"
+             Background="{StaticResource appBackground}"
+             mc:Ignorable="d">
+  <Grid Margin="0,5,0,0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.Resources>
+      <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Grid.Resources>
+
+    <TabControl>
+      <TabItem x:Name="AuthorsTab" Style="{StaticResource commonTabItemStyle}">
+        <TabItem.Header>
+          <TextBlock>Authors</TextBlock>
+        </TabItem.Header>
+        <Grid Style="{StaticResource appGridStyle}">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <cc:SearchTextBox Style="{StaticResource appSearchTextBoxStyle}"
+                            Text="{Binding SectionFilterText, UpdateSourceTrigger=PropertyChanged}"
+                            TextChanged="OnAuthorsFilterChanged"/>
+          <cc:SortableListView x:Name="AuthorsList"
+                               Grid.Row="1"
+                               MinWidth="400"
+                               MinHeight="300"
+                               MaxHeight="500"
+                               DefaultColumn="1"
+                               FilterPredicate="{Binding SectionListFilter}"
+                               GridViewColumnHeader.Click="AuthorsList_ColumnHeaderClicked"
+                               ItemContainerStyle="{StaticResource appStatusItemStyle}"
+                               ItemsSource="{Binding Authors}"
+                               Loaded="AuthorsList_Loaded"
+                               SelectedItem="{Binding CurrentSection}"
+                               Style="{StaticResource appListViewStyle}">
+            <ListView.View>
+              <GridView>
+                <GridViewColumn Width="350"
+                                DisplayMemberBinding="{Binding Name}"
+                                Header="Name"
+                                HeaderContainerStyle="{StaticResource appGridColumnHeaderStyle}"/>
+                <GridViewColumn Width="65"
+                                Header="Count"
+                                HeaderContainerStyle="{StaticResource commonGridColumnHeaderStyle}">
+                  <GridViewColumn.CellTemplate>
+                    <DataTemplate>
+                      <TextBlock Text="{Binding Count}" TextAlignment="Right"/>
+                    </DataTemplate>
+                  </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+              </GridView>
+            </ListView.View>
+          </cc:SortableListView>
+        </Grid>
+      </TabItem>
+
+      <TabItem x:Name="ItemsTab"
+               Style="{StaticResource commonTabItemStyle}"
+               Visibility="{Binding IsCurrentSection, Converter={StaticResource BooleanToVisibilityConverter}}">
+        <TabItem.Header>
+          <TextBlock>Items</TextBlock>
+        </TabItem.Header>
+        <Grid Style="{StaticResource appGridStyle}">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <cc:SearchTextBox x:Name="tbItemSearch"
+                            Style="{StaticResource appSearchTextBoxStyle}"
+                            Text="{Binding ItemFilterText, UpdateSourceTrigger=PropertyChanged}"
+                            TextChanged="OnItemsFilterChanged"/>
+          <cc:SortableListView x:Name="ItemsList"
+                               Grid.Row="1"
+                               MinWidth="400"
+                               MinHeight="300"
+                               MaxHeight="500"
+                               DefaultColumn="1"
+                               FilterPredicate="{Binding ItemListFilter}"
+                               GridViewColumnHeader.Click="ItemsList_ColumnHeaderClicked"
+                               ItemContainerStyle="{StaticResource appStatusItemStyle}"
+                               ItemsSource="{Binding CurrentSection.ItemList}"
+                               Loaded="ItemsList_Loaded"
+                               SelectedItem="{Binding CurrentItem}"
+                               Style="{StaticResource appListViewStyle}">
+            <ListView.ContextMenu>
+              <ContextMenu>
+                <MenuItem Command="{Binding EditItemCommand}" Header="_Edit..."/>
+                <MenuItem Command="{Binding MaintainItemCommand}" Header="_Maintain..."/>
+                <MenuItem Command="{Binding ViewItemCommand}" Header="_View..."/>
+              </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+              <GridView>
+                <GridViewColumn Width="350"
+                                DisplayMemberBinding="{Binding Title}"
+                                Header="{Binding CurrentSection.Name}"
+                                HeaderContainerStyle="{StaticResource appGridColumnHeaderStyle}"/>
+                <GridViewColumn Width="150"
+                                DisplayMemberBinding="{Binding Created, StringFormat='MMMM d, yyyy'}"
+                                Header="Date"
+                                HeaderContainerStyle="{StaticResource commonGridColumnHeaderStyle}"/>
+                <GridViewColumn Width="230"
+                                DisplayMemberBinding="{Binding Section}"
+                                Header="Section"
+                                HeaderContainerStyle="{StaticResource commonGridColumnHeaderStyle}"/>
+              </GridView>
+            </ListView.View>
+          </cc:SortableListView>
+        </Grid>
+      </TabItem>
+    </TabControl>
+  </Grid>
+</UserControl>
