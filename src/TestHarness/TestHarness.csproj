@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <PackageReference Include="kdheath.Logging.Helper" />
+    <PackageReference Include="System.Drawing.Common" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,8 @@
     <ProjectReference Include="..\Common\Data\SQLite\Common.Data.SQLite.csproj" />
     <ProjectReference Include="..\Common\Data\SqlServer\Common.Data.SqlServer.csproj" />
     <ProjectReference Include="..\Json.Converters\Json.Converters.csproj" />
+    <ProjectReference Include="..\Library\Core\Library.Core.csproj" />
+    <ProjectReference Include="..\Library\Data\Library.Data.csproj" />
     <ProjectReference Include="..\MVVM\Core\MVVM.Core.csproj" />
   </ItemGroup>
 

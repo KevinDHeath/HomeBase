@@ -1,9 +1,13 @@
 {
-	"AppSettings": {
-		"FavoriteMovie": "Dune",
-		"FavoriteDirector": "James Cameron",
-		"FavoriteActor": "Johnny Depp"
-	},
+  "AppSettings": {
+    "FavoriteMovie": "Dune",
+    "FavoriteDirector": "James Cameron",
+    "FavoriteActor": "Johnny Depp",
+    "Backup": true,
+    "MainFile": "Stories\\MenOnTheNet.xml",
+    "NewPath": "Work\\NewStories",
+    "RootPath": "C:\\CDImages\\CD4\\Reference"
+  },
 	"ConnectionStrings": {
 		"Movies": "DataSource=localhost;Initial Catalog=MovieCatalog;Integrated Security=True"
 	},

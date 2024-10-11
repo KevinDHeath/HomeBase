@@ -49,6 +49,7 @@ public class Program
 		if( !Data.TestSQLite.RunTest() ) { return false; }
 		if( !Data.TestSqlServer.RunTest() ) { return false; }
 
+		//if( !LibraryTasks.RunTests() ) { return false; }
 		//if( !Json.TestConverters.RunTest() ) { return false; }
 
 		return true;
